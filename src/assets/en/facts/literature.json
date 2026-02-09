@@ -1,0 +1,34 @@
+{
+  "topic": "literature",
+  "facts": {
+    "02-09": [
+      {
+        "id": "literature-0209-1",
+        "title": "Birth of Alice Walker",
+        "description": "On February 9, 1944, Alice Walker was born. She is the American author of \"The Color Purple\", and in 1983 she became the first African American woman to win the Pulitzer Prize for Fiction."
+      }
+    ],
+    "02-10": [
+      {
+        "id": "literature-0210-1",
+        "title": "PEN America Announces 2021 Literary Award Finalists",
+        "description": "On February 10, 2021, PEN America announced the finalists for the 2021 PEN America Literary Awards, highlighting 55 books across fiction, nonfiction, poetry, biography, and translation."
+      }
+    ],
+    "02-11": [
+      {
+        "id": "literature-0211-1",
+        "title": "Margaret Atwood Memoir Announcement",
+        "description": "On February 11, 2025, it was announced that Margaret Atwood would publish her first memoir, \"Book of Lives: A Memoir of Sorts\", reflecting on her life, writing career, and the events that shaped her work."
+      }
+    ],
+    "02-12": [
+      {
+        "id": "literature-0212-1",
+        "title": "Albertine Translation Prize Ceremony",
+        "description": "On February 12, 2026, the Albertine Translation Prize ceremony in New York celebrates contemporary French-to-English literature and honors translators and publishers for outstanding translation work."
+      }
+    ]
+  }
+}
+

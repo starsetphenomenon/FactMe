@@ -1,0 +1,586 @@
+{
+  "topic": "history",
+  "facts": {
+    "01-03": [
+      {
+        "id": "history-0103-1",
+        "title": "Alaska Becomes 49th State",
+        "description": "On January 3, 1959, Alaska was admitted as the 49th state of the United States."
+      }
+    ],
+    "01-04": [
+      {
+        "id": "history-0104-1",
+        "title": "Utah Becomes 45th State",
+        "description": "On January 4, 1896, Utah was admitted as the 45th state of the United States."
+      }
+    ],
+    "01-05": [
+      {
+        "id": "history-0105-1",
+        "title": "National Hockey League Formed",
+        "description": "On January 5, 1917, the National Hockey League (NHL) was formed in Montreal, Canada."
+      }
+    ],
+    "01-06": [
+      {
+        "id": "history-0106-1",
+        "title": "Feast of the Epiphany",
+        "description": "Traditionally celebrated on January 6, this Christian feast day commemorates the visit of the Magi to the infant Jesus."
+      }
+    ],
+    "01-07": [
+      {
+        "id": "history-0107-1",
+        "title": "First U.S. Presidential Election",
+        "description": "On January 7, 1789, the first U.S. presidential election was held, with George Washington unanimously elected."
+      }
+    ],
+    "01-08": [
+      {
+        "id": "history-0108-1",
+        "title": "Battle of New Orleans",
+        "description": "On January 8, 1815, American forces defeated the British in the Battle of New Orleans, the final major battle of the War of 1812."
+      }
+    ],
+    "01-09": [
+      {
+        "id": "history-0109-1",
+        "title": "Apple Macintosh Unveiled",
+        "description": "On January 9, 1984, Apple Computer unveiled the Macintosh, the first successful mouse-driven computer with a graphical user interface."
+      }
+    ],
+    "01-10": [
+      {
+        "id": "history-0110-1",
+        "title": "League of Nations Founded",
+        "description": "On January 10, 1920, the League of Nations was formally established with the ratification of the Treaty of Versailles."
+      }
+    ],
+    "01-11": [
+      {
+        "id": "history-0111-1",
+        "title": "Amelia Earhart's Solo Flight",
+        "description": "On January 11, 1935, Amelia Earhart became the first person to fly solo from Hawaii to California."
+      }
+    ],
+    "01-12": [
+      {
+        "id": "history-0112-1",
+        "title": "Haiti Earthquake",
+        "description": "On January 12, 2010, a devastating 7.0 magnitude earthquake struck Haiti, killing approximately 230,000 people."
+      }
+    ],
+    "01-13": [
+      {
+        "id": "history-0113-1",
+        "title": "Treaty of Cahuenga Signed",
+        "description": "On January 13, 1847, the Treaty of Cahuenga ended fighting in California during the Mexican-American War."
+      }
+    ],
+    "01-14": [
+      {
+        "id": "history-0114-1",
+        "title": "Treaty of Paris Ratified",
+        "description": "On January 14, 1784, the Continental Congress ratified the Treaty of Paris, officially ending the American Revolutionary War."
+      }
+    ],
+    "01-15": [
+      {
+        "id": "history-0115-1",
+        "title": "Martin Luther King Jr. Born",
+        "description": "Martin Luther King Jr. was born on January 15, 1929, in Atlanta, Georgia."
+      }
+    ],
+    "01-16": [
+      {
+        "id": "history-0116-1",
+        "title": "Prohibition Begins in U.S.",
+        "description": "On January 16, 1920, the 18th Amendment went into effect, beginning Prohibition in the United States."
+      }
+    ],
+    "01-17": [
+      {
+        "id": "history-0117-1",
+        "title": "Operation Desert Storm Begins",
+        "description": "On January 17, 1991, Operation Desert Storm began with airstrikes against Iraq following its invasion of Kuwait."
+      }
+    ],
+    "01-18": [
+      {
+        "id": "history-0118-1",
+        "title": "Captain Cook Reaches Hawaii",
+        "description": "On January 18, 1778, Captain James Cook became the first European to reach the Hawaiian Islands."
+      }
+    ],
+    "01-19": [
+      {
+        "id": "history-0119-1",
+        "title": "Japan Leaves League of Nations",
+        "description": "On January 19, 1933, Japan announced its withdrawal from the League of Nations following criticism of its occupation of Manchuria."
+      }
+    ],
+    "01-21": [
+      {
+        "id": "history-0121-1",
+        "title": "Concorde's First Commercial Flights",
+        "description": "On January 21, 1976, the Concorde began its first commercial flights to London and Paris simultaneously."
+      }
+    ],
+    "01-22": [
+      {
+        "id": "history-0122-1",
+        "title": "Queen Victoria Dies",
+        "description": "On January 22, 1901, Queen Victoria of the United Kingdom died after a reign of 63 years, 7 months."
+      }
+    ],
+    "01-23": [
+      {
+        "id": "history-0123-1",
+        "title": "24th Amendment Ratified",
+        "description": "On January 23, 1964, the 24th Amendment to the U.S. Constitution was ratified, abolishing poll taxes."
+      }
+    ],
+    "01-24": [
+      {
+        "id": "history-0124-1",
+        "title": "California Gold Discovery",
+        "description": "On January 24, 1848, James W. Marshall discovered gold at Sutter's Mill in California, sparking the California Gold Rush."
+      }
+    ],
+    "01-25": [
+      {
+        "id": "history-0125-1",
+        "title": "First Winter Olympics",
+        "description": "On January 25, 1924, the first Winter Olympics opened in Chamonix, France."
+      }
+    ],
+    "01-26": [
+      {
+        "id": "history-0126-1",
+        "title": "Australia Day",
+        "description": "On January 26, 1788, the First Fleet arrived at Port Jackson, establishing the first European settlement in Australia."
+      }
+    ],
+    "01-27": [
+      {
+        "id": "history-0127-1",
+        "title": "Auschwitz Liberated",
+        "description": "On January 27, 1945, Soviet troops liberated the Auschwitz concentration camp in Poland."
+      }
+    ],
+    "01-28": [
+      {
+        "id": "history-0128-1",
+        "title": "Space Shuttle Challenger Disaster",
+        "description": "On January 28, 1986, the Space Shuttle Challenger broke apart 73 seconds into its flight, killing all seven crew members."
+      }
+    ],
+    "01-29": [
+      {
+        "id": "history-0129-1",
+        "title": "Kansas Becomes 34th State",
+        "description": "On January 29, 1861, Kansas was admitted as the 34th state of the United States."
+      }
+    ],
+    "01-30": [
+      {
+        "id": "history-0130-1",
+        "title": "Mahatma Gandhi Assassinated",
+        "description": "On January 30, 1948, Mahatma Gandhi was assassinated by Nathuram Godse in New Delhi, India."
+      }
+    ],
+    "01-31": [
+      {
+        "id": "history-0131-1",
+        "title": "U.S. Enters Space Age",
+        "description": "On January 31, 1958, the United States launched its first satellite, Explorer 1, into space."
+      }
+    ],
+    "02-01": [
+      {
+        "id": "history-0201-1",
+        "title": "Columbia Space Shuttle Disaster",
+        "description": "On February 1, 2003, the Space Shuttle Columbia disintegrated during re-entry, killing all seven crew members."
+      }
+    ],
+    "02-02": [
+      {
+        "id": "history-0202-1",
+        "title": "Treaty of Guadalupe Hidalgo",
+        "description": "On February 2, 1848, the Treaty of Guadalupe Hidalgo was signed, ending the Mexican-American War."
+      }
+    ],
+    "02-03": [
+      {
+        "id": "history-0203-1",
+        "title": "16th Amendment Ratified",
+        "description": "On February 3, 1913, the 16th Amendment to the U.S. Constitution was ratified, establishing federal income tax."
+      }
+    ],
+    "02-04": [
+      {
+        "id": "history-0204-1",
+        "title": "Facebook Launched",
+        "description": "On February 4, 2004, Mark Zuckerberg launched Facebook from his Harvard dormitory room."
+      }
+    ],
+    "02-06": [
+      {
+        "id": "history-0206-1",
+        "title": "Queen Elizabeth II Ascends Throne",
+        "description": "On February 6, 1952, Princess Elizabeth became Queen Elizabeth II following the death of her father, King George VI."
+      }
+    ],
+    "02-07": [
+      {
+        "id": "history-0207-1",
+        "title": "Great Fire of London",
+        "description": "On February 7, 1812, a massive fire destroyed much of central London, though not as famous as the 1666 fire."
+      }
+    ],
+    "02-08": [
+      {
+        "id": "history-0208-1",
+        "title": "Mary, Queen of Scots Executed",
+        "description": "On February 8, 1587, Mary, Queen of Scots was executed at Fotheringhay Castle in England."
+      }
+    ],
+    "02-10": [
+      {
+        "id": "history-0210-1",
+        "title": "Treaty of Paris Ends French and Indian War",
+        "description": "On February 10, 1763, the Treaty of Paris was signed, ending the French and Indian War/Seven Years' War."
+      }
+    ],
+    "02-11": [
+      {
+        "id": "history-0211-1",
+        "title": "Nelson Mandela Released",
+        "description": "On February 11, 1990, Nelson Mandela was released from prison after 27 years of incarceration in South Africa."
+      }
+    ],
+    "02-12": [
+      {
+        "id": "history-0212-1",
+        "title": "Abraham Lincoln's Birthday",
+        "description": "Abraham Lincoln, the 16th President of the United States, was born on February 12, 1809, in Kentucky."
+      }
+    ],
+    "02-13": [
+      {
+        "id": "history-0213-1",
+        "title": "Firebombing of Dresden",
+        "description": "On February 13-15, 1945, Allied forces firebombed Dresden, Germany, resulting in massive destruction and civilian casualties."
+      }
+    ],
+    "02-14": [
+      {
+        "id": "history-0214-1",
+        "title": "Saint Valentine's Day Massacre",
+        "description": "On February 14, 1929, seven members of Chicago's North Side Gang were murdered by associates of Al Capone."
+      }
+    ],
+    "02-16": [
+      {
+        "id": "history-0216-1",
+        "title": "Lithuania Declares Independence",
+        "description": "On February 16, 1918, Lithuania declared its independence from Russia and Germany."
+      }
+    ],
+    "02-17": [
+      {
+        "id": "history-0217-1",
+        "title": "First Issue of Newsweek Published",
+        "description": "On February 17, 1933, the first issue of Newsweek magazine was published."
+      }
+    ],
+    "02-18": [
+      {
+        "id": "history-0218-1",
+        "title": "Pluto Discovered",
+        "description": "On February 18, 1930, Clyde Tombaugh discovered Pluto at Lowell Observatory in Flagstaff, Arizona."
+      }
+    ],
+    "02-19": [
+      {
+        "id": "history-0219-1",
+        "title": "Japanese American Internment Begins",
+        "description": "On February 19, 1942, President Franklin D. Roosevelt signed Executive Order 9066, authorizing Japanese American internment."
+      }
+    ],
+    "02-20": [
+      {
+        "id": "history-0220-1",
+        "title": "John Glenn Orbits Earth",
+        "description": "On February 20, 1962, John Glenn became the first American to orbit the Earth aboard Friendship 7."
+      }
+    ],
+    "02-21": [
+      {
+        "id": "history-0221-1",
+        "title": "Malcolm X Assassinated",
+        "description": "On February 21, 1965, Malcolm X was assassinated while speaking at the Audubon Ballroom in New York City."
+      }
+    ],
+    "02-22": [
+      {
+        "id": "history-0222-1",
+        "title": "George Washington's Birthday",
+        "description": "George Washington, the first President of the United States, was born on February 22, 1732, in Virginia."
+      }
+    ],
+    "02-23": [
+      {
+        "id": "history-0223-1",
+        "title": "Iwo Jima Flag Raising",
+        "description": "On February 23, 1945, U.S. Marines raised the American flag on Mount Suribachi during the Battle of Iwo Jima."
+      }
+    ],
+    "02-24": [
+      {
+        "id": "history-0224-1",
+        "title": "Gulf War Ground Offensive Begins",
+        "description": "On February 24, 1991, the ground offensive of Operation Desert Storm began in the Gulf War."
+      }
+    ],
+    "02-25": [
+      {
+        "id": "history-0225-1",
+        "title": "People Power Revolution in Philippines",
+        "description": "On February 25, 1986, the People Power Revolution ousted Philippine President Ferdinand Marcos from power."
+      }
+    ],
+    "02-26": [
+      {
+        "id": "history-0226-1",
+        "title": "World Trade Center Bombing",
+        "description": "On February 26, 1993, a truck bomb exploded in the underground garage of the World Trade Center in New York City."
+      }
+    ],
+    "02-27": [
+      {
+        "id": "history-0227-1",
+        "title": "Reichstag Fire",
+        "description": "On February 27, 1933, the German parliament building (Reichstag) was set on fire, a key event in Nazi Germany's rise."
+      }
+    ],
+    "02-28": [
+      {
+        "id": "history-0228-1",
+        "title": "Television's First Commercial",
+        "description": "On February 28, 1939, the first television commercial aired in the United States during a baseball game."
+      }
+    ],
+    "03-01": [
+      {
+        "id": "history-0301-1",
+        "title": "Yellowstone National Park Established",
+        "description": "On March 1, 1872, Yellowstone became the world's first national park when President Ulysses S. Grant signed the act into law."
+      }
+    ],
+    "03-02": [
+      {
+        "id": "history-0302-1",
+        "title": "Texas Declares Independence",
+        "description": "On March 2, 1836, Texas declared its independence from Mexico, forming the Republic of Texas."
+      }
+    ],
+    "03-03": [
+      {
+        "id": "history-0303-1",
+        "title": "Treaty of Brest-Litovsk Signed",
+        "description": "On March 3, 1918, Russia signed the Treaty of Brest-Litovsk with the Central Powers, exiting World War I."
+      }
+    ],
+    "03-04": [
+      {
+        "id": "history-0304-1",
+        "title": "First Inauguration in Washington D.C.",
+        "description": "On March 4, 1801, Thomas Jefferson became the first president to be inaugurated in Washington, D.C."
+      }
+    ],
+    "03-05": [
+      {
+        "id": "history-0305-1",
+        "title": "Boston Massacre",
+        "description": "On March 5, 1770, British soldiers killed five colonists in what became known as the Boston Massacre."
+      }
+    ],
+    "03-06": [
+      {
+        "id": "history-0306-1",
+        "title": "Dred Scott Decision",
+        "description": "On March 6, 1857, the U.S. Supreme Court ruled in Dred Scott v. Sandford that African Americans could not be citizens."
+      }
+    ],
+    "03-07": [
+      {
+        "id": "history-0307-1",
+        "title": "Bloody Sunday",
+        "description": "On March 7, 1965, civil rights marchers were attacked by state troopers on the Edmund Pettus Bridge in Selma, Alabama."
+      }
+    ],
+    "03-08": [
+      {
+        "id": "history-0308-1",
+        "title": "International Women's Day",
+        "description": "First celebrated on March 8, 1911, International Women's Day honors women's achievements and promotes gender equality."
+      }
+    ],
+    "03-09": [
+      {
+        "id": "history-0309-1",
+        "title": "USS Monitor vs. CSS Virginia",
+        "description": "On March 9, 1862, the first battle between ironclad warships, the Monitor and the Virginia, took place during the Civil War."
+      }
+    ],
+    "03-10": [
+      {
+        "id": "history-0310-1",
+        "title": "First Successful Telephone Call",
+        "description": "On March 10, 1876, Alexander Graham Bell made the first successful telephone call, saying 'Mr. Watson, come here, I want to see you.'"
+      }
+    ],
+    "03-11": [
+      {
+        "id": "history-0311-1",
+        "title": "Great Blizzard of 1888",
+        "description": "On March 11-14, 1888, one of the most severe blizzards in American history struck the Northeast, causing massive disruption."
+      }
+    ],
+    "03-12": [
+      {
+        "id": "history-0312-1",
+        "title": "FDR's First Fireside Chat",
+        "description": "On March 12, 1933, President Franklin D. Roosevelt delivered his first 'fireside chat' radio address to the American people."
+      }
+    ],
+    "03-13": [
+      {
+        "id": "history-0313-1",
+        "title": "William Herschel Discovers Uranus",
+        "description": "On March 13, 1781, astronomer William Herschel discovered the planet Uranus, the first planet discovered with a telescope."
+      }
+    ],
+    "03-15": [
+      {
+        "id": "history-0315-1",
+        "title": "Ides of March - Julius Caesar Assassinated",
+        "description": "On March 15, 44 BC, Roman dictator Julius Caesar was assassinated by a group of senators led by Brutus and Cassius."
+      }
+    ],
+    "03-16": [
+      {
+        "id": "history-0316-1",
+        "title": "My Lai Massacre",
+        "description": "On March 16, 1968, American soldiers killed between 347 and 504 unarmed Vietnamese civilians in the My Lai Massacre."
+      }
+    ],
+    "03-17": [
+      {
+        "id": "history-0317-1",
+        "title": "Evacuation Day in Boston",
+        "description": "On March 17, 1776, British forces evacuated Boston during the American Revolutionary War, celebrated as Evacuation Day."
+      }
+    ],
+    "03-18": [
+      {
+        "id": "history-0318-1",
+        "title": "Tripartite Convention Signed",
+        "description": "On March 18, 1889, the Tripartite Convention established the colonial division of the Samoan Islands between Germany and the U.S."
+      }
+    ],
+    "03-19": [
+      {
+        "id": "history-0319-1",
+        "title": "Iraq War Begins",
+        "description": "On March 19, 2003, the United States and coalition forces invaded Iraq, beginning the Iraq War."
+      }
+    ],
+    "03-20": [
+      {
+        "id": "history-0320-1",
+        "title": "U.S. Invades Iraq (2003)",
+        "description": "On March 20, 2003, the United States launched its invasion of Iraq with 'shock and awe' bombing campaign."
+      }
+    ],
+    "03-21": [
+      {
+        "id": "history-0321-1",
+        "title": "Sharpeville Massacre",
+        "description": "On March 21, 1960, South African police opened fire on a crowd of black protesters in Sharpeville, killing 69 people."
+      }
+    ],
+    "03-22": [
+      {
+        "id": "history-0322-1",
+        "title": "Stamp Act Passed",
+        "description": "On March 22, 1765, the British Parliament passed the Stamp Act, imposing a direct tax on the American colonies."
+      }
+    ],
+    "03-23": [
+      {
+        "id": "history-0323-1",
+        "title": "Patrick Henry's 'Give Me Liberty' Speech",
+        "description": "On March 23, 1775, Patrick Henry delivered his famous 'Give me liberty or give me death!' speech in Virginia."
+      }
+    ],
+    "03-24": [
+      {
+        "id": "history-0324-1",
+        "title": "Exxon Valdez Oil Spill",
+        "description": "On March 24, 1989, the oil tanker Exxon Valdez ran aground in Alaska's Prince William Sound, causing a massive environmental disaster."
+      }
+    ],
+    "03-25": [
+      {
+        "id": "history-0325-1",
+        "title": "Triangular Slave Trade Abolished",
+        "description": "On March 25, 1807, the British Parliament passed the Slave Trade Act, abolishing the slave trade in the British Empire."
+      }
+    ],
+    "03-26": [
+      {
+        "id": "history-0326-1",
+        "title": "Bangladesh Independence Day",
+        "description": "On March 26, 1971, Bangladesh declared its independence from Pakistan, beginning the Bangladesh Liberation War."
+      }
+    ],
+    "03-27": [
+      {
+        "id": "history-0327-1",
+        "title": "Alaska Earthquake",
+        "description": "On March 27, 1964, the Good Friday earthquake struck Alaska, the most powerful earthquake recorded in North American history."
+      }
+    ],
+    "03-28": [
+      {
+        "id": "history-0328-1",
+        "title": "Three Mile Island Accident",
+        "description": "On March 28, 1979, a partial nuclear meltdown occurred at the Three Mile Island Nuclear Generating Station in Pennsylvania."
+      }
+    ],
+    "03-29": [
+      {
+        "id": "history-0329-1",
+        "title": "Vietnam War Ends for U.S.",
+        "description": "On March 29, 1973, the last U.S. combat troops left South Vietnam, ending direct American military involvement in the Vietnam War."
+      }
+    ],
+    "03-30": [
+      {
+        "id": "history-0330-1",
+        "title": "President Reagan Shot",
+        "description": "On March 30, 1981, President Ronald Reagan was shot and wounded by John Hinckley Jr. outside a Washington, D.C. hotel."
+      }
+    ],
+    "03-31": [
+      {
+        "id": "history-0331-1",
+        "title": "Eiffel Tower Opens",
+        "description": "On March 31, 1889, the Eiffel Tower was officially opened to the public during the Exposition Universelle in Paris."
+      }
+    ]
+  }
+}

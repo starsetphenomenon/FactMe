@@ -1,0 +1,42 @@
+{
+  "header": {
+    "appTitleHome": "Heutige Info",
+    "appTitleSettings": "Einstellungen"
+  },
+  "settings": {
+    "topicsSectionTitle": "Themen",
+    "topicsSectionSubtitle": "Wähle aus, welche Themen in deinem täglichen Fakt enthalten sein sollen.",
+    "topicsAllChipAll": "ALLE THEMEN",
+    "topicsAllChipUnselect": "ALLE ABWÄHLEN",
+    "perTopicToggleTitle": "Mehrere Fakten",
+    "perTopicToggleDescription": "Zeigt einen Fakt pro ausgewähltem Thema.",
+    "notificationsSectionTitle": "Benachrichtigungen",
+    "notificationsSectionSubtitle": "Erhalte eine Erinnerung, wenn dein täglicher Fakt bereit ist.",
+    "notificationsDailyToggleLabel": "Tägliche Benachrichtigung",
+    "notificationsTimeLabel": "Uhrzeit der Benachrichtigung",
+    "language": "Sprache"
+  },
+  "topics": {
+    "history": "GESCHICHTE",
+    "science": "WISSENSCHAFT",
+    "world-events": "WELTGESCHEHEN",
+    "technology": "TECHNIK",
+    "music": "MUSIK",
+    "movies": "FILME",
+    "sports": "SPORT",
+    "fun-facts": "KURIOSES",
+    "literature": "LITERATUR",
+    "psychology": "PSYCHOLOGIE"
+  },
+  "home": {
+    "emptyMessage": "Für heute ist kein Fakt verfügbar. Aktiviere weitere Themen in den Einstellungen.",
+    "allSeenMessage": "Du hast alle verfügbaren Fakten für heute gesehen.",
+    "loadErrorMessage": "Der heutige Fakt konnte nicht geladen werden.",
+    "refreshButtonAria": "Noch ein Fakt für heute"
+  },
+  "notifications": {
+    "fallbackTitle": "Heutiger interessanter Fakt",
+    "fallbackBody": "Öffne die App, um deinen täglichen Fakt zu sehen.",
+    "bodyFullStory": "Tippe, um die vollständige Geschichte in der App zu lesen."
+  }
+}

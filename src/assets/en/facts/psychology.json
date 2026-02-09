@@ -1,0 +1,34 @@
+{
+  "topic": "psychology",
+  "facts": {
+    "02-09": [
+      {
+        "id": "psychology-0209-1",
+        "title": "Standards for Psychological Testing Published",
+        "description": "On February 9, 1966, the American Psychological Association first published the \"Standards for Educational and Psychological Tests and Manuals\", setting guidelines for the development and use of psychological and educational tests."
+      }
+    ],
+    "02-10": [
+      {
+        "id": "psychology-0210-1",
+        "title": "Publication of \"The Conduct of Inquiry\"",
+        "description": "On February 10, 1964, Abraham Kaplan's influential book \"The Conduct of Inquiry: Methodology for Behavioral Science\" was published, shaping discussions about research methods in psychology and the social sciences."
+      }
+    ],
+    "02-11": [
+      {
+        "id": "psychology-0211-1",
+        "title": "First Issue of Educational and Psychological Measurement",
+        "description": "On February 11, 1941, the first issue of the journal \"Educational and Psychological Measurement\" was published, providing a dedicated venue for research on tests, measurement, and assessment in psychology and education."
+      }
+    ],
+    "02-12": [
+      {
+        "id": "psychology-0212-1",
+        "title": "Birth of Charles Darwin",
+        "description": "On February 12, 1809, Charles Darwin was born. His theory of evolution by natural selection strongly influenced comparative and developmental psychology by encouraging scientific study of human and animal behavior."
+      }
+    ]
+  }
+}
+

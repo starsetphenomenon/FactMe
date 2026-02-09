@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="home-wrapper">
+    <div class="home-date" *ngIf="!isLoading">
+      <ion-icon name="calendar-outline" class="home-date-icon"></ion-icon>
+      <span class="home-date-text">
+        {{ dateLabel }}
+      </span>
+    </div>
+
+    <ng-container *ngIf="!isLoading && facts.length && !error">
+      <div
+        class="fact-card"
+        *ngFor="let f of facts"
+        [ngClass]="'topic-' + f.topic"
+      >
+        <div class="topic-row">
+          <div class="topic-icon-wrapper">
+            <ion-icon
+              class="topic-icon"
+              [name]="getTopicIcon(f.topic)"
+            ></ion-icon>
+          </div>
+          <ion-badge class="topic-badge">
+            {{ ('topics.' + f.topic) | translate }}
+          </ion-badge>
+        </div>
+
+        <h1 class="fact-title">
+          {{ f.title }}
+        </h1>
+
+        <p class="fact-description">
+          {{ f.description }}
+        </p>
+      </div>
+    </ng-container>
+
+    <div class="fact-card empty" *ngIf="!isLoading && !facts.length && !error">
+      <p class="fact-description">
+        {{ homeText.EmptyMessage | translate }}
+      </p>
+    </div>
+
+    <div class="fact-card error" *ngIf="error">
+      <p class="error-text">
+        {{ error | translate }}
+      </p>
+    </div>
+
+    <ion-spinner
+      *ngIf="isLoading"
+      class="loading-spinner"
+      name="crescent"
+    ></ion-spinner>
+  </div>
+
+  <ion-button
+    *ngIf="!isLoading && facts.length && !error"
+    class="next-fact-button"
+    fill="clear"
+    (click)="onNextFact()"
+    [disabled]="isRefreshing"
+    [attr.aria-label]="homeText.RefreshButtonAria | translate"
+  >
+    <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+  </ion-button>
+</ion-content>

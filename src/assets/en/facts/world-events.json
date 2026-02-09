@@ -1,0 +1,436 @@
+{
+  "topic": "world-events",
+  "facts": {
+    "01-01": [
+      {
+        "id": "world-events-0101-1",
+        "title": "Euro Currency Launched",
+        "description": "On January 1, 1999, the Euro currency was officially introduced in 11 European Union countries, creating one of the world's largest economic zones and a major global currency."
+      },
+      {
+        "id": "world-events-0101-2",
+        "title": "Cuba's Revolution Day",
+        "description": "January 1 marks the anniversary of the 1959 Cuban Revolution when Fidel Castro's forces overthrew the Batista regime, establishing communist rule just 90 miles from the United States."
+      }
+    ],
+    "01-04": [
+      {
+        "id": "world-events-0104-1",
+        "title": "Myanmar Independence Day",
+        "description": "On January 4, 1948, Myanmar (then Burma) gained independence from British rule, becoming a sovereign nation after more than 60 years of colonial administration."
+      }
+    ],
+    "01-07": [
+      {
+        "id": "world-events-0107-1",
+        "title": "Japan's Attack on Pearl Harbor Response",
+        "description": "On January 7, 1942, Japanese forces completed their conquest of Manila, capital of the Philippines, following their attack on Pearl Harbor a month earlier, expanding their control in the Pacific during World War II."
+      }
+    ],
+    "01-09": [
+      {
+        "id": "world-events-0109-1",
+        "title": "Panama's Martyrs' Day",
+        "description": "January 9 commemorates the 1964 protests where Panamanian students attempted to raise the Panamanian flag in the U.S.-controlled Panama Canal Zone, resulting in 21 deaths and accelerating negotiations for Panama's control of the canal."
+      }
+    ],
+    "01-10": [
+      {
+        "id": "world-events-0110-1",
+        "title": "League of Nations Established",
+        "description": "On January 10, 1920, the League of Nations was formally established with the ratification of the Treaty of Versailles, becoming the first worldwide intergovernmental organization aimed at maintaining world peace."
+      }
+    ],
+    "01-11": [
+      {
+        "id": "world-events-0111-1",
+        "title": "Nepal's Democracy Day",
+        "description": "On January 11, 1951, Nepal's Rana dynasty ended and democracy was established, marking the country's transition from an autocratic system to constitutional monarchy."
+      }
+    ],
+    "01-12": [
+      {
+        "id": "world-events-0112-1",
+        "title": "Zanzibar Revolution",
+        "description": "On January 12, 1964, the Zanzibar Revolution overthrew the Sultan of Zanzibar and his mainly Arab government, leading to the formation of the People's Republic of Zanzibar."
+      }
+    ],
+    "01-13": [
+      {
+        "id": "world-events-0113-1",
+        "title": "Togo's Liberation Day",
+        "description": "January 13 commemorates the 1967 military coup in Togo that brought General Gnassingbé Eyadéma to power, who would rule the country for 38 years."
+      }
+    ],
+    "01-14": [
+      {
+        "id": "world-events-0114-1",
+        "title": "Queen Margrethe II's Accession in Denmark",
+        "description": "On January 14, 1972, Queen Margrethe II ascended to the Danish throne following the death of her father, King Frederik IX, becoming Denmark's first female monarch in over 500 years."
+      }
+    ],
+    "01-15": [
+      {
+        "id": "world-events-0115-1",
+        "title": "Nigeria's Armed Forces Remembrance Day",
+        "description": "January 15 commemorates the end of the Nigerian Civil War in 1970, honoring military personnel who died in service and marking the country's reconciliation after the Biafran conflict."
+      }
+    ],
+    "01-17": [
+      {
+        "id": "world-events-0117-1",
+        "title": "Operation Desert Storm Begins",
+        "description": "On January 17, 1991, the Gulf War began with a massive U.S.-led air campaign against Iraq following its invasion of Kuwait, involving forces from 35 nations in one of the largest military coalitions since World War II."
+      }
+    ],
+    "01-18": [
+      {
+        "id": "world-events-0118-1",
+        "title": "Captain Cook Discovers Hawaii",
+        "description": "On January 18, 1778, Captain James Cook became the first European to visit the Hawaiian Islands, naming them the Sandwich Islands after his patron, the Earl of Sandwich."
+      }
+    ],
+    "01-20": [
+      {
+        "id": "world-events-0120-1",
+        "title": "U.S. Presidential Inauguration Day",
+        "description": "January 20 marks U.S. Presidential Inauguration Day every four years, with the peaceful transfer of power being a cornerstone of American democracy since the 20th Amendment was ratified in 1933."
+      }
+    ],
+    "01-22": [
+      {
+        "id": "world-events-0122-1",
+        "title": "Ukraine's Unity Day",
+        "description": "January 22 commemorates the 1919 unification of the Ukrainian People's Republic and the West Ukrainian People's Republic, symbolizing the unity of Ukrainian lands."
+      }
+    ],
+    "01-23": [
+      {
+        "id": "world-events-0123-1",
+        "title": "Netaji Subhas Chandra Bose's Birthday",
+        "description": "January 23 celebrates the birthday of Indian nationalist leader Subhas Chandra Bose, who led an Indian national force against the British during World War II and remains a controversial figure in Indo-British history."
+      }
+    ],
+    "01-24": [
+      {
+        "id": "world-events-0124-1",
+        "title": "Romania's Unification Day",
+        "description": "On January 24, 1859, the principalities of Moldavia and Wallachia united under Alexandru Ioan Cuza, forming the basis of modern Romania."
+      }
+    ],
+    "01-25": [
+      {
+        "id": "world-events-0125-1",
+        "title": "Egypt's 2011 Revolution Begins",
+        "description": "January 25, 2011, marked the beginning of the Egyptian Revolution, part of the Arab Spring, which led to the overthrow of President Hosni Mubarak after nearly 30 years in power."
+      }
+    ],
+    "01-26": [
+      {
+        "id": "world-events-0126-1",
+        "title": "Australia Day",
+        "description": "January 26 commemorates the 1788 arrival of the First Fleet of British ships at Port Jackson, New South Wales, and the raising of the British flag, marking the foundation of modern Australia."
+      },
+      {
+        "id": "world-events-0126-2",
+        "title": "India's Republic Day",
+        "description": "On January 26, 1950, India's constitution came into effect, transforming the country from a British dominion to a sovereign democratic republic, celebrated with massive parades in New Delhi."
+      }
+    ],
+    "01-27": [
+      {
+        "id": "world-events-0127-1",
+        "title": "International Holocaust Remembrance Day",
+        "description": "January 27 marks the liberation of Auschwitz-Birkenau concentration camp in 1945, designated by the United Nations as a day to remember the six million Jewish victims of the Holocaust and millions of other victims of Nazi persecution."
+      }
+    ],
+    "01-28": [
+      {
+        "id": "world-events-0128-1",
+        "title": "European Data Protection Day",
+        "description": "January 28 commemorates the 1981 signing of Convention 108, the first legally binding international treaty dealing with privacy and data protection, which became the foundation for Europe's data protection laws including GDPR."
+      }
+    ],
+    "01-30": [
+      {
+        "id": "world-events-0130-1",
+        "title": "Mahatma Gandhi Assassinated",
+        "description": "On January 30, 1948, Mahatma Gandhi was assassinated by Nathuram Godse in New Delhi, shocking the newly independent India and the world, and ending the life of the foremost leader of Indian independence."
+      }
+    ],
+    "01-31": [
+      {
+        "id": "world-events-0131-1",
+        "title": "Nauru's Independence Day",
+        "description": "On January 31, 1968, Nauru gained independence from Australia, becoming the world's smallest island nation and the smallest independent republic."
+      }
+    ],
+    "02-01": [
+      {
+        "id": "world-events-0201-1",
+        "title": "Space Shuttle Columbia Disaster",
+        "description": "On February 1, 2003, the Space Shuttle Columbia disintegrated during re-entry, killing all seven crew members and leading to a 30-month hiatus in the Space Shuttle program and major safety reforms."
+      }
+    ],
+    "02-04": [
+      {
+        "id": "world-events-0204-1",
+        "title": "Sri Lanka's Independence Day",
+        "description": "On February 4, 1948, Sri Lanka (then Ceylon) gained independence from British rule after nearly 150 years of colonial administration, becoming a dominion within the British Commonwealth."
+      }
+    ],
+    "02-05": [
+      {
+        "id": "world-events-0205-1",
+        "title": "Hermitage Museum Opens to the Public",
+        "description": "On February 5, 1852, the State Hermitage Museum in Saint Petersburg, Russia, opened its doors to the public, becoming one of the largest and oldest museums in the world."
+      },
+      {
+        "id": "world-events-0205-2",
+        "title": "Mexico Adopts Its Modern Constitution",
+        "description": "On February 5, 1917, Mexico adopted its current constitution, introducing major political and social reforms after the Mexican Revolution, including land reform and workers' rights."
+      }
+    ],
+    "02-06": [
+      {
+        "id": "world-events-0206-1",
+        "title": "Waitangi Day in New Zealand",
+        "description": "February 6 commemorates the signing of the Treaty of Waitangi in 1840 between British representatives and Māori chiefs, considered New Zealand's founding document and marking the beginning of British sovereignty."
+      }
+    ],
+    "02-07": [
+      {
+        "id": "world-events-0207-1",
+        "title": "Grenada's Independence Day",
+        "description": "On February 7, 1974, Grenada gained independence from the United Kingdom, becoming a sovereign nation and the smallest independent country in the Western Hemisphere at the time."
+      }
+    ],
+    "02-09": [
+      {
+        "id": "world-events-0209-1",
+        "title": "Treaty of Brest-Litovsk Signed by Ukraine and the Central Powers",
+        "description": "On February 9, 1918, the Ukrainian People's Republic signed a peace treaty with Germany, Austria-Hungary, Bulgaria, and the Ottoman Empire in Brest-Litovsk, ending hostilities between them during World War I and marking Ukraine's first modern recognition as a sovereign state."
+      }
+    ],
+    "02-11": [
+      {
+        "id": "world-events-0211-1",
+        "title": "Nelson Mandela Released from Prison",
+        "description": "On February 11, 1990, Nelson Mandela was released from Victor Verster Prison after 27 years of incarceration, marking a turning point in South Africa's transition from apartheid to multiracial democracy."
+      }
+    ],
+    "02-12": [
+      {
+        "id": "world-events-0212-1",
+        "title": "Chile's National Day of the Youth",
+        "description": "February 12 commemorates the 1817 Battle of Chacabuco, a decisive victory in the Chilean War of Independence, but is also remembered for the 1948 founding of the University of Chile, symbolizing the country's commitment to education."
+      }
+    ],
+    "02-14": [
+      {
+        "id": "world-events-0214-1",
+        "title": "Oregon Becomes a State",
+        "description": "On February 14, 1859, Oregon was admitted as the 33rd U.S. state, completing the United States' territorial expansion to the Pacific Northwest and settling long-standing boundary disputes with Britain."
+      }
+    ],
+    "02-15": [
+      {
+        "id": "world-events-0215-1",
+        "title": "Canada's National Flag of Canada Day",
+        "description": "On February 15, 1965, Canada officially adopted its current flag featuring the red maple leaf, replacing the Red Ensign and creating a distinct national symbol separate from British colonial heritage."
+      }
+    ],
+    "02-16": [
+      {
+        "id": "world-events-0216-1",
+        "title": "Lithuania's Independence Restoration Day",
+        "description": "February 16 commemorates Lithuania's 1918 declaration of independence from the Russian Empire, re-established in 1990 after Soviet occupation, making Lithuania the first Soviet republic to declare independence."
+      }
+    ],
+    "02-17": [
+      {
+        "id": "world-events-0217-1",
+        "title": "Kosovo's Independence Day",
+        "description": "On February 17, 2008, Kosovo declared independence from Serbia, becoming Europe's newest country, though its sovereignty remains contested by some nations including Serbia and Russia."
+      }
+    ],
+    "02-18": [
+      {
+        "id": "world-events-0218-1",
+        "title": "The Gambia's Independence Day",
+        "description": "On February 18, 1965, The Gambia gained independence from British colonial rule, becoming Africa's smallest mainland country and retaining close ties with Britain within the Commonwealth."
+      }
+    ],
+    "02-19": [
+      {
+        "id": "world-events-0219-1",
+        "title": "President's Day in the United States",
+        "description": "The third Monday in February honors all U.S. presidents, particularly George Washington and Abraham Lincoln, and has evolved into a celebration of American presidential history and democracy."
+      }
+    ],
+    "02-20": [
+      {
+        "id": "world-events-0220-1",
+        "title": "John Glenn Orbits Earth",
+        "description": "On February 20, 1962, John Glenn became the first American to orbit the Earth aboard Friendship 7, restoring American confidence in space exploration during the Cold War space race."
+      }
+    ],
+    "02-21": [
+      {
+        "id": "world-events-0221-1",
+        "title": "International Mother Language Day",
+        "description": "February 21 commemorates the 1952 Bengali Language Movement in Bangladesh (then East Pakistan), where students were killed protesting for recognition of Bengali as an official language, later recognized by UNESCO to promote linguistic diversity worldwide."
+      }
+    ],
+    "02-22": [
+      {
+        "id": "world-events-0222-1",
+        "title": "Saint Lucia's Independence Day",
+        "description": "On February 22, 1979, Saint Lucia gained independence from the United Kingdom, becoming a sovereign state while remaining within the Commonwealth of Nations."
+      }
+    ],
+    "02-23": [
+      {
+        "id": "world-events-0223-1",
+        "title": "Brunei's National Day",
+        "description": "February 23 celebrates Brunei's independence from British protection in 1984, though the country had been internally self-governing since 1959, making it one of the world's last absolute monarchies."
+      }
+    ],
+    "02-24": [
+      {
+        "id": "world-events-0224-1",
+        "title": "Estonia's Independence Day",
+        "description": "On February 24, 1918, Estonia declared independence from the Russian Empire, establishing the Republic of Estonia, which was restored in 1991 after Soviet occupation."
+      }
+    ],
+    "02-25": [
+      {
+        "id": "world-events-0225-1",
+        "title": "Kuwait's National Day",
+        "description": "February 25 commemorates the 1961 accession of Sheikh Abdullah Al-Salim Al-Sabah, who transformed Kuwait from a British protectorate to an independent state and established its first constitution."
+      }
+    ],
+    "02-27": [
+      {
+        "id": "world-events-0227-1",
+        "title": "Dominican Republic's Independence Day",
+        "description": "On February 27, 1844, the Dominican Republic declared independence from Haiti, ending 22 years of Haitian occupation and establishing the first permanent independent state in Latin America after the Spanish colonies."
+      }
+    ],
+    "02-28": [
+      {
+        "id": "world-events-0228-1",
+        "title": "Taiwan's Peace Memorial Day",
+        "description": "February 28 commemorates the 1947 February 28 Incident, a popular uprising against the Kuomintang government that was violently suppressed, marking a turning point in Taiwan's modern history and democracy movement."
+      }
+    ],
+    "03-01": [
+      {
+        "id": "world-events-0301-1",
+        "title": "South Korea's Independence Movement Day",
+        "description": "March 1 commemorates the 1919 March 1st Movement, a nationwide protest against Japanese colonial rule that galvanized Korean nationalism and inspired subsequent independence movements."
+      },
+      {
+        "id": "world-events-0301-2",
+        "title": "Wales' St. David's Day",
+        "description": "March 1 celebrates the patron saint of Wales, St. David, with traditional Welsh symbols like daffodils and leeks, promoting Welsh culture and national identity within the United Kingdom."
+      }
+    ],
+    "03-03": [
+      {
+        "id": "world-events-0303-1",
+        "title": "Bulgaria's Liberation Day",
+        "description": "On March 3, 1878, the Treaty of San Stefano ended the Russo-Turkish War and created an autonomous Bulgarian principality, marking Bulgaria's liberation from nearly 500 years of Ottoman rule."
+      }
+    ],
+    "03-06": [
+      {
+        "id": "world-events-0306-1",
+        "title": "Ghana's Independence Day",
+        "description": "On March 6, 1957, Ghana became the first sub-Saharan African country to gain independence from colonial rule, inspiring other African nations in their independence movements and establishing Kwame Nkrumah as a Pan-African leader."
+      }
+    ],
+    "03-08": [
+      {
+        "id": "world-events-0308-1",
+        "title": "International Women's Day",
+        "description": "March 8 celebrates women's achievements and promotes gender equality worldwide, originating from early 20th-century labor movements and now observed in many countries with various cultural traditions."
+      }
+    ],
+    "03-11": [
+      {
+        "id": "world-events-0311-1",
+        "title": "Lithuania's Restoration of Independence Day",
+        "description": "On March 11, 1990, Lithuania declared the restoration of its independence from the Soviet Union, becoming the first Soviet republic to do so and accelerating the dissolution of the USSR."
+      }
+    ],
+    "03-12": [
+      {
+        "id": "world-events-0312-1",
+        "title": "Mauritius' Independence Day",
+        "description": "On March 12, 1968, Mauritius gained independence from British rule, transitioning from a colonial sugar plantation economy to a diversified democratic republic with one of Africa's highest human development indices."
+      }
+    ],
+    "03-17": [
+      {
+        "id": "world-events-0317-1",
+        "title": "St. Patrick's Day",
+        "description": "March 17 commemorates the death of Ireland's patron saint, St. Patrick, and has evolved into a global celebration of Irish culture, particularly in countries with large Irish diaspora populations like the United States, Canada, and Australia."
+      }
+    ],
+    "03-20": [
+      {
+        "id": "world-events-0320-1",
+        "title": "Tunisia's Independence Day",
+        "description": "On March 20, 1956, Tunisia gained independence from France after 75 years of protectorate status, becoming a sovereign nation and beginning its modernization under President Habib Bourguiba."
+      }
+    ],
+    "03-21": [
+      {
+        "id": "world-events-0321-1",
+        "title": "Namibia's Independence Day",
+        "description": "On March 21, 1990, Namibia gained independence from South African administration, ending decades of apartheid rule and becoming the last African colony to achieve independence."
+      }
+    ],
+    "03-23": [
+      {
+        "id": "world-events-0323-1",
+        "title": "Pakistan Day",
+        "description": "March 23 commemorates the 1940 Lahore Resolution, which called for independent states for Muslims in British India, leading to the creation of Pakistan in 1947, and marks Pakistan's declaration as an Islamic republic in 1956."
+      }
+    ],
+    "03-25": [
+      {
+        "id": "world-events-0325-1",
+        "title": "Greece's Independence Day",
+        "description": "On March 25, 1821, Greece declared independence from the Ottoman Empire after nearly 400 years of Ottoman rule, beginning the Greek War of Independence that eventually led to international recognition of Greek sovereignty."
+      },
+      {
+        "id": "world-events-0325-2",
+        "title": "International Day of Remembrance of the Victims of Slavery",
+        "description": "March 25 commemorates the victims of the transatlantic slave trade, honoring the millions who suffered and died during this tragic chapter in human history and promoting education about slavery's legacy."
+      }
+    ],
+    "03-26": [
+      {
+        "id": "world-events-0326-1",
+        "title": "Bangladesh's Independence Day",
+        "description": "On March 26, 1971, Bangladesh declared independence from Pakistan, beginning the Bangladesh Liberation War that resulted in the creation of the world's eighth most populous country after nine months of conflict."
+      }
+    ],
+    "03-30": [
+      {
+        "id": "world-events-0330-1",
+        "title": "Palestine's Land Day",
+        "description": "March 30 commemorates the 1976 protests by Palestinian citizens of Israel against land confiscation, which resulted in six deaths and became a symbol of Palestinian resistance and connection to their land."
+      }
+    ],
+    "03-31": [
+      {
+        "id": "world-events-0331-1",
+        "title": "Malta's Freedom Day",
+        "description": "On March 31, 1979, the last British forces left Malta, ending 179 years of British presence and making Malta completely independent, celebrated as the final step in the country's journey to full sovereignty."
+      }
+    ]
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "topic": "sports",
+  "facts": {
+    "01-01": [
+      {
+        "id": "sports-0101-1",
+        "title": "First Rose Bowl Game",
+        "description": "On January 1, 1902, the first Rose Bowl game was played, with Michigan defeating Stanford 49-0. The game was so lopsided that it was discontinued until 1916."
+      },
+      {
+        "id": "sports-0101-2",
+        "title": "Tokyo's New Year Ekiden Road Relay",
+        "description": "Every January 1, Japan hosts the New Year Ekiden, a long-distance road relay race featuring corporate teams, broadcast nationwide and attracting millions of viewers."
+      }
+    ],
+    "01-04": [
+      {
+        "id": "sports-0104-1",
+        "title": "First Modern Olympics Announced",
+        "description": "On January 4, 1894, Pierre de Coubertin proposed the revival of the Olympic Games, leading to the formation of the International Olympic Committee and the first modern Olympics in 1896."
+      }
+    ],
+    "01-11": [
+      {
+        "id": "sports-0111-1",
+        "title": "First Australian Open Tennis Championship",
+        "description": "On January 11, 1905, the first Australian Open tennis championship began in Melbourne, originally called the Australasian Championships."
+      }
+    ],
+    "01-15": [
+      {
+        "id": "sports-0115-1",
+        "title": "Super Bowl I",
+        "description": "On January 15, 1967, the first Super Bowl was played between the Green Bay Packers and Kansas City Chiefs, with the Packers winning 35-10 at the Los Angeles Memorial Coliseum."
+      }
+    ],
+    "01-20": [
+      {
+        "id": "sports-0120-1",
+        "title": "First Winter X Games",
+        "description": "On January 20, 1997, the first Winter X Games began in Big Bear Lake, California, featuring extreme winter sports like snowboarding, skiing, and snowmobiling."
+      }
+    ],
+    "01-26": [
+      {
+        "id": "sports-0126-1",
+        "title": "Australian Open Final Weekend",
+        "description": "Late January typically features the Australian Open tennis finals, with January 26, 2020 seeing Novak Djokovic win his 8th Australian Open title."
+      }
+    ],
+    "01-28": [
+      {
+        "id": "sports-0128-1",
+        "title": "Super Bowl XXII - Doug Williams Makes History",
+        "description": "On January 28, 1988, Doug Williams became the first Black quarterback to start and win a Super Bowl, leading Washington to victory in Super Bowl XXII."
+      }
+    ],
+    "01-31": [
+      {
+        "id": "sports-0131-1",
+        "title": "Super Bowl XXXI - Packers Return to Glory",
+        "description": "On January 31, 1997, the Green Bay Packers won their first Super Bowl in 29 years, defeating the New England Patriots 35-21 in Super Bowl XXXI."
+      }
+    ],
+    "02-01": [
+      {
+        "id": "sports-0201-1",
+        "title": "Super Bowl XXXVI - Patriots Begin Dynasty",
+        "description": "On February 1, 2002, the New England Patriots won their first Super Bowl, defeating the St. Louis Rams 20-17 in Super Bowl XXXVI, beginning the Brady-Belichick dynasty."
+      }
+    ],
+    "02-02": [
+      {
+        "id": "sports-0202-1",
+        "title": "First Winter Olympics Opening Ceremony",
+        "description": "On February 2, 1924, the first Winter Olympic Games opened in Chamonix, France, originally called 'International Winter Sports Week' before being retroactively designated as the first Winter Olympics."
+      }
+    ],
+    "02-03": [
+      {
+        "id": "sports-0203-1",
+        "title": "Super Bowl XLVII - The Harbaugh Bowl",
+        "description": "On February 3, 2013, Super Bowl XLVII featured brothers John and Jim Harbaugh coaching against each other, with John's Baltimore Ravens defeating Jim's San Francisco 49ers."
+      }
+    ],
+    "02-04": [
+      {
+        "id": "sports-0204-1",
+        "title": "First African American NHL Player",
+        "description": "On February 4, 1958, Willie O'Ree became the first Black player in the National Hockey League, debuting for the Boston Bruins against the Montreal Canadiens."
+      }
+    ],
+    "02-05": [
+      {
+        "id": "sports-0205-1",
+        "title": "First Winter Olympics Conclude in Chamonix",
+        "description": "On February 5, 1924, the first Winter Olympic Games, held in Chamonix, France, officially came to a close."
+      },
+      {
+        "id": "sports-0205-2",
+        "title": "Pittsburgh Steelers Win Super Bowl XL",
+        "description": "On February 5, 2006, the Pittsburgh Steelers defeated the Seattle Seahawks 21-10 in Super Bowl XL, becoming the first franchise to win five Super Bowl titles."
+      },
+      {
+        "id": "sports-0205-3",
+        "title": "New York Giants Upset New England Patriots in Super Bowl XLII",
+        "description": "On February 5, 2012, the New York Giants beat the New England Patriots 21-17 in Super Bowl XLVI, handing quarterback Tom Brady and the Patriots a dramatic last-minute defeat."
+      }
+    ],
+    "02-07": [
+      {
+        "id": "sports-0207-1",
+        "title": "Super Bowl XLI - First Black Head Coach Wins",
+        "description": "On February 7, 2007, Tony Dungy became the first Black head coach to win a Super Bowl as his Indianapolis Colts defeated the Chicago Bears in Super Bowl XLI."
+      }
+    ],
+    "02-08": [
+      {
+        "id": "sports-0208-1",
+        "title": "First NHL All-Star Game",
+        "description": "On February 8, 1947, the first NHL All-Star Game was played, with the All-Stars defeating the Toronto Maple Leafs 4-3 to raise money for the newly created NHL Pension Society."
+      }
+    ],
+    "02-09": [
+      {
+        "id": "sports-0209-1",
+        "title": "Satchel Paige Nominated to Baseball Hall of Fame",
+        "description": "On February 9, 1971, legendary pitcher Satchel Paige was nominated to the Baseball Hall of Fame, becoming one of the first players from the Negro Leagues to be so honored."
+      },
+      {
+        "id": "sports-0209-2",
+        "title": "XIX Winter Olympics Open in Salt Lake City",
+        "description": "On February 9, 2002, the XIX Winter Olympic Games officially opened in Salt Lake City, Utah, bringing athletes from 77 nations to compete in 78 events."
+      }
+    ],
+    "02-12": [
+      {
+        "id": "sports-0212-1",
+        "title": "NBA All-Star Game First Held",
+        "description": "On February 12, 1951, the first NBA All-Star Game was played at Boston Garden, with the East defeating the West 111-94."
+      }
+    ],
+    "02-14": [
+      {
+        "id": "sports-0214-1",
+        "title": "Miracle on Ice",
+        "description": "On February 14, 1980, the U.S. Olympic hockey team defeated Czechoslovakia 7-3 in the opening round of the Lake Placid Olympics, setting up their eventual 'Miracle on Ice' victory over the Soviet Union."
+      }
+    ],
+    "02-15": [
+      {
+        "id": "sports-0215-1",
+        "title": "NBA's First Slam Dunk Contest",
+        "description": "On February 15, 1976, the NBA held its first Slam Dunk Contest as part of the ABA All-Star Game, with Julius 'Dr. J' Erving winning the inaugural competition."
+      }
+    ],
+    "02-17": [
+      {
+        "id": "sports-0217-1",
+        "title": "NBA's First Three-Point Shootout",
+        "description": "On February 17, 1986, the NBA held its first Three-Point Shootout during All-Star Weekend, with Larry Bird winning the inaugural competition."
+      }
+    ],
+    "02-18": [
+      {
+        "id": "sports-0218-1",
+        "title": "Tonya Harding-Nancy Kerrigan Incident Investigation",
+        "description": "On February 18, 1994, the FBI released findings from their investigation into the attack on Nancy Kerrigan, leading to charges against Tonya Harding's ex-husband and bodyguard."
+      }
+    ],
+    "02-22": [
+      {
+        "id": "sports-0222-1",
+        "title": "Miracle on Ice",
+        "description": "On February 22, 1980, the United States ice hockey team defeated the Soviet Union 4-3 in the 'Miracle on Ice' at the Lake Placid Winter Olympics, one of the greatest upsets in sports history."
+      }
+    ],
+    "02-24": [
+      {
+        "id": "sports-0224-1",
+        "title": "Muhammad Ali Wins Heavyweight Title First Time",
+        "description": "On February 24, 1964, a 22-year-old Cassius Clay (later Muhammad Ali) defeated Sonny Liston to become the World Heavyweight Boxing Champion for the first time."
+      }
+    ],
+    "02-25": [
+      {
+        "id": "sports-0225-1",
+        "title": "NASCAR's First Daytona 500",
+        "description": "On February 25, 1959, the first Daytona 500 was held at Daytona International Speedway, with Lee Petty winning in a photo finish after three days of reviewing footage."
+      }
+    ],
+    "02-27": [
+      {
+        "id": "sports-0227-1",
+        "title": "Winter Olympics Closing Ceremonies",
+        "description": "Late February often marks the closing ceremonies of Winter Olympic Games, with February 27, 2010 seeing the Vancouver Winter Olympics conclude."
+      }
+    ],
+    "03-01": [
+      {
+        "id": "sports-0301-1",
+        "title": "First Organized Baseball Game",
+        "description": "On March 1, 1872, the first organized baseball game was played in San Francisco, helping to spread the sport's popularity on the West Coast."
+      }
+    ],
+    "03-06": [
+      {
+        "id": "sports-0306-1",
+        "title": "First International Cricket Match",
+        "description": "On March 6, 1844, the first official international cricket match was played between the United States and Canada at the St George's Cricket Club in New York."
+      }
+    ],
+    "03-08": [
+      {
+        "id": "sports-0308-1",
+        "title": "First Women's World Cup Announced",
+        "description": "On March 8, 1991, FIFA announced the first Women's World Cup, which would be held later that year in China, won by the United States."
+      }
+    ],
+    "03-12": [
+      {
+        "id": "sports-0312-1",
+        "title": "NCAA Tournament Selection Sunday",
+        "description": "Mid-March features Selection Sunday for the NCAA Men's Basketball Tournament, with March 12, 2023 marking the selection of the 68-team field for March Madness."
+      }
+    ],
+    "03-15": [
+      {
+        "id": "sports-0315-1",
+        "title": "NCAA Tournament First Round Begins",
+        "description": "Mid-March marks the beginning of the NCAA Basketball Tournament's first round, with March 15 typically being the first full day of games in the 'March Madness' tournament."
+      }
+    ],
+    "03-17": [
+      {
+        "id": "sports-0317-1",
+        "title": "St. Patrick's Day Sports Traditions",
+        "description": "March 17 sees numerous sports traditions, including the dyeing of the Chicago River green, special Gaelic football and hurling matches in Ireland, and green uniforms in various sports."
+      }
+    ],
+    "03-20": [
+      {
+        "id": "sports-0320-1",
+        "title": "First Official Baseball Game",
+        "description": "On March 20, 1888, the first official baseball game was played in Japan, marking the beginning of baseball's popularity in the country."
+      }
+    ],
+    "03-22": [
+      {
+        "id": "sports-0322-1",
+        "title": "First NBA Game",
+        "description": "On March 22, 1946, the first Basketball Association of America (BAA) game was played, with the New York Knicks defeating the Toronto Huskies 68-66. The BAA would later become the NBA."
+      }
+    ],
+    "03-25": [
+      {
+        "id": "sports-0325-1",
+        "title": "First Modern Olympics Revival Announced",
+        "description": "On March 25, 1896, the first modern Olympic Games concluded in Athens, Greece, reviving the ancient tradition after nearly 1,500 years."
+      }
+    ],
+    "03-28": [
+      {
+        "id": "sports-0328-1",
+        "title": "First Night Baseball Game",
+        "description": "On March 28, 1936, the first night baseball game in the major leagues was played between the Cincinnati Reds and Philadelphia Phillies at Crosley Field."
+      }
+    ],
+    "03-30": [
+      {
+        "id": "sports-0330-1",
+        "title": "First Masters Golf Tournament",
+        "description": "On March 30, 1934, the first Masters Tournament began at Augusta National Golf Club, with Horton Smith winning the inaugural event."
+      }
+    ],
+    "03-31": [
+      {
+        "id": "sports-0331-1",
+        "title": "Opening Day of Major League Baseball",
+        "description": "Late March or early April marks Opening Day for Major League Baseball, with March 31 being a common date for season openers, beginning the 162-game regular season."
+      }
+    ]
+  }
+}

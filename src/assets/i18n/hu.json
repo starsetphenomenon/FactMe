@@ -1,0 +1,42 @@
+{
+  "header": {
+    "appTitleHome": "Mai tények",
+    "appTitleSettings": "Beállítások"
+  },
+  "settings": {
+    "topicsSectionTitle": "Témák",
+    "topicsSectionSubtitle": "Válaszd ki, mely témákból szeretnél napi tényt kapni.",
+    "topicsAllChipAll": "ÖSSZES TÉMA",
+    "topicsAllChipUnselect": "KIVÁLASZTÁS TÖRLÉSE",
+    "perTopicToggleTitle": "Több tény",
+    "perTopicToggleDescription": "Egy tényt mutat minden kiválasztott témához.",
+    "notificationsSectionTitle": "Értesítések",
+    "notificationsSectionSubtitle": "Értesítést kapsz, amikor a napi tény elérhető.",
+    "notificationsDailyToggleLabel": "Napi értesítés",
+    "notificationsTimeLabel": "Értesítés ideje",
+    "language": "Nyelv"
+  },
+  "topics": {
+    "history": "TÖRTÉNELEM",
+    "science": "TUDOMÁNY",
+    "world-events": "VILÁGESMÉNYEK",
+    "technology": "TECHNOLÓGIA",
+    "music": "ZENE",
+    "movies": "FILMEK",
+    "sports": "SPORT",
+    "fun-facts": "ÉRDEKESSÉGEK",
+    "literature": "IRODALOM",
+    "psychology": "PSZICHOLÓGIA"
+  },
+  "home": {
+    "emptyMessage": "Ma nincs elérhető tény. Próbálj meg több témát bekapcsolni a beállításokban.",
+    "allSeenMessage": "Ma már láttad az összes elérhető tényt.",
+    "loadErrorMessage": "Nem sikerült betölteni a mai tényt.",
+    "refreshButtonAria": "Még egy mai tény"
+  },
+  "notifications": {
+    "fallbackTitle": "Mai érdekesség",
+    "fallbackBody": "Nyisd meg az alkalmazást a napi tény megtekintéséhez.",
+    "bodyFullStory": "Koppints ide a teljes történet elolvasásához az alkalmazásban."
+  }
+}
