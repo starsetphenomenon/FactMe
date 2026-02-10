@@ -1,20 +1,17 @@
 {
-  "header": {
-    "appTitleHome": "Факт на сьогодні",
-    "appTitleSettings": "Налаштування"
-  },
   "settings": {
     "topicsSectionTitle": "Теми",
     "topicsSectionSubtitle": "Виберіть теми, з яких показувати щоденний факт.",
-    "topicsAllChipAll": "УСІ ТЕМИ",
-    "topicsAllChipUnselect": "СКАСУВАТИ ВИБІР",
+    "topicsAllChipAll": "УСІ",
+    "topicsAllChipUnselect": "ЖОДНІ",
     "perTopicToggleTitle": "Кілька фактів",
     "perTopicToggleDescription": "Показує один факт для кожної вибраної теми.",
     "notificationsSectionTitle": "Сповіщення",
     "notificationsSectionSubtitle": "Отримуйте нагадування, коли щоденний факт готовий.",
     "notificationsDailyToggleLabel": "Щоденне сповіщення",
     "notificationsTimeLabel": "Час сповіщення",
-    "language": "Мова"
+    "language": "Мова",
+    "themeToggleLabel": "Світла тема"
   },
   "topics": {
     "history": "ІСТОРІЯ",
@@ -40,3 +37,4 @@
     "bodyFullStory": "Натисніть, щоб прочитати повну історію в застосунку."
   }
 }
+

@@ -33,20 +33,36 @@
           {{ settingsText.PerTopicToggleDescription | translate }}
         </p>
       </ion-label>
-      <ion-toggle
-        slot="end"
-        color="primary"
-        [checked]="settings.onePerTopic"
-        (ionChange)="onOnePerTopicChange($event.detail.checked)"
-      ></ion-toggle>
+      <div class="toggle-wrapper" slot="end">
+        <ion-toggle
+          color="primary"
+          [checked]="settings.onePerTopic"
+          (ionChange)="onOnePerTopicChange($event.detail.checked)"
+        ></ion-toggle>
+      </div>
     </ion-item>
+  </div>
 
+  <div class="settings-section">
     <ion-item class="settings-item">
       <ion-label>
-        <h3>{{ settingsText.Language | translate }}</h3>
+        <h3>{{ settingsText.ThemeToggleLabel | translate }}</h3>
       </ion-label>
+      <div class="toggle-wrapper" slot="end">
+        <ion-toggle
+          color="primary"
+          [checked]="settings.theme === 'light'"
+          (ionChange)="onThemeToggleChange($event.detail.checked)"
+        ></ion-toggle>
+      </div>
+    </ion-item>
+
+     <div class="language-row">
+      <div class="language-row-label">
+        <h3>{{ settingsText.Language | translate }}</h3>
+      </div>
       <ion-select
-        slot="end"
+        class="language-select"
         interface="popover"
         [value]="settings.language || defaultLanguage"
         (ionChange)="onLanguageChange($event.detail.value)"
@@ -58,7 +74,7 @@
           {{ lang.flag }} {{ lang.label }}
         </ion-select-option>
       </ion-select>
-    </ion-item>
+    </div>
   </div>
 
   <div class="settings-section">
@@ -70,12 +86,13 @@
     <ion-list lines="none">
       <ion-item class="settings-item">
         <ion-label>{{ settingsText.NotificationsDailyToggleLabel | translate }}</ion-label>
-        <ion-toggle
-          slot="end"
-          color="primary"
-          [checked]="settings.notificationsEnabled"
-          (ionChange)="onNotificationsToggleChange($event.detail.checked)"
-        ></ion-toggle>
+        <div class="toggle-wrapper" slot="end">
+          <ion-toggle
+            color="primary"
+            [checked]="settings.notificationsEnabled"
+            (ionChange)="onNotificationsToggleChange($event.detail.checked)"
+          ></ion-toggle>
+        </div>
       </ion-item>
 
       <ion-item class="settings-item">
