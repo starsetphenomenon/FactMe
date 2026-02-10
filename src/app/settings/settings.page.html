@@ -1,115 +1,32 @@
 <ion-content [fullscreen]="true" class="settings-content">
-  <div class="settings-section">
-    <div class="section-header">
-      <h2>{{ settingsText.TopicsSectionTitle | translate }}</h2>
-      <p>{{ settingsText.TopicsSectionSubtitle | translate }}</p>
-    </div>
+  <app-settings-topics-section
+    [settingsText]="settingsText"
+    [topics]="topics"
+    [selectedTopics]="settings.selectedTopics"
+    [allTopicsLabel]="allTopicsLabel"
+    [onePerTopic]="settings.onePerTopic"
+    (toggleAllTopics)="toggleAllTopics()"
+    (topicChipClicked)="onTopicChipClicked($event)"
+    (onePerTopicChange)="onOnePerTopicChange($event)"
+  ></app-settings-topics-section>
 
-    <div class="chip-row">
-      <ion-chip
-        [color]="isAllTopicsSelected() ? 'primary' : 'medium'"
-        [outline]="!isAllTopicsSelected()"
-        (click)="toggleAllTopics()"
-      >
-        <ion-label>{{ allTopicsLabel | translate }}</ion-label>
-      </ion-chip>
+  <app-settings-theme-language-section
+    [settingsText]="settingsText"
+    [isLightTheme]="settings.theme === 'light'"
+    [language]="settings.language || defaultLanguage"
+    [defaultLanguage]="defaultLanguage"
+    [languages]="languages"
+    (themeToggleChange)="onThemeToggleChange($event)"
+    (languageChange)="onLanguageChange($event)"
+  ></app-settings-theme-language-section>
 
-      <ion-chip
-        *ngFor="let topic of topics"
-        [color]="isTopicSelected(topic) ? 'primary' : 'medium'"
-        [outline]="!isTopicSelected(topic)"
-        (click)="onTopicChipClicked(topic)"
-      >
-        <ion-label class="topic-label">
-          {{ ('topics.' + topic) | translate }}
-        </ion-label>
-      </ion-chip>
-    </div>
-
-    <ion-item class="settings-item">
-      <ion-label>
-        <h3>{{ settingsText.PerTopicToggleTitle | translate }}</h3>
-        <p class="toggle-description">
-          {{ settingsText.PerTopicToggleDescription | translate }}
-        </p>
-      </ion-label>
-      <div class="toggle-wrapper" slot="end">
-        <ion-toggle
-          color="primary"
-          [checked]="settings.onePerTopic"
-          (ionChange)="onOnePerTopicChange($event.detail.checked)"
-        ></ion-toggle>
-      </div>
-    </ion-item>
-  </div>
-
-  <div class="settings-section">
-    <ion-item class="settings-item">
-      <ion-label>
-        <h3>{{ settingsText.ThemeToggleLabel | translate }}</h3>
-      </ion-label>
-      <div class="toggle-wrapper" slot="end">
-        <ion-toggle
-          color="primary"
-          [checked]="settings.theme === 'light'"
-          (ionChange)="onThemeToggleChange($event.detail.checked)"
-        ></ion-toggle>
-      </div>
-    </ion-item>
-
-     <div class="language-row">
-      <div class="language-row-label">
-        <h3>{{ settingsText.Language | translate }}</h3>
-      </div>
-      <ion-select
-        class="language-select"
-        interface="popover"
-        [value]="settings.language || defaultLanguage"
-        (ionChange)="onLanguageChange($event.detail.value)"
-      >
-        <ion-select-option
-          *ngFor="let lang of languages"
-          [value]="lang.code"
-        >
-          {{ lang.flag }} {{ lang.label }}
-        </ion-select-option>
-      </ion-select>
-    </div>
-  </div>
-
-  <div class="settings-section">
-    <div class="section-header">
-      <h2>{{ settingsText.NotificationsSectionTitle | translate }}</h2>
-      <p>{{ settingsText.NotificationsSectionSubtitle | translate }}</p>
-    </div>
-
-    <ion-list lines="none">
-      <ion-item class="settings-item">
-        <ion-label>{{ settingsText.NotificationsDailyToggleLabel | translate }}</ion-label>
-        <div class="toggle-wrapper" slot="end">
-          <ion-toggle
-            color="primary"
-            [checked]="settings.notificationsEnabled"
-            (ionChange)="onNotificationsToggleChange($event.detail.checked)"
-          ></ion-toggle>
-        </div>
-      </ion-item>
-
-      <ion-item class="settings-item">
-        <ion-label>{{ settingsText.NotificationsTimeLabel | translate }}</ion-label>
-        <ion-datetime-button datetime="timePicker"></ion-datetime-button>
-      </ion-item>
-    </ion-list>
-  </div>
-
-  <ion-modal [keepContentsMounted]="true">
-    <ng-template>
-      <ion-datetime
-        id="timePicker"
-        presentation="time"
-        [value]="settings.notificationTime"
-        (ionChange)="onTimeChanged($event.detail.value)"
-      ></ion-datetime>
-    </ng-template>
-  </ion-modal>
+  <app-settings-notifications-section
+    [settingsText]="settingsText"
+    [notificationsEnabled]="settings.notificationsEnabled"
+    [notificationTime]="settings.notificationTime"
+    [notificationWeekdays]="settings.notificationWeekdays || []"
+    (notificationsToggleChange)="onNotificationsToggleChange($event)"
+    (timeChanged)="onTimeChanged($event)"
+    (weekdaysChanged)="onNotificationWeekdaysChanged($event)"
+  ></app-settings-notifications-section>
 </ion-content>

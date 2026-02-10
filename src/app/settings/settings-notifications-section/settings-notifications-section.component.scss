@@ -1,0 +1,101 @@
+.settings-section {
+  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.14), transparent 55%),
+    rgba(12, 14, 22, 0.9);
+  border-radius: 22px;
+  padding: 18px 16px 16px;
+  margin: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 152, 0, 0.3);
+
+  ion-list {
+    --background: transparent;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  ion-item {
+    --background: transparent;
+    --ion-item-background: transparent;
+    --inner-border-width: 0 0 0 0;
+    --inner-border-color: transparent;
+    background: transparent;
+  }
+
+  ion-item::part(native) {
+    background: transparent;
+  }
+
+  h2 {
+    margin-top: 0 !important;
+  }
+}
+
+.settings-item {
+  --background: transparent;
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.weekdays-item {
+  align-items: flex-start;
+}
+
+.weekdays-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.weekdays-chips ion-chip {
+  --padding-start: 6px;
+  --padding-end: 6px;
+  --min-height: 26px;
+}
+
+.toggle-wrapper {
+  width: 45px !important;
+}
+
+ion-modal {
+  --background: rgba(0, 0, 0, 0.95);
+}
+
+ion-datetime {
+  --background: #000000;
+  --wheel-highlight-background: #111111;
+  --wheel-fade-background-rgb: 0, 0, 0;
+  --wheel-border-color: rgba(255, 152, 0, 0.5);
+  color: #ff9800;
+}
+
+ion-datetime-button {
+  --background: #111111;
+  --color: #ff9800;
+  --border-radius: 999px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+}
+
+ion-datetime-button::part(native) {
+  background: #111111;
+  color: #ff9800;
+  border-radius: 999px;
+}
+
+.light-theme .settings-section {
+  background: #ffffff;
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.15),
+    0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.light-theme .section-header h2 {
+  color: #111827;
+}
+
+.light-theme .section-header p {
+  color: rgba(15, 23, 42, 0.7);
+}
+

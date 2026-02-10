@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AppSettings, ALL_TOPICS, TopicKey } from '../models/fact.models';
+import {
+  AppSettings,
+  ALL_TOPICS,
+  ALL_WEEKDAYS,
+  TopicKey,
+  Weekday,
+} from '../models/fact.models';
 import { SettingsService } from '../services/settings.service';
 import { NotificationService } from '../services/notification.service';
 import { SettingsText } from '../enums/settings-text.enum';
@@ -95,9 +101,19 @@ export class SettingsPage implements OnInit {
   }
 
   async onNotificationsToggleChange(enabled: boolean): Promise<void> {
-    this.settings = this.settingsService.update({
-      notificationsEnabled: enabled,
-    });
+    if (enabled) {
+      // Turning daily notifications on should select all days.
+      this.settings = this.settingsService.update({
+        notificationsEnabled: true,
+        notificationWeekdays: [...ALL_WEEKDAYS],
+      });
+    } else {
+      // Turning them off also clears selected days.
+      this.settings = this.settingsService.update({
+        notificationsEnabled: false,
+        notificationWeekdays: [],
+      });
+    }
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }
 
@@ -109,6 +125,20 @@ export class SettingsPage implements OnInit {
     }
     this.settings = this.settingsService.update({
       notificationTime: value,
+    });
+    await this.notificationService.rescheduleDailyNotification(this.settings);
+  }
+
+  async onNotificationWeekdaysChanged(days: Weekday[]): Promise<void> {
+    const hasDays = days.length > 0;
+    const isAllDays = days.length === ALL_WEEKDAYS.length;
+
+    this.settings = this.settingsService.update({
+      notificationWeekdays: days,
+      // Only auto-toggle ON when all days are selected.
+      // When some (but not all) days are selected, keep the existing toggle state.
+      // When no days are selected, turn notifications OFF.
+      notificationsEnabled: hasDays ? (isAllDays ? true : this.settings.notificationsEnabled) : false,
     });
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }

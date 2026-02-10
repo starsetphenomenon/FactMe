@@ -12,6 +12,7 @@ export enum SettingsText {
   NotificationsSectionSubtitle = 'settings.notificationsSectionSubtitle',
   NotificationsDailyToggleLabel = 'settings.notificationsDailyToggleLabel',
   NotificationsTimeLabel = 'settings.notificationsTimeLabel',
+  NotificationsDaysLabel = 'settings.notificationsDaysLabel',
   Language = 'settings.language',
   ThemeToggleLabel = 'settings.themeToggleLabel',
 }

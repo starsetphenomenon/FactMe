@@ -1,0 +1,11 @@
+<ion-button
+  *ngIf="isVisible"
+  class="next-fact-button"
+  fill="clear"
+  (click)="nextFact.emit()"
+  [disabled]="isRefreshing"
+  [attr.aria-label]="homeText.RefreshButtonAria | translate"
+>
+  <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+</ion-button>
+

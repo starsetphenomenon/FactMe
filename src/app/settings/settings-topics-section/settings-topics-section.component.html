@@ -1,0 +1,44 @@
+<div class="settings-section">
+  <div class="section-header">
+    <h2>{{ settingsText.TopicsSectionTitle | translate }}</h2>
+    <p>{{ settingsText.TopicsSectionSubtitle | translate }}</p>
+  </div>
+
+  <div class="chip-row">
+    <ion-chip
+      [color]="isAllTopicsSelected() ? 'primary' : 'medium'"
+      [outline]="!isAllTopicsSelected()"
+      (click)="toggleAllTopics.emit()"
+    >
+      <ion-label>{{ allTopicsLabel | translate }}</ion-label>
+    </ion-chip>
+
+    <ion-chip
+      *ngFor="let topic of topics"
+      [color]="isTopicSelected(topic) ? 'primary' : 'medium'"
+      [outline]="!isTopicSelected(topic)"
+      (click)="topicChipClicked.emit(topic)"
+    >
+      <ion-label class="topic-label">
+        {{ ('topics.' + topic) | translate }}
+      </ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-item class="settings-item">
+    <ion-label>
+      <h3>{{ settingsText.PerTopicToggleTitle | translate }}</h3>
+      <p class="toggle-description">
+        {{ settingsText.PerTopicToggleDescription | translate }}
+      </p>
+    </ion-label>
+    <div class="toggle-wrapper" slot="end">
+      <ion-toggle
+        color="primary"
+        [checked]="onePerTopic"
+        (ionChange)="onePerTopicChange.emit($event.detail.checked)"
+      ></ion-toggle>
+    </div>
+  </ion-item>
+</div>
+

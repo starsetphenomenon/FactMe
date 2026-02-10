@@ -1,27 +1,8 @@
 <ion-app>
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <img
-          src="assets/icon/favicon.png"
-          alt="FactMe"
-          class="app-header-favicon"
-        />
-      </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-button
-          *ngIf="showSettingsButton"
-          [routerLink]="['/settings']"
-        >
-          <ion-icon name="settings-outline"></ion-icon>
-        </ion-button>
-        <ion-back-button
-          *ngIf="showBack"
-          defaultHref="/home"
-        ></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <app-header
+    [showSettingsButton]="showSettingsButton"
+    [showBack]="showBack"
+  ></app-header>
 
   <ion-content>
     <ion-router-outlet></ion-router-outlet>

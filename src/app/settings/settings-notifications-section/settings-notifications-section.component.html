@@ -1,0 +1,50 @@
+<div class="settings-section">
+  <div class="section-header">
+    <h2>{{ settingsText.NotificationsSectionTitle | translate }}</h2>
+    <p>{{ settingsText.NotificationsSectionSubtitle | translate }}</p>
+  </div>
+
+  <ion-list lines="none">
+    <ion-item class="settings-item">
+      <ion-label>{{ settingsText.NotificationsDailyToggleLabel | translate }}</ion-label>
+      <div class="toggle-wrapper" slot="end">
+        <ion-toggle
+          color="primary"
+          [checked]="notificationsEnabled"
+          (ionChange)="notificationsToggleChange.emit($event.detail.checked)"
+        ></ion-toggle>
+      </div>
+    </ion-item>
+
+    <ion-item class="settings-item">
+      <ion-label>{{ settingsText.NotificationsTimeLabel | translate }}</ion-label>
+      <ion-datetime-button datetime="timePicker"></ion-datetime-button>
+    </ion-item>
+
+    <ion-item class="settings-item weekdays-item">
+      <ion-label>{{ settingsText.NotificationsDaysLabel | translate }}</ion-label>
+      <div class="weekdays-chips" slot="end">
+        <ion-chip
+          *ngFor="let d of weekdayOptions"
+          [color]="isWeekdaySelected(d.value) ? 'primary' : 'medium'"
+          [outline]="!isWeekdaySelected(d.value)"
+          (click)="toggleWeekday(d.value)"
+        >
+          <ion-label>{{ d.labelKey | translate }}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+        id="timePicker"
+        presentation="time"
+        [value]="notificationTime"
+        (ionChange)="timeChanged.emit($event.detail.value)"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
+</div>
+

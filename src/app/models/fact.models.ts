@@ -1,5 +1,5 @@
-import { Language } from "../enums/language.enum";
-import { Topic } from "../enums/topic.enum";
+import { Language } from '../enums/language.enum';
+import { Topic } from '../enums/topic.enum';
 
 export type TopicKey = Topic;
 
@@ -25,10 +25,13 @@ export interface TopicFactsFile {
   };
 }
 
+export type Weekday = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
 export interface AppSettings {
   selectedTopics: TopicKey[];
   notificationsEnabled: boolean;
   notificationTime: string;
+  notificationWeekdays?: Weekday[];
   lastShownDate?: string;
   lastShownFactId?: string;
   shownFactIds?: string[];
@@ -49,3 +52,5 @@ export const ALL_TOPICS: TopicKey[] = [
   Topic.Literature,
   Topic.Psychology,
 ];
+
+export const ALL_WEEKDAYS: Weekday[] = [1, 2, 3, 4, 5, 6, 7];

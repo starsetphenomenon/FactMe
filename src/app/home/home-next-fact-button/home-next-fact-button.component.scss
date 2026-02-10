@@ -1,0 +1,14 @@
+.next-fact-button {
+  position: fixed;
+  right: 32px; /* leave room for scrollbar on the very edge */
+  bottom: 24px;
+  z-index: 10;
+  --background: rgba(255, 180, 87, 0.12);
+  --color: var(--ion-color-primary);
+  --border-radius: 999px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  min-width: 44px;
+  height: 44px;
+}
+

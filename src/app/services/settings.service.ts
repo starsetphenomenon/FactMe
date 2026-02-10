@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AppSettings, ALL_TOPICS, TopicKey } from '../models/fact.models';
+import { AppSettings, ALL_TOPICS, ALL_WEEKDAYS, TopicKey } from '../models/fact.models';
 import { Language } from '../enums/language.enum';
 
 const SETTINGS_KEY = 'dailyFactsSettings';
@@ -110,6 +110,7 @@ export class SettingsService {
       onePerTopic: false,
       language: Language.English,
       theme: 'dark',
+      notificationWeekdays: [...ALL_WEEKDAYS],
     };
   }
 

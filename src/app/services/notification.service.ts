@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { AppSettings, Fact } from '../models/fact.models';
+import { AppSettings, Fact, Weekday, ALL_WEEKDAYS } from '../models/fact.models';
 import { NotificationText } from '../enums/notification-text.enum';
 import { TranslationService } from './translation.service';
 
-const DAILY_FACT_NOTIFICATION_ID = 1;
+// Use a stable range of IDs so we can schedule
+// one notification per weekday if needed.
+const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
 
 @Injectable({
   providedIn: 'root',
@@ -40,10 +42,15 @@ export class NotificationService {
     }
 
     await LocalNotifications.cancel({
-      notifications: [{ id: DAILY_FACT_NOTIFICATION_ID }],
+      notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
     });
 
-    if (!settings.notificationsEnabled) {
+    const weekdays =
+      settings.notificationWeekdays === undefined
+        ? [...ALL_WEEKDAYS]
+        : settings.notificationWeekdays;
+
+    if (!settings.notificationsEnabled || weekdays.length === 0) {
       return;
     }
 
@@ -62,20 +69,30 @@ export class NotificationService {
     const title = fact?.title ?? this.translationService.translate(NotificationText.FallbackTitle);
     const body = this.translationService.translate(NotificationText.BodyFullStory);
 
-    await LocalNotifications.schedule({
-      notifications: [
-        {
-          id: DAILY_FACT_NOTIFICATION_ID,
-          title,
-          body,
-          schedule: {
-            at: triggerTime,
-            repeats: true,
-            every: 'day',
-          },
-          smallIcon: 'ic_stat_icon',
+    const [hourStr, minuteStr] = settings.notificationTime.split(':');
+    const hour = Number(hourStr ?? 9);
+    const minute = Number(minuteStr ?? 0);
+
+    const notifications = weekdays.map((weekday: Weekday, index: number) => ({
+      id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
+      title,
+      body,
+      schedule: {
+        // Start from the next occurrence of this weekday at the chosen time.
+        at: this.getNextWeekdayTriggerDate(weekday as Weekday, hour, minute),
+        repeats: true,
+        every: 'week' as const,
+        on: {
+          weekday,
+          hour,
+          minute,
         },
-      ],
+      },
+      smallIcon: 'ic_stat_icon',
+    }));
+
+    await LocalNotifications.schedule({
+      notifications,
     });
   }
 
@@ -93,6 +110,26 @@ export class NotificationService {
       trigger.setDate(trigger.getDate() + 1);
     }
     return trigger;
+  }
+
+  private getNextWeekdayTriggerDate(weekday: Weekday, hour: number, minute: number): Date {
+    const now = new Date();
+    const result = new Date(now);
+    result.setHours(hour, minute, 0, 0);
+
+    // JS: 0 = Sunday ... 6 = Saturday
+    const todayJs = now.getDay(); // 0-6
+
+    // Capacitor/iOS weekday: 1 = Sunday ... 7 = Saturday
+    const targetJs = (weekday + 6) % 7; // convert 1–7 => 0–6 (Sunday=0)
+
+    let diff = targetJs - todayJs;
+    if (diff < 0 || (diff === 0 && result <= now)) {
+      diff += 7;
+    }
+
+    result.setDate(now.getDate() + diff);
+    return result;
   }
 }
 

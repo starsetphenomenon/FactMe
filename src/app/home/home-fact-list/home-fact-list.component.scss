@@ -1,0 +1,211 @@
+.home-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 16px 96px;
+  gap: 16px;
+}
+
+.fact-card {
+  width: 100%;
+  max-width: 480px;
+  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.15), transparent 55%),
+    rgba(12, 14, 22, 0.9);
+  border-radius: 22px;
+  padding: 20px 18px 18px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 180, 87, 0.25);
+  color: #ffffff;
+  backdrop-filter: blur(18px);
+}
+
+.light-theme .fact-card {
+  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.08), transparent 55%),
+    #ffffff;
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(15, 23, 42, 0.05);
+  color: #111827;
+}
+
+.fact-card.topic-history {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 180, 87, 0.25);
+}
+
+.fact-card.topic-history .topic-badge {
+  --background: rgba(255, 180, 87, 0.18);
+  --color: #ffb457;
+}
+
+.fact-card.topic-science {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(102, 187, 255, 0.28);
+}
+
+.fact-card.topic-science .topic-badge {
+  --background: rgba(102, 187, 255, 0.16);
+  --color: #66bbff;
+}
+
+.fact-card.topic-world-events {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(129, 199, 132, 0.28);
+}
+
+.fact-card.topic-world-events .topic-badge {
+  --background: rgba(129, 199, 132, 0.16);
+  --color: #81c784;
+}
+
+.fact-card.topic-technology {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(159, 168, 218, 0.3);
+}
+
+.fact-card.topic-technology .topic-badge {
+  --background: rgba(159, 168, 218, 0.16);
+  --color: #9fa8da;
+}
+
+.fact-card.topic-music {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(244, 143, 177, 0.3);
+}
+
+.fact-card.topic-music .topic-badge {
+  --background: rgba(244, 143, 177, 0.18);
+  --color: #f48fb1;
+}
+
+.fact-card.topic-movies {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 224, 130, 0.3);
+}
+
+.fact-card.topic-movies .topic-badge {
+  --background: rgba(255, 224, 130, 0.18);
+  --color: #ffe082;
+}
+
+.fact-card.topic-sports {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(129, 212, 250, 0.3);
+}
+
+.fact-card.topic-sports .topic-badge {
+  --background: rgba(129, 212, 250, 0.18);
+  --color: #81d4fa;
+}
+
+.fact-card.topic-fun-facts {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 241, 118, 0.35);
+}
+
+.fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(255, 241, 118, 0.2);
+  --color: #fff176;
+}
+
+.fact-card.topic-literature {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(186, 104, 200, 0.32);
+}
+
+.fact-card.topic-literature .topic-badge {
+  --background: rgba(186, 104, 200, 0.2);
+  --color: #ba68c8;
+}
+
+.fact-card.topic-psychology {
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(128, 222, 234, 0.32);
+}
+
+.fact-card.topic-psychology .topic-badge {
+  --background: rgba(128, 222, 234, 0.2);
+  --color: #80deea;
+}
+
+.fact-card.empty,
+.fact-card.error {
+  text-align: center;
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.topic-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 180, 87, 0.16);
+  box-shadow: 0 0 0 1px rgba(255, 180, 87, 0.25);
+}
+
+.topic-icon {
+  font-size: 14px;
+  color: #ffb457;
+}
+
+.topic-badge {
+  margin-bottom: 0;
+  --background: rgba(255, 180, 87, 0.16);
+  --color: #ffb457;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 8px;
+  height: 20px;
+}
+
+.fact-title {
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 700;
+  margin: 4px 0 12px;
+}
+
+.fact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.light-theme .fact-description {
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.error-text {
+  --color: var(--ion-color-primary);
+}
+
+.loading-spinner {
+  margin-left: auto;
+  margin-right: auto;
+}
+

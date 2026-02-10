@@ -1,0 +1,34 @@
+<div class="settings-section">
+  <ion-item class="settings-item">
+    <ion-label>
+      <h3>{{ settingsText.ThemeToggleLabel | translate }}</h3>
+    </ion-label>
+    <div class="toggle-wrapper" slot="end">
+      <ion-toggle
+        color="primary"
+        [checked]="isLightTheme"
+        (ionChange)="themeToggleChange.emit($event.detail.checked)"
+      ></ion-toggle>
+    </div>
+  </ion-item>
+
+  <div class="language-row">
+    <div class="language-row-label">
+      <h3>{{ settingsText.Language | translate }}</h3>
+    </div>
+    <ion-select
+      class="language-select"
+      interface="popover"
+      [value]="language || defaultLanguage"
+      (ionChange)="languageChange.emit($event.detail.value)"
+    >
+      <ion-select-option
+        *ngFor="let lang of languages"
+        [value]="lang.code"
+      >
+        {{ lang.flag }} {{ lang.label }}
+      </ion-select-option>
+    </ion-select>
+  </div>
+</div>
+

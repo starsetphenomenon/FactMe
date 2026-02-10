@@ -1,0 +1,53 @@
+<div class="home-wrapper">
+  <app-home-date-header
+    [dateLabel]="dateLabel"
+    [isLoading]="isLoading"
+  ></app-home-date-header>
+
+  <ng-container *ngIf="!isLoading && hasFacts && !error">
+    <div
+      class="fact-card"
+      *ngFor="let f of facts"
+      [ngClass]="'topic-' + f.topic"
+    >
+      <div class="topic-row">
+        <div class="topic-icon-wrapper">
+          <ion-icon
+            class="topic-icon"
+            [name]="getTopicIcon(f.topic)"
+          ></ion-icon>
+        </div>
+        <ion-badge class="topic-badge">
+          {{ ('topics.' + f.topic) | translate }}
+        </ion-badge>
+      </div>
+
+      <h1 class="fact-title">
+        {{ f.title }}
+      </h1>
+
+      <p class="fact-description">
+        {{ f.description }}
+      </p>
+    </div>
+  </ng-container>
+
+  <div class="fact-card empty" *ngIf="!isLoading && !hasFacts && !error">
+    <p class="fact-description">
+      {{ homeText.EmptyMessage | translate }}
+    </p>
+  </div>
+
+  <div class="fact-card error" *ngIf="error">
+    <p class="error-text">
+      {{ error | translate }}
+    </p>
+  </div>
+
+  <ion-spinner
+    *ngIf="isLoading"
+    class="loading-spinner"
+    name="crescent"
+  ></ion-spinner>
+</div>
+
