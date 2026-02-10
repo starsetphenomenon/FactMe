@@ -8,12 +8,15 @@
     0 0 0 1px rgba(255, 152, 0, 0.3);
 }
 
-.settings-item {
-  --background: transparent;
-  --padding-start: 0;
-  --inner-padding-end: 0;
-  --inner-border-width: 0 0 0 0;
-  --inner-border-color: transparent;
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-toggle-label {
+  flex: 1;
+  padding-right: 12px;
 }
 
 .toggle-wrapper {

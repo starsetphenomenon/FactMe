@@ -25,20 +25,20 @@
     </ion-chip>
   </div>
 
-  <ion-item class="settings-item">
-    <ion-label>
+  <div class="settings-toggle-row">
+    <div class="settings-toggle-label">
       <h3>{{ settingsText.PerTopicToggleTitle | translate }}</h3>
       <p class="toggle-description">
         {{ settingsText.PerTopicToggleDescription | translate }}
       </p>
-    </ion-label>
-    <div class="toggle-wrapper" slot="end">
+    </div>
+    <div class="toggle-wrapper">
       <ion-toggle
         color="primary"
         [checked]="onePerTopic"
         (ionChange)="onePerTopicChange.emit($event.detail.checked)"
       ></ion-toggle>
     </div>
-  </ion-item>
+  </div>
 </div>
 

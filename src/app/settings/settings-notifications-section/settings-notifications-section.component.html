@@ -5,16 +5,18 @@
   </div>
 
   <ion-list lines="none">
-    <ion-item class="settings-item">
-      <ion-label>{{ settingsText.NotificationsDailyToggleLabel | translate }}</ion-label>
-      <div class="toggle-wrapper" slot="end">
+    <div class="settings-toggle-row">
+      <div class="settings-toggle-label">
+        <h3>{{ settingsText.NotificationsDailyToggleLabel | translate }}</h3>
+      </div>
+      <div class="toggle-wrapper">
         <ion-toggle
           color="primary"
           [checked]="notificationsEnabled"
           (ionChange)="notificationsToggleChange.emit($event.detail.checked)"
         ></ion-toggle>
       </div>
-    </ion-item>
+    </div>
 
     <ion-item class="settings-item">
       <ion-label>{{ settingsText.NotificationsTimeLabel | translate }}</ion-label>

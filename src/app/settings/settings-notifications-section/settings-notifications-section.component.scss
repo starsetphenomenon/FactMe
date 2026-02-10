@@ -37,6 +37,18 @@
   --inner-padding-end: 0;
 }
 
+.settings-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.settings-toggle-label {
+  flex: 1;
+  padding-right: 12px;
+}
+
 .weekdays-item {
   align-items: flex-start;
 }
