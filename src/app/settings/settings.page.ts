@@ -82,12 +82,6 @@ export class SettingsPage implements OnInit {
     });
   }
 
-  onThemeToggleChange(enabled: boolean): void {
-    this.settings = this.settingsService.update({
-      theme: enabled ? 'light' : 'dark',
-    });
-  }
-
   async onLanguageChange(lang: Language): Promise<void> {
     this.settings = this.settingsService.update({ language: lang });
     this.translationService.setLanguage(lang);

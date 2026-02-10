@@ -1,9 +1,16 @@
 import { Language } from "../enums/language.enum";
-import { Topic } from "../enums/topic.enum";
 
-export type TopicKey = Topic;
-
-export type Theme = 'dark' | 'light';
+export type TopicKey =
+  | 'history'
+  | 'science'
+  | 'world-events'
+  | 'technology'
+  | 'music'
+  | 'movies'
+  | 'sports'
+  | 'fun-facts'
+  | 'literature'
+  | 'psychology';
 
 export interface Fact {
   id: string;
@@ -34,18 +41,17 @@ export interface AppSettings {
   shownFactIds?: string[];
   onePerTopic: boolean;
   language?: Language;
-  theme: Theme;
 }
 
 export const ALL_TOPICS: TopicKey[] = [
-  Topic.History,
-  Topic.Science,
-  Topic.WorldEvents,
-  Topic.Technology,
-  Topic.Music,
-  Topic.Movies,
-  Topic.Sports,
-  Topic.FunFacts,
-  Topic.Literature,
-  Topic.Psychology,
+  'history',
+  'science',
+  'world-events',
+  'technology',
+  'music',
+  'movies',
+  'sports',
+  'fun-facts',
+  'literature',
+  'psychology',
 ];

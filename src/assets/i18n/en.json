@@ -1,17 +1,20 @@
 {
+  "header": {
+    "appTitleHome": "Today's Fact",
+    "appTitleSettings": "Settings"
+  },
   "settings": {
     "topicsSectionTitle": "Topics",
     "topicsSectionSubtitle": "Select which topics to include in your daily fact.",
-    "topicsAllChipAll": "ALL",
-    "topicsAllChipUnselect": "NONE",
+    "topicsAllChipAll": "ALL TOPICS",
+    "topicsAllChipUnselect": "UNSELECT ALL",
     "perTopicToggleTitle": "Multiple facts",
     "perTopicToggleDescription": "Shows one fact for each selected topic.",
     "notificationsSectionTitle": "Notifications",
     "notificationsSectionSubtitle": "Get a reminder when your daily fact is ready.",
     "notificationsDailyToggleLabel": "Daily notification",
     "notificationsTimeLabel": "Notification time",
-    "language": "Language",
-    "themeToggleLabel": "Light theme"
+    "language": "Language"
   },
   "topics": {
     "history": "HISTORY",
@@ -37,4 +40,3 @@
     "bodyFullStory": "Tap to read the full story in the app."
   }
 }
-

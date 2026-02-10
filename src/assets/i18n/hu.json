@@ -1,17 +1,20 @@
 {
+  "header": {
+    "appTitleHome": "Mai tények",
+    "appTitleSettings": "Beállítások"
+  },
   "settings": {
     "topicsSectionTitle": "Témák",
     "topicsSectionSubtitle": "Válaszd ki, mely témákból szeretnél napi tényt kapni.",
-    "topicsAllChipAll": "MIND",
-    "topicsAllChipUnselect": "SEMILYEN",
+    "topicsAllChipAll": "ÖSSZES TÉMA",
+    "topicsAllChipUnselect": "KIVÁLASZTÁS TÖRLÉSE",
     "perTopicToggleTitle": "Több tény",
     "perTopicToggleDescription": "Egy tényt mutat minden kiválasztott témához.",
     "notificationsSectionTitle": "Értesítések",
     "notificationsSectionSubtitle": "Értesítést kapsz, amikor a napi tény elérhető.",
     "notificationsDailyToggleLabel": "Napi értesítés",
     "notificationsTimeLabel": "Értesítés ideje",
-    "language": "Nyelv",
-    "themeToggleLabel": "Világos téma"
+    "language": "Nyelv"
   },
   "topics": {
     "history": "TÖRTÉNELEM",
@@ -37,4 +40,3 @@
     "bodyFullStory": "Koppints ide a teljes történet elolvasásához az alkalmazásban."
   }
 }
-

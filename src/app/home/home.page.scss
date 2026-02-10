@@ -28,13 +28,6 @@
   backdrop-filter: blur(18px);
 }
 
-.light-theme .home-date {
-  background: #ffffff;
-  box-shadow:
-    0 8px 18px rgba(15, 23, 42, 0.16),
-    0 0 0 1px rgba(15, 23, 42, 0.06);
-}
-
 .home-date-icon {
   font-size: 16px;
   color: rgba(255, 180, 87, 0.85);
@@ -59,15 +52,6 @@
     0 0 0 1px rgba(255, 180, 87, 0.25);
   color: #ffffff;
   backdrop-filter: blur(18px);
-}
-
-.light-theme .fact-card {
-  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.08), transparent 55%),
-    #ffffff;
-  box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.18),
-    0 0 0 1px rgba(15, 23, 42, 0.05);
-  color: #111827;
 }
 
 .fact-card.topic-history {
@@ -188,8 +172,8 @@
 .topic-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+  justify-content: space-between; /* icon left, badge right */
+  margin-bottom: 8px;
 }
 
 .topic-icon-wrapper {
@@ -314,10 +298,6 @@
   font-size: 16px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
-}
-
-.light-theme .fact-description {
-  color: rgba(15, 23, 42, 0.9);
 }
 
 .next-fact-button {

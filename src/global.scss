@@ -39,36 +39,19 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Roboto", "Helvetica Neue", sans-serif;
-}
-
-.dark-theme {
   background: radial-gradient(circle at top, #10131c 0, #05070a 40%, #05070a 100%);
   color: #ffffff;
 }
 
-.light-theme {
-  background: #f6f3ee;
-  color: #1f2933;
-}
-
-.dark-theme ion-header,
-.dark-theme ion-toolbar {
+ion-header,
+ion-toolbar {
   --background: rgba(8, 10, 16, 0.9);
   --color: #ffffff;
   --border-color: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(18px);
 }
 
-.light-theme ion-header,
-.light-theme ion-toolbar {
-  --background: rgba(255, 255, 255, 0.92);
-  --color: #111827;
-  --border-color: rgba(15, 23, 42, 0.08);
-  backdrop-filter: blur(14px);
-}
-
-.dark-theme ion-content,
-.light-theme ion-content {
+ion-content {
   --background: transparent;
 }
 

@@ -1,17 +1,20 @@
 {
+  "header": {
+    "appTitleHome": "Heutige Info",
+    "appTitleSettings": "Einstellungen"
+  },
   "settings": {
     "topicsSectionTitle": "Themen",
     "topicsSectionSubtitle": "Wähle aus, welche Themen in deinem täglichen Fakt enthalten sein sollen.",
-    "topicsAllChipAll": "ALLE",
-    "topicsAllChipUnselect": "KEINE",
+    "topicsAllChipAll": "ALLE THEMEN",
+    "topicsAllChipUnselect": "ALLE ABWÄHLEN",
     "perTopicToggleTitle": "Mehrere Fakten",
     "perTopicToggleDescription": "Zeigt einen Fakt pro ausgewähltem Thema.",
     "notificationsSectionTitle": "Benachrichtigungen",
     "notificationsSectionSubtitle": "Erhalte eine Erinnerung, wenn dein täglicher Fakt bereit ist.",
     "notificationsDailyToggleLabel": "Tägliche Benachrichtigung",
     "notificationsTimeLabel": "Uhrzeit der Benachrichtigung",
-    "language": "Sprache",
-    "themeToggleLabel": "Helles Design"
+    "language": "Sprache"
   },
   "topics": {
     "history": "GESCHICHTE",
@@ -37,4 +40,3 @@
     "bodyFullStory": "Tippe, um die vollständige Geschichte in der App zu lesen."
   }
 }
-

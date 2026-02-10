@@ -8,7 +8,6 @@ import {
 } from '../models/fact.models';
 import { SettingsService } from './settings.service';
 import { Language } from '../enums/language.enum';
-import { Topic } from '../enums/topic.enum';
 
 // Cache facts per topic in memory after first load
 interface TopicCacheEntry {
@@ -132,7 +131,21 @@ export class FactService {
 
   private extractTopicFromId(id: string): TopicKey | null {
     const prefix = id.split('-')[0] as TopicKey | undefined;
-    const validTopics = Object.values(Topic) as TopicKey[];
-    return prefix && validTopics.includes(prefix) ? prefix : null;
+    if (
+      prefix === 'history' ||
+      prefix === 'science' ||
+      prefix === 'world-events' ||
+      prefix === 'technology' ||
+      prefix === 'music' ||
+      prefix === 'movies' ||
+      prefix === 'sports' ||
+      prefix === 'fun-facts' ||
+      prefix === 'literature' ||
+      prefix === 'psychology'
+    ) {
+      return prefix;
+    }
+    return null;
   }
 }
+

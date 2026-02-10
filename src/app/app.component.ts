@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NavController, Platform } from '@ionic/angular';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { HeaderText } from './enums/header-text.enum';
 import { SettingsService } from './services/settings.service';
 import { TranslationService } from './services/translation.service';
 import { Language } from './enums/language.enum';
@@ -14,6 +15,7 @@ import { Language } from './enums/language.enum';
   standalone: false,
 })
 export class AppComponent {
+  headerTitle = HeaderText.AppTitleHome;
   showBack = false;
   showSettingsButton = true;
 
@@ -27,15 +29,7 @@ export class AppComponent {
     this.initNotificationListeners();
     this.initLanguage();
     this.initHeaderForRouting();
-
-    // Apply initial theme and react to changes
-    const initialSettings = this.settingsService.getSettings();
-    this.applyTheme(initialSettings.theme);
-    this.settingsService.settingsChanges$.subscribe((s) => {
-      if (s) {
-        this.applyTheme(s.theme);
-      }
-    });
+    this.initHeaderForLanguageChanges();
   }
 
   private async initNotificationListeners(): Promise<void> {
@@ -62,11 +56,25 @@ export class AppComponent {
       });
   }
 
-  private updateHeaderForUrl(url: string): void {
+  private initHeaderForLanguageChanges(): void {
+    this.translationService.languageChanges$.subscribe(() => {
+      const url = this.router.url;
+      this.updateHeaderForUrl(url);
+    });
+  }
+
+  private async updateHeaderForUrl(url: string): Promise<void> {
+    await this.translationService.loadTranslations(this.translationService.getLanguage());
     if (url.startsWith('/settings')) {
+      this.headerTitle = this.translationService.t(
+        HeaderText.AppTitleSettings,
+      ) as HeaderText;
       this.showBack = true;
       this.showSettingsButton = false;
     } else {
+      this.headerTitle = this.translationService.t(
+        HeaderText.AppTitleHome,
+      ) as HeaderText;
       this.showBack = false;
       this.showSettingsButton = true;
     }
@@ -77,14 +85,6 @@ export class AppComponent {
     const lang = settings.language || Language.English;
     this.translationService.setLanguage(lang);
     await this.translationService.loadTranslations(lang);
-  }
-
-  private applyTheme(theme: 'dark' | 'light'): void {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    const body = document.body;
-    body.classList.remove('dark-theme', 'light-theme');
-    body.classList.add(theme === 'light' ? 'light-theme' : 'dark-theme');
+    this.headerTitle = this.translationService.t(HeaderText.AppTitleHome) as HeaderText;
   }
 }

@@ -72,8 +72,8 @@ export class SettingsService {
     if (typeof window === 'undefined') {
       return this.defaultSettings();
     }
-
-    try {
+return this.defaultSettings();
+    /* try {
       const raw = window.localStorage.getItem(SETTINGS_KEY);
       if (!raw) {
         return this.defaultSettings();
@@ -85,7 +85,7 @@ export class SettingsService {
       };
     } catch {
       return this.defaultSettings();
-    }
+    } */
   }
 
   private saveToStorage(settings: AppSettings): void {
@@ -109,7 +109,6 @@ export class SettingsService {
       shownFactIds: [],
       onePerTopic: false,
       language: Language.English,
-      theme: 'dark',
     };
   }
 

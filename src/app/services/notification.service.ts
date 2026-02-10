@@ -59,8 +59,8 @@ export class NotificationService {
       this.translationService.getLanguage(),
     );
 
-    const title = fact?.title ?? this.translationService.translate(NotificationText.FallbackTitle);
-    const body = this.translationService.translate(NotificationText.BodyFullStory);
+    const title = fact?.title ?? this.translationService.t(NotificationText.FallbackTitle);
+    const body = this.translationService.t(NotificationText.BodyFullStory);
 
     await LocalNotifications.schedule({
       notifications: [
