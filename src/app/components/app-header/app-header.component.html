@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons>
       <img
         src="assets/icon/favicon.png"
         alt="FactMe"
@@ -10,6 +10,7 @@
     <ion-buttons slot="end">
       <ion-button
         *ngIf="showSettingsButton"
+        size="large"
         [routerLink]="['/settings']"
       >
         <ion-icon name="settings-outline"></ion-icon>
