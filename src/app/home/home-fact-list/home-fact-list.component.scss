@@ -169,6 +169,87 @@
   color: #ffb457;
 }
 
+/* Topic icon and wrapper colors (match topic badge) */
+.fact-card.topic-history .topic-icon-wrapper {
+  background: rgba(255, 180, 87, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 180, 87, 0.25);
+}
+.fact-card.topic-history .topic-icon {
+  color: #ffb457;
+}
+
+.fact-card.topic-science .topic-icon-wrapper {
+  background: rgba(102, 187, 255, 0.16);
+  box-shadow: 0 0 0 1px rgba(102, 187, 255, 0.28);
+}
+.fact-card.topic-science .topic-icon {
+  color: #66bbff;
+}
+
+.fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(129, 199, 132, 0.16);
+  box-shadow: 0 0 0 1px rgba(129, 199, 132, 0.28);
+}
+.fact-card.topic-world-events .topic-icon {
+  color: #81c784;
+}
+
+.fact-card.topic-technology .topic-icon-wrapper {
+  background: rgba(159, 168, 218, 0.16);
+  box-shadow: 0 0 0 1px rgba(159, 168, 218, 0.3);
+}
+.fact-card.topic-technology .topic-icon {
+  color: #9fa8da;
+}
+
+.fact-card.topic-music .topic-icon-wrapper {
+  background: rgba(244, 143, 177, 0.18);
+  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.3);
+}
+.fact-card.topic-music .topic-icon {
+  color: #f48fb1;
+}
+
+.fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(255, 224, 130, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 224, 130, 0.3);
+}
+.fact-card.topic-movies .topic-icon {
+  color: #ffe082;
+}
+
+.fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(129, 212, 250, 0.18);
+  box-shadow: 0 0 0 1px rgba(129, 212, 250, 0.3);
+}
+.fact-card.topic-sports .topic-icon {
+  color: #81d4fa;
+}
+
+.fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(255, 241, 118, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 241, 118, 0.35);
+}
+.fact-card.topic-fun-facts .topic-icon {
+  color: #fff176;
+}
+
+.fact-card.topic-literature .topic-icon-wrapper {
+  background: rgba(186, 104, 200, 0.2);
+  box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.32);
+}
+.fact-card.topic-literature .topic-icon {
+  color: #ba68c8;
+}
+
+.fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(128, 222, 234, 0.2);
+  box-shadow: 0 0 0 1px rgba(128, 222, 234, 0.32);
+}
+.fact-card.topic-psychology .topic-icon {
+  color: #80deea;
+}
+
 .topic-badge {
   margin-bottom: 0;
   --background: rgba(255, 180, 87, 0.16);
@@ -187,7 +268,7 @@
 .fact-title {
   font-size: clamp(22px, 4.5vw, 28px);
   font-weight: 700;
-  margin: 4px 0 12px;
+  margin: 18px 0 12px 0;
 }
 
 .fact-description {

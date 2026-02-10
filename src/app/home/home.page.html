@@ -8,7 +8,7 @@
   ></app-home-fact-list>
 
   <app-home-next-fact-button
-    [isVisible]="!isLoading && facts.length > 0 && !error"
+    [isVisible]="!isLoading && !error"
     [isRefreshing]="isRefreshing"
     [homeText]="homeText"
     (nextFact)="onNextFact()"
