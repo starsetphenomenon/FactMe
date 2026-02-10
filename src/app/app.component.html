@@ -2,12 +2,12 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button
-          *ngIf="showBack"
-          defaultHref="/home"
-        ></ion-back-button>
+        <img
+          src="assets/icon/favicon.png"
+          alt="FactMe"
+          class="app-header-favicon"
+        />
       </ion-buttons>
-      <ion-title>{{ headerTitle }}</ion-title>
       <ion-buttons slot="end">
         <ion-button
           *ngIf="showSettingsButton"
@@ -15,6 +15,10 @@
         >
           <ion-icon name="settings-outline"></ion-icon>
         </ion-button>
+        <ion-back-button
+          *ngIf="showBack"
+          defaultHref="/home"
+        ></ion-back-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>

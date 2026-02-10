@@ -72,8 +72,8 @@ export class SettingsService {
     if (typeof window === 'undefined') {
       return this.defaultSettings();
     }
-return this.defaultSettings();
-    /* try {
+
+    try {
       const raw = window.localStorage.getItem(SETTINGS_KEY);
       if (!raw) {
         return this.defaultSettings();
@@ -85,7 +85,7 @@ return this.defaultSettings();
       };
     } catch {
       return this.defaultSettings();
-    } */
+    }
   }
 
   private saveToStorage(settings: AppSettings): void {
@@ -109,6 +109,7 @@ return this.defaultSettings();
       shownFactIds: [],
       onePerTopic: false,
       language: Language.English,
+      theme: 'dark',
     };
   }
 

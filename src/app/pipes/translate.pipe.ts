@@ -13,7 +13,7 @@ export class TranslatePipe implements PipeTransform {
     if (!key) {
       return '';
     }
-    return this.translation.t(key);
+    return this.translation.translate(key);
   }
 }
 

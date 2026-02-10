@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ALL_TOPICS, Fact, TopicKey } from '../models/fact.models';
+import { Topic } from '../enums/topic.enum';
+import { TopicIcon } from '../enums/topic-icon.enum';
 import { FactService } from '../services/fact.service';
 import { SettingsService } from '../services/settings.service';
 import { NotificationService } from '../services/notification.service';
@@ -76,30 +78,30 @@ export class HomePage implements OnInit {
       : '';
   }
 
-  getTopicIcon(topic: TopicKey): string {
+  getTopicIcon(topic: TopicKey): TopicIcon {
     switch (topic) {
-      case 'history':
-        return 'time-outline';
-      case 'science':
-        return 'flask-outline';
-      case 'world-events':
-        return 'earth-outline';
-      case 'technology':
-        return 'cog-outline';
-      case 'music':
-        return 'musical-notes-outline';
-      case 'movies':
-        return 'film-outline';
-      case 'sports':
-        return 'trophy-outline';
-      case 'fun-facts':
-        return 'bulb-outline';
-      case 'literature':
-        return 'book-outline';
-      case 'psychology':
-        return 'pulse-outline';
+      case Topic.History:
+        return TopicIcon.History;
+      case Topic.Science:
+        return TopicIcon.Science;
+      case Topic.WorldEvents:
+        return TopicIcon.WorldEvents;
+      case Topic.Technology:
+        return TopicIcon.Technology;
+      case Topic.Music:
+        return TopicIcon.Music;
+      case Topic.Movies:
+        return TopicIcon.Movies;
+      case Topic.Sports:
+        return TopicIcon.Sports;
+      case Topic.FunFacts:
+        return TopicIcon.FunFacts;
+      case Topic.Literature:
+        return TopicIcon.Literature;
+      case Topic.Psychology:
+        return TopicIcon.Psychology;
       default:
-        return 'pricetag-outline';
+        return TopicIcon.Default;
     }
   }
 

@@ -72,7 +72,7 @@ export class TranslationService {
    * Get translation for a key. Supports dot notation for nested keys.
    * Example: 'header.appTitleHome' or 'settings.topicsSectionTitle'
    */
-  t(key: string): string {
+  translate(key: string): string {
     const dict = this.translationsCache.get(this.currentLanguage);
     if (!dict) {
       // If not loaded yet, try to load synchronously (fallback)
@@ -88,7 +88,7 @@ export class TranslationService {
    */
   async tAsync(key: string): Promise<string> {
     await this.loadTranslations(this.currentLanguage);
-    return this.t(key);
+    return this.translate(key);
   }
 
   /**
