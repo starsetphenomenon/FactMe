@@ -67,7 +67,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     );
     const lastKey = this.settingsService.getLastFactsLoadSettingsKey();
     // Refetch when user changed topics/onePerTopic on Settings and came back
-    if (lastKey !== undefined && currentKey !== lastKey) {
+    if (lastKey !== null && currentKey !== lastKey) {
       void this.loadTodayFact();
     }
   }
@@ -134,13 +134,26 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         return;
       }
 
-      const topics =
-        settings.selectedTopics?.length > 0
-          ? settings.selectedTopics
-          : ALL_TOPICS;
+      const currentKey = this.buildSettingsKey(
+        settings.selectedTopics ?? [],
+        settings.onePerTopic,
+      );
+
+      // If settings changed since we last stored the current facts state, refetch.
+      if (
+        settings.currentFactsSettingsKey &&
+        settings.currentFactsSettingsKey !== currentKey
+      ) {
+        await this.loadTodayFact();
+        return;
+      }
 
       if (!settings.onePerTopic) {
         if (settings.lastShownFactId) {
+          const topics =
+            settings.selectedTopics?.length > 0
+              ? settings.selectedTopics
+              : ALL_TOPICS;
           const fact = await this.factService.getFactById(
             settings.lastShownFactId,
             topics,
@@ -150,7 +163,14 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
           this.facts = [];
         }
       } else {
-        const ids = settings.shownFactIds ?? [];
+        const ids = settings.currentFactIds.length
+          ? settings.currentFactIds
+          : settings.shownFactIds;
+
+        const topics =
+          settings.selectedTopics?.length > 0
+            ? settings.selectedTopics
+            : ALL_TOPICS;
         const restored: Fact[] = [];
         for (const id of ids) {
           const fact = await this.factService.getFactById(id, topics);
@@ -159,35 +179,17 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         this.facts = restored;
       }
 
-      // If restored data doesn't match current mode (e.g. user toggled multiple facts in Settings),
-      // refetch so the list matches onePerTopic and selected topics.
-      if (this.factsStaleForCurrentSettings(settings)) {
-        await this.loadTodayFact();
-      } else {
-        this.settingsService.setLastFactsLoadSettingsKey(
-          this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
-        );
-      }
+      // Restore the last known error state (e.g. "all seen" vs "empty").
+      this.error = settings.currentErrorKey ?? null;
+
+      // Keep last facts-load settings key in sync so that settings changes on another page
+      // still trigger a refetch when coming back to Home.
+      this.settingsService.setLastFactsLoadSettingsKey(
+        this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
+      );
     } finally {
       this.isLoading = false;
     }
-  }
-
-  /**
-   * True when displayed facts don't match current settings (onePerTopic / selected topics).
-   * Used after restore so we refetch when user changed settings on another page.
-   */
-  private factsStaleForCurrentSettings(settings: { onePerTopic: boolean; selectedTopics?: TopicKey[] }): boolean {
-    const selected = settings.selectedTopics ?? [];
-    const topics: TopicKey[] = selected.length > 0 ? selected : ALL_TOPICS;
-    if (!settings.onePerTopic) {
-      return this.facts.length > 1;
-    }
-    const factTopics = new Set(this.facts.map((f) => f.topic));
-    return (
-      this.facts.length !== topics.length ||
-      !topics.every((t) => factTopics.has(t))
-    );
   }
 
   /**
@@ -200,6 +202,10 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settings = this.settingsService.getSettings();
     const todayIso = this.toIsoDate(this.today);
     const onePerTopic = settings.onePerTopic;
+    const settingsKey = this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+    );
 
     try {
       let alreadyShownIds = this.settingsService.getShownFactIdsForDate(
@@ -229,13 +235,24 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
           this.facts = [];
           this.error = HomeText.EmptyMessage;
           this.isLoading = false;
+          this.settingsService.update({
+            currentFactIds: [],
+            currentErrorKey: HomeText.EmptyMessage,
+            currentFactsSettingsKey: settingsKey,
+          });
+          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
           return;
         }
 
         this.facts = [fact];
         this.settingsService.addShownFactIdForDate(todayIso, fact.id);
+        this.settingsService.update({
+          currentFactIds: [fact.id],
+          currentErrorKey: null,
+          currentFactsSettingsKey: settingsKey,
+        });
         this.settingsService.setLastFactsLoadSettingsKey(
-          this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
+          settingsKey,
         );
         await this.notificationService.rescheduleDailyNotification(
           this.settingsService.getSettings(),
@@ -267,12 +284,23 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
           this.facts = [];
           this.error = HomeText.EmptyMessage;
           this.isLoading = false;
+          this.settingsService.update({
+            currentFactIds: [],
+            currentErrorKey: HomeText.EmptyMessage,
+            currentFactsSettingsKey: settingsKey,
+          });
+          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
           return;
         }
 
         this.facts = newFacts;
+        this.settingsService.update({
+          currentFactIds: newFacts.map((f) => f.id),
+          currentErrorKey: null,
+          currentFactsSettingsKey: settingsKey,
+        });
         this.settingsService.setLastFactsLoadSettingsKey(
-          this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
+          settingsKey,
         );
         await this.notificationService.rescheduleDailyNotification(
           this.settingsService.getSettings(),
@@ -281,6 +309,10 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       }
     } catch (e) {
       this.error = HomeText.LoadErrorMessage;
+      this.settingsService.update({
+        currentErrorKey: HomeText.LoadErrorMessage,
+        currentFactsSettingsKey: settingsKey,
+      });
       // eslint-disable-next-line no-console
       console.error(e);
     } finally {
@@ -319,6 +351,10 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settings = this.settingsService.getSettings();
     const todayIso = this.toIsoDate(this.today);
     const onePerTopic = settings.onePerTopic;
+    const settingsKey = this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+    );
 
     const alreadyShownIds = this.settingsService.getShownFactIdsForDate(
       todayIso,
@@ -339,11 +375,22 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
         if (!next) {
           this.error = HomeText.AllSeenMessage;
+          this.settingsService.update({
+            currentFactIds: this.facts.map((f) => f.id),
+            currentErrorKey: HomeText.AllSeenMessage,
+            currentFactsSettingsKey: settingsKey,
+          });
+          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
           return;
         }
 
         this.facts = [next];
         this.settingsService.addShownFactIdForDate(todayIso, next.id);
+        this.settingsService.update({
+          currentFactIds: [next.id],
+          currentErrorKey: null,
+          currentFactsSettingsKey: settingsKey,
+        });
         await this.notificationService.rescheduleDailyNotification(
           this.settingsService.getSettings(),
           next,
@@ -374,10 +421,21 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         if (!newFacts.length) {
           this.facts = [];
           this.error = HomeText.AllSeenMessage;
+          this.settingsService.update({
+            currentFactIds: [],
+            currentErrorKey: HomeText.AllSeenMessage,
+            currentFactsSettingsKey: settingsKey,
+          });
+          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
           return;
         }
 
         this.facts = newFacts;
+        this.settingsService.update({
+          currentFactIds: newFacts.map((f) => f.id),
+          currentErrorKey: null,
+          currentFactsSettingsKey: settingsKey,
+        });
         await this.notificationService.rescheduleDailyNotification(
           this.settingsService.getSettings(),
           this.facts[0],

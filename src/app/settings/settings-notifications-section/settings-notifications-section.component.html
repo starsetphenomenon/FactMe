@@ -1,7 +1,6 @@
 <div class="settings-section">
   <div class="section-header">
     <h2>{{ settingsText.NotificationsSectionTitle | translate }}</h2>
-    <p>{{ settingsText.NotificationsSectionSubtitle | translate }}</p>
   </div>
 
   <ion-list lines="none">
@@ -18,14 +17,11 @@
       </div>
     </div>
 
-    <ion-item class="settings-item">
-      <ion-label>{{ settingsText.NotificationsTimeLabel | translate }}</ion-label>
-      <ion-datetime-button datetime="timePicker"></ion-datetime-button>
-    </ion-item>
-
-    <ion-item class="settings-item weekdays-item">
-      <ion-label>{{ settingsText.NotificationsDaysLabel | translate }}</ion-label>
-      <div class="weekdays-chips" slot="end">
+    <div class="settings-toggle-row">
+      <div class="settings-toggle-label">
+        <h3>{{ settingsText.NotificationsDaysLabel | translate }}</h3>
+      </div>
+      <div class="weekdays-chips">
         <ion-chip
           *ngFor="let d of weekdayOptions"
           [color]="isWeekdaySelected(d.value) ? 'primary' : 'medium'"
@@ -35,7 +31,16 @@
           <ion-label>{{ d.labelKey | translate }}</ion-label>
         </ion-chip>
       </div>
-    </ion-item>
+    </div>
+
+    <div class="settings-toggle-row">
+      <div class="settings-toggle-label">
+        <h3>{{ settingsText.NotificationsTimeLabel | translate }}</h3>
+      </div>
+      <div class="time-picker-wrapper">
+        <ion-datetime-button datetime="timePicker"></ion-datetime-button>
+      </div>
+    </div>
   </ion-list>
 
   <ion-modal [keepContentsMounted]="true">

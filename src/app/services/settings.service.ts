@@ -12,12 +12,25 @@ export class SettingsService {
   private settings: AppSettings | null = null;
 
   /** Settings key (onePerTopic + topics) when home last loaded facts. Used to refetch when user changes settings elsewhere. */
-  private lastFactsLoadSettingsKey: string | undefined;
+  private lastFactsLoadSettingsKey: string | null = null;
 
   private settingsSubject = new BehaviorSubject<AppSettings | null>(null);
   settingsChanges$ = this.settingsSubject.asObservable();
 
-  getLastFactsLoadSettingsKey(): string | undefined {
+  /**
+   * Returns true if there is any facts history or current facts data stored.
+   */
+  hasShownFactsHistory(settings: AppSettings | null = null): boolean {
+    const current = settings ?? this.getSettings();
+    return !!(
+      current.lastShownDate ||
+      current.lastShownFactId ||
+      (current.shownFactIds && current.shownFactIds.length > 0) ||
+      (current.currentFactIds && current.currentFactIds.length > 0)
+    );
+  }
+
+  getLastFactsLoadSettingsKey(): string | null {
     return this.lastFactsLoadSettingsKey;
   }
 
@@ -47,6 +60,23 @@ export class SettingsService {
 
   setLastShown(dateIso: string, factId: string): void {
     this.addShownFactIdForDate(dateIso, factId);
+  }
+
+  clearShownFactsHistory(): AppSettings {
+    const current = this.getSettings();
+    // If there is nothing to clear, avoid unnecessary writes.
+    if (!this.hasShownFactsHistory(current)) {
+      return current;
+    }
+
+    return this.update({
+      lastShownDate: null,
+      lastShownFactId: null,
+      shownFactIds: [],
+      currentFactIds: [],
+      currentErrorKey: null,
+      currentFactsSettingsKey: null,
+    });
   }
 
   getShownFactIdsForDate(dateIso: string): string[] {
@@ -115,9 +145,12 @@ export class SettingsService {
       selectedTopics: [...ALL_TOPICS],
       notificationsEnabled: true,
       notificationTime: '09:00',
-      lastShownDate: undefined,
-      lastShownFactId: undefined,
+      lastShownDate: null,
+      lastShownFactId: null,
       shownFactIds: [],
+      currentFactIds: [],
+      currentErrorKey: null,
+      currentFactsSettingsKey: null,
       onePerTopic: false,
       language: Language.English,
       theme: 'dark',

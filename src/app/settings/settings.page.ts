@@ -11,6 +11,7 @@ import { NotificationService } from '../services/notification.service';
 import { SettingsText } from '../enums/settings-text.enum';
 import { TranslationService } from '../services/translation.service';
 import { Language } from '../enums/language.enum';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -34,10 +35,15 @@ export class SettingsPage implements OnInit {
     private settingsService: SettingsService,
     private notificationService: NotificationService,
     private translationService: TranslationService,
+    private toastController: ToastController,
   ) {}
 
   ngOnInit(): void {
     this.settings = this.settingsService.getSettings();
+  }
+
+  get canClearSeenFacts(): boolean {
+    return this.settingsService.hasShownFactsHistory(this.settings);
   }
 
   isTopicSelected(topic: TopicKey): boolean {
@@ -117,7 +123,7 @@ export class SettingsPage implements OnInit {
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }
 
-  async onTimeChanged(time: string | string[] | null | undefined): Promise<void> {
+  async onTimeChanged(time: string | string[] | null): Promise<void> {
     const value = Array.isArray(time) ? time[0] ?? null : time ?? null;
 
     if (!value) {
@@ -141,6 +147,25 @@ export class SettingsPage implements OnInit {
       notificationsEnabled: hasDays ? (isAllDays ? true : this.settings.notificationsEnabled) : false,
     });
     await this.notificationService.rescheduleDailyNotification(this.settings);
+  }
+
+  async onClearSeenFacts(): Promise<void> {
+    if (!this.canClearSeenFacts) {
+      return;
+    }
+    this.settings = this.settingsService.clearShownFactsHistory();
+    await this.showDataClearedToast();
+  }
+
+  private async showDataClearedToast(): Promise<void> {
+    const message = this.translationService.translate(SettingsText.DataClearedToast);
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'bottom',
+      color: 'success',
+    });
+    await toast.present();
   }
 }
 

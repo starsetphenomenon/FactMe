@@ -1,0 +1,26 @@
+<div class="settings-section">
+  <div class="section-header">
+    <h2>{{ settingsText.DataSectionTitle | translate }}</h2>
+  </div>
+
+  <div class="settings-toggle-row">
+    <div class="settings-toggle-label">
+      <h3>{{ settingsText.DataClearButtonLabel | translate }}</h3>
+      <p class="toggle-description">
+        {{ settingsText.DataSectionSubtitle | translate }}
+      </p>
+    </div>
+    <div class="data-actions">
+      <ion-button
+        fill="solid"
+        color="primary"
+        size="small"
+        [disabled]="!canClearSeenFacts"
+        (click)="clearSeenFacts.emit()"
+      >
+        {{ settingsText.DataClearButtonShortLabel | translate }}
+      </ion-button>
+    </div>
+  </div>
+</div>
+

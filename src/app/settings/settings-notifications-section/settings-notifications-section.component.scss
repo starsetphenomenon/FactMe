@@ -13,44 +13,43 @@
     margin: 0;
     padding: 0;
   }
-
-  ion-item {
-    --background: transparent;
-    --ion-item-background: transparent;
-    --inner-border-width: 0 0 0 0;
-    --inner-border-color: transparent;
-    background: transparent;
-  }
-
-  ion-item::part(native) {
-    background: transparent;
-  }
-
-  h2 {
-    margin-top: 0 !important;
-  }
 }
 
-.settings-item {
-  --background: transparent;
-  --padding-start: 0;
-  --inner-padding-end: 0;
+.section-header {
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  margin-left: -20px;
+  padding: 6px 20px 6px 28px;
+  border-radius: 18px 999px 999px 18px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 209, 128, 0.3), transparent 55%),
+    rgba(7, 10, 18, 0.95);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 184, 0, 0.55);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .settings-toggle-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 4px;
+  margin: 4px 0;
 }
 
 .settings-toggle-label {
   flex: 1;
   padding-right: 12px;
-}
-
-.weekdays-item {
-  align-items: flex-start;
 }
 
 .weekdays-chips {
@@ -104,6 +103,12 @@ ion-datetime-button::part(native) {
 }
 
 .light-theme .section-header h2 {
+  background:
+    radial-gradient(circle at top left, rgba(255, 209, 128, 0.5), transparent 55%),
+    rgba(249, 250, 251, 0.98);
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.22),
+    0 0 0 1px rgba(251, 191, 36, 0.7);
   color: #111827;
 }
 

@@ -29,4 +29,10 @@
     (timeChanged)="onTimeChanged($event)"
     (weekdaysChanged)="onNotificationWeekdaysChanged($event)"
   ></app-settings-notifications-section>
+
+  <app-settings-data-section
+    [settingsText]="settingsText"
+    [canClearSeenFacts]="canClearSeenFacts"
+    (clearSeenFacts)="onClearSeenFacts()"
+  ></app-settings-data-section>
 </ion-content>

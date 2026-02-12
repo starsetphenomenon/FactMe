@@ -7,10 +7,10 @@
     "perTopicToggleTitle": "Кілька фактів",
     "perTopicToggleDescription": "Показує один факт для кожної вибраної теми.",
     "notificationsSectionTitle": "Сповіщення",
-    "notificationsSectionSubtitle": "Отримуйте нагадування, коли щоденний факт готовий.",
-    "notificationsDailyToggleLabel": "Щоденне сповіщення",
-    "notificationsTimeLabel": "Час сповіщення",
+    "notificationsDailyToggleLabel": "Щодня",
+    "notificationsTimeLabel": "Час",
     "notificationsDaysLabel": "Дні",
+    "themeLanguageSectionTitle": "Оформлення",
     "weekdayMonShort": "Пн",
     "weekdayTueShort": "Вт",
     "weekdayWedShort": "Ср",
@@ -19,7 +19,12 @@
     "weekdaySatShort": "Сб",
     "weekdaySunShort": "Нд",
     "language": "Мова",
-    "themeToggleLabel": "Світла тема"
+    "themeToggleLabel": "Світла тема",
+    "dataSectionTitle": "Дані",
+    "dataSectionSubtitle": "Раніше показані факти можуть знову з’являтися.",
+    "dataClearButtonLabel": "Очистити переглянуті факти",
+    "dataClearButtonShortLabel": "Очистити",
+    "dataClearedToast": "Історію переглянутих фактів очищено."
   },
   "topics": {
     "history": "ІСТОРІЯ",

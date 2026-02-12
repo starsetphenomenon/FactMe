@@ -45,10 +45,7 @@ export class NotificationService {
       notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
     });
 
-    const weekdays =
-      settings.notificationWeekdays === undefined
-        ? [...ALL_WEEKDAYS]
-        : settings.notificationWeekdays;
+    const weekdays = settings.notificationWeekdays;
 
     if (!settings.notificationsEnabled || weekdays.length === 0) {
       return;

@@ -74,7 +74,7 @@ export class AppComponent {
 
   private async initLanguage(): Promise<void> {
     const settings = this.settingsService.getSettings();
-    const lang = settings.language || Language.English;
+    const lang = settings.language ?? Language.English;
     this.translationService.setLanguage(lang);
     await this.translationService.loadTranslations(lang);
   }

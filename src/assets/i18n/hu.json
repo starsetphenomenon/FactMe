@@ -7,10 +7,10 @@
     "perTopicToggleTitle": "Több tény",
     "perTopicToggleDescription": "Egy tényt mutat minden kiválasztott témához.",
     "notificationsSectionTitle": "Értesítések",
-    "notificationsSectionSubtitle": "Értesítést kapsz, amikor a napi tény elérhető.",
-    "notificationsDailyToggleLabel": "Napi értesítés",
-    "notificationsTimeLabel": "Értesítés ideje",
+    "notificationsDailyToggleLabel": "Napi",
+    "notificationsTimeLabel": "Idő",
     "notificationsDaysLabel": "Napok",
+    "themeLanguageSectionTitle": "Megjelenés",
     "weekdayMonShort": "H",
     "weekdayTueShort": "K",
     "weekdayWedShort": "Sze",
@@ -19,7 +19,12 @@
     "weekdaySatShort": "Szo",
     "weekdaySunShort": "V",
     "language": "Nyelv",
-    "themeToggleLabel": "Világos téma"
+    "themeToggleLabel": "Világos téma",
+    "dataSectionTitle": "Adatok",
+    "dataSectionSubtitle": "A korábban látott tények újra megjelenhetnek.",
+    "dataClearButtonLabel": "Látott tények törlése",
+    "dataClearButtonShortLabel": "Törlés",
+    "dataClearedToast": "A megtekintett tények előzményei törölve."
   },
   "topics": {
     "history": "TÖRTÉNELEM",

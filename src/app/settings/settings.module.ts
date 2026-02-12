@@ -9,6 +9,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 import { SettingsTopicsSectionComponent } from './settings-topics-section/settings-topics-section.component';
 import { SettingsThemeLanguageSectionComponent } from './settings-theme-language-section/settings-theme-language-section.component';
 import { SettingsNotificationsSectionComponent } from './settings-notifications-section/settings-notifications-section.component';
+import { SettingsDataSectionComponent } from './settings-data-section/settings-data-section.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, SettingsPageRoutingModule, TranslatePipe],
@@ -17,6 +18,7 @@ import { SettingsNotificationsSectionComponent } from './settings-notifications-
     SettingsTopicsSectionComponent,
     SettingsThemeLanguageSectionComponent,
     SettingsNotificationsSectionComponent,
+    SettingsDataSectionComponent,
   ],
 })
 export class SettingsPageModule {}

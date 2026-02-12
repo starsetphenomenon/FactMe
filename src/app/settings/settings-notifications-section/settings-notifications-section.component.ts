@@ -15,7 +15,7 @@ export class SettingsNotificationsSectionComponent {
   @Input() notificationWeekdays: Weekday[] = [];
 
   @Output() notificationsToggleChange = new EventEmitter<boolean>();
-  @Output() timeChanged = new EventEmitter<string | string[] | null | undefined>();
+  @Output() timeChanged = new EventEmitter<string | string[] | null>();
   @Output() weekdaysChanged = new EventEmitter<Weekday[]>();
 
   readonly weekdayOptions: { value: Weekday; labelKey: string }[] = [

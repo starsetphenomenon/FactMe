@@ -95,7 +95,7 @@ export class FactService {
       return cached.data;
     }
 
-    const lang = this.settingsService.getSettings().language || Language.English;
+    const lang = this.settingsService.getSettings().language ?? Language.English;
 
     let file: TopicFactsFile | undefined;
     try {

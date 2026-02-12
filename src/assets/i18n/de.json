@@ -7,10 +7,10 @@
     "perTopicToggleTitle": "Mehrere Fakten",
     "perTopicToggleDescription": "Zeigt einen Fakt pro ausgewähltem Thema.",
     "notificationsSectionTitle": "Benachrichtigungen",
-    "notificationsSectionSubtitle": "Erhalte eine Erinnerung, wenn dein täglicher Fakt bereit ist.",
-    "notificationsDailyToggleLabel": "Tägliche Benachrichtigung",
-    "notificationsTimeLabel": "Uhrzeit der Benachrichtigung",
+    "notificationsDailyToggleLabel": "Täglich",
+    "notificationsTimeLabel": "Uhrzeit",
     "notificationsDaysLabel": "Tage",
+    "themeLanguageSectionTitle": "Design",
     "weekdayMonShort": "Mo",
     "weekdayTueShort": "Di",
     "weekdayWedShort": "Mi",
@@ -19,7 +19,12 @@
     "weekdaySatShort": "Sa",
     "weekdaySunShort": "So",
     "language": "Sprache",
-    "themeToggleLabel": "Helles Design"
+    "themeToggleLabel": "Helles Design",
+    "dataSectionTitle": "Daten",
+    "dataSectionSubtitle": "Bereits angezeigte Fakten können wieder erscheinen.",
+    "dataClearButtonLabel": "Gesehene Fakten löschen",
+    "dataClearButtonShortLabel": "Löschen",
+    "dataClearedToast": "Verlauf gesehener Fakten wurde gelöscht."
   },
   "topics": {
     "history": "GESCHICHTE",
