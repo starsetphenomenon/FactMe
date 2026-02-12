@@ -1,8 +1,6 @@
-<div class="settings-section">
-  <div class="section-header">
-    <h2>{{ settingsText.NotificationsSectionTitle | translate }}</h2>
-  </div>
-
+<app-settings-section
+  [title]="settingsText.NotificationsSectionTitle | translate"
+>
   <ion-list lines="none">
     <div class="settings-toggle-row">
       <div class="settings-toggle-label">
@@ -24,8 +22,8 @@
       <div class="weekdays-chips">
         <ion-chip
           *ngFor="let d of weekdayOptions"
-          [color]="isWeekdaySelected(d.value) ? 'primary' : 'medium'"
-          [outline]="!isWeekdaySelected(d.value)"
+          class="weekday-chip"
+          [ngClass]="{ 'weekday-chip--selected': isWeekdaySelected(d.value) }"
           (click)="toggleWeekday(d.value)"
         >
           <ion-label>{{ d.labelKey | translate }}</ion-label>
@@ -53,5 +51,5 @@
       ></ion-datetime>
     </ng-template>
   </ion-modal>
-</div>
+</app-settings-section>
 

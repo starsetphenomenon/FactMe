@@ -23,12 +23,15 @@
 }
 
 .light-theme .fact-card {
-  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.08), transparent 55%),
+  /* Softer, more airy light-card styling */
+  background:
+    radial-gradient(circle at top left, rgba(255, 211, 145, 0.38), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.32), transparent 65%),
     #ffffff;
   box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.18),
-    0 0 0 1px rgba(15, 23, 42, 0.05);
-  color: #111827;
+    0 18px 40px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(148, 163, 184, 0.22);
+  color: #0f172a;
 }
 
 .fact-card.topic-history {
@@ -169,6 +172,11 @@
   color: #ffb457;
 }
 
+.light-theme .topic-icon-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35);
+}
+
 /* Topic icon and wrapper colors (match topic badge) */
 .fact-card.topic-history .topic-icon-wrapper {
   background: rgba(255, 180, 87, 0.18);
@@ -263,6 +271,114 @@
   line-height: 1;
   padding: 0 8px;
   height: 20px;
+}
+
+/* Light theme visibility tweaks for icons + badges */
+
+:host-context(.light-theme) .topic-icon-wrapper {
+  background: rgba(15, 23, 42, 0.06);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+
+:host-context(.light-theme) .topic-icon {
+  filter: none;
+}
+
+:host-context(.light-theme) .topic-badge {
+  --background: rgba(255, 180, 87, 0.22);
+  --color: #92400e;
+}
+
+/* Light theme: boost visibility for the lightest topic colors */
+
+/* Movies: stay warm/amber, just a bit stronger */
+:host-context(.light-theme) .fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-movies .topic-icon {
+  color: #b45309;
+}
+
+:host-context(.light-theme) .fact-card.topic-movies .topic-badge {
+  --background: rgba(251, 191, 36, 0.3);
+  --color: #92400e;
+}
+
+/* Fun facts: shift to a playful mint/teal so it doesn't look like history */
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(45, 212, 191, 0.2);
+  box-shadow: 0 0 0 1px rgba(34, 197, 164, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-icon {
+  color: #0f766e;
+}
+
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(34, 197, 164, 0.24);
+  --color: #115e59;
+}
+
+/* Light theme: improve visibility for sports + psychology topics */
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(56, 189, 248, 0.22);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-icon {
+  color: #0369a1;
+}
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-badge {
+  --background: rgba(56, 189, 248, 0.26);
+  --color: #075985;
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-icon {
+  color: #1d4ed8;
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-badge {
+  --background: rgba(59, 130, 246, 0.24);
+  --color: #1d4ed8;
+}
+
+/* Light theme: improve visibility for history + world events */
+
+:host-context(.light-theme) .fact-card.topic-history .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-history .topic-icon {
+  color: #b45309;
+}
+
+:host-context(.light-theme) .fact-card.topic-history .topic-badge {
+  --background: rgba(251, 191, 36, 0.28);
+  --color: #92400e;
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(34, 197, 94, 0.22);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-icon {
+  color: #166534;
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-badge {
+  --background: rgba(34, 197, 94, 0.26);
+  --color: #166534;
 }
 
 .fact-title {

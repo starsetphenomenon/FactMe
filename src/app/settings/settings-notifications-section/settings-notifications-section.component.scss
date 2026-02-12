@@ -1,45 +1,3 @@
-.settings-section {
-  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.14), transparent 55%),
-    rgba(12, 14, 22, 0.9);
-  border-radius: 22px;
-  padding: 18px 16px 16px;
-  margin: 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(255, 152, 0, 0.3);
-
-  ion-list {
-    --background: transparent;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.section-header {
-  margin-bottom: 10px;
-}
-
-.section-header h2 {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  margin: 0;
-  margin-left: -20px;
-  padding: 6px 20px 6px 28px;
-  border-radius: 18px 999px 999px 18px;
-  background:
-    radial-gradient(circle at top left, rgba(255, 209, 128, 0.3), transparent 55%),
-    rgba(7, 10, 18, 0.95);
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 184, 0, 0.55);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
 .settings-toggle-row {
   display: flex;
   align-items: center;
@@ -69,6 +27,13 @@
   width: 45px !important;
 }
 
+ion-list {
+  --background: transparent;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
 ion-modal {
   --background: rgba(0, 0, 0, 0.95);
 }
@@ -94,25 +59,27 @@ ion-datetime-button::part(native) {
   color: #ff9800;
   border-radius: 999px;
 }
+/* Light theme adjustments for time picker UI */
 
-.light-theme .settings-section {
-  background: #ffffff;
-  box-shadow:
-    0 14px 30px rgba(15, 23, 42, 0.15),
-    0 0 0 1px rgba(15, 23, 42, 0.08);
+:host-context(.light-theme) ion-modal {
+  --background: rgba(15, 23, 42, 0.25);
 }
 
-.light-theme .section-header h2 {
-  background:
-    radial-gradient(circle at top left, rgba(255, 209, 128, 0.5), transparent 55%),
-    rgba(249, 250, 251, 0.98);
-  box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.22),
-    0 0 0 1px rgba(251, 191, 36, 0.7);
-  color: #111827;
+:host-context(.light-theme) ion-datetime {
+  --background: #ffffff;
+  --wheel-highlight-background: #f9fafb;
+  --wheel-fade-background-rgb: 249, 250, 251;
+  --wheel-border-color: rgba(251, 191, 36, 0.5);
+  color: #0f172a;
 }
 
-.light-theme .section-header p {
-  color: rgba(15, 23, 42, 0.7);
+:host-context(.light-theme) ion-datetime-button {
+  --background: #e0e7ff;
+  --color: #b45309;
+}
+
+:host-context(.light-theme) ion-datetime-button::part(native) {
+  background: #e0e7ff;
+  color: #b45309;
 }
 

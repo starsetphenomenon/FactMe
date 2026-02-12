@@ -10,6 +10,7 @@ import { SettingsTopicsSectionComponent } from './settings-topics-section/settin
 import { SettingsThemeLanguageSectionComponent } from './settings-theme-language-section/settings-theme-language-section.component';
 import { SettingsNotificationsSectionComponent } from './settings-notifications-section/settings-notifications-section.component';
 import { SettingsDataSectionComponent } from './settings-data-section/settings-data-section.component';
+import { SettingsSectionComponent } from './settings-section/settings-section.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, SettingsPageRoutingModule, TranslatePipe],
@@ -19,6 +20,7 @@ import { SettingsDataSectionComponent } from './settings-data-section/settings-d
     SettingsThemeLanguageSectionComponent,
     SettingsNotificationsSectionComponent,
     SettingsDataSectionComponent,
+    SettingsSectionComponent,
   ],
 })
 export class SettingsPageModule {}

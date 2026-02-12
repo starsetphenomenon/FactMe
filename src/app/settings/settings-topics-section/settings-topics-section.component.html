@@ -1,22 +1,22 @@
-<div class="settings-section">
-  <div class="section-header">
-    <h2>{{ settingsText.TopicsSectionTitle | translate }}</h2>
-    <p>{{ settingsText.TopicsSectionSubtitle | translate }}</p>
-  </div>
-
+<app-settings-section
+  [title]="settingsText.TopicsSectionTitle | translate"
+  [subtitle]="settingsText.TopicsSectionSubtitle | translate"
+>
   <div class="chip-row">
     <ion-chip
-      [color]="isAllTopicsSelected() ? 'primary' : 'medium'"
-      [outline]="!isAllTopicsSelected()"
+      class="topic-chip topic-chip--all"
+      [ngClass]="{ 'topic-chip--selected': isAllTopicsSelected() }"
       (click)="toggleAllTopics.emit()"
     >
-      <ion-label>{{ allTopicsLabel | translate }}</ion-label>
+      <ion-label class="topic-label">
+        {{ allTopicsLabel | translate }}
+      </ion-label>
     </ion-chip>
 
     <ion-chip
       *ngFor="let topic of topics"
-      [color]="isTopicSelected(topic) ? 'primary' : 'medium'"
-      [outline]="!isTopicSelected(topic)"
+      class="topic-chip"
+      [ngClass]="{ 'topic-chip--selected': isTopicSelected(topic) }"
       (click)="topicChipClicked.emit(topic)"
     >
       <ion-label class="topic-label">
@@ -40,5 +40,5 @@
       ></ion-toggle>
     </div>
   </div>
-</div>
+</app-settings-section>
 

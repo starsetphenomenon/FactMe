@@ -1,8 +1,6 @@
-<div class="settings-section">
-  <div class="section-header">
-    <h2>{{ settingsText.DataSectionTitle | translate }}</h2>
-  </div>
-
+<app-settings-section
+  [title]="settingsText.DataSectionTitle | translate"
+>
   <div class="settings-toggle-row">
     <div class="settings-toggle-label">
       <h3>{{ settingsText.DataClearButtonLabel | translate }}</h3>
@@ -22,5 +20,5 @@
       </ion-button>
     </div>
   </div>
-</div>
+</app-settings-section>
 

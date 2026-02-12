@@ -1,8 +1,6 @@
-<div class="settings-section">
-  <div class="section-header">
-    <h2>{{ settingsText.ThemeLanguageSectionTitle | translate }}</h2>
-  </div>
-
+<app-settings-section
+  [title]="settingsText.ThemeLanguageSectionTitle | translate"
+>
   <div class="settings-toggle-row">
     <div class="settings-toggle-label">
       <h3>{{ settingsText.ThemeToggleLabel | translate }}</h3>
@@ -34,5 +32,5 @@
       </ion-select-option>
     </ion-select>
   </div>
-</div>
+</app-settings-section>
 
