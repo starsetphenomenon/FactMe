@@ -12,3 +12,7 @@
   height: 44px;
 }
 
+:host-context(.light-theme) .next-fact-button {
+  --background: rgba(255, 180, 87, 0.3);
+}
+

@@ -10,13 +10,14 @@
     <ion-buttons slot="end">
       <ion-button
         *ngIf="showSettingsButton"
-        size="large"
+        class="header-action-button button-round"
         [routerLink]="['/settings']"
       >
         <ion-icon name="settings-outline"></ion-icon>
       </ion-button>
       <ion-back-button
         *ngIf="showBack"
+        class="header-action-button"
         defaultHref="/home"
       ></ion-back-button>
     </ion-buttons>

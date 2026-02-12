@@ -9,3 +9,12 @@ ion-toolbar {
   border-radius: 8px;
   object-fit: cover;
 }
+
+.header-action-button {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --border-radius: 50%;
+  min-width: 48px;
+  min-height: 48px;
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+<div class="fact-card" [ngClass]="topicClass">
+  <div class="topic-row">
+    <div class="topic-icon-wrapper">
+      <ion-icon
+        class="topic-icon"
+        [name]="getTopicIcon(fact.topic)"
+      ></ion-icon>
+    </div>
+    <ion-badge class="topic-badge">
+      {{ ('topics.' + fact.topic) | translate }}
+    </ion-badge>
+  </div>
+
+  <h1 class="fact-title">
+    {{ fact.title }}
+  </h1>
+
+  <p class="fact-description">
+    {{ fact.description }}
+  </p>
+</div>
+

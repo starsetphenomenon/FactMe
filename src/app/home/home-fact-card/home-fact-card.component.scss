@@ -1,0 +1,431 @@
+.fact-card {
+  width: 100%;
+  max-width: 480px;
+  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.15), transparent 55%),
+    rgba(12, 14, 22, 0.9);
+  border-radius: 22px;
+  padding: 20px 18px 18px;
+  color: #ffffff;
+  backdrop-filter: blur(18px);
+}
+
+/* Dark theme default (amber) – overridden per topic below */
+:host-context(.dark-theme) .fact-card {
+  box-shadow:
+    0 18px 40px rgba(255, 180, 87, 0.2),
+    0 0 0 1px rgba(255, 180, 87, 0.35);
+}
+
+.light-theme .fact-card {
+  /* Softer, more airy light-card styling */
+  background:
+    radial-gradient(circle at top left, rgba(255, 211, 145, 0.38), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.32), transparent 65%),
+    #ffffff;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(148, 163, 184, 0.22);
+  color: #0f172a;
+}
+
+/* Topic-colored shadows: same structure in both themes, color matches topic.
+   Light theme uses slightly stronger blur opacity so shadow is visible on white. */
+
+:host-context(.dark-theme) .fact-card.topic-history {
+  box-shadow:
+    0 18px 40px rgba(255, 180, 87, 0.2),
+    0 0 0 1px rgba(255, 180, 87, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-history {
+  box-shadow:
+    0 18px 40px rgba(255, 180, 87, 0.28),
+    0 0 0 1px rgba(255, 180, 87, 0.4);
+}
+.fact-card.topic-history .topic-badge {
+  --background: rgba(255, 180, 87, 0.18);
+  --color: #ffb457;
+}
+
+:host-context(.dark-theme) .fact-card.topic-science {
+  box-shadow:
+    0 18px 40px rgba(102, 187, 255, 0.2),
+    0 0 0 1px rgba(102, 187, 255, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-science {
+  box-shadow:
+    0 18px 40px rgba(102, 187, 255, 0.28),
+    0 0 0 1px rgba(102, 187, 255, 0.4);
+}
+.fact-card.topic-science .topic-badge {
+  --background: rgba(102, 187, 255, 0.16);
+  --color: #66bbff;
+}
+
+:host-context(.dark-theme) .fact-card.topic-world-events {
+  box-shadow:
+    0 18px 40px rgba(129, 199, 132, 0.2),
+    0 0 0 1px rgba(129, 199, 132, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-world-events {
+  box-shadow:
+    0 18px 40px rgba(129, 199, 132, 0.28),
+    0 0 0 1px rgba(129, 199, 132, 0.4);
+}
+.fact-card.topic-world-events .topic-badge {
+  --background: rgba(129, 199, 132, 0.16);
+  --color: #81c784;
+}
+
+:host-context(.dark-theme) .fact-card.topic-technology {
+  box-shadow:
+    0 18px 40px rgba(159, 168, 218, 0.2),
+    0 0 0 1px rgba(159, 168, 218, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-technology {
+  box-shadow:
+    0 18px 40px rgba(159, 168, 218, 0.28),
+    0 0 0 1px rgba(159, 168, 218, 0.4);
+}
+.fact-card.topic-technology .topic-badge {
+  --background: rgba(159, 168, 218, 0.16);
+  --color: #9fa8da;
+}
+
+:host-context(.dark-theme) .fact-card.topic-music {
+  box-shadow:
+    0 18px 40px rgba(244, 143, 177, 0.2),
+    0 0 0 1px rgba(244, 143, 177, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-music {
+  box-shadow:
+    0 18px 40px rgba(244, 143, 177, 0.28),
+    0 0 0 1px rgba(244, 143, 177, 0.4);
+}
+.fact-card.topic-music .topic-badge {
+  --background: rgba(244, 143, 177, 0.18);
+  --color: #f48fb1;
+}
+
+:host-context(.dark-theme) .fact-card.topic-movies {
+  box-shadow:
+    0 18px 40px rgba(255, 224, 130, 0.2),
+    0 0 0 1px rgba(255, 224, 130, 0.4);
+}
+:host-context(.light-theme) .fact-card.topic-movies {
+  box-shadow:
+    0 18px 40px rgba(255, 224, 130, 0.28),
+    0 0 0 1px rgba(255, 224, 130, 0.45);
+}
+.fact-card.topic-movies .topic-badge {
+  --background: rgba(255, 224, 130, 0.18);
+  --color: #ffe082;
+}
+
+:host-context(.dark-theme) .fact-card.topic-sports {
+  box-shadow:
+    0 18px 40px rgba(129, 212, 250, 0.2),
+    0 0 0 1px rgba(129, 212, 250, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-sports {
+  box-shadow:
+    0 18px 40px rgba(129, 212, 250, 0.28),
+    0 0 0 1px rgba(129, 212, 250, 0.4);
+}
+.fact-card.topic-sports .topic-badge {
+  --background: rgba(129, 212, 250, 0.18);
+  --color: #81d4fa;
+}
+
+:host-context(.dark-theme) .fact-card.topic-fun-facts {
+  box-shadow:
+    0 18px 40px rgba(255, 241, 118, 0.2),
+    0 0 0 1px rgba(255, 241, 118, 0.4);
+}
+:host-context(.light-theme) .fact-card.topic-fun-facts {
+  box-shadow:
+    0 18px 40px rgba(255, 241, 118, 0.28),
+    0 0 0 1px rgba(255, 241, 118, 0.45);
+}
+.fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(255, 241, 118, 0.2);
+  --color: #fff176;
+}
+
+:host-context(.dark-theme) .fact-card.topic-literature {
+  box-shadow:
+    0 18px 40px rgba(186, 104, 200, 0.2),
+    0 0 0 1px rgba(186, 104, 200, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-literature {
+  box-shadow:
+    0 18px 40px rgba(186, 104, 200, 0.28),
+    0 0 0 1px rgba(186, 104, 200, 0.4);
+}
+.fact-card.topic-literature .topic-badge {
+  --background: rgba(186, 104, 200, 0.2);
+  --color: #ba68c8;
+}
+
+:host-context(.dark-theme) .fact-card.topic-psychology {
+  box-shadow:
+    0 18px 40px rgba(128, 222, 234, 0.2),
+    0 0 0 1px rgba(128, 222, 234, 0.35);
+}
+:host-context(.light-theme) .fact-card.topic-psychology {
+  box-shadow:
+    0 18px 40px rgba(128, 222, 234, 0.28),
+    0 0 0 1px rgba(128, 222, 234, 0.4);
+}
+.fact-card.topic-psychology .topic-badge {
+  --background: rgba(128, 222, 234, 0.2);
+  --color: #80deea;
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.topic-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 180, 87, 0.16);
+  box-shadow: 0 0 0 1px rgba(255, 180, 87, 0.25);
+}
+
+.topic-icon {
+  font-size: 14px;
+  color: #ffb457;
+}
+
+.light-theme .topic-icon-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35);
+}
+
+/* Topic icon and wrapper colors (match topic badge) */
+.fact-card.topic-history .topic-icon-wrapper {
+  background: rgba(255, 180, 87, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 180, 87, 0.25);
+}
+.fact-card.topic-history .topic-icon {
+  color: #ffb457;
+}
+
+.fact-card.topic-science .topic-icon-wrapper {
+  background: rgba(102, 187, 255, 0.16);
+  box-shadow: 0 0 0 1px rgba(102, 187, 255, 0.28);
+}
+.fact-card.topic-science .topic-icon {
+  color: #66bbff;
+}
+
+.fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(129, 199, 132, 0.16);
+  box-shadow: 0 0 0 1px rgba(129, 199, 132, 0.28);
+}
+.fact-card.topic-world-events .topic-icon {
+  color: #81c784;
+}
+
+.fact-card.topic-technology .topic-icon-wrapper {
+  background: rgba(159, 168, 218, 0.16);
+  box-shadow: 0 0 0 1px rgba(159, 168, 218, 0.3);
+}
+.fact-card.topic-technology .topic-icon {
+  color: #9fa8da;
+}
+
+.fact-card.topic-music .topic-icon-wrapper {
+  background: rgba(244, 143, 177, 0.18);
+  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.3);
+}
+.fact-card.topic-music .topic-icon {
+  color: #f48fb1;
+}
+
+.fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(255, 224, 130, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 224, 130, 0.3);
+}
+.fact-card.topic-movies .topic-icon {
+  color: #ffe082;
+}
+
+.fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(129, 212, 250, 0.18);
+  box-shadow: 0 0 0 1px rgba(129, 212, 250, 0.3);
+}
+.fact-card.topic-sports .topic-icon {
+  color: #81d4fa;
+}
+
+.fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(255, 241, 118, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 241, 118, 0.35);
+}
+.fact-card.topic-fun-facts .topic-icon {
+  color: #fff176;
+}
+
+.fact-card.topic-literature .topic-icon-wrapper {
+  background: rgba(186, 104, 200, 0.2);
+  box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.32);
+}
+.fact-card.topic-literature .topic-icon {
+  color: #ba68c8;
+}
+
+.fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(128, 222, 234, 0.2);
+  box-shadow: 0 0 0 1px rgba(128, 222, 234, 0.32);
+}
+.fact-card.topic-psychology .topic-icon {
+  color: #80deea;
+}
+
+.topic-badge {
+  margin-bottom: 0;
+  --background: rgba(255, 180, 87, 0.16);
+  --color: #ffb457;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 8px;
+  height: 20px;
+}
+
+/* Light theme visibility tweaks for icons + badges */
+
+:host-context(.light-theme) .topic-icon-wrapper {
+  background: rgba(15, 23, 42, 0.06);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+
+:host-context(.light-theme) .topic-icon {
+  filter: none;
+}
+
+:host-context(.light-theme) .topic-badge {
+  --background: rgba(255, 180, 87, 0.22);
+  --color: #92400e;
+}
+
+/* Light theme: boost visibility for the lightest topic colors */
+
+/* Movies: stay warm/amber, just a bit stronger */
+:host-context(.light-theme) .fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-movies .topic-icon {
+  color: #b45309;
+}
+
+:host-context(.light-theme) .fact-card.topic-movies .topic-badge {
+  --background: rgba(251, 191, 36, 0.3);
+  --color: #92400e;
+}
+
+/* Fun facts: shift to a playful mint/teal so it doesn't look like history */
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(45, 212, 191, 0.2);
+  box-shadow: 0 0 0 1px rgba(34, 197, 164, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-icon {
+  color: #0f766e;
+}
+
+:host-context(.light-theme) .fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(34, 197, 164, 0.24);
+  --color: #115e59;
+}
+
+/* Light theme: improve visibility for sports + psychology topics */
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(56, 189, 248, 0.22);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-icon {
+  color: #0369a1;
+}
+
+:host-context(.light-theme) .fact-card.topic-sports .topic-badge {
+  --background: rgba(56, 189, 248, 0.26);
+  --color: #075985;
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-icon {
+  color: #1d4ed8;
+}
+
+:host-context(.light-theme) .fact-card.topic-psychology .topic-badge {
+  --background: rgba(59, 130, 246, 0.24);
+  --color: #1d4ed8;
+}
+
+/* Light theme: improve visibility for history + world events */
+
+:host-context(.light-theme) .fact-card.topic-history .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-history .topic-icon {
+  color: #b45309;
+}
+
+:host-context(.light-theme) .fact-card.topic-history .topic-badge {
+  --background: rgba(251, 191, 36, 0.28);
+  --color: #92400e;
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(34, 197, 94, 0.22);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-icon {
+  color: #166534;
+}
+
+:host-context(.light-theme) .fact-card.topic-world-events .topic-badge {
+  --background: rgba(34, 197, 94, 0.26);
+  --color: #166534;
+}
+
+.fact-title {
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 700;
+  margin: 18px 0 12px 0;
+}
+
+.fact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.light-theme .fact-description {
+  color: rgba(15, 23, 42, 0.9);
+}
+
