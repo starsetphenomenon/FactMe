@@ -34,11 +34,11 @@ ion-list {
   padding: 0;
 }
 
-ion-modal {
+:host-context(.dark-theme) ion-modal {
   --background: rgba(0, 0, 0, 0.95);
 }
 
-ion-datetime {
+:host-context(.dark-theme) ion-datetime {
   --background: #000000;
   --wheel-highlight-background: #111111;
   --wheel-fade-background-rgb: 0, 0, 0;
@@ -46,16 +46,16 @@ ion-datetime {
   color: #ff9800;
 }
 
-ion-datetime-button {
-  --background: #111111;
+:host-context(.dark-theme) ion-datetime-button {
+  --background: rgba(35, 42, 58, 0.85);
   --color: #ff9800;
   --border-radius: 999px;
   --padding-start: 12px;
   --padding-end: 12px;
 }
 
-ion-datetime-button::part(native) {
-  background: #111111;
+:host-context(.dark-theme) ion-datetime-button::part(native) {
+  background: rgba(35, 42, 58, 0.85);
   color: #ff9800;
   border-radius: 999px;
 }
@@ -80,6 +80,6 @@ ion-datetime-button::part(native) {
 
 :host-context(.light-theme) ion-datetime-button::part(native) {
   background: #e0e7ff;
-  color: #b45309;
+  color: #bb7000;;
 }
 

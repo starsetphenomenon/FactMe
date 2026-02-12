@@ -21,6 +21,7 @@
     <ion-select
       class="language-select"
       interface="popover"
+      [interfaceOptions]="{ cssClass: 'language-select-popover' }"
       [value]="language || defaultLanguage"
       (ionChange)="languageChange.emit($event.detail.value)"
     >

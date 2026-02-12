@@ -287,6 +287,134 @@ body.light-theme .toggle-description {
   --border-color: rgba(245, 158, 11, 0.6);
 }
 
+/* Dark theme: time picker modal + datetime (global so overlay follows theme, orange style) */
+.dark-theme ion-modal {
+  --background: rgba(0, 0, 0, 0.95);
+  --backdrop-opacity: 0.5;
+}
+
+.dark-theme ion-datetime {
+  --background: #0a0a0a;
+  --wheel-highlight-background: #1a1a1a;
+  --wheel-fade-background-rgb: 10, 10, 10;
+  --wheel-border-color: rgba(255, 152, 0, 0.5);
+  color: #ff9800;
+}
+
+.dark-theme ion-datetime-button {
+  --background: rgba(35, 42, 58, 0.85);
+  --color: #ff9800;
+  --border-radius: 999px;
+}
+
+.dark-theme ion-datetime-button::part(native) {
+  background: rgba(35, 42, 58, 0.85);
+  color: #ff9800;
+  border-radius: 999px;
+}
+
+.dark-theme ion-datetime .datetime-action-buttons ion-button,
+.dark-theme ion-datetime ion-buttons ion-button {
+  color: #ff9800;
+  --color: #ff9800;
+}
+
+/* Light theme: language select + time picker (global so overlays follow theme) */
+
+.light-theme .language-select {
+  --background: #fff7ed;
+  --color: #92400e;
+  --placeholder-color: rgba(15, 23, 42, 0.6);
+}
+
+.light-theme .language-select::part(text) {
+  color: #92400e;
+}
+
+.light-theme ion-modal {
+  --background: rgba(255, 255, 255, 0.98);
+  --backdrop-opacity: 0.4;
+}
+
+.light-theme ion-datetime {
+  --background: #ffffff;
+  --wheel-highlight-background: #f9fafb;
+  --wheel-fade-background-rgb: 249, 250, 251;
+  --wheel-border-color: rgba(251, 191, 36, 0.5);
+  color: #0f172a;
+}
+
+.light-theme ion-datetime-button {
+  --background: #e0e7ff;
+  --color: #b45309;
+}
+
+.light-theme ion-datetime-button::part(native) {
+  background: #e0e7ff;
+  color: #b45309;
+  border-radius: 999px;
+}
+
+/* Select popover (opens at body level in light theme) – no dark borders */
+.light-theme ion-select-popover,
+.light-theme .select-popover,
+.light-theme ion-popover {
+  --background: #ffffff;
+  --color: #111827;
+  --border-width: 0;
+  --border-style: none;
+  --box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  border: none !important;
+  border-radius: 16px;
+  outline: none;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+}
+
+.light-theme ion-popover::part(content),
+.light-theme ion-select-popover::part(container) {
+  border: none !important;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+}
+
+/* Only override .list-md inside select popovers (language picker), not in-page lists like notifications */
+.light-theme ion-select-popover .list-md,
+.light-theme .select-popover .list-md,
+.light-theme .language-select-popover .list-md {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: #ffffff;
+  --ion-item-background: #ffffff;
+  --ion-background-color: #ffffff;
+}
+
+.light-theme ion-select-popover ion-list,
+.light-theme .select-popover ion-list {
+  --background: #ffffff;
+}
+
+.light-theme ion-select-popover ion-item,
+.light-theme .select-popover ion-item {
+  --background: #ffffff;
+  --color: #111827;
+}
+
+/* Language select popover – remove dark top/bottom borders (class from interfaceOptions) */
+.light-theme .language-select-popover,
+.light-theme .language-select-popover ion-popover,
+.light-theme .language-select-popover .ion-overlay-wrapper,
+.light-theme .language-select-popover .popover-content {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  --border-width: 0 !important;
+  outline: none;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
