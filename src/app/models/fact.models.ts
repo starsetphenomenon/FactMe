@@ -28,10 +28,6 @@ export interface TopicFactsFile {
 
 export type Weekday = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-/**
- * Global app settings that are persisted to storage.
- * All base state here uses explicit values (never bare `undefined`).
- */
 export interface AppSettings {
   selectedTopics: TopicKey[];
   notificationsEnabled: boolean;

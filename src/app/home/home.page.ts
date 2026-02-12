@@ -116,9 +116,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     }
   }
 
-  /**
-   * Restore previously shown fact(s) for today from storage. Does not fetch new facts.
-   */
   private async restoreFromStorage(): Promise<void> {
     this.isLoading = true;
     this.error = null;
@@ -186,9 +183,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     }
   }
 
-  /**
-   * Fetch new fact(s) for today. Only called when the user taps the refresh button.
-   */
   private async loadTodayFact(): Promise<void> {
     this.isLoading = true;
     this.error = null;

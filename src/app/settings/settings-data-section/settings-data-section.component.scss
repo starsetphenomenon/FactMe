@@ -9,7 +9,7 @@
   --background: var(--ion-color-primary);
   --background-activated: var(--ion-color-primary-shade);
   --background-hover: var(--ion-color-primary-tint);
-  font-weight: 600;
+  --box-shadow: var(--app-light-elevation-shadow);
 }
 
 .data-actions ion-button::part(native) {

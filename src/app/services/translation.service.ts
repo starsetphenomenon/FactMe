@@ -30,10 +30,6 @@ export class TranslationService {
     return this.currentLanguage;
   }
 
-  /**
-   * Load translations for a specific language.
-   * Returns a Promise that resolves when translations are loaded.
-   */
   async loadTranslations(lang: Language): Promise<TranslationDictionary> {
     if (this.translationsCache.has(lang)) {
       return Promise.resolve(this.translationsCache.get(lang)!);
@@ -64,10 +60,6 @@ export class TranslationService {
     return loadPromise;
   }
 
-  /**
-   * Get translation for a key. Supports dot notation for nested keys.
-   * Example: 'header.appTitleHome' or 'settings.topicsSectionTitle'
-   */
   translate(key: string): string {
     const dict = this.translationsCache.get(this.currentLanguage);
     if (!dict) {
@@ -76,19 +68,11 @@ export class TranslationService {
     return dict[key] ?? key;
   }
 
-  /**
-   * Get translation for a key, ensuring translations are loaded first.
-   * Use this when translations might not be loaded yet.
-   */
   async tAsync(key: string): Promise<string> {
     await this.loadTranslations(this.currentLanguage);
     return this.translate(key);
   }
 
-  /**
-   * Flatten nested object into dot-notation keys
-   * Example: { header: { appTitle: "Title" } } -> { "header.appTitle": "Title" }
-   */
   private flattenDictionary(
     obj: Record<string, unknown>,
     prefix = '',

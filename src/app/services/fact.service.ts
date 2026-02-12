@@ -61,10 +61,6 @@ export class FactService {
     return candidates[randomIndex];
   }
 
-  /**
-   * Resolve a fact by its id. If the topic is encoded as a prefix
-   * like "science-0314-1" we can avoid loading every topic.
-   */
   async getFactById(id: string, topics: TopicKey[]): Promise<Fact | null> {
     const topicFromId = this.extractTopicFromId(id);
     const candidateTopics: TopicKey[] =

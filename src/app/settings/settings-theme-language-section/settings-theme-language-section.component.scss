@@ -1,8 +1,19 @@
+.language-select-wrapper {
+  width: fit-content;
+  max-width: 130px;
+  margin-left: auto;
+  border-radius: 16px;
+  box-shadow: var(--app-light-elevation-shadow);
+}
+
 .language-select {
   --background: var(--ion-color-primary);
   --border-radius: 16px;
   --padding-start: 16px;
   --padding-end: 16px;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --min-height: 30px;
   --color: var(--ion-color-primary);
   --placeholder-color: var(--app-text-muted-7);
   --border-color: transparent;
@@ -10,16 +21,35 @@
   --highlight-color-focused: transparent;
   --highlight-color-valid: transparent;
   --highlight-color-invalid: transparent;
-  width: fit-content;
+  width: 100%;
   max-width: 130px;
   margin-left: auto;
+  min-height: 30px;
+  height: 30px;
+  overflow: visible;
+
+  &::part(container) {
+    min-height: 30px;
+    height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+  }
 
   &::part(text) {
     color: var(--ion-color-primary-contrast);
     font-size: 14px;
     font-weight: 500;
+    line-height: 1.25;
     white-space: nowrap;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
   }
 
   &::part(icon) {

@@ -18,20 +18,22 @@
     <div class="settings-toggle-label">
       <h3>{{ settingsText.Language | translate }}</h3>
     </div>
-    <ion-select
-      class="language-select"
-      interface="popover"
-      [interfaceOptions]="{ cssClass: 'language-select-popover' }"
-      [value]="language || defaultLanguage"
-      (ionChange)="languageChange.emit($event.detail.value)"
-    >
-      <ion-select-option
-        *ngFor="let lang of languages"
-        [value]="lang.code"
+    <div class="language-select-wrapper">
+      <ion-select
+        class="language-select"
+        interface="popover"
+        [interfaceOptions]="{ cssClass: 'language-select-popover' }"
+        [value]="language || defaultLanguage"
+        (ionChange)="languageChange.emit($event.detail.value)"
       >
-        {{ lang.flag }} {{ lang.label }}
-      </ion-select-option>
-    </ion-select>
+        <ion-select-option
+          *ngFor="let lang of languages"
+          [value]="lang.code"
+        >
+          {{ lang.flag }} {{ lang.label }}
+        </ion-select-option>
+      </ion-select>
+    </div>
   </div>
 </app-settings-section>
 

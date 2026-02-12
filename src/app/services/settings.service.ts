@@ -10,16 +10,11 @@ const SETTINGS_KEY = 'dailyFactsSettings';
 })
 export class SettingsService {
   private settings: AppSettings | null = null;
-
-  /** Settings key (onePerTopic + topics) when home last loaded facts. Used to refetch when user changes settings elsewhere. */
   private lastFactsLoadSettingsKey: string | null = null;
-
   private settingsSubject = new BehaviorSubject<AppSettings | null>(null);
+
   settingsChanges$ = this.settingsSubject.asObservable();
 
-  /**
-   * Returns true if there is any facts history or current facts data stored.
-   */
   hasShownFactsHistory(settings: AppSettings | null = null): boolean {
     const current = settings ?? this.getSettings();
     return !!(

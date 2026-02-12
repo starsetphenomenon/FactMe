@@ -19,9 +19,19 @@
 
 :root {
   --ion-font-family: "Fredoka", system-ui, sans-serif;
+  --app-light-elevation-shadow:
+    rgba(0, 0, 0, 0.25) 0px 10px 20px,
+    rgba(0, 0, 0, 0.22) 0px 6px 8px;
 }
 
 .dark-theme {
+  --app-dark-elevation-shadow:
+    rgba(var(--app-primary-rgb), 0.25) 0px 10px 20px,
+    rgba(var(--app-primary-rgb), 0.18) 0px 6px 8px;
+  --app-chip-shadow:
+    rgba(var(--app-primary-rgb), 0.25) 0px 50px 100px -20px,
+    rgba(var(--app-primary-rgb), 0.3) 0px 30px 60px -30px,
+    rgba(var(--app-primary-rgb), 0.35) 0px -2px 6px 0px inset;
   background: radial-gradient(
     circle at top,
     #10131c 0,
@@ -32,6 +42,13 @@
 }
 
 .light-theme {
+  --app-light-popover-shadow:
+    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
+  --app-chip-shadow:
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   background:
     radial-gradient(
       circle at top left,
@@ -48,7 +65,6 @@
   --color: var(--ion-text-color);
   --border-color: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(var(--app-blur));
-  /* Subtle, light-edged header shadow in dark mode */
   box-shadow:
     0 6px 18px rgba(0, 0, 0, 0.75),
     0 1px 0 rgba(255, 255, 255, 0.02);
@@ -419,8 +435,6 @@
   --background: rgba(59, 130, 246, 0.24);
   --color: #1d4ed8;
 }
-
-/* Light theme: literature topic icon + badge use literature color */
 .light-theme .fact-card.topic-literature .topic-icon-wrapper {
   background: rgba(186, 104, 200, 0.2);
   box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.7);
@@ -476,7 +490,7 @@
 }
 
 .section-header {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .section-header h2 {
@@ -493,16 +507,26 @@
   text-transform: uppercase;
 }
 
+.section-subtitle {
+  margin: 0.5em 0 0;
+  font-size: 0.9rem;
+}
+
 .settings-toggle-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 20px;
+  overflow: visible;
 }
 
 .settings-toggle-label {
   flex: 1;
   padding-right: 12px;
+}
+
+.settings-section .toggle-wrapper {
+  margin-right: 2px;
 }
 
 .settings-toggle-label h3 {
@@ -543,8 +567,21 @@
   color: var(--ion-text-color);
 }
 
+.dark-theme .language-select-wrapper {
+  box-shadow: var(--app-dark-elevation-shadow) !important;
+}
+
+.dark-theme .data-actions ion-button {
+  --box-shadow: var(--app-dark-elevation-shadow) !important;
+}
+
+.dark-theme .data-actions ion-button::part(native) {
+  box-shadow: var(--app-dark-elevation-shadow) !important;
+}
+
 .dark-theme .settings-toggle-label h3,
-.dark-theme .toggle-description {
+.dark-theme .toggle-description,
+.dark-theme .section-subtitle {
   color: var(--app-text-muted);
 }
 
@@ -580,6 +617,10 @@
   color: var(--app-slate-heading);
 }
 
+.light-theme .section-subtitle {
+  color: rgba(var(--app-slate-rgb), 0.85);
+}
+
 .light-theme .settings-toggle-label,
 .light-theme .settings-toggle-label h3,
 .light-theme .toggle-description {
@@ -594,6 +635,7 @@
   --border-style: solid;
   --border-width: 1px;
   --border-color: var(--app-chip-border);
+  box-shadow: var(--app-chip-shadow);
 }
 
 .dark-theme .topic-chip.topic-chip--selected,
@@ -624,6 +666,7 @@
   --border-width: 1px;
   --border-color: var(--app-chip-light-border);
   font-weight: 700;
+  box-shadow: var(--app-chip-shadow);
 }
 
 .light-theme .topic-chip.topic-chip--selected,
@@ -676,10 +719,18 @@
   --color: var(--app-datetime-accent);
 }
 
+.language-select::part(container) {
+  box-shadow: var(--app-light-elevation-shadow) !important;
+}
+
 .light-theme .language-select {
   --background: #fff7ed;
   --color: #92400e;
   --placeholder-color: rgba(var(--app-slate-rgb), 0.6);
+}
+
+.light-theme .language-select::part(container) {
+  box-shadow: var(--app-light-elevation-shadow) !important;
 }
 
 .light-theme .language-select::part(text) {
@@ -717,24 +768,18 @@
   --color: var(--app-slate-heading);
   --border-width: 0;
   --border-style: none;
-  --box-shadow:
-    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
-    0 0 0 1px rgba(148, 163, 184, 0.12);
+  --box-shadow: var(--app-light-popover-shadow);
   border: none !important;
   border-radius: 16px;
   outline: none;
-  box-shadow:
-    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
-    0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow: var(--app-light-popover-shadow);
 }
 
 .light-theme ion-popover::part(content),
 .light-theme ion-select-popover::part(container) {
   border: none !important;
   border-radius: 16px;
-  box-shadow:
-    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
-    0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow: var(--app-light-popover-shadow);
 }
 
 .light-theme ion-select-popover .list-md,
@@ -770,9 +815,7 @@
   border-bottom: none !important;
   --border-width: 0 !important;
   outline: none;
-  box-shadow:
-    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
-    0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow: var(--app-light-elevation-shadow) !important;
 }
 
 ::-webkit-scrollbar {
