@@ -35,23 +35,19 @@ export class TranslationService {
    * Returns a Promise that resolves when translations are loaded.
    */
   async loadTranslations(lang: Language): Promise<TranslationDictionary> {
-    // Return cached if available
     if (this.translationsCache.has(lang)) {
       return Promise.resolve(this.translationsCache.get(lang)!);
     }
 
-    // Return existing loading promise if already loading
     if (this.loadingPromises.has(lang)) {
       return this.loadingPromises.get(lang)!;
     }
 
-    // Start loading
     const loadPromise = firstValueFrom(
       this.http.get<Record<string, unknown>>(`assets/i18n/${lang}.json`).pipe(
         map((data) => this.flattenDictionary(data)),
         catchError((error) => {
           console.error(`Failed to load translations for ${lang}:`, error);
-          // Fallback to English if loading fails (but avoid recursion)
           if (lang !== Language.English && !this.loadingPromises.has(Language.English)) {
             return from(this.loadTranslations(Language.English));
           }
@@ -75,8 +71,6 @@ export class TranslationService {
   translate(key: string): string {
     const dict = this.translationsCache.get(this.currentLanguage);
     if (!dict) {
-      // If not loaded yet, try to load synchronously (fallback)
-      // In practice, translations should be loaded before use
       return key;
     }
     return dict[key] ?? key;

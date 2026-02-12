@@ -28,7 +28,6 @@ export class AppComponent {
     this.initLanguage();
     this.initHeaderForRouting();
 
-    // Apply initial theme and react to changes
     const initialSettings = this.settingsService.getSettings();
     this.applyTheme(initialSettings.theme);
     this.settingsService.settingsChanges$.subscribe((s) => {

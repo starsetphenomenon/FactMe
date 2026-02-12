@@ -64,7 +64,6 @@ export class SettingsService {
 
   clearShownFactsHistory(): AppSettings {
     const current = this.getSettings();
-    // If there is nothing to clear, avoid unnecessary writes.
     if (!this.hasShownFactsHistory(current)) {
       return current;
     }
@@ -136,7 +135,6 @@ export class SettingsService {
     try {
       window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
     } catch {
-      // Ignore storage errors
     }
   }
 

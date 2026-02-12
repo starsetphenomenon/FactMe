@@ -1,11 +1,11 @@
 .next-fact-button {
   position: fixed;
-  right: 32px; /* leave room for scrollbar on the very edge */
+  right: 32px;
   bottom: 24px;
   z-index: 10;
-  --background: rgba(255, 180, 87, 0.12);
+  --background: rgba(var(--app-primary-rgb), 0.12);
   --color: var(--ion-color-primary);
-  --border-radius: 999px;
+  --border-radius: var(--app-radius-pill);
   --padding-start: 10px;
   --padding-end: 10px;
   min-width: 44px;
@@ -13,6 +13,5 @@
 }
 
 :host-context(.light-theme) .next-fact-button {
-  --background: rgba(255, 180, 87, 0.3);
+  --background: rgba(var(--app-primary-rgb), 0.3);
 }
-

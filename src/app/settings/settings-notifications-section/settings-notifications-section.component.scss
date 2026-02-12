@@ -1,13 +1,5 @@
 .settings-toggle-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 4px 0;
-}
-
-.settings-toggle-label {
-  flex: 1;
-  padding-right: 12px;
 }
 
 .weekdays-chips {
@@ -23,63 +15,9 @@
   --min-height: 26px;
 }
 
-.toggle-wrapper {
-  width: 45px !important;
-}
-
 ion-list {
   --background: transparent;
   background: transparent;
   margin: 0;
   padding: 0;
 }
-
-:host-context(.dark-theme) ion-modal {
-  --background: rgba(0, 0, 0, 0.95);
-}
-
-:host-context(.dark-theme) ion-datetime {
-  --background: #000000;
-  --wheel-highlight-background: #111111;
-  --wheel-fade-background-rgb: 0, 0, 0;
-  --wheel-border-color: rgba(255, 152, 0, 0.5);
-  color: #ff9800;
-}
-
-:host-context(.dark-theme) ion-datetime-button {
-  --background: rgba(35, 42, 58, 0.85);
-  --color: #ff9800;
-  --border-radius: 999px;
-  --padding-start: 12px;
-  --padding-end: 12px;
-}
-
-:host-context(.dark-theme) ion-datetime-button::part(native) {
-  background: rgba(35, 42, 58, 0.85);
-  color: #ff9800;
-  border-radius: 999px;
-}
-/* Light theme adjustments for time picker UI */
-
-:host-context(.light-theme) ion-modal {
-  --background: rgba(15, 23, 42, 0.25);
-}
-
-:host-context(.light-theme) ion-datetime {
-  --background: #ffffff;
-  --wheel-highlight-background: #f9fafb;
-  --wheel-fade-background-rgb: 249, 250, 251;
-  --wheel-border-color: rgba(251, 191, 36, 0.5);
-  color: #0f172a;
-}
-
-:host-context(.light-theme) ion-datetime-button {
-  --background: #e0e7ff;
-  --color: #b45309;
-}
-
-:host-context(.light-theme) ion-datetime-button::part(native) {
-  background: #e0e7ff;
-  color: #bb7000;;
-}
-

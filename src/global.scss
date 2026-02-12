@@ -1,13 +1,8 @@
-/* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
-
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
-
-/* Optional CSS utils that can be commented out */
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
@@ -15,43 +10,51 @@
 @import "@ionic/angular/css/flex-utils.css";
 
 @font-face {
-  font-family: 'Fredoka';
-  src: url('/assets/fonts/fredoka/fredoka-regular.ttf') format('truetype');
+  font-family: "Fredoka";
+  src: url("/assets/fonts/fredoka/fredoka-regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --ion-font-family: 'Fredoka', system-ui, sans-serif;
+  --ion-font-family: "Fredoka", system-ui, sans-serif;
 }
 
 .dark-theme {
-  background: radial-gradient(circle at top, #10131c 0, #05070a 40%, #05070a 100%);
-  color: #ffffff;
+  background: radial-gradient(
+    circle at top,
+    #10131c 0,
+    var(--app-bg-dark) 40%,
+    var(--app-bg-dark) 100%
+  );
+  color: var(--ion-text-color);
 }
 
 .light-theme {
-  /* Calm, bright, modern light background */
   background:
-    radial-gradient(circle at top left, rgba(255, 237, 213, 0.85), transparent 60%),
+    radial-gradient(
+      circle at top left,
+      rgba(255, 237, 213, 0.85),
+      transparent 60%
+    ),
     linear-gradient(160deg, #f9fafb 0%, #eef2ff 42%, #ecfeff 100%);
-  color: #0f172a;
+  color: var(--app-slate-text);
 }
 
 .dark-theme ion-header,
 .dark-theme ion-toolbar {
   --background: rgba(8, 10, 16, 0.9);
-  --color: #ffffff;
+  --color: var(--ion-text-color);
   --border-color: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(var(--app-blur));
 }
 
 .light-theme ion-header,
 .light-theme ion-toolbar {
   --background: rgba(255, 255, 255, 0.92);
-  --color: #111827;
-  --border-color: rgba(15, 23, 42, 0.08);
+  --color: var(--app-slate-heading);
+  --border-color: rgba(var(--app-slate-rgb), 0.08);
   backdrop-filter: blur(14px);
 }
 
@@ -60,10 +63,397 @@
   --background: transparent;
 }
 
-/* Shared settings layout + typography */
+.fact-card {
+  width: 100%;
+  max-width: 480px;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(var(--ion-color-primary-rgb), 0.15),
+      transparent 55%
+    ),
+    var(--app-bg-card);
+  border-radius: var(--app-radius-card);
+  padding: 20px 18px 18px;
+  color: var(--ion-text-color);
+  backdrop-filter: blur(var(--app-blur));
+}
+
+.dark-theme .fact-card {
+  box-shadow:
+    0 18px 40px rgba(var(--app-primary-rgb), 0.2),
+    0 0 0 1px rgba(var(--app-primary-rgb), 0.35);
+}
+
+.light-theme .fact-card {
+  background:
+    radial-gradient(
+      circle at top left,
+      var(--app-gradient-peach-38),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      var(--app-gradient-sky),
+      transparent 65%
+    ),
+    var(--app-bg-light);
+  box-shadow:
+    0 18px 40px var(--app-shadow-slate),
+    0 0 0 1px var(--app-border-slate);
+  color: var(--app-slate-text);
+}
+
+.dark-theme .fact-card.topic-history {
+  box-shadow:
+    0 18px 40px rgba(var(--app-primary-rgb), 0.2),
+    0 0 0 1px rgba(var(--app-primary-rgb), 0.35);
+}
+.light-theme .fact-card.topic-history {
+  box-shadow:
+    0 18px 40px rgba(var(--app-primary-rgb), 0.28),
+    0 0 0 1px rgba(var(--app-primary-rgb), 0.4);
+}
+.dark-theme .fact-card.topic-science {
+  box-shadow:
+    0 18px 40px rgba(102, 187, 255, 0.2),
+    0 0 0 1px rgba(102, 187, 255, 0.35);
+}
+.light-theme .fact-card.topic-science {
+  box-shadow:
+    0 18px 40px rgba(102, 187, 255, 0.28),
+    0 0 0 1px rgba(102, 187, 255, 0.4);
+}
+.dark-theme .fact-card.topic-world-events {
+  box-shadow:
+    0 18px 40px rgba(129, 199, 132, 0.2),
+    0 0 0 1px rgba(129, 199, 132, 0.35);
+}
+.light-theme .fact-card.topic-world-events {
+  box-shadow:
+    0 18px 40px rgba(129, 199, 132, 0.28),
+    0 0 0 1px rgba(129, 199, 132, 0.4);
+}
+.dark-theme .fact-card.topic-technology {
+  box-shadow:
+    0 18px 40px rgba(159, 168, 218, 0.2),
+    0 0 0 1px rgba(159, 168, 218, 0.35);
+}
+.light-theme .fact-card.topic-technology {
+  box-shadow:
+    0 18px 40px rgba(159, 168, 218, 0.28),
+    0 0 0 1px rgba(159, 168, 218, 0.4);
+}
+.dark-theme .fact-card.topic-music {
+  box-shadow:
+    0 18px 40px rgba(244, 143, 177, 0.2),
+    0 0 0 1px rgba(244, 143, 177, 0.35);
+}
+.light-theme .fact-card.topic-music {
+  box-shadow:
+    0 18px 40px rgba(244, 143, 177, 0.28),
+    0 0 0 1px rgba(244, 143, 177, 0.4);
+}
+.dark-theme .fact-card.topic-movies {
+  box-shadow:
+    0 18px 40px rgba(255, 224, 130, 0.2),
+    0 0 0 1px rgba(255, 224, 130, 0.4);
+}
+.light-theme .fact-card.topic-movies {
+  box-shadow:
+    0 18px 40px rgba(255, 224, 130, 0.28),
+    0 0 0 1px rgba(255, 224, 130, 0.45);
+}
+.dark-theme .fact-card.topic-sports {
+  box-shadow:
+    0 18px 40px rgba(129, 212, 250, 0.2),
+    0 0 0 1px rgba(129, 212, 250, 0.35);
+}
+.light-theme .fact-card.topic-sports {
+  box-shadow:
+    0 18px 40px rgba(129, 212, 250, 0.28),
+    0 0 0 1px rgba(129, 212, 250, 0.4);
+}
+.dark-theme .fact-card.topic-fun-facts {
+  box-shadow:
+    0 18px 40px rgba(255, 241, 118, 0.2),
+    0 0 0 1px rgba(255, 241, 118, 0.4);
+}
+.light-theme .fact-card.topic-fun-facts {
+  box-shadow:
+    0 18px 40px rgba(255, 241, 118, 0.28),
+    0 0 0 1px rgba(255, 241, 118, 0.45);
+}
+.dark-theme .fact-card.topic-literature {
+  box-shadow:
+    0 18px 40px rgba(186, 104, 200, 0.2),
+    0 0 0 1px rgba(186, 104, 200, 0.35);
+}
+.light-theme .fact-card.topic-literature {
+  box-shadow:
+    0 18px 40px rgba(186, 104, 200, 0.28),
+    0 0 0 1px rgba(186, 104, 200, 0.4);
+}
+.dark-theme .fact-card.topic-psychology {
+  box-shadow:
+    0 18px 40px rgba(128, 222, 234, 0.2),
+    0 0 0 1px rgba(128, 222, 234, 0.35);
+}
+.light-theme .fact-card.topic-psychology {
+  box-shadow:
+    0 18px 40px rgba(128, 222, 234, 0.28),
+    0 0 0 1px rgba(128, 222, 234, 0.4);
+}
+
+.fact-card.topic-history .topic-badge {
+  --background: rgba(var(--app-primary-rgb), 0.18);
+  --color: var(--app-topic-history);
+}
+.fact-card.topic-science .topic-badge {
+  --background: rgba(102, 187, 255, 0.16);
+  --color: var(--app-topic-science);
+}
+.fact-card.topic-world-events .topic-badge {
+  --background: rgba(129, 199, 132, 0.16);
+  --color: var(--app-topic-world-events);
+}
+.fact-card.topic-technology .topic-badge {
+  --background: rgba(159, 168, 218, 0.16);
+  --color: var(--app-topic-technology);
+}
+.fact-card.topic-music .topic-badge {
+  --background: rgba(244, 143, 177, 0.18);
+  --color: var(--app-topic-music);
+}
+.fact-card.topic-movies .topic-badge {
+  --background: rgba(255, 224, 130, 0.18);
+  --color: var(--app-topic-movies);
+}
+.fact-card.topic-sports .topic-badge {
+  --background: rgba(129, 212, 250, 0.18);
+  --color: var(--app-topic-sports);
+}
+.fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(255, 241, 118, 0.2);
+  --color: var(--app-topic-fun-facts);
+}
+.fact-card.topic-literature .topic-badge {
+  --background: rgba(186, 104, 200, 0.2);
+  --color: var(--app-topic-literature);
+}
+.fact-card.topic-psychology .topic-badge {
+  --background: rgba(128, 222, 234, 0.2);
+  --color: var(--app-topic-psychology);
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.topic-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--app-radius-pill);
+  background: rgba(var(--app-primary-rgb), 0.16);
+  box-shadow: 0 0 0 1px rgba(var(--app-primary-rgb), 0.25);
+}
+
+.topic-icon {
+  font-size: 14px;
+  color: var(--app-primary);
+}
+
+.dark-theme .topic-icon-wrapper {
+  background: rgba(var(--app-primary-rgb), 0.18);
+  box-shadow: 0 0 0 1px rgba(var(--app-primary-rgb), 0.25);
+}
+.dark-theme .fact-card.topic-science .topic-icon-wrapper {
+  background: rgba(102, 187, 255, 0.16);
+  box-shadow: 0 0 0 1px rgba(102, 187, 255, 0.28);
+}
+.dark-theme .fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(129, 199, 132, 0.16);
+  box-shadow: 0 0 0 1px rgba(129, 199, 132, 0.28);
+}
+.dark-theme .fact-card.topic-technology .topic-icon-wrapper {
+  background: rgba(159, 168, 218, 0.16);
+  box-shadow: 0 0 0 1px rgba(159, 168, 218, 0.3);
+}
+.dark-theme .fact-card.topic-music .topic-icon-wrapper {
+  background: rgba(244, 143, 177, 0.18);
+  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.3);
+}
+.dark-theme .fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(255, 224, 130, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 224, 130, 0.3);
+}
+.dark-theme .fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(129, 212, 250, 0.18);
+  box-shadow: 0 0 0 1px rgba(129, 212, 250, 0.3);
+}
+.dark-theme .fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(255, 241, 118, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 241, 118, 0.35);
+}
+.dark-theme .fact-card.topic-literature .topic-icon-wrapper {
+  background: rgba(186, 104, 200, 0.2);
+  box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.32);
+}
+.dark-theme .fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(128, 222, 234, 0.2);
+  box-shadow: 0 0 0 1px rgba(128, 222, 234, 0.32);
+}
+.dark-theme .fact-card.topic-history .topic-icon {
+  color: var(--app-topic-history);
+}
+.dark-theme .fact-card.topic-science .topic-icon {
+  color: var(--app-topic-science);
+}
+.dark-theme .fact-card.topic-world-events .topic-icon {
+  color: var(--app-topic-world-events);
+}
+.dark-theme .fact-card.topic-technology .topic-icon {
+  color: var(--app-topic-technology);
+}
+.dark-theme .fact-card.topic-music .topic-icon {
+  color: var(--app-topic-music);
+}
+.dark-theme .fact-card.topic-movies .topic-icon {
+  color: var(--app-topic-movies);
+}
+.dark-theme .fact-card.topic-sports .topic-icon {
+  color: var(--app-topic-sports);
+}
+.dark-theme .fact-card.topic-fun-facts .topic-icon {
+  color: var(--app-topic-fun-facts);
+}
+.dark-theme .fact-card.topic-literature .topic-icon {
+  color: var(--app-topic-literature);
+}
+.dark-theme .fact-card.topic-psychology .topic-icon {
+  color: var(--app-topic-psychology);
+}
+
+.light-theme .topic-icon-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px var(--app-amber-strong);
+}
+
+.light-theme .fact-card .topic-icon-wrapper {
+  background: rgba(var(--app-slate-rgb), 0.06);
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+.light-theme .fact-card.topic-history .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px var(--app-amber-strong);
+}
+.light-theme .fact-card.topic-history .topic-icon {
+  color: #b45309;
+}
+.light-theme .fact-card.topic-history .topic-badge {
+  --background: rgba(251, 191, 36, 0.28);
+  --color: #92400e;
+}
+.light-theme .fact-card.topic-world-events .topic-icon-wrapper {
+  background: rgba(34, 197, 94, 0.22);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
+}
+.light-theme .fact-card.topic-world-events .topic-icon {
+  color: #166534;
+}
+.light-theme .fact-card.topic-world-events .topic-badge {
+  --background: rgba(34, 197, 94, 0.26);
+  --color: #166534;
+}
+.light-theme .fact-card.topic-movies .topic-icon-wrapper {
+  background: rgba(251, 191, 36, 0.24);
+  box-shadow: 0 0 0 1px var(--app-amber-strong);
+}
+.light-theme .fact-card.topic-movies .topic-icon {
+  color: #b45309;
+}
+.light-theme .fact-card.topic-movies .topic-badge {
+  --background: rgba(251, 191, 36, 0.3);
+  --color: #92400e;
+}
+.light-theme .fact-card.topic-fun-facts .topic-icon-wrapper {
+  background: rgba(45, 212, 191, 0.2);
+  box-shadow: 0 0 0 1px rgba(34, 197, 164, 0.7);
+}
+.light-theme .fact-card.topic-fun-facts .topic-icon {
+  color: #0f766e;
+}
+.light-theme .fact-card.topic-fun-facts .topic-badge {
+  --background: rgba(34, 197, 164, 0.24);
+  --color: #115e59;
+}
+.light-theme .fact-card.topic-sports .topic-icon-wrapper {
+  background: rgba(56, 189, 248, 0.22);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
+}
+.light-theme .fact-card.topic-sports .topic-icon {
+  color: #0369a1;
+}
+.light-theme .fact-card.topic-sports .topic-badge {
+  --background: rgba(56, 189, 248, 0.26);
+  --color: #075985;
+}
+.light-theme .fact-card.topic-psychology .topic-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.7);
+}
+.light-theme .fact-card.topic-psychology .topic-icon {
+  color: #1d4ed8;
+}
+.light-theme .fact-card.topic-psychology .topic-badge {
+  --background: rgba(59, 130, 246, 0.24);
+  --color: #1d4ed8;
+}
+
+.topic-badge {
+  margin-bottom: 0;
+  --background: rgba(var(--app-primary-rgb), 0.16);
+  --color: var(--app-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 8px;
+  height: 20px;
+}
+
+.light-theme .topic-badge {
+  --background: rgba(var(--app-primary-rgb), 0.22);
+  --color: #92400e;
+}
+
+.fact-title {
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 700;
+  margin: 18px 0 12px 0;
+}
+
+.fact-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--app-text-muted);
+}
+
+.light-theme .fact-description {
+  color: rgba(var(--app-slate-rgb), 0.9);
+}
 
 .settings-section {
-  border-radius: 22px;
+  border-radius: var(--app-radius-card);
   padding: 18px 16px 16px;
   margin: 16px;
 }
@@ -109,185 +499,135 @@
   font-size: 13px;
 }
 
-/* Dark/light theme variants for settings containers (shared) */
-
 .dark-theme .settings-section {
-  background: radial-gradient(circle at top left, rgba(255, 180, 87, 0.14), transparent 55%),
-    rgba(12, 14, 22, 0.9);
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(var(--app-primary-rgb), 0.14),
+      transparent 55%
+    ),
+    var(--app-bg-card);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.9),
-    0 0 0 1px rgba(255, 152, 0, 0.3);
+    0 16px 40px var(--app-shadow-dark),
+    0 0 0 1px var(--app-glow-amber);
 }
 
 .dark-theme .section-header h2 {
   background:
-    radial-gradient(circle at top left, rgba(255, 209, 128, 0.3), transparent 55%),
+    radial-gradient(
+      circle at top left,
+      var(--app-gradient-warm),
+      transparent 55%
+    ),
     rgba(7, 10, 18, 0.95);
   box-shadow:
     0 12px 30px rgba(0, 0, 0, 0.8),
-    0 0 0 1px rgba(255, 184, 0, 0.55);
-  color: #ffffff;
+    0 0 0 1px var(--app-amber-border);
+  color: var(--ion-text-color);
 }
 
 .dark-theme .settings-toggle-label h3,
 .dark-theme .toggle-description {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--app-text-muted);
 }
 
 .light-theme .settings-section {
   background:
-    radial-gradient(circle at top left, rgba(255, 211, 145, 0.4), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.32), transparent 60%),
-    #ffffff;
+    radial-gradient(
+      circle at top left,
+      var(--app-gradient-peach),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      var(--app-gradient-sky),
+      transparent 60%
+    ),
+    var(--app-bg-light);
   box-shadow:
-    0 16px 40px rgba(15, 23, 42, 0.12),
-    0 0 0 1px rgba(148, 163, 184, 0.2);
+    0 16px 40px var(--app-shadow-slate),
+    0 0 0 1px var(--app-border-slate);
 }
 
 .light-theme .section-header h2 {
   background:
-    radial-gradient(circle at top left, rgba(255, 209, 128, 0.5), transparent 55%),
-    rgba(249, 250, 251, 0.98);
+    radial-gradient(
+      circle at top left,
+      var(--app-gradient-warm-5),
+      transparent 55%
+    ),
+    var(--app-bg-light-98);
   box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.22),
-    0 0 0 1px rgba(251, 191, 36, 0.7);
-  color: #111827;
+    0 10px 24px rgba(var(--app-slate-rgb), 0.22),
+    0 0 0 1px var(--app-amber-strong);
+  color: var(--app-slate-heading);
 }
 
 .light-theme .settings-toggle-label,
 .light-theme .settings-toggle-label h3,
 .light-theme .toggle-description {
-  color: rgba(15, 23, 42, 0.85);
+  color: rgba(var(--app-slate-rgb), 0.85);
 }
-
-/* Light theme overrides for fact cards and settings (global so body.light-theme works with Angular) */
-
-body.light-theme .fact-card {
-  background:
-    radial-gradient(circle at top left, rgba(255, 211, 145, 0.38), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.32), transparent 65%),
-    #ffffff;
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.12),
-    0 0 0 1px rgba(148, 163, 184, 0.22);
-  color: #0f172a;
-}
-
-body.light-theme .fact-description {
-  color: rgba(15, 23, 42, 0.9);
-}
-
-body.light-theme .topic-icon-wrapper {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.35);
-}
-
-body.light-theme .topic-badge {
-  --background: rgba(255, 180, 87, 0.12);
-  --color: #b45309;
-}
-
-body.light-theme .settings-section {
-  background:
-    radial-gradient(circle at top left, rgba(255, 211, 145, 0.4), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(191, 219, 254, 0.32), transparent 60%),
-    #ffffff;
-  box-shadow:
-    0 16px 40px rgba(15, 23, 42, 0.12),
-    0 0 0 1px rgba(148, 163, 184, 0.2);
-}
-
-body.light-theme .section-header h2 {
-  background:
-    radial-gradient(circle at top left, rgba(255, 209, 128, 0.5), transparent 55%),
-    rgba(249, 250, 251, 0.98);
-  box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.22),
-    0 0 0 1px rgba(251, 191, 36, 0.7);
-  color: #111827;
-}
-
-body.light-theme .section-header p,
-body.light-theme .toggle-description {
-  color: rgba(15, 23, 42, 0.7);
-}
-
-/* Chip variants (topics + weekdays) */
-
-/* Dark theme chips:
-   - Inactive: cooler dark pill + grey text
-   - Active: warmer amber pill + amber text */
 
 .dark-theme .topic-chip,
 .dark-theme .weekday-chip {
-  /* Slightly cooler + darker than section, clearly non-amber */
-  --background: rgba(15, 23, 42, 0.85);       /* slate dark pill */
-  --color: rgba(156, 163, 175, 0.95);         /* inactive grey text */
-  --border-radius: 999px;
+  --background: var(--app-chip-inactive);
+  --color: var(--app-chip-inactive-text);
+  --border-radius: var(--app-radius-pill);
   --border-style: solid;
   --border-width: 1px;
-  --border-color: rgba(148, 163, 184, 0.55);
+  --border-color: var(--app-chip-border);
 }
 
 .dark-theme .topic-chip.topic-chip--selected,
 .dark-theme .weekday-chip.weekday-chip--selected {
-  --background: rgba(255, 180, 87, 0.24);     /* warmer amber pill */
-  --color: #ffb457;                           /* active amber text */
-  --border-color: rgba(255, 180, 87, 0.9);
+  --background: var(--app-chip-selected-bg);
+  --color: var(--app-primary);
+  --border-color: rgba(var(--app-primary-rgb), 0.9);
 }
 
-/* Special styling for "All/None" topic chip */
-
 .dark-theme .topic-chip.topic-chip--all {
-  /* Always more prominent than regular chips, even when inactive */
-  --background: rgba(255, 180, 87, 0.28);
+  --background: var(--app-chip-all-bg);
   --color: #ffedd5;
   --border-color: rgba(255, 213, 130, 0.95);
 }
 
 .dark-theme .topic-chip.topic-chip--all.topic-chip--selected {
-  /* Extra-strong accent when selected */
   --background: rgba(255, 193, 107, 0.45);
-  --color: #111827;
+  --color: var(--app-slate-heading);
   --border-color: rgba(255, 213, 130, 1);
 }
 
-/* Light theme chips – same warm palette for topics + days */
-
 .light-theme .topic-chip,
 .light-theme .weekday-chip {
-  /* Warm pill clearly darker than section background */
-  --background: #fee4c7;
+  --background: var(--app-chip-light-bg);
   --color: #1f2937;
-  --border-radius: 999px;
+  --border-radius: var(--app-radius-pill);
   --border-style: solid;
   --border-width: 1px;
-  --border-color: rgba(245, 158, 11, 0.65);
+  --border-color: var(--app-chip-light-border);
   font-weight: 700;
 }
 
 .light-theme .topic-chip.topic-chip--selected,
 .light-theme .weekday-chip.weekday-chip--selected {
-  --background: #ffb457;
-  --color: #111827;
+  --background: var(--app-primary);
+  --color: var(--app-slate-heading);
   --border-color: #e38a1f;
 }
 
 .light-theme .topic-chip.topic-chip--all {
-  /* "ALL" state (when not selected) – keep it strong */
-  --background: #ffb457;
-  --color: #111827;
+  --background: var(--app-primary);
+  --color: var(--app-slate-heading);
   --border-color: #ea9a2f;
 }
 
 .light-theme .topic-chip.topic-chip--all.topic-chip--selected {
-  /* "NONE" state (when selected) – muted orange, less attention than ALL */
-  --background: #fed7aa; /* soft orange */
+  --background: #fed7aa;
   --color: #b45309;
   --border-color: rgba(245, 158, 11, 0.6);
 }
 
-/* Dark theme: time picker modal + datetime (global so overlay follows theme, orange style) */
 .dark-theme ion-modal {
   --background: rgba(0, 0, 0, 0.95);
   --backdrop-opacity: 0.5;
@@ -298,33 +638,31 @@ body.light-theme .toggle-description {
   --wheel-highlight-background: #1a1a1a;
   --wheel-fade-background-rgb: 10, 10, 10;
   --wheel-border-color: rgba(255, 152, 0, 0.5);
-  color: #ff9800;
+  color: var(--app-datetime-accent);
 }
 
 .dark-theme ion-datetime-button {
-  --background: rgba(35, 42, 58, 0.85);
-  --color: #ff9800;
-  --border-radius: 999px;
+  --background: var(--app-datetime-dark-bg);
+  --color: var(--app-datetime-accent);
+  --border-radius: var(--app-radius-pill);
 }
 
 .dark-theme ion-datetime-button::part(native) {
-  background: rgba(35, 42, 58, 0.85);
-  color: #ff9800;
-  border-radius: 999px;
+  background: var(--app-datetime-dark-bg);
+  color: var(--app-datetime-accent);
+  border-radius: var(--app-radius-pill);
 }
 
 .dark-theme ion-datetime .datetime-action-buttons ion-button,
 .dark-theme ion-datetime ion-buttons ion-button {
-  color: #ff9800;
-  --color: #ff9800;
+  color: var(--app-datetime-accent);
+  --color: var(--app-datetime-accent);
 }
-
-/* Light theme: language select + time picker (global so overlays follow theme) */
 
 .light-theme .language-select {
   --background: #fff7ed;
   --color: #92400e;
-  --placeholder-color: rgba(15, 23, 42, 0.6);
+  --placeholder-color: rgba(var(--app-slate-rgb), 0.6);
 }
 
 .light-theme .language-select::part(text) {
@@ -337,47 +675,51 @@ body.light-theme .toggle-description {
 }
 
 .light-theme ion-datetime {
-  --background: #ffffff;
+  --background: var(--app-bg-light);
   --wheel-highlight-background: #f9fafb;
   --wheel-fade-background-rgb: 249, 250, 251;
   --wheel-border-color: rgba(251, 191, 36, 0.5);
-  color: #0f172a;
+  color: var(--app-slate-text);
 }
 
 .light-theme ion-datetime-button {
-  --background: #e0e7ff;
+  --background: var(--app-datetime-light-bg);
   --color: #b45309;
 }
 
 .light-theme ion-datetime-button::part(native) {
-  background: #e0e7ff;
+  background: var(--app-datetime-light-bg);
   color: #b45309;
-  border-radius: 999px;
+  border-radius: var(--app-radius-pill);
 }
 
-/* Select popover (opens at body level in light theme) – no dark borders */
 .light-theme ion-select-popover,
 .light-theme .select-popover,
 .light-theme ion-popover {
-  --background: #ffffff;
-  --color: #111827;
+  --background: var(--app-bg-light);
+  --color: var(--app-slate-heading);
   --border-width: 0;
   --border-style: none;
-  --box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  --box-shadow:
+    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
   border: none !important;
   border-radius: 16px;
   outline: none;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow:
+    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
 }
 
 .light-theme ion-popover::part(content),
 .light-theme ion-select-popover::part(container) {
   border: none !important;
   border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow:
+    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
 }
 
-/* Only override .list-md inside select popovers (language picker), not in-page lists like notifications */
 .light-theme ion-select-popover .list-md,
 .light-theme .select-popover .list-md,
 .light-theme .language-select-popover .list-md {
@@ -386,23 +728,22 @@ body.light-theme .toggle-description {
   padding-right: 0;
   padding-top: 8px;
   padding-bottom: 8px;
-  background: #ffffff;
-  --ion-item-background: #ffffff;
-  --ion-background-color: #ffffff;
+  background: var(--app-bg-light);
+  --ion-item-background: var(--app-bg-light);
+  --ion-background-color: var(--app-bg-light);
 }
 
 .light-theme ion-select-popover ion-list,
 .light-theme .select-popover ion-list {
-  --background: #ffffff;
+  --background: var(--app-bg-light);
 }
 
 .light-theme ion-select-popover ion-item,
 .light-theme .select-popover ion-item {
-  --background: #ffffff;
-  --color: #111827;
+  --background: var(--app-bg-light);
+  --color: var(--app-slate-heading);
 }
 
-/* Language select popover – remove dark top/bottom borders (class from interfaceOptions) */
 .light-theme .language-select-popover,
 .light-theme .language-select-popover ion-popover,
 .light-theme .language-select-popover .ion-overlay-wrapper,
@@ -412,7 +753,9 @@ body.light-theme .toggle-description {
   border-bottom: none !important;
   --border-width: 0 !important;
   outline: none;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(148, 163, 184, 0.12);
+  box-shadow:
+    0 18px 40px rgba(var(--app-slate-rgb), 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.12);
 }
 
 ::-webkit-scrollbar {
@@ -424,10 +767,10 @@ body.light-theme .toggle-description {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 180, 87, 0.5);
-  border-radius: 999px;
+  background: rgba(var(--app-primary-rgb), 0.5);
+  border-radius: var(--app-radius-pill);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 180, 87, 0.8);
+  background: rgba(var(--app-primary-rgb), 0.8);
 }

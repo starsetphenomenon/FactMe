@@ -7,33 +7,36 @@
   gap: 8px;
   margin: 0 auto 4px;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(10, 12, 20, 0.9);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 180, 87, 0.16);
-  backdrop-filter: blur(18px);
+  border-radius: var(--app-radius-pill);
+  background: var(--app-bg-card-date);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(var(--app-primary-rgb), 0.16);
+  backdrop-filter: blur(var(--app-blur));
 }
 
 .home-date-icon {
   font-size: 16px;
-  color: rgba(255, 180, 87, 0.85);
+  color: rgba(var(--app-primary-rgb), 0.85);
 }
 
 .home-date-text {
   font-size: 13px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--app-text-muted-7);
 }
-
-/* Light theme overrides (using host-context so body.light-theme works) */
 
 :host-context(.light-theme) .home-date {
   background:
-    radial-gradient(circle at top left, rgba(255, 211, 145, 0.5), transparent 60%),
-    #ffffff;
+    radial-gradient(
+      circle at top left,
+      var(--app-gradient-warm-5),
+      transparent 60%
+    ),
+    var(--app-bg-light);
   box-shadow:
-    0 10px 24px rgba(15, 23, 42, 0.16),
+    0 10px 24px rgba(var(--app-slate-rgb), 0.16),
     0 0 0 1px rgba(148, 163, 184, 0.18);
 }
 
@@ -42,6 +45,5 @@
 }
 
 :host-context(.light-theme) .home-date-text {
-  color: rgba(15, 23, 42, 0.8);
+  color: rgba(var(--app-slate-rgb), 0.8);
 }
-

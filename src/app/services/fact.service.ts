@@ -10,7 +10,6 @@ import { SettingsService } from './settings.service';
 import { Language } from '../enums/language.enum';
 import { Topic } from '../enums/topic.enum';
 
-// Cache facts per topic in memory after first load
 interface TopicCacheEntry {
   loaded: boolean;
   data?: TopicFactsFile;

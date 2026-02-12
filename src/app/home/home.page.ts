@@ -66,7 +66,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       settings.onePerTopic,
     );
     const lastKey = this.settingsService.getLastFactsLoadSettingsKey();
-    // Refetch when user changed topics/onePerTopic on Settings and came back
     if (lastKey !== null && currentKey !== lastKey) {
       void this.loadTodayFact();
     }
@@ -128,7 +127,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const todayIso = this.toIsoDate(this.today);
 
     try {
-      // New day: load facts for today (user should see the new day's facts)
       if (settings.lastShownDate !== todayIso) {
         await this.loadTodayFact();
         return;
@@ -139,7 +137,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         settings.onePerTopic,
       );
 
-      // If settings changed since we last stored the current facts state, refetch.
       if (
         settings.currentFactsSettingsKey &&
         settings.currentFactsSettingsKey !== currentKey
@@ -179,11 +176,8 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         this.facts = restored;
       }
 
-      // Restore the last known error state (e.g. "all seen" vs "empty").
       this.error = settings.currentErrorKey ?? null;
 
-      // Keep last facts-load settings key in sync so that settings changes on another page
-      // still trigger a refetch when coming back to Home.
       this.settingsService.setLastFactsLoadSettingsKey(
         this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
       );
@@ -212,8 +206,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         todayIso,
       );
 
-      // When reloading due to settings change, keep currently displayed facts in the pool
-      // so the list doesn't go empty (e.g. when switching to multiple facts).
       if (this.facts.length > 0) {
         const currentIds = new Set(this.facts.map((f) => f.id));
         alreadyShownIds = alreadyShownIds.filter((id) => !currentIds.has(id));
@@ -313,7 +305,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         currentErrorKey: HomeText.LoadErrorMessage,
         currentFactsSettingsKey: settingsKey,
       });
-      // eslint-disable-next-line no-console
       console.error(e);
     } finally {
       this.isLoading = false;
@@ -337,7 +328,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     this.isRefreshing = true;
 
     try {
-      // First tap of the day: load initial fact(s) instead of "next"
       if (this.facts.length === 0) {
         await this.loadTodayFact();
         this.isRefreshing = false;

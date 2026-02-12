@@ -5,8 +5,6 @@ import { AppSettings, Fact, Weekday, ALL_WEEKDAYS } from '../models/fact.models'
 import { NotificationText } from '../enums/notification-text.enum';
 import { TranslationService } from './translation.service';
 
-// Use a stable range of IDs so we can schedule
-// one notification per weekday if needed.
 const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
 
 @Injectable({
@@ -20,7 +18,6 @@ export class NotificationService {
 
   async ensurePermissions(): Promise<boolean> {
     if (!this.platform.is('hybrid')) {
-      // Browser: don't request native permissions
       return false;
     }
 
@@ -37,7 +34,6 @@ export class NotificationService {
     fact?: Fact | null,
   ): Promise<void> {
     if (!this.platform.is('hybrid')) {
-      // In the browser we simply no-op; scheduling happens only on device.
       return;
     }
 
@@ -58,7 +54,6 @@ export class NotificationService {
 
     const triggerTime = this.getNextTriggerDate(settings.notificationTime);
 
-    // Ensure translations are loaded before getting notification text
     await this.translationService.loadTranslations(
       this.translationService.getLanguage(),
     );
@@ -75,7 +70,6 @@ export class NotificationService {
       title,
       body,
       schedule: {
-        // Start from the next occurrence of this weekday at the chosen time.
         at: this.getNextWeekdayTriggerDate(weekday as Weekday, hour, minute),
         repeats: true,
         every: 'week' as const,
@@ -103,7 +97,6 @@ export class NotificationService {
     trigger.setHours(hour, minute, 0, 0);
 
     if (trigger <= now) {
-      // If time already passed today, schedule for tomorrow
       trigger.setDate(trigger.getDate() + 1);
     }
     return trigger;
@@ -114,11 +107,8 @@ export class NotificationService {
     const result = new Date(now);
     result.setHours(hour, minute, 0, 0);
 
-    // JS: 0 = Sunday ... 6 = Saturday
-    const todayJs = now.getDay(); // 0-6
-
-    // Capacitor/iOS weekday: 1 = Sunday ... 7 = Saturday
-    const targetJs = (weekday + 6) % 7; // convert 1–7 => 0–6 (Sunday=0)
+    const todayJs = now.getDay();
+    const targetJs = (weekday + 6) % 7;
 
     let diff = targetJs - todayJs;
     if (diff < 0 || (diff === 0 && result <= now)) {
