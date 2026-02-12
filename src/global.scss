@@ -818,19 +818,32 @@
   box-shadow: var(--app-light-elevation-shadow) !important;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--app-primary) transparent;
+}
+
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(var(--app-primary-rgb), 0.5);
-  border-radius: var(--app-radius-pill);
+  background: var(--app-primary);
+  border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(var(--app-primary-rgb), 0.8);
+  background: var(--ion-color-primary-shade);
 }
