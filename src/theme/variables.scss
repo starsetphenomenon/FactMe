@@ -63,15 +63,36 @@
   --app-chip-light-bg: #fee4c7;
   --app-chip-light-border: rgba(245, 158, 11, 0.65);
   --app-topic-history: #ffb457;
+  --app-topic-history-rgb: 255, 180, 87;
   --app-topic-science: #66bbff;
-  --app-topic-world-events: #81c784;
+  --app-topic-science-rgb: 102, 187, 255;
+  /* World events: vivid green */
+  --app-topic-world-events: #22c55e;
+  --app-topic-world-events-rgb: 34, 197, 94;
   --app-topic-technology: #9fa8da;
+  --app-topic-technology-rgb: 159, 168, 218;
   --app-topic-music: #f48fb1;
+  --app-topic-music-rgb: 244, 143, 177;
   --app-topic-movies: #ffe082;
+  --app-topic-movies-rgb: 255, 224, 130;
   --app-topic-sports: #81d4fa;
-  --app-topic-fun-facts: #fff176;
+  --app-topic-sports-rgb: 129, 212, 250;
+  /* Fun facts: playful teal, distinct from history & world events */
+  --app-topic-fun-facts: #14b8a6;
+  --app-topic-fun-facts-rgb: 20, 184, 166;
   --app-topic-literature: #ba68c8;
+  --app-topic-literature-rgb: 186, 104, 200;
   --app-topic-psychology: #80deea;
+  --app-topic-psychology-rgb: 128, 222, 234;
+
+  /* Light-theme accent variants used for badges/shadows */
+  --app-topic-history-light-rgb: 251, 191, 36;
+  --app-topic-world-events-light-rgb: 34, 197, 94;
+  --app-topic-movies-light-rgb: 251, 191, 36;
+  /* fun facts light accent (teal) */
+  --app-topic-fun-facts-light-rgb: 94, 234, 212;
+  --app-topic-sports-light-rgb: 56, 189, 248;
+  --app-topic-psychology-light-rgb: 59, 130, 246;
   --app-radius-card: 22px;
   --app-radius-pill: 999px;
   --app-blur: 18px;
