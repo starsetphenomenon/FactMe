@@ -1,4 +1,8 @@
 <ion-content [fullscreen]="true" class="home-content">
+  <ion-refresher #refresher slot="fixed" (ionRefresh)="onPullRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <app-home-fact-list
     [dateLabel]="dateLabel"
     [facts]="facts"
@@ -8,11 +12,4 @@
     (factSwipeLeft)="onFactSwipeLeft($event)"
     (factSwipeRight)="onFactSwipeRight($event)"
   ></app-home-fact-list>
-
-  <app-home-next-fact-button
-    [isVisible]="!isLoading && !error"
-    [isRefreshing]="isRefreshing"
-    [homeText]="homeText"
-    (nextFact)="onNextFact()"
-  ></app-home-next-fact-button>
 </ion-content>

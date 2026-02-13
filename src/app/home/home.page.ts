@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ViewWillEnter } from '@ionic/angular';
+import { RefresherCustomEvent, ViewWillEnter } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { ALL_TOPICS, Fact, TopicKey } from '../models/fact.models';
@@ -23,6 +23,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   error: string | null = null;
   isRefreshing = false;
   homeText = HomeText;
+  
   private readonly destroy$ = new Subject<void>();
   private lastSettingsKey?: string;
 
@@ -375,6 +376,11 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         this.facts[0],
       );
     }
+  }
+
+  async onPullRefresh(event: RefresherCustomEvent): Promise<void> {
+    await this.onNextFact();
+    event.target.complete();
   }
 
   async onNextFact(): Promise<void> {

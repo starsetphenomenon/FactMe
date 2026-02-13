@@ -9,7 +9,6 @@ import { HomeFactCardComponent } from './home-fact-card/home-fact-card.component
 import { HomeFactCardSwipeableComponent } from './home-fact-card-swipeable/home-fact-card-swipeable.component';
 import { HomeDateHeaderComponent } from './home-date-header/home-date-header.component';
 import { HomeFactListComponent } from './home-fact-list/home-fact-list.component';
-import { HomeNextFactButtonComponent } from './home-next-fact-button/home-next-fact-button.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule, TranslatePipe],
@@ -19,7 +18,6 @@ import { HomeNextFactButtonComponent } from './home-next-fact-button/home-next-f
     HomeFactCardSwipeableComponent,
     HomeDateHeaderComponent,
     HomeFactListComponent,
-    HomeNextFactButtonComponent,
   ],
 })
 export class HomePageModule {}
