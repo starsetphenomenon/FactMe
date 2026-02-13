@@ -1,9 +1,10 @@
 .language-select-wrapper {
   width: fit-content;
-  max-width: 130px;
+  min-width: 50px;
   margin-left: auto;
   border-radius: 16px;
   box-shadow: var(--app-light-elevation-shadow);
+  overflow: hidden;
 }
 
 .language-select {
@@ -22,11 +23,10 @@
   --highlight-color-valid: transparent;
   --highlight-color-invalid: transparent;
   width: 100%;
-  max-width: 130px;
   margin-left: auto;
   min-height: 30px;
   height: 30px;
-  overflow: visible;
+  overflow: hidden;
 
   &::part(container) {
     min-height: 30px;
@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    overflow: hidden;
   }
 
   &::part(text) {
@@ -46,10 +46,8 @@
     line-height: 1.25;
     white-space: nowrap;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &::part(icon) {
