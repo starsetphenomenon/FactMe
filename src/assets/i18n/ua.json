@@ -24,7 +24,11 @@
     "dataSectionSubtitle": "Раніше показані факти можуть знову з’являтися.",
     "dataClearButtonLabel": "Очистити переглянуті факти",
     "dataClearButtonShortLabel": "Очистити",
-    "dataClearedToast": "Історію переглянутих фактів очищено."
+    "dataClearedToast": "Історію переглянутих фактів очищено.",
+    "infoSectionTitle": "Інфо",
+    "infoSwipeLeft": "Свайп вліво — пропустити цей факт.",
+    "infoSwipeRight": "Свайп вправо — отримати інший факт з тієї ж теми.",
+    "infoSwipeRefresh": "Потягніть вниз — оновити та завантажити нові факти."
   },
   "topics": {
     "history": "ІСТОРІЯ",

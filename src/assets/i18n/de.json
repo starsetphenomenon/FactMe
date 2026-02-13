@@ -24,7 +24,11 @@
     "dataSectionSubtitle": "Bereits angezeigte Fakten können wieder erscheinen.",
     "dataClearButtonLabel": "Gesehene Fakten löschen",
     "dataClearButtonShortLabel": "Löschen",
-    "dataClearedToast": "Verlauf gesehener Fakten wurde gelöscht."
+    "dataClearedToast": "Verlauf gesehener Fakten wurde gelöscht.",
+    "infoSectionTitle": "Info",
+    "infoSwipeLeft": "Nach links wischen — diesen Fakt überspringen.",
+    "infoSwipeRight": "Nach rechts wischen — anderen Fakt aus demselben Thema anzeigen.",
+    "infoSwipeRefresh": "Nach unten ziehen — neue Fakten laden."
   },
   "topics": {
     "history": "GESCHICHTE",

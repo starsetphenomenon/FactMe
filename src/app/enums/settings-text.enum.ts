@@ -24,5 +24,10 @@ export enum SettingsText {
   DataClearButtonLabel = 'settings.dataClearButtonLabel',
   DataClearButtonShortLabel = 'settings.dataClearButtonShortLabel',
   DataClearedToast = 'settings.dataClearedToast',
+
+  InfoSectionTitle = 'settings.infoSectionTitle',
+  InfoSwipeLeft = 'settings.infoSwipeLeft',
+  InfoSwipeRight = 'settings.infoSwipeRight',
+  InfoSwipeRefresh = 'settings.infoSwipeRefresh',
 }
 

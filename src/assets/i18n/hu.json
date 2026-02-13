@@ -24,7 +24,11 @@
     "dataSectionSubtitle": "A korábban látott tények újra megjelenhetnek.",
     "dataClearButtonLabel": "Látott tények törlése",
     "dataClearButtonShortLabel": "Törlés",
-    "dataClearedToast": "A megtekintett tények előzményei törölve."
+    "dataClearedToast": "A megtekintett tények előzményei törölve.",
+    "infoSectionTitle": "Infó",
+    "infoSwipeLeft": "Balra húzás — tény kihagyása.",
+    "infoSwipeRight": "Jobbra húzás — másik tény ugyanabból a témából.",
+    "infoSwipeRefresh": "Húzz le — új tények betöltése."
   },
   "topics": {
     "history": "TÖRTÉNELEM",

@@ -24,7 +24,11 @@
     "dataSectionSubtitle": "Previously shown facts can appear again.",
     "dataClearButtonLabel": "Clear seen facts",
     "dataClearButtonShortLabel": "Clear",
-    "dataClearedToast": "Seen facts history cleared."
+    "dataClearedToast": "Seen facts history cleared.",
+    "infoSectionTitle": "Info",
+    "infoSwipeLeft": "Swipe left — skip this fact.",
+    "infoSwipeRight": "Swipe right — get another fact from the same topic.",
+    "infoSwipeRefresh": "Pull down — refresh and load new facts."
   },
   "topics": {
     "history": "HISTORY",
