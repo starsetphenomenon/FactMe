@@ -104,6 +104,7 @@ export class SettingsPage implements OnInit {
     this.settings = this.settingsService.update({ language: lang });
     this.translationService.setLanguage(lang);
     await this.translationService.loadTranslations(lang);
+    await this.notificationService.rescheduleDailyNotification(this.settings);
   }
 
   async onNotificationsToggleChange(enabled: boolean): Promise<void> {
