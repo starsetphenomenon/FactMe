@@ -627,6 +627,15 @@
   color: rgba(var(--app-slate-rgb), 0.85);
 }
 
+.light-theme ion-toggle::part(track) {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.light-theme ion-toggle[aria-checked='true']::part(track) {
+  background: var(--app-primary);
+}
+
 .dark-theme .topic-chip,
 .dark-theme .weekday-chip {
   --background: var(--app-chip-inactive);
@@ -643,18 +652,6 @@
   --background: var(--app-chip-selected-bg);
   --color: var(--app-primary);
   --border-color: rgba(var(--app-primary-rgb), 0.9);
-}
-
-.dark-theme .topic-chip.topic-chip--all {
-  --background: var(--app-chip-all-bg);
-  --color: #ffedd5;
-  --border-color: rgba(255, 213, 130, 0.95);
-}
-
-.dark-theme .topic-chip.topic-chip--all.topic-chip--selected {
-  --background: rgba(255, 193, 107, 0.45);
-  --color: var(--app-slate-heading);
-  --border-color: rgba(255, 213, 130, 1);
 }
 
 .light-theme .topic-chip,
@@ -674,18 +671,6 @@
   --background: var(--app-primary);
   --color: var(--app-slate-heading);
   --border-color: #e38a1f;
-}
-
-.light-theme .topic-chip.topic-chip--all {
-  --background: var(--app-primary);
-  --color: var(--app-slate-heading);
-  --border-color: #ea9a2f;
-}
-
-.light-theme .topic-chip.topic-chip--all.topic-chip--selected {
-  --background: #fed7aa;
-  --color: #b45309;
-  --border-color: rgba(245, 158, 11, 0.6);
 }
 
 .dark-theme ion-modal {

@@ -5,7 +5,7 @@
   <div class="chip-row">
     <ion-chip
       class="topic-chip topic-chip--all"
-      [ngClass]="{ 'topic-chip--selected': isAllTopicsSelected() }"
+      [ngClass]="{ 'topic-chip--selected': !isAllTopicsSelected() }"
       (click)="toggleAllTopics.emit()"
     >
       <ion-label class="topic-label">
