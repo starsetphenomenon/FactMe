@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ViewWillEnter } from '@ionic/angular';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 import { ALL_TOPICS, Fact, TopicKey } from '../models/fact.models';
 import { Topic } from '../enums/topic.enum';
 import { TopicIcon } from '../enums/topic-icon.enum';
@@ -22,7 +23,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   error: string | null = null;
   isRefreshing = false;
   homeText = HomeText;
-  private settingsSub?: Subscription;
+  private readonly destroy$ = new Subject<void>();
   private lastSettingsKey?: string;
 
   constructor(
@@ -38,37 +39,33 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       initialSettings.onePerTopic,
     );
 
-    this.settingsSub = this.settingsService.settingsChanges$.subscribe(
-      (settings) => {
-        if (!settings) return;
-        const key = this.buildSettingsKey(
-          settings.selectedTopics ?? [],
-          settings.onePerTopic,
-        );
-        if (key !== this.lastSettingsKey) {
-          this.lastSettingsKey = key;
-          void this.loadTodayFact();
-        }
-      },
-    );
+    this.settingsService.settingsChanges$
+      .pipe(
+        takeUntil(this.destroy$),
+        tap((settings) => {
+          if (!settings) return;
+          const key = this.buildSettingsKey(
+            settings.selectedTopics ?? [],
+            settings.onePerTopic,
+          );
+          if (key !== this.lastSettingsKey) {
+            this.lastSettingsKey = key;
+            void this.loadTodayFact();
+          }
+        }),
+      )
+      .subscribe();
 
     await this.restoreFromStorage();
   }
 
   ngOnDestroy(): void {
-    this.settingsSub?.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   ionViewWillEnter(): void {
-    const settings = this.settingsService.getSettings();
-    const currentKey = this.buildSettingsKey(
-      settings.selectedTopics ?? [],
-      settings.onePerTopic,
-    );
-    const lastKey = this.settingsService.getLastFactsLoadSettingsKey();
-    if (lastKey !== null && currentKey !== lastKey) {
-      void this.loadTodayFact();
-    }
+    void this.restoreFromStorage();
   }
 
   get fact(): Fact | null {

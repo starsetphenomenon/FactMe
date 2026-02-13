@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { filter, takeUntil, tap } from 'rxjs/operators';
 import { NavController, Platform } from '@ionic/angular';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { SettingsService } from './services/settings.service';
@@ -13,9 +14,10 @@ import { Language } from './enums/language.enum';
   styleUrls: ['app.component.scss'],
   standalone: false,
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   showBack = false;
   showSettingsButton = true;
+  private readonly destroy$ = new Subject<void>();
 
   constructor(
     private platform: Platform,
@@ -30,11 +32,21 @@ export class AppComponent {
 
     const initialSettings = this.settingsService.getSettings();
     this.applyTheme(initialSettings.theme);
-    this.settingsService.settingsChanges$.subscribe((s) => {
-      if (s) {
-        this.applyTheme(s.theme);
-      }
-    });
+    this.settingsService.settingsChanges$
+      .pipe(
+        takeUntil(this.destroy$),
+        tap((s) => {
+          if (s) {
+            this.applyTheme(s.theme);
+          }
+        }),
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   private async initNotificationListeners(): Promise<void> {
@@ -54,11 +66,15 @@ export class AppComponent {
 
   private initHeaderForRouting(): void {
     this.router.events
-      .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((event) => {
-        const url = event.urlAfterRedirects || event.url;
-        this.updateHeaderForUrl(url);
-      });
+      .pipe(
+        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+        takeUntil(this.destroy$),
+        tap((event) => {
+          const url = event.urlAfterRedirects || event.url;
+          this.updateHeaderForUrl(url);
+        }),
+      )
+      .subscribe();
   }
 
   private updateHeaderForUrl(url: string): void {
