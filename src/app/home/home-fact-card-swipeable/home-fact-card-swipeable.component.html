@@ -1,0 +1,14 @@
+<div
+  class="swipeable-wrapper"
+  (touchstart)="onTouchStart($event)"
+  (touchmove)="onTouchMove($event)"
+  (touchend)="onTouchEnd($event)"
+  (mousedown)="onMouseDown($event)"
+  (mousemove)="onMouseMove($event)"
+  (mouseup)="onMouseUp($event)"
+  (mouseleave)="onMouseLeave()"
+>
+  <div #cardEl class="swipeable-card">
+    <app-home-fact-card [fact]="fact"></app-home-fact-card>
+  </div>
+</div>

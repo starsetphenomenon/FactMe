@@ -1,0 +1,11 @@
+.swipeable-wrapper {
+  width: 100%;
+  overflow: visible;
+  touch-action: pan-y;
+}
+
+.swipeable-card {
+  width: 100%;
+  will-change: transform;
+  transform: translateX(0);
+}

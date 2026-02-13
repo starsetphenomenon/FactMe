@@ -5,10 +5,18 @@
   ></app-home-date-header>
 
   <ng-container *ngIf="!isLoading && hasFacts && !error">
-    <app-home-fact-card
-      *ngFor="let f of facts"
-      [fact]="f"
-    ></app-home-fact-card>
+    <div
+      *ngFor="let f of facts; let i = index; trackBy: trackByFactId"
+      class="fact-item"
+      [@factItemEnter]
+    >
+      <app-home-fact-card-swipeable
+        [fact]="f"
+        [index]="i"
+        (swipeLeft)="onSwipeLeft(i)"
+        (swipeRight)="onSwipeRight(i)"
+      ></app-home-fact-card-swipeable>
+    </div>
   </ng-container>
 
   <div class="fact-card empty" *ngIf="!isLoading && !hasFacts && !error">

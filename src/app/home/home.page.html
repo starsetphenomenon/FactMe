@@ -5,6 +5,8 @@
     [isLoading]="isLoading"
     [error]="error"
     [homeText]="homeText"
+    (factSwipeLeft)="onFactSwipeLeft($event)"
+    (factSwipeRight)="onFactSwipeRight($event)"
   ></app-home-fact-list>
 
   <app-home-next-fact-button

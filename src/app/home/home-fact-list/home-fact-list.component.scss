@@ -8,6 +8,12 @@
   gap: 16px;
 }
 
+.fact-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .fact-card.empty,
 .fact-card.error {
   text-align: center;

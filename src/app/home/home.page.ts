@@ -318,6 +318,65 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     return `${onePerTopic ? '1' : '0'}|${topicsKey}`;
   }
 
+  onFactSwipeLeft(index: number): void {
+    if (index < 0 || index >= this.facts.length) return;
+    const fact = this.facts[index];
+    const settings = this.settingsService.getSettings();
+    const todayIso = this.toIsoDate(this.today);
+    const settingsKey = this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+    );
+    this.settingsService.addShownFactIdForDate(todayIso, fact.id);
+    this.facts = this.facts.filter((_, i) => i !== index);
+    this.settingsService.update({
+      currentFactIds: this.facts.map((f) => f.id),
+      currentErrorKey: this.facts.length ? null : HomeText.AllSeenMessage,
+      currentFactsSettingsKey: settingsKey,
+    });
+    this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+  }
+
+  async onFactSwipeRight(index: number): Promise<void> {
+    if (index < 0 || index >= this.facts.length) return;
+    const fact = this.facts[index];
+    const settings = this.settingsService.getSettings();
+    const todayIso = this.toIsoDate(this.today);
+    const settingsKey = this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+    );
+    this.settingsService.addShownFactIdForDate(todayIso, fact.id);
+    const alreadyShownIds = this.settingsService.getShownFactIdsForDate(todayIso);
+    const replacement = await this.factService.getRandomFactForDate(
+      this.today,
+      [fact.topic],
+      alreadyShownIds,
+    );
+    if (replacement) {
+      this.settingsService.addShownFactIdForDate(todayIso, replacement.id);
+      this.facts = [
+        ...this.facts.slice(0, index),
+        replacement,
+        ...this.facts.slice(index + 1),
+      ];
+    } else {
+      this.facts = this.facts.filter((_, i) => i !== index);
+    }
+    this.settingsService.update({
+      currentFactIds: this.facts.map((f) => f.id),
+      currentErrorKey: this.facts.length ? null : HomeText.AllSeenMessage,
+      currentFactsSettingsKey: settingsKey,
+    });
+    this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+    if (this.facts.length > 0) {
+      await this.notificationService.rescheduleDailyNotification(
+        this.settingsService.getSettings(),
+        this.facts[0],
+      );
+    }
+  }
+
   async onNextFact(): Promise<void> {
     if (this.isRefreshing) {
       return;

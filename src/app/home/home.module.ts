@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { HomeFactCardComponent } from './home-fact-card/home-fact-card.component';
+import { HomeFactCardSwipeableComponent } from './home-fact-card-swipeable/home-fact-card-swipeable.component';
 import { HomeDateHeaderComponent } from './home-date-header/home-date-header.component';
 import { HomeFactListComponent } from './home-fact-list/home-fact-list.component';
 import { HomeNextFactButtonComponent } from './home-next-fact-button/home-next-fact-button.component';
@@ -15,6 +16,7 @@ import { HomeNextFactButtonComponent } from './home-next-fact-button/home-next-f
   declarations: [
     HomePage,
     HomeFactCardComponent,
+    HomeFactCardSwipeableComponent,
     HomeDateHeaderComponent,
     HomeFactListComponent,
     HomeNextFactButtonComponent,
