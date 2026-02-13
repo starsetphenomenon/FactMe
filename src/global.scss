@@ -746,6 +746,20 @@
   border-radius: var(--app-radius-pill);
 }
 
+.dark-theme ion-toast {
+  --background: rgba(15, 23, 42, 0.96);
+  --color: var(--ion-text-color);
+  --border-radius: 16px;
+  --box-shadow: var(--app-dark-elevation-shadow);
+}
+
+.light-theme ion-toast {
+  --background: #fef3c7;
+  --color: #92400e;
+  --border-radius: 16px;
+  --box-shadow: var(--app-light-elevation-shadow);
+}
+
 .light-theme ion-select-popover,
 .light-theme .select-popover,
 .light-theme ion-popover {
