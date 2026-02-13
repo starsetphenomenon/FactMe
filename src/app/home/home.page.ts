@@ -176,6 +176,13 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       this.settingsService.setLastFactsLoadSettingsKey(
         this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
       );
+
+      if (this.facts.length > 0) {
+        await this.notificationService.rescheduleDailyNotification(
+          this.settingsService.getSettings(),
+          this.facts[0],
+        );
+      }
     } finally {
       this.isLoading = false;
     }
@@ -232,6 +239,9 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+          await this.notificationService.rescheduleDailyNotification(
+            this.settingsService.getSettings(),
+          );
           return;
         }
 
@@ -281,6 +291,9 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+          await this.notificationService.rescheduleDailyNotification(
+            this.settingsService.getSettings(),
+          );
           return;
         }
 
@@ -319,7 +332,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     return `${onePerTopic ? '1' : '0'}|${topicsKey}`;
   }
 
-  onFactSwipeLeft(index: number): void {
+  async onFactSwipeLeft(index: number): Promise<void> {
     if (index < 0 || index >= this.facts.length) return;
     const fact = this.facts[index];
     const settings = this.settingsService.getSettings();
@@ -336,6 +349,11 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       currentFactsSettingsKey: settingsKey,
     });
     this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+    if (this.facts.length === 0) {
+      await this.notificationService.rescheduleDailyNotification(
+        this.settingsService.getSettings(),
+      );
+    }
   }
 
   async onFactSwipeRight(index: number): Promise<void> {
@@ -370,12 +388,10 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       currentFactsSettingsKey: settingsKey,
     });
     this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-    if (this.facts.length > 0) {
-      await this.notificationService.rescheduleDailyNotification(
-        this.settingsService.getSettings(),
-        this.facts[0],
-      );
-    }
+    await this.notificationService.rescheduleDailyNotification(
+      this.settingsService.getSettings(),
+      this.facts.length > 0 ? this.facts[0] : undefined,
+    );
   }
 
   async onPullRefresh(event: RefresherCustomEvent): Promise<void> {
@@ -434,6 +450,9 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+          await this.notificationService.rescheduleDailyNotification(
+            this.settingsService.getSettings(),
+          );
           return;
         }
 
@@ -480,6 +499,9 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+          await this.notificationService.rescheduleDailyNotification(
+            this.settingsService.getSettings(),
+          );
           return;
         }
 
