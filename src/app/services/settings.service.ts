@@ -103,6 +103,24 @@ export class SettingsService {
     });
   }
 
+  removeShownFactIdsForDate(dateIso: string, idsToRemove: string[]): AppSettings {
+    const current = this.getSettings();
+    if (current.lastShownDate !== dateIso || !Array.isArray(current.shownFactIds)) {
+      return current;
+    }
+    const removeSet = new Set(idsToRemove);
+    const filtered = current.shownFactIds.filter((id) => !removeSet.has(id));
+    const nextLastShownFactId =
+      current.lastShownFactId && removeSet.has(current.lastShownFactId)
+        ? null
+        : current.lastShownFactId;
+    return this.update({
+      lastShownDate: filtered.length > 0 ? dateIso : null,
+      lastShownFactId: nextLastShownFactId,
+      shownFactIds: filtered,
+    });
+  }
+
   private loadFromStorage(): AppSettings {
     if (typeof window === 'undefined') {
       return this.defaultSettings();

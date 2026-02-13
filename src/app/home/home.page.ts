@@ -193,13 +193,16 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     );
 
     try {
+      if (settings.currentFactsSettingsKey && settings.currentFactsSettingsKey !== settingsKey && this.facts.length > 0) {
+        this.settingsService.removeShownFactIdsForDate(
+          todayIso,
+          this.facts.map((f) => f.id),
+        );
+      }
+
       let alreadyShownIds = this.settingsService.getShownFactIdsForDate(
         todayIso,
       );
-
-      if (settings.currentFactsSettingsKey && settings.currentFactsSettingsKey !== settingsKey) {
-        alreadyShownIds = [];
-      }
 
       if (this.facts.length > 0) {
         const currentIds = new Set(this.facts.map((f) => f.id));
