@@ -89,7 +89,7 @@
   background:
     radial-gradient(
       circle at top left,
-      rgba(var(--ion-color-primary-rgb), 0.15),
+      rgba(var(--app-primary-rgb), 0.15),
       transparent 55%
     ),
     var(--app-bg-card);
@@ -845,5 +845,8 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ion-color-primary-shade);
+  background: var(--app-primary-shade);
 }
+
+// Load theme variables after Ionic so our primary (amber) overrides Ionic default (blue)
+@import "theme/variables.scss";

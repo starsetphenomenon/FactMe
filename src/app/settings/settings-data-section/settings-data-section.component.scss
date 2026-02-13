@@ -6,12 +6,12 @@
 
 .data-actions ion-button {
   --border-radius: var(--app-radius-pill);
-  --background: var(--ion-color-primary);
-  --background-activated: var(--ion-color-primary-shade);
-  --background-hover: var(--ion-color-primary-tint);
+  --background: var(--app-primary);
+  --background-activated: var(--app-primary-shade);
+  --background-hover: var(--app-primary-tint);
   --box-shadow: var(--app-light-elevation-shadow);
 }
 
 .data-actions ion-button::part(native) {
-  color: var(--ion-color-primary-contrast);
+  color: var(--app-primary-contrast);
 }

@@ -7,14 +7,14 @@
 }
 
 .language-select {
-  --background: var(--ion-color-primary);
+  --background: var(--app-primary);
   --border-radius: 16px;
   --padding-start: 16px;
   --padding-end: 16px;
   --padding-top: 0;
   --padding-bottom: 0;
   --min-height: 30px;
-  --color: var(--ion-color-primary);
+  --color: var(--app-primary);
   --placeholder-color: var(--app-text-muted-7);
   --border-color: transparent;
   --border-color-focused: transparent;
@@ -40,7 +40,7 @@
   }
 
   &::part(text) {
-    color: var(--ion-color-primary-contrast);
+    color: var(--app-primary-contrast);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.25;
