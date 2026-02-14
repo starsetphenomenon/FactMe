@@ -688,12 +688,12 @@ button.weekday-chip {
 
 .light-theme ion-datetime-button {
   --background: var(--app-datetime-light-bg);
-  --color: #b45309;
+  --color: var(--app-datetime-accent);
 }
 
 .light-theme ion-datetime-button::part(native) {
   background: var(--app-datetime-light-bg);
-  color: #b45309;
+  color: var(--app-datetime-accent);
   border-radius: var(--app-radius-pill);
 }
 
