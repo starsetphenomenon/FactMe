@@ -44,6 +44,7 @@
   },
   "home": {
     "emptyMessage": "Ma nincs elérhető tény. Próbálj meg több témát bekapcsolni a beállításokban.",
+    "emptyMessageAllTopics": "Ma nincs elérhető tény.",
     "allSeenMessage": "Ma már láttad az összes elérhető tényt.",
     "loadErrorMessage": "Nem sikerült betölteni a mai tényt.",
     "refreshButtonAria": "Még egy mai tény"

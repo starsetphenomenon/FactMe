@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RefresherCustomEvent, ViewWillEnter } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { ALL_TOPICS, Fact, TopicKey } from '../models/fact.models';
+import { ALL_TOPICS, AppSettings, Fact, TopicKey } from '../models/fact.models';
 import { FactService } from '../services/fact.service';
 import { SettingsService } from '../services/settings.service';
 import { NotificationService } from '../services/notification.service';
@@ -196,11 +196,15 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
         if (!fact) {
           this.facts = [];
-          this.error = HomeText.EmptyMessage;
+          const messageKey =
+            alreadyShownIds.length > 0
+              ? HomeText.AllSeenMessage
+              : this.getEmptyMessageKey(settings);
+          this.error = messageKey;
           this.isLoading = false;
           this.settingsService.update({
             currentFactIds: [],
-            currentErrorKey: HomeText.EmptyMessage,
+            currentErrorKey: messageKey,
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
@@ -248,11 +252,15 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
         if (!newFacts.length) {
           this.facts = [];
-          this.error = HomeText.EmptyMessage;
+          const messageKey =
+            alreadyShownIds.length > 0
+              ? HomeText.AllSeenMessage
+              : this.getEmptyMessageKey(settings);
+          this.error = messageKey;
           this.isLoading = false;
           this.settingsService.update({
             currentFactIds: [],
-            currentErrorKey: HomeText.EmptyMessage,
+            currentErrorKey: messageKey,
             currentFactsSettingsKey: settingsKey,
           });
           this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
@@ -295,6 +303,21 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   private buildSettingsKey(selectedTopics: TopicKey[], onePerTopic: boolean): string {
     const topicsKey = [...selectedTopics].sort().join(',');
     return `${onePerTopic ? '1' : '0'}|${topicsKey}`;
+  }
+
+  private hasAllTopicsEnabled(settings: AppSettings): boolean {
+    const selected = settings.selectedTopics ?? [];
+    if (selected.length === 0) return true;
+    return (
+      selected.length === ALL_TOPICS.length &&
+      ALL_TOPICS.every((t) => selected.includes(t))
+    );
+  }
+
+  private getEmptyMessageKey(settings: AppSettings): HomeText {
+    return this.hasAllTopicsEnabled(settings)
+      ? HomeText.EmptyMessageAllTopics
+      : HomeText.EmptyMessage;
   }
 
   async onFactSwipeLeft(index: number): Promise<void> {

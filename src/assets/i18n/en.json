@@ -44,6 +44,7 @@
   },
   "home": {
     "emptyMessage": "No fact available for today. Try enabling more topics in Settings.",
+    "emptyMessageAllTopics": "No fact available for today.",
     "allSeenMessage": "You have seen all available facts for today.",
     "loadErrorMessage": "Failed to load today's fact.",
     "refreshButtonAria": "Another fact for today"
