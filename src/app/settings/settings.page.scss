@@ -1,4 +1,24 @@
-.settings-content {
+:host-context(.dark-theme) .settings-content {
   --background: transparent;
+  background: radial-gradient(
+    circle at top,
+    #10131c 0,
+    var(--app-bg-dark) 40%,
+    var(--app-bg-dark) 100%
+  );
+}
+
+:host-context(.light-theme) .settings-content {
+  --background: transparent;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 237, 213, 0.85),
+      transparent 60%
+    ),
+    linear-gradient(160deg, #f9fafb 0%, #eef2ff 42%, #ecfeff 100%);
+}
+
+.settings-content {
   padding: 20px 16px 32px;
 }
