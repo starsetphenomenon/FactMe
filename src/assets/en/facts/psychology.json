@@ -28,6 +28,13 @@
         "title": "Birth of Charles Darwin",
         "description": "On February 12, 1809, Charles Darwin was born. His theory of evolution by natural selection strongly influenced comparative and developmental psychology by encouraging scientific study of human and animal behavior."
       }
+    ],
+    "02-14": [
+      {
+        "id": "psychology-0214-1",
+        "title": "Psychology of Romantic Love",
+        "description": "Valentine's Day highlights the psychology of love; research on attachment theory links adult romantic relationships to early caregiving bonds, and studies continue to explore the neurochemistry and culture of expressing affection."
+      }
     ]
   }
 }

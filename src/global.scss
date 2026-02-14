@@ -281,7 +281,6 @@
   height: 24px;
   border-radius: var(--app-radius-pill);
   background: rgba(var(--app-primary-rgb), 0.16);
-  box-shadow: 0 0 0 1px rgba(var(--app-primary-rgb), 0.25);
 }
 
 .topic-icon {
@@ -291,43 +290,33 @@
 
 .dark-theme .topic-icon-wrapper {
   background: rgba(var(--app-primary-rgb), 0.18);
-  box-shadow: 0 0 0 1px rgba(var(--app-primary-rgb), 0.25);
 }
 .dark-theme .fact-card.topic-science .topic-icon-wrapper {
   background: rgba(102, 187, 255, 0.16);
-  box-shadow: 0 0 0 1px rgba(102, 187, 255, 0.28);
 }
 .dark-theme .fact-card.topic-world-events .topic-icon-wrapper {
   background: rgba(129, 199, 132, 0.16);
-  box-shadow: 0 0 0 1px rgba(129, 199, 132, 0.28);
 }
 .dark-theme .fact-card.topic-technology .topic-icon-wrapper {
   background: rgba(159, 168, 218, 0.16);
-  box-shadow: 0 0 0 1px rgba(159, 168, 218, 0.3);
 }
 .dark-theme .fact-card.topic-music .topic-icon-wrapper {
   background: rgba(244, 143, 177, 0.18);
-  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.3);
 }
 .dark-theme .fact-card.topic-movies .topic-icon-wrapper {
   background: rgba(255, 224, 130, 0.18);
-  box-shadow: 0 0 0 1px rgba(255, 224, 130, 0.3);
 }
 .dark-theme .fact-card.topic-sports .topic-icon-wrapper {
   background: rgba(129, 212, 250, 0.18);
-  box-shadow: 0 0 0 1px rgba(129, 212, 250, 0.3);
 }
 .dark-theme .fact-card.topic-fun-facts .topic-icon-wrapper {
   background: rgba(var(--app-topic-fun-facts-rgb), 0.2);
-  box-shadow: 0 0 0 1px rgba(var(--app-topic-fun-facts-rgb), 0.35);
 }
 .dark-theme .fact-card.topic-literature .topic-icon-wrapper {
   background: rgba(186, 104, 200, 0.2);
-  box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.32);
 }
 .dark-theme .fact-card.topic-psychology .topic-icon-wrapper {
   background: rgba(128, 222, 234, 0.2);
-  box-shadow: 0 0 0 1px rgba(128, 222, 234, 0.32);
 }
 .dark-theme .fact-card.topic-history .topic-icon {
   color: var(--app-topic-history);
@@ -362,16 +351,13 @@
 
 .light-theme .topic-icon-wrapper {
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 1px var(--app-amber-strong);
 }
 
 .light-theme .fact-card .topic-icon-wrapper {
   background: rgba(var(--app-slate-rgb), 0.06);
-  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
 }
 .light-theme .fact-card.topic-history .topic-icon-wrapper {
   background: rgba(251, 191, 36, 0.24);
-  box-shadow: 0 0 0 1px var(--app-amber-strong);
 }
 .light-theme .fact-card.topic-history .topic-icon {
   color: #b45309;
@@ -380,9 +366,38 @@
   --background: rgba(251, 191, 36, 0.28);
   --color: #92400e;
 }
+.light-theme .fact-card.topic-science .topic-icon-wrapper {
+  background: rgba(var(--app-topic-science-rgb), 0.22);
+}
+.light-theme .fact-card.topic-science .topic-icon {
+  color: #0284c7;
+}
+.light-theme .fact-card.topic-science .topic-badge {
+  --background: rgba(var(--app-topic-science-rgb), 0.26);
+  --color: #0369a1;
+}
+.light-theme .fact-card.topic-technology .topic-icon-wrapper {
+  background: rgba(var(--app-topic-technology-rgb), 0.22);
+}
+.light-theme .fact-card.topic-technology .topic-icon {
+  color: #4f46e5;
+}
+.light-theme .fact-card.topic-technology .topic-badge {
+  --background: rgba(var(--app-topic-technology-rgb), 0.26);
+  --color: #4338ca;
+}
+.light-theme .fact-card.topic-music .topic-icon-wrapper {
+  background: rgba(var(--app-topic-music-rgb), 0.22);
+}
+.light-theme .fact-card.topic-music .topic-icon {
+  color: #be185d;
+}
+.light-theme .fact-card.topic-music .topic-badge {
+  --background: rgba(var(--app-topic-music-rgb), 0.26);
+  --color: #9d174d;
+}
 .light-theme .fact-card.topic-world-events .topic-icon-wrapper {
   background: rgba(34, 197, 94, 0.22);
-  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.7);
 }
 .light-theme .fact-card.topic-world-events .topic-icon {
   color: #166534;
@@ -393,7 +408,6 @@
 }
 .light-theme .fact-card.topic-movies .topic-icon-wrapper {
   background: rgba(251, 191, 36, 0.24);
-  box-shadow: 0 0 0 1px var(--app-amber-strong);
 }
 .light-theme .fact-card.topic-movies .topic-icon {
   color: #b45309;
@@ -404,7 +418,6 @@
 }
 .light-theme .fact-card.topic-fun-facts .topic-icon-wrapper {
   background: rgba(var(--app-topic-fun-facts-light-rgb), 0.25);
-  box-shadow: 0 0 0 1px rgba(var(--app-topic-fun-facts-light-rgb), 0.8);
 }
 .light-theme .fact-card.topic-fun-facts .topic-icon {
   color: var(--app-topic-fun-facts);
@@ -415,7 +428,6 @@
 }
 .light-theme .fact-card.topic-sports .topic-icon-wrapper {
   background: rgba(56, 189, 248, 0.22);
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.7);
 }
 .light-theme .fact-card.topic-sports .topic-icon {
   color: #0369a1;
@@ -426,7 +438,6 @@
 }
 .light-theme .fact-card.topic-psychology .topic-icon-wrapper {
   background: rgba(59, 130, 246, 0.2);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.7);
 }
 .light-theme .fact-card.topic-psychology .topic-icon {
   color: #1d4ed8;
@@ -437,7 +448,6 @@
 }
 .light-theme .fact-card.topic-literature .topic-icon-wrapper {
   background: rgba(186, 104, 200, 0.2);
-  box-shadow: 0 0 0 1px rgba(186, 104, 200, 0.7);
 }
 .light-theme .fact-card.topic-literature .topic-icon {
   color: var(--app-topic-literature);
