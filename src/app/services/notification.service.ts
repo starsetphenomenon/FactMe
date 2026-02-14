@@ -3,7 +3,7 @@ import { Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { FactMeNotification } from '../plugins/fact-me-notification.plugin';
-import { AppSettings, Fact, Weekday, ALL_TOPICS, TopicKey } from '../models/fact.models';
+import { AppSettings, Fact, Weekday, ALL_TOPICS, TopicKey, Theme } from '../models/fact.models';
 import { NotificationText } from '../enums/notification-text.enum';
 import { Topic } from '../enums/topic.enum';
 import { TranslationService } from './translation.service';
@@ -87,7 +87,7 @@ export class NotificationService {
     const minute = Number(minuteStr ?? 0);
 
     const largeIconDrawableName = this.getTopicLargeIconName(effectiveFact.topic);
-    const largeIconTintColor = this.getTopicColor(effectiveFact.topic);
+    const largeIconTintColor = this.getTopicColor(effectiveFact.topic, settings.theme);
 
     if (useNativeScheduling) {
       const notifications = weekdays.map((weekday: Weekday, index: number) => ({
@@ -155,7 +155,7 @@ export class NotificationService {
       fact.description ??
       this.translationService.translate(NotificationText.FallbackBody);
     const largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
-    const largeIconTintColor = this.getTopicColor(fact.topic);
+    const largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
 
     try {
       await FactMeNotification.showTestNotification({
@@ -203,19 +203,32 @@ export class NotificationService {
   }
 
   /** Hex color for topic (matches app theme) for notification large icon tint. */
-  private getTopicColor(topic: TopicKey): string {
-    const colors: Record<string, string> = {
+  private getTopicColor(topic: TopicKey, theme: Theme): string {
+    const dark: Record<string, string> = {
       [Topic.History]: '#ffb457',
       [Topic.Science]: '#66bbff',
       [Topic.WorldEvents]: '#22c55e',
       [Topic.Technology]: '#9fa8da',
       [Topic.Music]: '#f48fb1',
       [Topic.Movies]: '#ffe082',
-      [Topic.Sports]: '#81d4fa',
+      [Topic.Sports]: '#f97316',
       [Topic.FunFacts]: '#14b8a6',
       [Topic.Literature]: '#ba68c8',
       [Topic.Psychology]: '#80deea',
     };
+    const light: Record<string, string> = {
+      [Topic.History]: '#fbbf24',
+      [Topic.Science]: '#0284c7',
+      [Topic.WorldEvents]: '#22c55e',
+      [Topic.Technology]: '#4f46e5',
+      [Topic.Music]: '#be185d',
+      [Topic.Movies]: '#8b5cf6',
+      [Topic.Sports]: '#fb923c',
+      [Topic.FunFacts]: '#5eead4',
+      [Topic.Literature]: '#ba68c8',
+      [Topic.Psychology]: '#3b82f6',
+    };
+    const colors = theme === 'light' ? light : dark;
     return colors[topic] ?? '#26A69A';
   }
 

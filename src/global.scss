@@ -407,14 +407,14 @@
   --color: #166534;
 }
 .light-theme .fact-card.topic-movies .topic-icon-wrapper {
-  background: rgba(251, 191, 36, 0.24);
+  background: rgba(var(--app-topic-movies-light-rgb), 0.2);
 }
 .light-theme .fact-card.topic-movies .topic-icon {
-  color: #b45309;
+  color: #6d28d9;
 }
 .light-theme .fact-card.topic-movies .topic-badge {
-  --background: rgba(251, 191, 36, 0.3);
-  --color: #92400e;
+  --background: rgba(var(--app-topic-movies-light-rgb), 0.24);
+  --color: #5b21b6;
 }
 .light-theme .fact-card.topic-fun-facts .topic-icon-wrapper {
   background: rgba(var(--app-topic-fun-facts-light-rgb), 0.25);
@@ -427,14 +427,14 @@
   --color: var(--app-topic-fun-facts);
 }
 .light-theme .fact-card.topic-sports .topic-icon-wrapper {
-  background: rgba(56, 189, 248, 0.22);
+  background: rgba(var(--app-topic-sports-light-rgb), 0.22);
 }
 .light-theme .fact-card.topic-sports .topic-icon {
-  color: #0369a1;
+  color: #c2410c;
 }
 .light-theme .fact-card.topic-sports .topic-badge {
-  --background: rgba(56, 189, 248, 0.26);
-  --color: #075985;
+  --background: rgba(var(--app-topic-sports-light-rgb), 0.26);
+  --color: #9a3412;
 }
 .light-theme .fact-card.topic-psychology .topic-icon-wrapper {
   background: rgba(59, 130, 246, 0.2);
