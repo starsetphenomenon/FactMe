@@ -19,10 +19,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import java.util.Calendar;
 
-/**
- * Receives daily notification alarms and shows the notification with app icon (no bg) + topic icon (tinted).
- * Reschedules for the next week.
- */
 public class FactMeNotificationReceiver extends BroadcastReceiver {
 
     public static final String ACTION_DAILY = "io.ionic.starter.FACTME_DAILY";
@@ -177,7 +173,6 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         return bitmap;
     }
 
-    /** Next occurrence of weekday (Calendar constant) at hour:minute, in millis. */
     private static long nextTriggerTime(int weekday, int hour, int minute) {
         Calendar now = Calendar.getInstance();
         Calendar next = Calendar.getInstance();
@@ -185,7 +180,6 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         next.set(Calendar.MINUTE, minute);
         next.set(Calendar.SECOND, 0);
         next.set(Calendar.MILLISECOND, 0);
-        // weekday: 1=Sun, 2=Mon, ... 7=Sat (from JS). Calendar: 1=Sun, 2=Mon, ... 7=Sat
         next.set(Calendar.DAY_OF_WEEK, weekday);
         if (next.getTimeInMillis() <= now.getTimeInMillis()) {
             next.add(Calendar.DAY_OF_MONTH, 7);

@@ -26,10 +26,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Calendar;
 
-/**
- * Shows a notification using the app's launcher icon (small) and a drawable by name (large).
- * Bypasses the Local Notifications plugin's resource lookup so icons resolve in the app package.
- */
 @CapacitorPlugin(name = "FactMeNotification")
 public class FactMeNotificationPlugin extends Plugin {
 

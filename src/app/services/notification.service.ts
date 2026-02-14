@@ -10,7 +10,6 @@ import { TranslationService } from './translation.service';
 import { FactService } from './fact.service';
 
 const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
-/** ID used for the one-off test notification (must not overlap with daily IDs). */
 const TEST_NOTIFICATION_ID = 999;
 
 @Injectable({
@@ -129,10 +128,6 @@ export class NotificationService {
     });
   }
 
-  /**
-   * Shows a test notification immediately using native Android so app icon (small)
-   * and topic icon (large) resolve correctly in the app package.
-   */
   async showTestNotification(settings: AppSettings): Promise<boolean> {
     if (!this.platform.is('hybrid')) {
       return false;
@@ -202,7 +197,6 @@ export class NotificationService {
     return result;
   }
 
-  /** Hex color for topic (matches app theme) for notification large icon tint. */
   private getTopicColor(topic: TopicKey, theme: Theme): string {
     const dark: Record<string, string> = {
       [Topic.History]: '#ffb457',
@@ -232,7 +226,6 @@ export class NotificationService {
     return colors[topic] ?? '#26A69A';
   }
 
-  /** Android drawable name (no extension) for notification large icon by topic. */
   private getTopicLargeIconName(topic: TopicKey): string {
     const slug = topic.replace(/-/g, '_');
     const known: TopicKey[] = [
@@ -253,7 +246,6 @@ export class NotificationService {
     return 'ic_topic_default';
   }
 
-  /** Resolve current fact from home page state (currentFactIds). Returns null if home has no facts. */
   private async getCurrentFactFromSettings(settings: AppSettings): Promise<Fact | null> {
     const currentId = settings.currentFactIds?.[0];
     if (!currentId) {
