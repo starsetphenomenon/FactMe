@@ -3,26 +3,24 @@
   [subtitle]="settingsText.TopicsSectionSubtitle | translate"
 >
   <div class="chip-row">
-    <ion-chip
+    <button
+      type="button"
       class="topic-chip topic-chip--all"
       [ngClass]="{ 'topic-chip--selected': !isAllTopicsSelected() }"
       (click)="toggleAllTopics.emit()"
     >
-      <ion-label class="topic-label">
-        {{ allTopicsLabel | translate }}
-      </ion-label>
-    </ion-chip>
+      <span class="topic-label">{{ allTopicsLabel | translate }}</span>
+    </button>
 
-    <ion-chip
+    <button
+      type="button"
       *ngFor="let topic of topics"
       class="topic-chip"
       [ngClass]="{ 'topic-chip--selected': isTopicSelected(topic) }"
       (click)="topicChipClicked.emit(topic)"
     >
-      <ion-label class="topic-label">
-        {{ ('topics.' + topic) | translate }}
-      </ion-label>
-    </ion-chip>
+      <span class="topic-label">{{ ('topics.' + topic) | translate }}</span>
+    </button>
   </div>
 
   <div class="settings-toggle-row">

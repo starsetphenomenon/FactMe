@@ -5,8 +5,12 @@
   margin: 30px 0;
 }
 
-.chip-row ion-chip {
-  margin-left: 0;
+.chip-row button.topic-chip {
+  margin-inline-start: 0;
+}
+
+.chip-row button.topic-chip--all {
+  min-width: 5rem;
 }
 
 .topic-label {
@@ -22,7 +26,6 @@
   color: var(--app-text-muted-7);
 }
 
-:host-context(.light-theme) .topic-label,
-:host-context(.light-theme) .chip-row ion-chip ion-label {
-  color: var(--app-slate-heading);
+.topic-label {
+  color: inherit;
 }

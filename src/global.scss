@@ -577,41 +577,51 @@
   background: var(--app-primary);
 }
 
-.dark-theme .topic-chip,
-.dark-theme .weekday-chip {
-  --background: var(--app-chip-inactive);
-  --color: var(--app-chip-inactive-text);
-  --border-radius: var(--app-radius-pill);
-  --border-style: solid;
-  --border-width: 1px;
-  --border-color: var(--app-chip-border);
+button.topic-chip,
+button.weekday-chip {
+  appearance: none;
+  margin: 4px 4px 4px 0;
+  padding-inline: 12px;
+  padding-block: 6px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ion-font-family, inherit);
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: var(--app-radius-pill, 999px);
+  border: none;
+  background: var(--chip-bg, var(--app-chip-inactive));
+  color: var(--chip-color, var(--app-chip-inactive-text));
   box-shadow: var(--app-chip-shadow);
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.dark-theme .topic-chip.topic-chip--selected,
-.dark-theme .weekday-chip.weekday-chip--selected {
-  --background: var(--app-chip-selected-bg);
-  --color: var(--app-primary);
-  --border-color: rgba(var(--app-primary-rgb), 0.9);
+.dark-theme button.topic-chip,
+.dark-theme button.weekday-chip {
+  --chip-bg: var(--app-chip-inactive);
+  --chip-color: var(--app-chip-inactive-text);
 }
 
-.light-theme .topic-chip,
-.light-theme .weekday-chip {
-  --background: var(--app-chip-light-bg);
-  --color: #1f2937;
-  --border-radius: var(--app-radius-pill);
-  --border-style: solid;
-  --border-width: 1px;
-  --border-color: var(--app-chip-light-border);
+.dark-theme button.topic-chip.topic-chip--selected,
+.dark-theme button.weekday-chip.weekday-chip--selected {
+  --chip-bg: var(--app-chip-selected-bg);
+  --chip-color: var(--app-primary);
+}
+
+.light-theme button.topic-chip,
+.light-theme button.weekday-chip {
+  --chip-bg: var(--app-chip-light-bg);
+  --chip-color: #1f2937;
   font-weight: 700;
-  box-shadow: var(--app-chip-shadow);
 }
 
-.light-theme .topic-chip.topic-chip--selected,
-.light-theme .weekday-chip.weekday-chip--selected {
-  --background: var(--app-primary);
-  --color: var(--app-slate-heading);
-  --border-color: #e38a1f;
+.light-theme button.topic-chip.topic-chip--selected,
+.light-theme button.weekday-chip.weekday-chip--selected {
+  --chip-bg: var(--app-primary);
+  --chip-color: var(--app-slate-heading);
 }
 
 .dark-theme ion-modal {

@@ -20,14 +20,15 @@
         <h3>{{ settingsText.NotificationsDaysLabel | translate }}</h3>
       </div>
       <div class="weekdays-chips">
-        <ion-chip
+        <button
+          type="button"
           *ngFor="let d of weekdayOptions"
           class="weekday-chip"
           [ngClass]="{ 'weekday-chip--selected': isWeekdaySelected(d.value) }"
           (click)="toggleWeekday(d.value)"
         >
-          <ion-label>{{ d.labelKey | translate }}</ion-label>
-        </ion-chip>
+          {{ d.labelKey | translate }}
+        </button>
       </div>
     </div>
 
@@ -40,7 +41,7 @@
       </div>
     </div>
 
-    <div class="settings-toggle-row">
+    <!-- <div class="settings-toggle-row">
       <ion-button
         expand="block"
         fill="outline"
@@ -48,7 +49,7 @@
       >
         ~SEND NOTIF~ (TESTING)
       </ion-button>
-    </div>
+    </div> -->
   </ion-list>
 
   <ion-modal [keepContentsMounted]="true">

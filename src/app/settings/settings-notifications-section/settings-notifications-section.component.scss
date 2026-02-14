@@ -5,10 +5,10 @@
   justify-content: flex-end;
 }
 
-.weekdays-chips ion-chip {
-  --padding-start: 6px;
-  --padding-end: 6px;
-  --min-height: 26px;
+.weekdays-chips button.weekday-chip {
+  padding-inline: 6px;
+  min-height: 26px;
+  min-width: 3rem;
 }
 
 ion-list {
