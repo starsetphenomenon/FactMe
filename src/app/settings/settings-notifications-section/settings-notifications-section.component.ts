@@ -17,6 +17,7 @@ export class SettingsNotificationsSectionComponent {
   @Output() notificationsToggleChange = new EventEmitter<boolean>();
   @Output() timeChanged = new EventEmitter<string | string[] | null>();
   @Output() weekdaysChanged = new EventEmitter<Weekday[]>();
+  @Output() testNotification = new EventEmitter<void>();
 
   readonly weekdayOptions: { value: Weekday; labelKey: string }[] = [
     { value: 2, labelKey: 'settings.weekdayMonShort' },

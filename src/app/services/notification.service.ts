@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { FactMeNotification } from '../plugins/fact-me-notification.plugin';
 import { AppSettings, Fact, Weekday, ALL_TOPICS, TopicKey } from '../models/fact.models';
 import { NotificationText } from '../enums/notification-text.enum';
 import { Topic } from '../enums/topic.enum';
@@ -8,6 +10,8 @@ import { TranslationService } from './translation.service';
 import { FactService } from './fact.service';
 
 const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
+/** ID used for the one-off test notification (must not overlap with daily IDs). */
+const TEST_NOTIFICATION_ID = 999;
 
 @Injectable({
   providedIn: 'root',
@@ -40,17 +44,23 @@ export class NotificationService {
       return;
     }
 
+    const weekdays = settings.notificationWeekdays;
+    const useNativeScheduling = Capacitor.getPlatform() === 'android';
+
+    // Always cancel Capacitor plugin alarms so old (wrong-icon) notifications stop firing
     await LocalNotifications.cancel({
       notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
     });
-
-    const weekdays = settings.notificationWeekdays;
+    if (useNativeScheduling) {
+      await FactMeNotification.cancelDailyNotifications({
+        ids: DAILY_FACT_NOTIFICATION_IDS,
+      });
+    }
 
     if (!settings.notificationsEnabled || weekdays.length === 0) {
       return;
     }
 
-    // Use passed fact, or current fact from home page (settings.currentFactIds). No current fact = cancel only.
     const effectiveFact =
       fact ?? (await this.getCurrentFactFromSettings(settings));
     if (!effectiveFact) {
@@ -76,11 +86,26 @@ export class NotificationService {
     const hour = Number(hourStr ?? 9);
     const minute = Number(minuteStr ?? 0);
 
-    const smallIcon = 'ic_stat_icon';
-    const largeIcon = effectiveFact
-      ? this.getTopicLargeIconName(effectiveFact.topic)
-      : undefined;
+    const largeIconDrawableName = this.getTopicLargeIconName(effectiveFact.topic);
+    const largeIconTintColor = this.getTopicColor(effectiveFact.topic);
 
+    if (useNativeScheduling) {
+      const notifications = weekdays.map((weekday: Weekday, index: number) => ({
+        id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
+        title,
+        body,
+        largeIconDrawableName,
+        largeIconTintColor,
+        weekday: weekday as number,
+        hour,
+        minute,
+      }));
+      await FactMeNotification.scheduleDailyNotifications({ notifications });
+      return;
+    }
+
+    const smallIcon = 'ic_launcher_small';
+    const largeIcon = largeIconDrawableName;
     const notifications = weekdays.map((weekday: Weekday, index: number) => ({
       id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
       title,
@@ -102,6 +127,47 @@ export class NotificationService {
     await LocalNotifications.schedule({
       notifications,
     });
+  }
+
+  /**
+   * Shows a test notification immediately using native Android so app icon (small)
+   * and topic icon (large) resolve correctly in the app package.
+   */
+  async showTestNotification(settings: AppSettings): Promise<boolean> {
+    if (!this.platform.is('hybrid')) {
+      return false;
+    }
+    const hasPermission = await this.ensurePermissions();
+    if (!hasPermission) {
+      return false;
+    }
+    const fact = await this.getCurrentFactFromSettings(settings);
+    if (!fact) {
+      return false;
+    }
+    await this.translationService.loadTranslations(
+      this.translationService.getLanguage(),
+    );
+    const title =
+      fact.title ??
+      this.translationService.translate(NotificationText.FallbackTitle);
+    const body =
+      fact.description ??
+      this.translationService.translate(NotificationText.FallbackBody);
+    const largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
+    const largeIconTintColor = this.getTopicColor(fact.topic);
+
+    try {
+      await FactMeNotification.showTestNotification({
+        title,
+        body,
+        largeIconDrawableName,
+        largeIconTintColor,
+      });
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   private getNextTriggerDate(time: string): Date {
@@ -134,6 +200,23 @@ export class NotificationService {
 
     result.setDate(now.getDate() + diff);
     return result;
+  }
+
+  /** Hex color for topic (matches app theme) for notification large icon tint. */
+  private getTopicColor(topic: TopicKey): string {
+    const colors: Record<string, string> = {
+      [Topic.History]: '#ffb457',
+      [Topic.Science]: '#66bbff',
+      [Topic.WorldEvents]: '#22c55e',
+      [Topic.Technology]: '#9fa8da',
+      [Topic.Music]: '#f48fb1',
+      [Topic.Movies]: '#ffe082',
+      [Topic.Sports]: '#81d4fa',
+      [Topic.FunFacts]: '#14b8a6',
+      [Topic.Literature]: '#ba68c8',
+      [Topic.Psychology]: '#80deea',
+    };
+    return colors[topic] ?? '#26A69A';
   }
 
   /** Android drawable name (no extension) for notification large icon by topic. */

@@ -3,7 +3,10 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
 import { NavController, Platform } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { FactMeNotification } from './plugins/fact-me-notification.plugin';
+import { NotificationService } from './services/notification.service';
 import { SettingsService } from './services/settings.service';
 import { TranslationService } from './services/translation.service';
 import { Language } from './enums/language.enum';
@@ -25,6 +28,7 @@ export class AppComponent implements OnDestroy {
     private router: Router,
     private settingsService: SettingsService,
     private translationService: TranslationService,
+    private notificationService: NotificationService,
   ) {
     this.initNotificationListeners();
     this.initLanguage();
@@ -54,6 +58,19 @@ export class AppComponent implements OnDestroy {
 
     if (!this.platform.is('hybrid')) {
       return;
+    }
+
+    // On Android we use native scheduling; cancel old alarms, clear old notifications, reschedule
+    if (Capacitor.getPlatform() === 'android') {
+      const dailyIds = [1, 2, 3, 4, 5, 6, 7];
+      await LocalNotifications.cancel({
+        notifications: dailyIds.map((id) => ({ id })),
+      });
+      await FactMeNotification.clearDisplayedNotifications();
+      const settings = this.settingsService.getSettings();
+      if (settings.notificationsEnabled && (settings.notificationWeekdays?.length ?? 0) > 0) {
+        await this.notificationService.rescheduleDailyNotification(settings);
+      }
     }
 
     LocalNotifications.addListener(

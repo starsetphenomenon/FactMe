@@ -39,6 +39,16 @@
         <ion-datetime-button datetime="timePicker"></ion-datetime-button>
       </div>
     </div>
+
+    <div class="settings-toggle-row">
+      <ion-button
+        expand="block"
+        fill="outline"
+        (click)="testNotification.emit()"
+      >
+        SENT NOTIF
+      </ion-button>
+    </div>
   </ion-list>
 
   <ion-modal [keepContentsMounted]="true">

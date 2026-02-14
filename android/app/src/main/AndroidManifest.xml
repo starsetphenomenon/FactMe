@@ -20,6 +20,14 @@
             </intent-filter>
         </activity>
 
+        <receiver
+            android:name=".FactMeNotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="io.ionic.starter.FACTME_DAILY" />
+            </intent-filter>
+        </receiver>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -145,6 +145,10 @@ export class SettingsPage implements OnInit {
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }
 
+  async onTestNotification(): Promise<void> {
+    await this.notificationService.showTestNotification(this.settings);
+  }
+
   async onClearSeenFacts(): Promise<void> {
     if (!this.canClearSeenFacts) {
       return;
