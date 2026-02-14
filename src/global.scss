@@ -9,6 +9,17 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@mixin fact-card-shadow-dark($rgb-var, $border-opacity: 0.35) {
+  box-shadow:
+    0 18px 40px rgba(var(#{$rgb-var}), 0.2),
+    0 0 0 1px rgba(var(#{$rgb-var}), $border-opacity);
+}
+@mixin fact-card-shadow-light($rgb-var, $border-opacity: 0.4) {
+  box-shadow:
+    0 18px 40px rgba(var(#{$rgb-var}), 0.28),
+    0 0 0 1px rgba(var(#{$rgb-var}), $border-opacity);
+}
+
 @font-face {
   font-family: "Fredoka";
   src: url("/assets/fonts/fredoka/fredoka-regular.ttf") format("truetype");
@@ -124,106 +135,26 @@
   color: var(--app-slate-text);
 }
 
-.dark-theme .fact-card.topic-history {
-  box-shadow:
-    0 18px 40px rgba(var(--app-primary-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-primary-rgb), 0.35);
-}
-.light-theme .fact-card.topic-history {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-history-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-history-light-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-science {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-science-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-science-rgb), 0.35);
-}
-.light-theme .fact-card.topic-science {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-science-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-science-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-world-events {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-world-events-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-world-events-rgb), 0.35);
-}
-.light-theme .fact-card.topic-world-events {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-world-events-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-world-events-light-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-technology {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-technology-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-technology-rgb), 0.35);
-}
-.light-theme .fact-card.topic-technology {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-technology-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-technology-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-music {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-music-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-music-rgb), 0.35);
-}
-.light-theme .fact-card.topic-music {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-music-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-music-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-movies {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-movies-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-movies-rgb), 0.4);
-}
-.light-theme .fact-card.topic-movies {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-movies-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-movies-light-rgb), 0.45);
-}
-.dark-theme .fact-card.topic-sports {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-sports-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-sports-rgb), 0.35);
-}
-.light-theme .fact-card.topic-sports {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-sports-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-sports-light-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-fun-facts {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-fun-facts-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-fun-facts-rgb), 0.4);
-}
-.light-theme .fact-card.topic-fun-facts {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-fun-facts-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-fun-facts-light-rgb), 0.45);
-}
-.dark-theme .fact-card.topic-literature {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-literature-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-literature-rgb), 0.35);
-}
-.light-theme .fact-card.topic-literature {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-literature-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-literature-rgb), 0.4);
-}
-.dark-theme .fact-card.topic-psychology {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-psychology-rgb), 0.2),
-    0 0 0 1px rgba(var(--app-topic-psychology-rgb), 0.35);
-}
-.light-theme .fact-card.topic-psychology {
-  box-shadow:
-    0 18px 40px rgba(var(--app-topic-psychology-light-rgb), 0.28),
-    0 0 0 1px rgba(var(--app-topic-psychology-light-rgb), 0.4);
-}
+.dark-theme .fact-card.topic-history { @include fact-card-shadow-dark(--app-primary-rgb); }
+.light-theme .fact-card.topic-history { @include fact-card-shadow-light(--app-topic-history-light-rgb); }
+.dark-theme .fact-card.topic-science { @include fact-card-shadow-dark(--app-topic-science-rgb); }
+.light-theme .fact-card.topic-science { @include fact-card-shadow-light(--app-topic-science-rgb); }
+.dark-theme .fact-card.topic-world-events { @include fact-card-shadow-dark(--app-topic-world-events-rgb); }
+.light-theme .fact-card.topic-world-events { @include fact-card-shadow-light(--app-topic-world-events-light-rgb); }
+.dark-theme .fact-card.topic-technology { @include fact-card-shadow-dark(--app-topic-technology-rgb); }
+.light-theme .fact-card.topic-technology { @include fact-card-shadow-light(--app-topic-technology-rgb); }
+.dark-theme .fact-card.topic-music { @include fact-card-shadow-dark(--app-topic-music-rgb); }
+.light-theme .fact-card.topic-music { @include fact-card-shadow-light(--app-topic-music-rgb); }
+.dark-theme .fact-card.topic-movies { @include fact-card-shadow-dark(--app-topic-movies-rgb, 0.4); }
+.light-theme .fact-card.topic-movies { @include fact-card-shadow-light(--app-topic-movies-light-rgb, 0.45); }
+.dark-theme .fact-card.topic-sports { @include fact-card-shadow-dark(--app-topic-sports-rgb); }
+.light-theme .fact-card.topic-sports { @include fact-card-shadow-light(--app-topic-sports-light-rgb); }
+.dark-theme .fact-card.topic-fun-facts { @include fact-card-shadow-dark(--app-topic-fun-facts-rgb, 0.4); }
+.light-theme .fact-card.topic-fun-facts { @include fact-card-shadow-light(--app-topic-fun-facts-light-rgb, 0.45); }
+.dark-theme .fact-card.topic-literature { @include fact-card-shadow-dark(--app-topic-literature-rgb); }
+.light-theme .fact-card.topic-literature { @include fact-card-shadow-light(--app-topic-literature-rgb); }
+.dark-theme .fact-card.topic-psychology { @include fact-card-shadow-dark(--app-topic-psychology-rgb); }
+.light-theme .fact-card.topic-psychology { @include fact-card-shadow-light(--app-topic-psychology-light-rgb); }
 
 .fact-card.topic-history .topic-badge {
   --background: rgba(var(--app-primary-rgb), 0.18);

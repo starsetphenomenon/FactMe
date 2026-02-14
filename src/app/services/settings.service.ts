@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AppSettings, ALL_TOPICS, ALL_WEEKDAYS, TopicKey } from '../models/fact.models';
+import { AppSettings, ALL_TOPICS, ALL_WEEKDAYS } from '../models/fact.models';
 import { Language } from '../enums/language.enum';
 
 const SETTINGS_KEY = 'dailyFactsSettings';
@@ -169,16 +169,5 @@ export class SettingsService {
     };
   }
 
-  toggleTopic(topic: TopicKey, enabled: boolean): AppSettings {
-    const current = this.getSettings();
-    const set = new Set<TopicKey>(current.selectedTopics);
-    if (enabled) {
-      set.add(topic);
-    } else {
-      set.delete(topic);
-    }
-    const nextTopics = Array.from(set);
-    return this.update({ selectedTopics: nextTopics });
-  }
 }
 
