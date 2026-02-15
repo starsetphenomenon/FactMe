@@ -60,7 +60,6 @@ export class AppComponent implements OnDestroy {
       return;
     }
 
-    // On Android we use native scheduling; cancel old alarms, clear old notifications, reschedule
     if (Capacitor.getPlatform() === 'android') {
       const dailyIds = [1, 2, 3, 4, 5, 6, 7];
       await LocalNotifications.cancel({

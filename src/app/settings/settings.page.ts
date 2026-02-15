@@ -140,7 +140,7 @@ export class SettingsPage implements OnInit {
 
     this.settings = this.settingsService.update({
       notificationWeekdays: days,
-      notificationsEnabled: hasDays ? (isAllDays ? true : this.settings.notificationsEnabled) : false,
+      notificationsEnabled: hasDays && isAllDays,
     });
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }

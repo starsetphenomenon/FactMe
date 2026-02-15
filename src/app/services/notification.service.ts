@@ -46,7 +46,6 @@ export class NotificationService {
     const weekdays = settings.notificationWeekdays;
     const useNativeScheduling = Capacitor.getPlatform() === 'android';
 
-    // Always cancel Capacitor plugin alarms so old (wrong-icon) notifications stop firing
     await LocalNotifications.cancel({
       notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
     });
@@ -56,7 +55,7 @@ export class NotificationService {
       });
     }
 
-    if (!settings.notificationsEnabled || weekdays.length === 0) {
+    if (weekdays.length === 0) {
       return;
     }
 
