@@ -7,7 +7,7 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        registerPlugin(FactMeNotificationPlugin.class);
         super.onCreate(savedInstanceState);
+        registerPlugin(FactMeNotificationPlugin.class);
     }
 }
