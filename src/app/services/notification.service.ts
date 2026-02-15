@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import { FactMeNotification } from '../plugins/fact-me-notification.plugin';
+import {
+  FactMeNotification,
+  NotificationFactEntry,
+  NotificationFactsByDate,
+} from '../plugins/fact-me-notification.plugin';
 import { AppSettings, Fact, Weekday, ALL_TOPICS, TopicKey, Theme } from '../models/fact.models';
 import { NotificationText } from '../enums/notification-text.enum';
 import { Topic } from '../enums/topic.enum';
@@ -11,6 +15,8 @@ import { FactService } from './fact.service';
 
 const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
 const TEST_NOTIFICATION_ID = 999;
+/** Number of days ahead to precompute facts for (today + next N-1 days) so the notification shows the correct day's fact. */
+const NOTIFICATION_FACTS_DAYS = 14;
 
 @Injectable({
   providedIn: 'root',
@@ -88,6 +94,10 @@ export class NotificationService {
     const largeIconTintColor = this.getTopicColor(effectiveFact.topic, settings.theme);
 
     if (useNativeScheduling) {
+      const factsByDate = await this.buildNotificationFactsByDate(settings);
+      if (Object.keys(factsByDate).length > 0) {
+        await FactMeNotification.setNotificationFacts({ facts: factsByDate });
+      }
       const notifications = weekdays.map((weekday: Weekday, index: number) => ({
         id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
         title,
@@ -255,5 +265,44 @@ export class NotificationService {
         ? settings.selectedTopics
         : ALL_TOPICS;
     return this.factService.getFactById(currentId, topics);
+  }
+
+  private toIsoDate(date: Date): string {
+    const y = date.getFullYear();
+    const m = (date.getMonth() + 1).toString().padStart(2, '0');
+    const d = date.getDate().toString().padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  private async buildNotificationFactsByDate(
+    settings: AppSettings,
+  ): Promise<NotificationFactsByDate> {
+    const topics =
+      settings.selectedTopics?.length > 0
+        ? settings.selectedTopics
+        : ALL_TOPICS;
+    const result: NotificationFactsByDate = {};
+    const fallbackTitle = this.translationService.translate(
+      NotificationText.FallbackTitle,
+    );
+    const fallbackBody = this.translationService.translate(
+      NotificationText.FallbackBody,
+    );
+    const start = new Date();
+    for (let i = 0; i < NOTIFICATION_FACTS_DAYS; i++) {
+      const d = new Date(start);
+      d.setDate(start.getDate() + i);
+      const fact = await this.factService.getRandomFactForDate(d, topics);
+      const entry: NotificationFactEntry = {
+        title: fact?.title ?? fallbackTitle,
+        body: fact?.description ?? fallbackBody,
+      };
+      if (fact) {
+        entry.largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
+        entry.largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
+      }
+      result[this.toIsoDate(d)] = entry;
+    }
+    return result;
   }
 }

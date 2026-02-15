@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -17,12 +18,16 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import org.json.JSONObject;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class FactMeNotificationReceiver extends BroadcastReceiver {
 
     public static final String ACTION_DAILY = "io.ionic.starter.FACTME_DAILY";
     private static final String CHANNEL_ID = "default";
+    private static final String PREFS_NAME = "FactMeNotification";
+    private static final String KEY_FACTS_BY_DATE = "factsByDate";
 
     static final String EXTRA_ID = "id";
     static final String EXTRA_TITLE = "title";
@@ -38,30 +43,54 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         if (intent == null || !ACTION_DAILY.equals(intent.getAction())) return;
 
         int id = intent.getIntExtra(EXTRA_ID, 0);
-        String title = intent.getStringExtra(EXTRA_TITLE);
-        String body = intent.getStringExtra(EXTRA_BODY);
-        String largeIconName = intent.getStringExtra(EXTRA_LARGE_ICON_NAME);
-        String largeIconTint = intent.getStringExtra(EXTRA_LARGE_ICON_TINT);
+        String titleFallback = intent.getStringExtra(EXTRA_TITLE);
+        String bodyFallback = intent.getStringExtra(EXTRA_BODY);
+        String largeIconNameFallback = intent.getStringExtra(EXTRA_LARGE_ICON_NAME);
+        String largeIconTintFallback = intent.getStringExtra(EXTRA_LARGE_ICON_TINT);
         int weekday = intent.getIntExtra(EXTRA_WEEKDAY, Calendar.MONDAY);
         int hour = intent.getIntExtra(EXTRA_HOUR, 9);
         int minute = intent.getIntExtra(EXTRA_MINUTE, 0);
 
-        if (title == null) title = "";
-        if (body == null) body = "";
+        if (titleFallback == null) titleFallback = "";
+        if (bodyFallback == null) bodyFallback = "";
+
+        String todayKey = todayIsoDate();
+        String title = titleFallback;
+        String body = bodyFallback;
+        String largeIconName = largeIconNameFallback;
+        String largeIconTint = largeIconTintFallback;
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String factsJson = prefs.getString(KEY_FACTS_BY_DATE, null);
+        if (factsJson != null) {
+            try {
+                JSONObject factsByDate = new JSONObject(factsJson);
+                if (factsByDate.has(todayKey)) {
+                    JSONObject entry = factsByDate.getJSONObject(todayKey);
+                    title = entry.optString("title", titleFallback);
+                    body = entry.optString("body", bodyFallback);
+                    if (entry.has("largeIconDrawableName")) {
+                        largeIconName = entry.optString("largeIconDrawableName", largeIconNameFallback);
+                    }
+                    if (entry.has("largeIconTintColor")) {
+                        largeIconTint = entry.optString("largeIconTintColor", largeIconTintFallback);
+                    }
+                }
+            } catch (Exception ignored) {
+            }
+        }
 
         ensureChannel(context);
         NotificationCompat.Builder builder = buildNotification(context, title, body, largeIconName, largeIconTint);
         NotificationManagerCompat.from(context).notify(id, builder.build());
 
-        // Reschedule for next week
         long nextTrigger = nextTriggerTime(weekday, hour, minute);
         Intent nextIntent = new Intent(context, FactMeNotificationReceiver.class);
         nextIntent.setAction(ACTION_DAILY);
         nextIntent.putExtra(EXTRA_ID, id);
-        nextIntent.putExtra(EXTRA_TITLE, title);
-        nextIntent.putExtra(EXTRA_BODY, body);
-        nextIntent.putExtra(EXTRA_LARGE_ICON_NAME, largeIconName);
-        nextIntent.putExtra(EXTRA_LARGE_ICON_TINT, largeIconTint);
+        nextIntent.putExtra(EXTRA_TITLE, titleFallback);
+        nextIntent.putExtra(EXTRA_BODY, bodyFallback);
+        nextIntent.putExtra(EXTRA_LARGE_ICON_NAME, largeIconNameFallback);
+        nextIntent.putExtra(EXTRA_LARGE_ICON_TINT, largeIconTintFallback);
         nextIntent.putExtra(EXTRA_WEEKDAY, weekday);
         nextIntent.putExtra(EXTRA_HOUR, hour);
         nextIntent.putExtra(EXTRA_MINUTE, minute);
@@ -95,7 +124,6 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         Context app = context.getApplicationContext();
         String pkg = app.getPackageName();
 
-        // Prefer your square icon (no white corners), then vector fallbacks, then app launcher
         int smallIconId = app.getResources().getIdentifier("ic_notification_app", "drawable", pkg);
         if (smallIconId == 0) {
             smallIconId = app.getResources().getIdentifier("ic_notification_small", "drawable", pkg);
@@ -171,6 +199,14 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         drawable.setBounds(0, 0, w, h);
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    private static String todayIsoDate() {
+        Calendar c = Calendar.getInstance();
+        int y = c.get(Calendar.YEAR);
+        int m = c.get(Calendar.MONTH) + 1;
+        int d = c.get(Calendar.DAY_OF_MONTH);
+        return String.format(Locale.US, "%04d-%02d-%02d", y, m, d);
     }
 
     private static long nextTriggerTime(int weekday, int hour, int minute) {

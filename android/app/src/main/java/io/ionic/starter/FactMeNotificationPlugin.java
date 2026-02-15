@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -31,6 +32,8 @@ public class FactMeNotificationPlugin extends Plugin {
 
     private static final String CHANNEL_ID = "default";
     private static final int TEST_NOTIFICATION_ID = 999;
+    private static final String PREFS_NAME = "FactMeNotification";
+    private static final String KEY_FACTS_BY_DATE = "factsByDate";
 
     @PluginMethod
     public void showTestNotification(PluginCall call) {
@@ -44,7 +47,6 @@ public class FactMeNotificationPlugin extends Plugin {
         Context context = getContext().getApplicationContext();
         ensureChannel(context);
 
-        // Prefer your square icon (no white corners), then vector fallbacks, then app launcher
         int smallIconId = context.getResources().getIdentifier("ic_notification_app", "drawable", context.getPackageName());
         if (smallIconId == 0) {
             smallIconId = context.getResources().getIdentifier("ic_notification_small", "drawable", context.getPackageName());
@@ -163,6 +165,18 @@ public class FactMeNotificationPlugin extends Plugin {
             call.reject(e.getMessage());
             return;
         }
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void setNotificationFacts(PluginCall call) {
+        JSObject factsObj = call.getObject("facts");
+        if (factsObj == null) {
+            call.resolve();
+            return;
+        }
+        SharedPreferences prefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        prefs.edit().putString(KEY_FACTS_BY_DATE, factsObj.toString()).apply();
         call.resolve();
     }
 

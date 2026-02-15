@@ -11,6 +11,17 @@ export interface DailyNotificationItem {
   minute: number;
 }
 
+export interface NotificationFactEntry {
+  title: string;
+  body: string;
+  largeIconDrawableName?: string;
+  largeIconTintColor?: string;
+}
+
+export interface NotificationFactsByDate {
+  [isoDate: string]: NotificationFactEntry;
+}
+
 export interface FactMeNotificationPlugin {
   showTestNotification(options: {
     title: string;
@@ -22,6 +33,7 @@ export interface FactMeNotificationPlugin {
   scheduleDailyNotifications(options: { notifications: DailyNotificationItem[] }): Promise<void>;
   cancelDailyNotifications(options: { ids: number[] }): Promise<void>;
   clearDisplayedNotifications(): Promise<void>;
+  setNotificationFacts(options: { facts: NotificationFactsByDate }): Promise<void>;
 }
 
 const FactMeNotification = registerPlugin<FactMeNotificationPlugin>('FactMeNotification');
