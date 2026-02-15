@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { AppSettings, ALL_TOPICS, ALL_WEEKDAYS } from '../models/fact.models';
 import { Language } from '../enums/language.enum';
-
-const SETTINGS_KEY = 'dailyFactsSettings';
+import { StorageKey } from '../enums/storage-key.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -127,7 +126,7 @@ export class SettingsService {
     }
 
     try {
-      const raw = window.localStorage.getItem(SETTINGS_KEY);
+      const raw = window.localStorage.getItem(StorageKey.DailyFactsSettings);
       if (!raw) {
         return this.defaultSettings();
       }
@@ -146,7 +145,7 @@ export class SettingsService {
       return;
     }
     try {
-      window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+      window.localStorage.setItem(StorageKey.DailyFactsSettings, JSON.stringify(settings));
     } catch {
     }
   }
