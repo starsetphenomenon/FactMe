@@ -95,13 +95,13 @@ export class FactService {
     let file: TopicFactsFile | undefined;
     try {
       file = await this.http
-        .get<TopicFactsFile>(`assets/${lang}/facts/${topic}.json`)
+        .get<TopicFactsFile>(`assets/facts/${lang}/${topic}.json`)
         .toPromise();
     } catch {
       if (lang !== Language.English) {
         try {
           file = await this.http
-            .get<TopicFactsFile>(`assets/en/facts/${topic}.json`)
+            .get<TopicFactsFile>(`assets/facts/en/${topic}.json`)
             .toPromise();
         } catch {
           file = undefined;

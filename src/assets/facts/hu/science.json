@@ -1,0 +1,307 @@
+{
+  "topic": "science",
+  "facts": {
+    "01-01": [
+      {
+        "id": "science-0101-1",
+        "title": "First Rose Bowl Game and Scientific Milestone",
+        "description": "On January 1, 1902, the first Rose Bowl game was played, but scientifically, this date also marks when the first black hole candidate, Cygnus X-1, was discovered in 1972."
+      },
+      {
+        "id": "science-0101-2",
+        "title": "Euro Currency Launched",
+        "description": "On January 1, 1999, the Euro currency was launched electronically, representing one of the largest economic experiments in modern history involving complex financial systems and technology."
+      }
+    ],
+    "01-04": [
+      {
+        "id": "science-0104-1",
+        "title": "First Human-Powered Flight",
+        "description": "On January 4, 1998, the Daedalus Project's human-powered aircraft set a distance record, demonstrating advancements in aerodynamics and human biomechanics."
+      },
+      {
+        "id": "science-0104-2",
+        "title": "Spirit Rover Lands on Mars",
+        "description": "On January 4, 2004, NASA's Spirit rover successfully landed on Mars, beginning its mission to study the Martian surface and geology."
+      }
+    ],
+    "01-07": [
+      {
+        "id": "science-0107-1",
+        "title": "Galileo Discovers Jupiter's Moons",
+        "description": "On January 7, 1610, Galileo Galilei discovered Jupiter's four largest moons (Io, Europa, Ganymede, and Callisto), fundamentally changing our understanding of the solar system."
+      }
+    ],
+    "01-15": [
+      {
+        "id": "science-0115-1",
+        "title": "Wikipedia Launches",
+        "description": "On January 15, 2001, Wikipedia was launched, creating one of the largest collaborative knowledge projects in human history and revolutionizing information access."
+      }
+    ],
+    "01-20": [
+      {
+        "id": "science-0120-1",
+        "title": "First Nuclear Reactor Produces Electricity",
+        "description": "On January 20, 1951, Experimental Breeder Reactor I (EBR-I) in Idaho became the first nuclear reactor to generate usable electricity, powering four light bulbs."
+      }
+    ],
+    "01-27": [
+      {
+        "id": "science-0127-1",
+        "title": "Apollo 1 Fire Anniversary",
+        "description": "On January 27, 1967, a cabin fire during a launch rehearsal test killed all three crew members of Apollo 1, leading to major redesigns in spacecraft safety."
+      },
+      {
+        "id": "science-0127-2",
+        "title": "International Day of Commemoration for Holocaust Victims",
+        "description": "While primarily a remembrance day, January 27 also marks the 1945 liberation of Auschwitz, where scientific ethics and the misuse of science are often discussed."
+      }
+    ],
+    "01-28": [
+      {
+        "id": "science-0128-1",
+        "title": "Space Shuttle Challenger Disaster",
+        "description": "On January 28, 1986, the Space Shuttle Challenger broke apart 73 seconds into its flight, killing all seven crew members and leading to major safety reforms in NASA."
+      },
+      {
+        "id": "science-0128-2",
+        "title": "First Telephone Patent",
+        "description": "On January 28, 1878, the first commercial telephone exchange began operation in New Haven, Connecticut, revolutionizing communication technology."
+      }
+    ],
+    "02-01": [
+      {
+        "id": "science-0201-1",
+        "title": "Space Shuttle Columbia Disaster",
+        "description": "On February 1, 2003, the Space Shuttle Columbia disintegrated during re-entry, killing all seven crew members and leading to significant changes in NASA's safety culture."
+      },
+      {
+        "id": "science-0201-2",
+        "title": "First Weather Satellite Launched",
+        "description": "On February 1, 1958, Explorer 1, the first U.S. satellite, was launched, discovering the Van Allen radiation belts around Earth."
+      }
+    ],
+    "02-02": [
+      {
+        "id": "science-0202-1",
+        "title": "First Animal in Orbit Returns Safely",
+        "description": "On February 2, 1961, the Soviet space dog Chernushka (Blackie) became the first animal to orbit Earth and return safely, paving the way for human spaceflight."
+      }
+    ],
+    "02-03": [
+      {
+        "id": "science-0203-1",
+        "title": "First Soft Landing on Another Planet",
+        "description": "On February 3, 1966, the Soviet Luna 9 spacecraft made the first soft landing on the Moon and transmitted the first photographs from the lunar surface."
+      }
+    ],
+    "02-04": [
+      {
+        "id": "science-0204-1",
+        "title": "Facebook Launched",
+        "description": "On February 4, 2004, Facebook was launched from a Harvard dorm room, eventually becoming one of the largest social media platforms and data collection systems in history."
+      }
+    ],
+    "02-05": [
+      {
+        "id": "science-0205-1",
+        "title": "First U.S. Woman in Space Announcement",
+        "description": "On February 5, 1983, NASA announced that Sally Ride would become the first American woman in space on the Space Shuttle Challenger."
+      },
+      {
+        "id": "science-0205-2",
+        "title": "Edwin Hubble's Birth",
+        "description": "Edwin Hubble, the astronomer who proved the existence of galaxies beyond the Milky Way and discovered the expansion of the universe, was born on February 5, 1889."
+      },
+      {
+        "id": "science-0205-3",
+        "title": "Dolly the Sheep's Existence Revealed",
+        "description": "On February 5, 1997, scientists at the Roslin Institute in Scotland announced the existence of Dolly the sheep, the first mammal cloned from an adult somatic cell."
+      }
+    ],
+    "02-06": [
+      {
+        "id": "science-0206-1",
+        "title": "First Successful Heart Transplant in UK",
+        "description": "On February 6, 1968, the first successful heart transplant in the United Kingdom was performed at the National Heart Hospital in London."
+      }
+    ],
+    "02-09": [
+      {
+        "id": "science-0209-1",
+        "title": "Bernard Harris Becomes First Black American to Walk in Space",
+        "description": "On February 9, 1995, NASA astronaut Bernard Harris became the first Black American to perform a spacewalk during the STS-63 mission of the Space Shuttle Discovery."
+      }
+    ],
+    "02-11": [
+      {
+        "id": "science-0211-1",
+        "title": "Nelson Mandela's Release",
+        "description": "On February 11, 1990, Nelson Mandela was released from prison, an event that would eventually lead to South Africa's participation in major scientific collaborations like the Square Kilometre Array telescope."
+      }
+    ],
+    "02-14": [
+      {
+        "id": "science-0214-1",
+        "title": "ENIAC Computer Unveiled",
+        "description": "On February 14, 1946, the ENIAC (Electronic Numerical Integrator and Computer), the first general-purpose electronic digital computer, was unveiled at the University of Pennsylvania."
+      }
+    ],
+    "02-18": [
+      {
+        "id": "science-0218-1",
+        "title": "Pluto Discovered",
+        "description": "On February 18, 1930, Clyde Tombaugh discovered Pluto at Lowell Observatory in Flagstaff, Arizona, initially classifying it as the ninth planet."
+      }
+    ],
+    "02-20": [
+      {
+        "id": "science-0220-1",
+        "title": "John Glenn Orbits Earth",
+        "description": "On February 20, 1962, John Glenn became the first American to orbit the Earth aboard Friendship 7, completing three orbits in just under five hours."
+      },
+      {
+        "id": "science-0220-2",
+        "title": "First Liquid-Fueled Rocket Launched",
+        "description": "On February 20, 1929, Robert H. Goddard launched the first rocket with a payload (a barometer and camera), advancing liquid-fueled rocket technology."
+      }
+    ],
+    "02-23": [
+      {
+        "id": "science-0223-1",
+        "title": "First Cloned Animal from Adult Cell",
+        "description": "On February 23, 1997, scientists announced the cloning of Dolly the sheep from an adult cell, marking a breakthrough in genetic engineering and biotechnology."
+      }
+    ],
+    "02-24": [
+      {
+        "id": "science-0224-1",
+        "title": "Hubble Space Telescope Launched",
+        "description": "On February 24, 1990, the Space Shuttle Discovery launched the Hubble Space Telescope, which would revolutionize astronomy despite initial optical problems."
+      }
+    ],
+    "02-28": [
+      {
+        "id": "science-0228-1",
+        "title": "DNA Structure Discovered",
+        "description": "On February 28, 1953, James Watson and Francis Crick discovered the double-helix structure of DNA, fundamentally changing biology and genetics."
+      }
+    ],
+    "03-01": [
+      {
+        "id": "science-0301-1",
+        "title": "Yosemite National Park Established",
+        "description": "On March 1, 1872, Yellowstone became the first national park, but March 1, 1890 saw Yosemite established, creating important protected areas for scientific study of ecosystems."
+      }
+    ],
+    "03-03": [
+      {
+        "id": "science-0303-1",
+        "title": "First Successful Heart-Lung Transplant",
+        "description": "On March 3, 1981, the first successful heart-lung transplant was performed at Stanford University Hospital, advancing transplant surgery techniques."
+      }
+    ],
+    "03-06": [
+      {
+        "id": "science-0306-1",
+        "title": "Periodic Table Presented",
+        "description": "On March 6, 1869, Dmitri Mendeleev presented the first periodic table to the Russian Chemical Society, organizing elements by atomic weight and properties."
+      }
+    ],
+    "03-07": [
+      {
+        "id": "science-0307-1",
+        "title": "Alexander Graham Bell Patents Telephone",
+        "description": "On March 7, 1876, Alexander Graham Bell received patent number 174,465 for 'improvements in telegraphy' - the telephone."
+      }
+    ],
+    "03-10": [
+      {
+        "id": "science-0310-1",
+        "title": "First Telephone Call",
+        "description": "On March 10, 1876, Alexander Graham Bell made the first successful telephone call, saying 'Mr. Watson, come here, I want to see you.'"
+      }
+    ],
+    "03-12": [
+      {
+        "id": "science-0312-1",
+        "title": "First Email Sent",
+        "description": "On March 12, 1972, Ray Tomlinson sent the first email, using the '@' symbol to separate user names from machine names, creating the foundation for modern digital communication."
+      }
+    ],
+    "03-14": [
+      {
+        "id": "science-0314-1",
+        "title": "Pi Day",
+        "description": "March 14 is celebrated as Pi Day because π ≈ 3.14, with many math and science organizations holding special events and competitions."
+      },
+      {
+        "id": "science-0314-2",
+        "title": "Albert Einstein's Birthday",
+        "description": "Albert Einstein was born on March 14, 1879, in Ulm, Germany. His theories of relativity revolutionized physics and our understanding of space, time, and gravity."
+      }
+    ],
+    "03-16": [
+      {
+        "id": "science-0316-1",
+        "title": "First Liquid-Fueled Rocket Launch",
+        "description": "On March 16, 1926, Robert H. Goddard launched the world's first liquid-fueled rocket in Auburn, Massachusetts, laying the foundation for modern rocketry."
+      }
+    ],
+    "03-17": [
+      {
+        "id": "science-0317-1",
+        "title": "First Color Television Broadcast",
+        "description": "On March 17, 1954, the first color television broadcast using the NTSC standard was transmitted, advancing broadcast technology and color science."
+      }
+    ],
+    "03-20": [
+      {
+        "id": "science-0320-1",
+        "title": "First GPS Satellite Launched",
+        "description": "On March 20, 1978, the first GPS (Global Positioning System) satellite was launched, beginning a navigation revolution that would transform transportation and mapping."
+      },
+      {
+        "id": "science-0320-2",
+        "title": "Spring Equinox Science",
+        "description": "Around March 20 marks the vernal equinox, when day and night are approximately equal worldwide, an important astronomical event studied for millennia."
+      }
+    ],
+    "03-23": [
+      {
+        "id": "science-0323-1",
+        "title": "World Meteorological Day",
+        "description": "March 23 is World Meteorological Day, commemorating the establishment of the World Meteorological Organization in 1950 and promoting weather and climate science."
+      }
+    ],
+    "03-24": [
+      {
+        "id": "science-0324-1",
+        "title": "Exxon Valdez Oil Spill",
+        "description": "On March 24, 1989, the Exxon Valdez oil tanker ran aground in Alaska's Prince William Sound, causing one of the most devastating human-caused environmental disasters and advancing oil spill cleanup science."
+      }
+    ],
+    "03-28": [
+      {
+        "id": "science-0328-1",
+        "title": "Three Mile Island Nuclear Accident",
+        "description": "On March 28, 1979, a partial nuclear meltdown occurred at the Three Mile Island Nuclear Generating Station in Pennsylvania, the most significant accident in U.S. commercial nuclear power history."
+      }
+    ],
+    "03-29": [
+      {
+        "id": "science-0329-1",
+        "title": "First Polar Orbiting Weather Satellite",
+        "description": "On March 29, 1960, TIROS-1, the first successful weather satellite, was launched, revolutionizing weather forecasting and Earth observation."
+      }
+    ],
+    "03-31": [
+      {
+        "id": "science-0331-1",
+        "title": "Eiffel Tower Opens",
+        "description": "On March 31, 1889, the Eiffel Tower opened to the public, representing a major achievement in structural engineering and materials science for its time."
+      }
+    ]
+  }
+}
