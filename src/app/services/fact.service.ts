@@ -15,11 +15,15 @@ interface TopicCacheEntry {
   data?: TopicFactsFile;
 }
 
+function topicCacheKey(topic: TopicKey, lang: Language): string {
+  return `${lang}|${topic}`;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class FactService {
-  private cache = new Map<TopicKey, TopicCacheEntry>();
+  private cache = new Map<string, TopicCacheEntry>();
 
   constructor(
     private http: HttpClient,
@@ -85,12 +89,12 @@ export class FactService {
   }
 
   private async loadTopic(topic: TopicKey): Promise<TopicFactsFile> {
-    const cached = this.cache.get(topic);
+    const lang = this.settingsService.getSettings().language ?? Language.English;
+    const key = topicCacheKey(topic, lang);
+    const cached = this.cache.get(key);
     if (cached?.loaded && cached.data) {
       return cached.data;
     }
-
-    const lang = this.settingsService.getSettings().language ?? Language.English;
 
     let file: TopicFactsFile | undefined;
     try {
@@ -115,7 +119,7 @@ export class FactService {
         facts: {},
       } as TopicFactsFile);
 
-    this.cache.set(topic, { loaded: true, data });
+    this.cache.set(key, { loaded: true, data });
     return data;
   }
 

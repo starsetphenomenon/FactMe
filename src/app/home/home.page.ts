@@ -7,6 +7,7 @@ import { FactService } from '../services/fact.service';
 import { SettingsService } from '../services/settings.service';
 import { NotificationService } from '../services/notification.service';
 import { HomeText } from '../enums/home-text.enum';
+import { Language } from '../enums/language.enum';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +37,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     this.lastSettingsKey = this.buildSettingsKey(
       initialSettings.selectedTopics ?? [],
       initialSettings.onePerTopic,
+      initialSettings.language ?? null,
     );
 
     this.settingsService.settingsChanges$
@@ -46,6 +48,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
           const key = this.buildSettingsKey(
             settings.selectedTopics ?? [],
             settings.onePerTopic,
+            settings.language ?? null,
           );
           if (key !== this.lastSettingsKey) {
             this.lastSettingsKey = key;
@@ -64,6 +67,17 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   }
 
   ionViewWillEnter(): void {
+    const settings = this.settingsService.getSettings();
+    const key = this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+      settings.language ?? null,
+    );
+    if (key !== this.lastSettingsKey) {
+      this.lastSettingsKey = key;
+      void this.loadTodayFact();
+      return;
+    }
     void this.restoreFromStorage();
   }
 
@@ -95,6 +109,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       const currentKey = this.buildSettingsKey(
         settings.selectedTopics ?? [],
         settings.onePerTopic,
+        settings.language ?? null,
       );
 
       if (
@@ -139,7 +154,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       this.error = settings.currentErrorKey ?? null;
 
       this.settingsService.setLastFactsLoadSettingsKey(
-        this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic),
+        this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic, settings.language ?? null),
       );
 
       if (this.facts.length > 0) {
@@ -163,6 +178,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settingsKey = this.buildSettingsKey(
       settings.selectedTopics ?? [],
       settings.onePerTopic,
+      settings.language ?? null,
     );
 
     try {
@@ -300,9 +316,10 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     return date.toISOString().slice(0, 10);
   }
 
-  private buildSettingsKey(selectedTopics: TopicKey[], onePerTopic: boolean): string {
+  private buildSettingsKey(selectedTopics: TopicKey[], onePerTopic: boolean, language: Language | null): string {
     const topicsKey = [...selectedTopics].sort().join(',');
-    return `${onePerTopic ? '1' : '0'}|${topicsKey}`;
+    const lang = language ?? Language.English;
+    return `${onePerTopic ? '1' : '0'}|${lang}|${topicsKey}`;
   }
 
   private hasAllTopicsEnabled(settings: AppSettings): boolean {
@@ -328,6 +345,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settingsKey = this.buildSettingsKey(
       settings.selectedTopics ?? [],
       settings.onePerTopic,
+      settings.language ?? null,
     );
     this.settingsService.addShownFactIdForDate(todayIso, fact.id);
     this.facts = this.facts.filter((_, i) => i !== index);
@@ -352,6 +370,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settingsKey = this.buildSettingsKey(
       settings.selectedTopics ?? [],
       settings.onePerTopic,
+      settings.language ?? null,
     );
     this.settingsService.addShownFactIdForDate(todayIso, fact.id);
     const alreadyShownIds = this.settingsService.getShownFactIdsForDate(todayIso);
@@ -411,6 +430,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     const settingsKey = this.buildSettingsKey(
       settings.selectedTopics ?? [],
       settings.onePerTopic,
+      settings.language ?? null,
     );
 
     const alreadyShownIds = this.settingsService.getShownFactIdsForDate(

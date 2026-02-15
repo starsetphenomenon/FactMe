@@ -5,6 +5,7 @@ import { FactService } from '../services/fact.service';
 import { NotificationService } from '../services/notification.service';
 import { ALL_TOPICS } from '../models/fact.models';
 import { Topic } from '../enums/topic.enum';
+import { Language } from '../enums/language.enum';
 import { TestUtils } from '../testing/test-utils';
 import { createFactServiceMock, createNotificationServiceMock } from '../testing/mocks';
 
@@ -122,6 +123,68 @@ describe('HomePage (no TestBed)', () => {
       tick();
 
       expect(factService.getRandomFactForDate.calls.count()).toBeGreaterThan(callsBefore);
+    }));
+  });
+
+  describe('User sees facts in language set in settings', () => {
+    it('displays facts in the language from settings', fakeAsync(() => {
+      const germanFact = {
+        ...TestUtils.createMockFact(Topic.Psychology),
+        title: 'Fakt auf Deutsch',
+        description: 'Beschreibung auf Deutsch',
+      };
+      factService = createFactServiceMock({ randomFact: germanFact });
+      settingsService.update({ language: Language.German });
+
+      const homePage = TestUtils.createHomePage(
+        factService as unknown as FactService,
+        settingsService,
+        notificationService as unknown as NotificationService
+      );
+      homePage.ngOnInit();
+      tick();
+
+      expect(homePage.fact).not.toBeNull();
+      expect(homePage.fact?.title).toBe('Fakt auf Deutsch');
+      expect(homePage.fact?.description).toBe('Beschreibung auf Deutsch');
+    }));
+  });
+
+  describe('Changing language in settings updates facts reactively', () => {
+    it('reloads facts when user changes language in settings so facts are translated', fakeAsync(() => {
+      const englishFact = {
+        ...TestUtils.createMockFact(Topic.Science),
+        title: 'Fact in English',
+        description: 'Description in English',
+      };
+      const germanFact = {
+        ...TestUtils.createMockFact(Topic.Science, 'test-2'),
+        title: 'Fakt auf Deutsch',
+        description: 'Beschreibung auf Deutsch',
+      };
+      factService = createFactServiceMock({ randomFact: englishFact });
+      factService.getRandomFactForDate.and.returnValues(
+        Promise.resolve(englishFact),
+        Promise.resolve(germanFact)
+      );
+
+      settingsService.update({ language: Language.English });
+      const homePage = TestUtils.createHomePage(
+        factService as unknown as FactService,
+        settingsService,
+        notificationService as unknown as NotificationService
+      );
+      homePage.ngOnInit();
+      tick();
+
+      expect(homePage.fact?.title).toBe('Fact in English');
+
+      settingsService.update({ language: Language.German });
+      tick();
+
+      expect(factService.getRandomFactForDate).toHaveBeenCalledTimes(2);
+      expect(homePage.fact?.title).toBe('Fakt auf Deutsch');
+      expect(homePage.fact?.description).toBe('Beschreibung auf Deutsch');
     }));
   });
 });
