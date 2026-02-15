@@ -25,6 +25,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   
   private readonly destroy$ = new Subject<void>();
   private lastSettingsKey?: string;
+  private loadMutex: Promise<void> | null = null;
 
   constructor(
     private factService: FactService,
@@ -94,6 +95,20 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   }
 
   private async restoreFromStorage(): Promise<void> {
+    if (this.loadMutex) {
+      await this.loadMutex;
+      return;
+    }
+    const promise = this.doRestoreFromStorage();
+    this.loadMutex = promise;
+    try {
+      await promise;
+    } finally {
+      this.loadMutex = null;
+    }
+  }
+
+  private async doRestoreFromStorage(): Promise<void> {
     this.isLoading = true;
     this.error = null;
 
@@ -102,7 +117,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
     try {
       if (settings.lastShownDate !== todayIso) {
-        await this.loadTodayFact();
+        await this.runLoadTodayFact();
         return;
       }
 
@@ -110,7 +125,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         settings.currentFactsSettingsKey &&
         settings.currentFactsSettingsKey !== this.getCurrentSettingsKey()
       ) {
-        await this.loadTodayFact();
+        await this.runLoadTodayFact();
         return;
       }
 
@@ -142,10 +157,14 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       this.settingsService.setLastFactsLoadSettingsKey(this.getCurrentSettingsKey());
 
       if (this.facts.length > 0) {
-        await this.notificationService.rescheduleDailyNotification(
-          this.settingsService.getSettings(),
-          this.facts[0],
-        );
+        try {
+          await this.notificationService.rescheduleDailyNotification(
+            this.settingsService.getSettings(),
+            this.facts[0],
+          );
+        } catch (e) {
+          console.warn('Could not reschedule notification:', e);
+        }
       }
     } finally {
       this.isLoading = false;
@@ -153,6 +172,20 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   }
 
   private async loadTodayFact(): Promise<void> {
+    if (this.loadMutex) {
+      await this.loadMutex;
+      return;
+    }
+    const promise = this.runLoadTodayFact();
+    this.loadMutex = promise;
+    try {
+      await promise;
+    } finally {
+      this.loadMutex = null;
+    }
+  }
+
+  private async runLoadTodayFact(): Promise<void> {
     this.isLoading = true;
     this.error = null;
 
@@ -253,10 +286,14 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       currentFactsSettingsKey: settingsKey,
     });
     this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-    await this.notificationService.rescheduleDailyNotification(
-      this.settingsService.getSettings(),
-      facts.length > 0 ? facts[0] : undefined,
-    );
+    try {
+      await this.notificationService.rescheduleDailyNotification(
+        this.settingsService.getSettings(),
+        facts.length > 0 ? facts[0] : undefined,
+      );
+    } catch (e) {
+      console.warn('Could not reschedule notification:', e);
+    }
   }
 
   private async loadSingleRandomFact(
