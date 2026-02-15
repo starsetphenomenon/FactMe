@@ -106,26 +106,17 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         return;
       }
 
-      const currentKey = this.buildSettingsKey(
-        settings.selectedTopics ?? [],
-        settings.onePerTopic,
-        settings.language ?? null,
-      );
-
       if (
         settings.currentFactsSettingsKey &&
-        settings.currentFactsSettingsKey !== currentKey
+        settings.currentFactsSettingsKey !== this.getCurrentSettingsKey()
       ) {
         await this.loadTodayFact();
         return;
       }
 
+      const topics = this.getTopics(settings);
       if (!settings.onePerTopic) {
         if (settings.lastShownFactId) {
-          const topics =
-            settings.selectedTopics?.length > 0
-              ? settings.selectedTopics
-              : ALL_TOPICS;
           const fact = await this.factService.getFactById(
             settings.lastShownFactId,
             topics,
@@ -138,11 +129,6 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         const ids = settings.currentFactIds.length
           ? settings.currentFactIds
           : settings.shownFactIds;
-
-        const topics =
-          settings.selectedTopics?.length > 0
-            ? settings.selectedTopics
-            : ALL_TOPICS;
         const restored: Fact[] = [];
         for (const id of ids) {
           const fact = await this.factService.getFactById(id, topics);
@@ -153,9 +139,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
       this.error = settings.currentErrorKey ?? null;
 
-      this.settingsService.setLastFactsLoadSettingsKey(
-        this.buildSettingsKey(settings.selectedTopics ?? [], settings.onePerTopic, settings.language ?? null),
-      );
+      this.settingsService.setLastFactsLoadSettingsKey(this.getCurrentSettingsKey());
 
       if (this.facts.length > 0) {
         await this.notificationService.rescheduleDailyNotification(
@@ -174,12 +158,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
     const settings = this.settingsService.getSettings();
     const todayIso = this.toIsoDate(this.today);
-    const onePerTopic = settings.onePerTopic;
-    const settingsKey = this.buildSettingsKey(
-      settings.selectedTopics ?? [],
-      settings.onePerTopic,
-      settings.language ?? null,
-    );
+    const settingsKey = this.getCurrentSettingsKey();
 
     try {
       if (settings.currentFactsSettingsKey && settings.currentFactsSettingsKey !== settingsKey && this.facts.length > 0) {
@@ -198,107 +177,29 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
         alreadyShownIds = alreadyShownIds.filter((id) => !currentIds.has(id));
       }
 
-      if (!onePerTopic) {
-        const topics =
-          settings.selectedTopics?.length > 0
-            ? settings.selectedTopics
-            : ALL_TOPICS;
-
-        const fact = await this.factService.getRandomFactForDate(
-          this.today,
-          topics,
-          alreadyShownIds,
-        );
-
+      if (!settings.onePerTopic) {
+        const fact = await this.loadSingleRandomFact(alreadyShownIds, settings);
         if (!fact) {
-          this.facts = [];
-          const messageKey =
-            alreadyShownIds.length > 0
-              ? HomeText.AllSeenMessage
-              : this.getEmptyMessageKey(settings);
-          this.error = messageKey;
-          this.isLoading = false;
-          this.settingsService.update({
-            currentFactIds: [],
-            currentErrorKey: messageKey,
-            currentFactsSettingsKey: settingsKey,
-          });
-          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-          await this.notificationService.rescheduleDailyNotification(
-            this.settingsService.getSettings(),
+          await this.applyStateAndPersist(
+            [],
+            this.getMessageKeyForNoFacts(alreadyShownIds.length, settings),
+            settingsKey,
           );
           return;
         }
-
-        this.facts = [fact];
         this.settingsService.addShownFactIdForDate(todayIso, fact.id);
-        this.settingsService.update({
-          currentFactIds: [fact.id],
-          currentErrorKey: null,
-          currentFactsSettingsKey: settingsKey,
-        });
-        this.settingsService.setLastFactsLoadSettingsKey(
-          settingsKey,
-        );
-        await this.notificationService.rescheduleDailyNotification(
-          this.settingsService.getSettings(),
-          fact,
-        );
+        await this.applyStateAndPersist([fact], null, settingsKey);
       } else {
-        const newFacts: Fact[] = [];
-        const shownSet = new Set(alreadyShownIds);
-
-        const topics =
-          settings.selectedTopics?.length > 0
-            ? settings.selectedTopics
-            : ALL_TOPICS;
-
-        for (const topic of topics) {
-          const next = await this.factService.getRandomFactForDate(
-            this.today,
-            [topic],
-            Array.from(shownSet),
-          );
-          if (next) {
-            newFacts.push(next);
-            shownSet.add(next.id);
-            this.settingsService.addShownFactIdForDate(todayIso, next.id);
-          }
-        }
-
+        const newFacts = await this.loadFactsOnePerTopic(todayIso, alreadyShownIds, settings);
         if (!newFacts.length) {
-          this.facts = [];
-          const messageKey =
-            alreadyShownIds.length > 0
-              ? HomeText.AllSeenMessage
-              : this.getEmptyMessageKey(settings);
-          this.error = messageKey;
-          this.isLoading = false;
-          this.settingsService.update({
-            currentFactIds: [],
-            currentErrorKey: messageKey,
-            currentFactsSettingsKey: settingsKey,
-          });
-          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-          await this.notificationService.rescheduleDailyNotification(
-            this.settingsService.getSettings(),
+          await this.applyStateAndPersist(
+            [],
+            this.getMessageKeyForNoFacts(alreadyShownIds.length, settings),
+            settingsKey,
           );
           return;
         }
-
-        this.facts = newFacts;
-        this.settingsService.update({
-          currentFactIds: newFacts.map((f) => f.id),
-          currentErrorKey: null,
-          currentFactsSettingsKey: settingsKey,
-        });
-        this.settingsService.setLastFactsLoadSettingsKey(
-          settingsKey,
-        );
-        await this.notificationService.rescheduleDailyNotification(
-          this.settingsService.getSettings(),
-          this.facts[0],
-        );
+        await this.applyStateAndPersist(newFacts, null, settingsKey);
       }
     } catch (e) {
       this.error = HomeText.LoadErrorMessage;
@@ -322,6 +223,73 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     return `${onePerTopic ? '1' : '0'}|${lang}|${topicsKey}`;
   }
 
+  private getTopics(settings: AppSettings): TopicKey[] {
+    return (settings.selectedTopics?.length ?? 0) > 0 ? settings.selectedTopics! : ALL_TOPICS;
+  }
+
+  private getCurrentSettingsKey(): string {
+    const settings = this.settingsService.getSettings();
+    return this.buildSettingsKey(
+      settings.selectedTopics ?? [],
+      settings.onePerTopic,
+      settings.language ?? null,
+    );
+  }
+
+  private getMessageKeyForNoFacts(alreadyShownCount: number, settings: AppSettings): HomeText {
+    return alreadyShownCount > 0 ? HomeText.AllSeenMessage : this.getEmptyMessageKey(settings);
+  }
+
+  private async applyStateAndPersist(
+    facts: Fact[],
+    errorKey: HomeText | null,
+    settingsKey: string,
+  ): Promise<void> {
+    this.facts = facts;
+    this.error = errorKey;
+    this.settingsService.update({
+      currentFactIds: facts.map((f) => f.id),
+      currentErrorKey: errorKey,
+      currentFactsSettingsKey: settingsKey,
+    });
+    this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
+    await this.notificationService.rescheduleDailyNotification(
+      this.settingsService.getSettings(),
+      facts.length > 0 ? facts[0] : undefined,
+    );
+  }
+
+  private async loadSingleRandomFact(
+    alreadyShownIds: string[],
+    settings: AppSettings,
+  ): Promise<Fact | null> {
+    const topics = this.getTopics(settings);
+    return this.factService.getRandomFactForDate(this.today, topics, alreadyShownIds);
+  }
+
+  private async loadFactsOnePerTopic(
+    todayIso: string,
+    alreadyShownIds: string[],
+    settings: AppSettings,
+  ): Promise<Fact[]> {
+    const topics = this.getTopics(settings);
+    const newFacts: Fact[] = [];
+    const shownSet = new Set(alreadyShownIds);
+    for (const topic of topics) {
+      const next = await this.factService.getRandomFactForDate(
+        this.today,
+        [topic],
+        Array.from(shownSet),
+      );
+      if (next) {
+        newFacts.push(next);
+        shownSet.add(next.id);
+        this.settingsService.addShownFactIdForDate(todayIso, next.id);
+      }
+    }
+    return newFacts;
+  }
+
   private hasAllTopicsEnabled(settings: AppSettings): boolean {
     const selected = settings.selectedTopics ?? [];
     if (selected.length === 0) return true;
@@ -340,38 +308,16 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
   async onFactSwipeLeft(index: number): Promise<void> {
     if (index < 0 || index >= this.facts.length) return;
     const fact = this.facts[index];
-    const settings = this.settingsService.getSettings();
-    const todayIso = this.toIsoDate(this.today);
-    const settingsKey = this.buildSettingsKey(
-      settings.selectedTopics ?? [],
-      settings.onePerTopic,
-      settings.language ?? null,
-    );
-    this.settingsService.addShownFactIdForDate(todayIso, fact.id);
-    this.facts = this.facts.filter((_, i) => i !== index);
-    this.settingsService.update({
-      currentFactIds: this.facts.map((f) => f.id),
-      currentErrorKey: this.facts.length ? null : HomeText.AllSeenMessage,
-      currentFactsSettingsKey: settingsKey,
-    });
-    this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-    if (this.facts.length === 0) {
-      await this.notificationService.rescheduleDailyNotification(
-        this.settingsService.getSettings(),
-      );
-    }
+    this.settingsService.addShownFactIdForDate(this.toIsoDate(this.today), fact.id);
+    const newFacts = this.facts.filter((_, i) => i !== index);
+    const errorKey = newFacts.length ? null : HomeText.AllSeenMessage;
+    await this.applyStateAndPersist(newFacts, errorKey, this.getCurrentSettingsKey());
   }
 
   async onFactSwipeRight(index: number): Promise<void> {
     if (index < 0 || index >= this.facts.length) return;
     const fact = this.facts[index];
-    const settings = this.settingsService.getSettings();
     const todayIso = this.toIsoDate(this.today);
-    const settingsKey = this.buildSettingsKey(
-      settings.selectedTopics ?? [],
-      settings.onePerTopic,
-      settings.language ?? null,
-    );
     this.settingsService.addShownFactIdForDate(todayIso, fact.id);
     const alreadyShownIds = this.settingsService.getShownFactIdsForDate(todayIso);
     const replacement = await this.factService.getRandomFactForDate(
@@ -379,26 +325,18 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       [fact.topic],
       alreadyShownIds,
     );
+    const newFacts = replacement
+      ? [
+          ...this.facts.slice(0, index),
+          replacement,
+          ...this.facts.slice(index + 1),
+        ]
+      : this.facts.filter((_, i) => i !== index);
     if (replacement) {
       this.settingsService.addShownFactIdForDate(todayIso, replacement.id);
-      this.facts = [
-        ...this.facts.slice(0, index),
-        replacement,
-        ...this.facts.slice(index + 1),
-      ];
-    } else {
-      this.facts = this.facts.filter((_, i) => i !== index);
     }
-    this.settingsService.update({
-      currentFactIds: this.facts.map((f) => f.id),
-      currentErrorKey: this.facts.length ? null : HomeText.AllSeenMessage,
-      currentFactsSettingsKey: settingsKey,
-    });
-    this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-    await this.notificationService.rescheduleDailyNotification(
-      this.settingsService.getSettings(),
-      this.facts.length > 0 ? this.facts[0] : undefined,
-    );
+    const errorKey = newFacts.length ? null : HomeText.AllSeenMessage;
+    await this.applyStateAndPersist(newFacts, errorKey, this.getCurrentSettingsKey());
   }
 
   async onPullRefresh(event: RefresherCustomEvent): Promise<void> {
@@ -426,108 +364,32 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
 
     const settings = this.settingsService.getSettings();
     const todayIso = this.toIsoDate(this.today);
-    const onePerTopic = settings.onePerTopic;
-    const settingsKey = this.buildSettingsKey(
-      settings.selectedTopics ?? [],
-      settings.onePerTopic,
-      settings.language ?? null,
-    );
-
-    const alreadyShownIds = this.settingsService.getShownFactIdsForDate(
-      todayIso,
-    );
+    const settingsKey = this.getCurrentSettingsKey();
+    const alreadyShownIds = this.settingsService.getShownFactIdsForDate(todayIso);
 
     try {
-    if (!onePerTopic) {
-      const topics =
-        (settings.selectedTopics?.length ?? 0) > 0
-          ? settings.selectedTopics!
-          : ALL_TOPICS;
-
-      const next = await this.factService.getRandomFactForDate(
-          this.today,
-        topics,
-          alreadyShownIds,
-        );
-
+      if (!settings.onePerTopic) {
+        const next = await this.loadSingleRandomFact(alreadyShownIds, settings);
         if (!next) {
-          this.error = HomeText.AllSeenMessage;
-          this.settingsService.update({
-            currentFactIds: this.facts.map((f) => f.id),
-            currentErrorKey: HomeText.AllSeenMessage,
-            currentFactsSettingsKey: settingsKey,
-          });
-          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-          await this.notificationService.rescheduleDailyNotification(
-            this.settingsService.getSettings(),
+          await this.applyStateAndPersist(
+            this.facts,
+            HomeText.AllSeenMessage,
+            settingsKey,
           );
           return;
         }
-
-        this.facts = [next];
         this.settingsService.addShownFactIdForDate(todayIso, next.id);
-        this.settingsService.update({
-          currentFactIds: [next.id],
-          currentErrorKey: null,
-          currentFactsSettingsKey: settingsKey,
-        });
-        await this.notificationService.rescheduleDailyNotification(
-          this.settingsService.getSettings(),
-          next,
-        );
-        this.error = null;
+        await this.applyStateAndPersist([next], null, settingsKey);
       } else {
-        const newFacts: Fact[] = [];
-        const shownSet = new Set(alreadyShownIds);
-
-      const topics =
-        (settings.selectedTopics?.length ?? 0) > 0
-          ? settings.selectedTopics!
-          : ALL_TOPICS;
-
-      for (const topic of topics) {
-          const next = await this.factService.getRandomFactForDate(
-            this.today,
-            [topic],
-            Array.from(shownSet),
-          );
-          if (next) {
-            newFacts.push(next);
-            shownSet.add(next.id);
-            this.settingsService.addShownFactIdForDate(todayIso, next.id);
-          }
-        }
-
+        const newFacts = await this.loadFactsOnePerTopic(todayIso, alreadyShownIds, settings);
         if (!newFacts.length) {
-          this.facts = [];
-          this.error = HomeText.AllSeenMessage;
-          this.settingsService.update({
-            currentFactIds: [],
-            currentErrorKey: HomeText.AllSeenMessage,
-            currentFactsSettingsKey: settingsKey,
-          });
-          this.settingsService.setLastFactsLoadSettingsKey(settingsKey);
-          await this.notificationService.rescheduleDailyNotification(
-            this.settingsService.getSettings(),
-          );
+          await this.applyStateAndPersist([], HomeText.AllSeenMessage, settingsKey);
           return;
         }
-
-        this.facts = newFacts;
-        this.settingsService.update({
-          currentFactIds: newFacts.map((f) => f.id),
-          currentErrorKey: null,
-          currentFactsSettingsKey: settingsKey,
-        });
-        await this.notificationService.rescheduleDailyNotification(
-          this.settingsService.getSettings(),
-          this.facts[0],
-        );
-        this.error = null;
+        await this.applyStateAndPersist(newFacts, null, settingsKey);
       }
     } finally {
       this.isRefreshing = false;
     }
   }
 }
-
