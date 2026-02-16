@@ -26,100 +26,123 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Calendar;
+import android.util.Log;
 
 @CapacitorPlugin(name = "FactMeNotification")
 public class FactMeNotificationPlugin extends Plugin {
 
+    private static final String TAG = "FactMeNotification";
     private static final String CHANNEL_ID = "default";
     private static final int TEST_NOTIFICATION_ID = 999;
     private static final String PREFS_NAME = "FactMeNotification";
     private static final String KEY_FACTS_BY_DATE = "factsByDate";
 
+    private Context getContextSafe() {
+        try {
+            return getContext() != null ? getContext().getApplicationContext() : null;
+        } catch (Throwable t) {
+            Log.e(TAG, "getContext failed", t);
+            return null;
+        }
+    }
+
     @PluginMethod
     public void showTestNotification(PluginCall call) {
-        String title = call.getString("title");
-        String body = call.getString("body");
-        String largeIconDrawableName = call.getString("largeIconDrawableName");
-        String largeIconTintColor = call.getString("largeIconTintColor");
-        if (title == null) title = "";
-        if (body == null) body = "";
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
+            return;
+        }
+        try {
+            String title = call.getString("title");
+            String body = call.getString("body");
+            String largeIconDrawableName = call.getString("largeIconDrawableName");
+            String largeIconTintColor = call.getString("largeIconTintColor");
+            if (title == null) title = "";
+            if (body == null) body = "";
+            ensureChannel(context);
 
-        Context context = getContext().getApplicationContext();
-        ensureChannel(context);
-
-        int smallIconId = context.getResources().getIdentifier("ic_notification_app", "drawable", context.getPackageName());
-        if (smallIconId == 0) {
-            smallIconId = context.getResources().getIdentifier("ic_notification_small", "drawable", context.getPackageName());
-        }
-        if (smallIconId == 0) {
-            smallIconId = context.getResources().getIdentifier("ic_launcher_small", "drawable", context.getPackageName());
-        }
-        if (smallIconId == 0) {
-            smallIconId = context.getApplicationInfo().icon;
-        }
-
-        Intent launch = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
-        if (launch != null) {
-            launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        }
-        PendingIntent contentIntent = null;
-        if (launch != null) {
-            int piFlags = PendingIntent.FLAG_UPDATE_CURRENT;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                piFlags |= PendingIntent.FLAG_MUTABLE;
+            int smallIconId = context.getResources().getIdentifier("ic_notification_app", "drawable", context.getPackageName());
+            if (smallIconId == 0) {
+                smallIconId = context.getResources().getIdentifier("ic_notification_small", "drawable", context.getPackageName());
             }
-            contentIntent = PendingIntent.getActivity(context, 0, launch, piFlags);
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setSmallIcon(smallIconId)
-                .setAutoCancel(true)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        if (contentIntent != null) {
-            builder.setContentIntent(contentIntent);
-        }
-
-        if (largeIconDrawableName != null && !largeIconDrawableName.isEmpty()) {
-            int largeResId = context.getResources().getIdentifier(
-                    largeIconDrawableName, "drawable", context.getPackageName());
-            if (largeResId == 0) {
-                largeResId = context.getResources().getIdentifier(
-                        largeIconDrawableName, "drawable", "io.ionic.starter");
+            if (smallIconId == 0) {
+                smallIconId = context.getResources().getIdentifier("ic_launcher_small", "drawable", context.getPackageName());
             }
-            if (largeResId != 0) {
-                Drawable drawable = ContextCompat.getDrawable(context, largeResId);
-                if (drawable != null) {
-                    if (largeIconTintColor != null && !largeIconTintColor.isEmpty()) {
-                        try {
-                            int tintColor = Color.parseColor(largeIconTintColor);
-                            drawable = drawable.mutate();
-                            DrawableCompat.setTint(drawable, tintColor);
-                            DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);
-                        } catch (Exception ignored) {
+            if (smallIconId == 0) {
+                smallIconId = context.getApplicationInfo().icon;
+            }
+
+            Intent launch = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            if (launch != null) {
+                launch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            }
+            PendingIntent contentIntent = null;
+            if (launch != null) {
+                int piFlags = PendingIntent.FLAG_UPDATE_CURRENT;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    piFlags |= PendingIntent.FLAG_MUTABLE;
+                }
+                contentIntent = PendingIntent.getActivity(context, 0, launch, piFlags);
+            }
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                    .setContentTitle(title)
+                    .setContentText(body)
+                    .setSmallIcon(smallIconId)
+                    .setAutoCancel(true)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+            if (contentIntent != null) {
+                builder.setContentIntent(contentIntent);
+            }
+
+            if (largeIconDrawableName != null && !largeIconDrawableName.isEmpty()) {
+                int largeResId = context.getResources().getIdentifier(
+                        largeIconDrawableName, "drawable", context.getPackageName());
+                if (largeResId == 0) {
+                    largeResId = context.getResources().getIdentifier(
+                            largeIconDrawableName, "drawable", "io.ionic.starter");
+                }
+                if (largeResId != 0) {
+                    Drawable drawable = ContextCompat.getDrawable(context, largeResId);
+                    if (drawable != null) {
+                        if (largeIconTintColor != null && !largeIconTintColor.isEmpty()) {
+                            try {
+                                int tintColor = Color.parseColor(largeIconTintColor);
+                                drawable = drawable.mutate();
+                                DrawableCompat.setTint(drawable, tintColor);
+                                DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);
+                            } catch (Exception ignored) {
+                            }
                         }
-                    }
-                    Bitmap largeBitmap = drawableToBitmap(drawable);
-                    if (largeBitmap != null) {
-                        builder.setLargeIcon(largeBitmap);
+                        Bitmap largeBitmap = drawableToBitmap(drawable);
+                        if (largeBitmap != null) {
+                            builder.setLargeIcon(largeBitmap);
+                        }
                     }
                 }
             }
-        }
 
-        NotificationManagerCompat.from(context).notify(TEST_NOTIFICATION_ID, builder.build());
-        call.resolve(new JSObject().put("shown", true));
+            NotificationManagerCompat.from(context).notify(TEST_NOTIFICATION_ID, builder.build());
+            call.resolve(new JSObject().put("shown", true));
+        } catch (Throwable t) {
+            Log.e(TAG, "showTestNotification failed", t);
+            call.reject(t.getMessage());
+        }
     }
 
     @PluginMethod
     public void scheduleDailyNotifications(PluginCall call) {
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
+            return;
+        }
         JSONArray list = call.getArray("notifications");
         if (list == null) {
             call.resolve();
             return;
         }
-        Context context = getContext();
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (am == null) {
             call.resolve();
@@ -161,7 +184,8 @@ public class FactMeNotificationPlugin extends Plugin {
                     am.setExact(AlarmManager.RTC, trigger, pending);
                 }
             }
-        } catch (JSONException e) {
+        } catch (Throwable e) {
+            Log.e(TAG, "scheduleDailyNotifications failed", e);
             call.reject(e.getMessage());
             return;
         }
@@ -170,37 +194,60 @@ public class FactMeNotificationPlugin extends Plugin {
 
     @PluginMethod
     public void setNotificationFacts(PluginCall call) {
-        JSObject factsObj = call.getObject("facts");
-        if (factsObj == null) {
-            call.resolve();
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
             return;
         }
-        SharedPreferences prefs = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        prefs.edit().putString(KEY_FACTS_BY_DATE, factsObj.toString()).apply();
-        call.resolve();
+        try {
+            JSObject factsObj = call.getObject("facts");
+            if (factsObj == null) {
+                call.resolve();
+                return;
+            }
+            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            prefs.edit().putString(KEY_FACTS_BY_DATE, factsObj.toString()).apply();
+            call.resolve();
+        } catch (Throwable t) {
+            Log.e(TAG, "setNotificationFacts failed", t);
+            call.reject(t.getMessage());
+        }
     }
 
     @PluginMethod
     public void clearDisplayedNotifications(PluginCall call) {
-        Context context = getContext().getApplicationContext();
-        NotificationManagerCompat nm = NotificationManagerCompat.from(context);
-        for (int id : new int[] { 1, 2, 3, 4, 5, 6, 7, TEST_NOTIFICATION_ID }) {
-            nm.cancel(id);
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
+            return;
         }
-        call.resolve();
+        try {
+            NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+            for (int id : new int[] { 1, 2, 3, 4, 5, 6, 7, TEST_NOTIFICATION_ID }) {
+                nm.cancel(id);
+            }
+            call.resolve();
+        } catch (Throwable t) {
+            Log.e(TAG, "clearDisplayedNotifications failed", t);
+            call.reject(t.getMessage());
+        }
     }
 
     @PluginMethod
     public void cancelDailyNotifications(PluginCall call) {
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
+            return;
+        }
         JSONArray ids = call.getArray("ids");
         if (ids == null) {
             call.resolve();
             return;
         }
-        Context context = getContext();
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (am != null) {
-            try {
+        try {
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            if (am != null) {
                 for (int i = 0; i < ids.length(); i++) {
                     int id = ids.getInt(i);
                     Intent intent = new Intent(context, FactMeNotificationReceiver.class);
@@ -211,10 +258,12 @@ public class FactMeNotificationPlugin extends Plugin {
                         pending.cancel();
                     }
                 }
-            } catch (JSONException ignored) {
             }
+            call.resolve();
+        } catch (Throwable t) {
+            Log.e(TAG, "cancelDailyNotifications failed", t);
+            call.reject(t.getMessage());
         }
-        call.resolve();
     }
 
     private static long nextTriggerTime(int weekday, int hour, int minute) {

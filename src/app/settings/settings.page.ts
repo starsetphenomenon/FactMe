@@ -135,12 +135,10 @@ export class SettingsPage implements OnInit {
   }
 
   async onNotificationWeekdaysChanged(days: Weekday[]): Promise<void> {
-    const hasDays = days.length > 0;
-    const isAllDays = days.length === ALL_WEEKDAYS.length;
-
+    const hasDays = !!days?.length;
     this.settings = this.settingsService.update({
       notificationWeekdays: days,
-      notificationsEnabled: hasDays && isAllDays,
+      notificationsEnabled: hasDays,
     });
     await this.notificationService.rescheduleDailyNotification(this.settings);
   }

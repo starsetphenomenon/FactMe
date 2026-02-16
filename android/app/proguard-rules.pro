@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep custom Capacitor plugin and receiver (required for notifications)
+-keep class io.ionic.starter.FactMeNotificationPlugin { *; }
+-keep class io.ionic.starter.FactMeNotificationReceiver { *; }
