@@ -86,8 +86,18 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
     return this.facts.length ? this.facts[0] : null;
   }
 
+  /** Ukrainian is 'uk', not 'ua' locale for date formatting */
+  private static readonly LANGUAGE_LOCALE: Record<Language, string> = {
+    [Language.English]: 'en',
+    [Language.German]: 'de',
+    [Language.Ukrainian]: 'uk',
+    [Language.Hungarian]: 'hu',
+  };
+
   get dateLabel(): string {
-    return this.today.toLocaleDateString(undefined, {
+    const lang = this.settingsService.getSettings().language;
+    const locale = lang != null ? HomePage.LANGUAGE_LOCALE[lang] : undefined;
+    return this.today.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
