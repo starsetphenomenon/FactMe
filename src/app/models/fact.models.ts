@@ -57,7 +57,7 @@ export const ALL_TOPICS: TopicKey[] = [
   Topic.WorldEvents,
   Topic.Technology,
   Topic.Music,
-  Topic.Movies,
+  Topic.FilmTv,
   Topic.Sports,
   Topic.FunFacts,
   Topic.Literature,

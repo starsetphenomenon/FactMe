@@ -4,7 +4,7 @@ export enum TopicIcon {
   WorldEvents = 'earth-outline',
   Technology = 'cog-outline',
   Music = 'musical-notes-outline',
-  Movies = 'film-outline',
+  FilmTv = 'film-outline',
   Sports = 'trophy-outline',
   FunFacts = 'bulb-outline',
   Literature = 'book-outline',

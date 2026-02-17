@@ -9,7 +9,7 @@ export class TopicIconUtil {
     [Topic.WorldEvents]: TopicIcon.WorldEvents,
     [Topic.Technology]: TopicIcon.Technology,
     [Topic.Music]: TopicIcon.Music,
-    [Topic.Movies]: TopicIcon.Movies,
+    [Topic.FilmTv]: TopicIcon.FilmTv,
     [Topic.Sports]: TopicIcon.Sports,
     [Topic.FunFacts]: TopicIcon.FunFacts,
     [Topic.Literature]: TopicIcon.Literature,

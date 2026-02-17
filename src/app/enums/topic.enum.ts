@@ -4,7 +4,7 @@ export enum Topic {
   WorldEvents = 'world-events',
   Technology = 'technology',
   Music = 'music',
-  Movies = 'movies',
+  FilmTv = 'film-tv',
   Sports = 'sports',
   FunFacts = 'fun-facts',
   Literature = 'literature',
