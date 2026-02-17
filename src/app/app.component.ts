@@ -1,10 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Subject } from 'rxjs';
-import { filter, takeUntil, tap } from 'rxjs/operators';
 import { NavController, Platform } from '@ionic/angular';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 import { FactMeNotification } from './plugins/fact-me-notification.plugin';
 import { NotificationService } from './services/notification.service';
 import { SettingsService } from './services/settings.service';
@@ -18,21 +17,18 @@ import { Language } from './enums/language.enum';
   standalone: false,
 })
 export class AppComponent implements OnDestroy {
-  showBack = false;
-  showSettingsButton = true;
+  settingsModalOpen = false;
   private readonly destroy$ = new Subject<void>();
 
   constructor(
     private platform: Platform,
     private navCtrl: NavController,
-    private router: Router,
     private settingsService: SettingsService,
     private translationService: TranslationService,
     private notificationService: NotificationService,
   ) {
     this.initNotificationListeners();
     this.initLanguage();
-    this.initHeaderForRouting();
 
     const initialSettings = this.settingsService.getSettings();
     this.applyTheme(initialSettings.theme);
@@ -48,66 +44,67 @@ export class AppComponent implements OnDestroy {
       .subscribe();
   }
 
+  get showBack(): boolean {
+    return this.settingsModalOpen;
+  }
+
+  get showSettingsButton(): boolean {
+    return !this.settingsModalOpen;
+  }
+
+  openSettingsModal(): void {
+    this.settingsModalOpen = true;
+  }
+
+  closeSettingsModal(): void {
+    this.settingsModalOpen = false;
+  }
+
+  onSettingsModalDismiss(): void {
+    this.settingsModalOpen = false;
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
 
-  private async initNotificationListeners(): Promise<void> {
-    await this.platform.ready();
-
-    if (!this.platform.is('hybrid')) {
-      return;
-    }
-
-    if (Capacitor.getPlatform() === 'android') {
-      const dailyIds = [1, 2, 3, 4, 5, 6, 7];
-      await LocalNotifications.cancel({
-        notifications: dailyIds.map((id) => ({ id })),
-      });
-      await FactMeNotification.clearDisplayedNotifications();
-      const settings = this.settingsService.getSettings();
-      if (settings.notificationsEnabled && (settings.notificationWeekdays?.length ?? 0) > 0) {
-        await this.notificationService.rescheduleDailyNotification(settings);
+  private initNotificationListeners(): void {
+    this.platform.ready().then(() => {
+      if (!this.platform.is('hybrid')) {
+        return;
       }
-    }
 
-    LocalNotifications.addListener(
-      'localNotificationActionPerformed',
-      () => {
-        this.navCtrl.navigateRoot('/home');
-      },
-    );
+      if (Capacitor.getPlatform() === 'android') {
+        const dailyIds = [1, 2, 3, 4, 5, 6, 7];
+        LocalNotifications.cancel({
+          notifications: dailyIds.map((id) => ({ id })),
+        }).then(() => {
+          FactMeNotification.clearDisplayedNotifications().then(() => {
+            const settings = this.settingsService.getSettings();
+            if (settings.notificationsEnabled && (settings.notificationWeekdays?.length ?? 0) > 0) {
+              this.notificationService.rescheduleDailyNotification$(settings)
+                .pipe(takeUntil(this.destroy$))
+                .subscribe();
+            }
+          });
+        });
+      }
+
+      LocalNotifications.addListener(
+        'localNotificationActionPerformed',
+        () => {
+          this.navCtrl.navigateRoot('/home');
+        },
+      );
+    });
   }
 
-  private initHeaderForRouting(): void {
-    this.router.events
-      .pipe(
-        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-        takeUntil(this.destroy$),
-        tap((event) => {
-          const url = event.urlAfterRedirects || event.url;
-          this.updateHeaderForUrl(url);
-        }),
-      )
-      .subscribe();
-  }
-
-  private updateHeaderForUrl(url: string): void {
-    if (url.startsWith('/settings')) {
-      this.showBack = true;
-      this.showSettingsButton = false;
-    } else {
-      this.showBack = false;
-      this.showSettingsButton = true;
-    }
-  }
-
-  private async initLanguage(): Promise<void> {
+  private initLanguage(): void {
     const settings = this.settingsService.getSettings();
     const lang = settings.language ?? Language.English;
     this.translationService.setLanguage(lang);
-    await this.translationService.loadTranslations(lang);
+    this.translationService.loadTranslations$(lang).pipe(takeUntil(this.destroy$)).subscribe();
   }
 
   private applyTheme(theme: 'dark' | 'light'): void {

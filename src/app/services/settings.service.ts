@@ -155,16 +155,16 @@ export class SettingsService {
       selectedTopics: [...ALL_TOPICS],
       notificationsEnabled: true,
       notificationTime: '09:00',
+      notificationWeekdays: [...ALL_WEEKDAYS],
       lastShownDate: null,
       lastShownFactId: null,
       shownFactIds: [],
       currentFactIds: [],
       currentErrorKey: null,
       currentFactsSettingsKey: null,
-      onePerTopic: false,
+      onePerTopic: true,
       language: Language.English,
-      theme: 'dark',
-      notificationWeekdays: [...ALL_WEEKDAYS],
+      theme: 'dark'
     };
   }
 

@@ -9,11 +9,8 @@ import {
 import { SettingsService } from './settings.service';
 import { Language } from '../enums/language.enum';
 import { Topic } from '../enums/topic.enum';
-
-interface TopicCacheEntry {
-  loaded: boolean;
-  data?: TopicFactsFile;
-}
+import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, map, shareReplay } from 'rxjs/operators';
 
 function topicCacheKey(topic: TopicKey, lang: Language): string {
   return `${lang}|${topic}`;
@@ -23,104 +20,126 @@ function topicCacheKey(topic: TopicKey, lang: Language): string {
   providedIn: 'root',
 })
 export class FactService {
-  private cache = new Map<string, TopicCacheEntry>();
+  private cache = new Map<string, TopicFactsFile>();
+  private loadingStreams = new Map<string, Observable<TopicFactsFile>>();
 
   constructor(
     private http: HttpClient,
     private settingsService: SettingsService,
   ) {}
 
-  async getRandomFactForDate(
+  getRandomFactForDate$(
     date: Date,
     topics: TopicKey[],
     excludeIds?: string[],
-  ): Promise<Fact | null> {
+  ): Observable<Fact | null> {
     const dateKey = this.toMonthDayKey(date);
-    const topicFiles = await Promise.all(
-      topics.map((topic) => this.loadTopic(topic)),
-    );
 
-    const allFactsForDate: Fact[] = [];
+    return forkJoin(
+      topics.map((topic) => this.loadTopic$(topic)),
+    ).pipe(
+      map((topicFiles) => {
+        const allFactsForDate: Fact[] = [];
 
-    topicFiles.forEach((file) => {
-      const entriesForDate = file.facts[dateKey] ?? [];
-      entriesForDate.forEach((entry) => {
-        allFactsForDate.push({
-          ...entry,
-          topic: file.topic,
+        topicFiles.forEach((file) => {
+          const entriesForDate = file.facts[dateKey] ?? [];
+          entriesForDate.forEach((entry) => {
+            allFactsForDate.push({
+              ...entry,
+              topic: file.topic,
+            });
+          });
         });
-      });
-    });
 
-    if (allFactsForDate.length === 0) {
-      return null;
-    }
+        if (allFactsForDate.length === 0) {
+          return null;
+        }
 
-    const excludeSet = new Set(excludeIds ?? []);
-    const candidates = excludeSet.size
-      ? allFactsForDate.filter((f) => !excludeSet.has(f.id))
-      : allFactsForDate;
+        const excludeSet = new Set(excludeIds ?? []);
+        const candidates = excludeSet.size
+          ? allFactsForDate.filter((f) => !excludeSet.has(f.id))
+          : allFactsForDate;
 
-    const randomIndex = Math.floor(Math.random() * candidates.length);
-    return candidates[randomIndex];
+        const randomIndex = Math.floor(Math.random() * candidates.length);
+        return candidates[randomIndex] ?? null;
+      }),
+    );
   }
 
-  async getFactById(id: string, topics: TopicKey[]): Promise<Fact | null> {
+  getFactById(id: string, topics: TopicKey[]): Observable<Fact | null> {
     const topicFromId = this.extractTopicFromId(id);
     const candidateTopics: TopicKey[] =
       topicFromId && topics.includes(topicFromId)
         ? [topicFromId]
         : topics;
 
-    for (const topic of candidateTopics) {
-      const file = await this.loadTopic(topic);
-      for (const [dateKey, entries] of Object.entries(file.facts)) {
-        const match = (entries as FactJsonEntry[]).find((e) => e.id === id);
-        if (match) {
-          return {
-            ...match,
-            topic: file.topic,
-          };
-        }
-      }
+    if (!candidateTopics.length) {
+      return of(null);
     }
 
-    return null;
+    return forkJoin(candidateTopics.map((topic) => this.loadTopic$(topic))).pipe(
+      map((files) => {
+        for (const file of files) {
+          for (const [, entries] of Object.entries(file.facts)) {
+            const match = (entries as FactJsonEntry[]).find((e) => e.id === id);
+            if (match) {
+              return {
+                ...match,
+                topic: file.topic,
+              } as Fact;
+            }
+          }
+        }
+        return null;
+      }),
+    );
   }
 
-  private async loadTopic(topic: TopicKey): Promise<TopicFactsFile> {
+  private loadTopic$(topic: TopicKey): Observable<TopicFactsFile> {
     const lang = this.settingsService.getSettings().language ?? Language.English;
     const key = topicCacheKey(topic, lang);
+
     const cached = this.cache.get(key);
-    if (cached?.loaded && cached.data) {
-      return cached.data;
+    if (cached) {
+      return of(cached);
     }
 
-    let file: TopicFactsFile | undefined;
-    try {
-      file = await this.http
-        .get<TopicFactsFile>(`assets/facts/${lang}/${topic}.json`)
-        .toPromise();
-    } catch {
-      if (lang !== Language.English) {
-        try {
-          file = await this.http
-            .get<TopicFactsFile>(`assets/facts/en/${topic}.json`)
-            .toPromise();
-        } catch {
-          file = undefined;
-        }
-      }
+    const existing = this.loadingStreams.get(key);
+    if (existing) {
+      return existing;
     }
 
-    const data: TopicFactsFile =
-      file ?? ({
-        topic,
-        facts: {},
-      } as TopicFactsFile);
+    const stream = this.http
+      .get<TopicFactsFile>(`assets/facts/${lang}/${topic}.json`)
+      .pipe(
+        catchError(() => {
+          if (lang !== Language.English) {
+            return this.http.get<TopicFactsFile>(`assets/facts/en/${topic}.json`)
+              .pipe(catchError(() =>
+                of({
+                  topic,
+                  facts: {},
+                } as TopicFactsFile),
+              ));
+          }
+          return of({
+            topic,
+            facts: {},
+          } as TopicFactsFile);
+        }),
+        map((file) => {
+          const data: TopicFactsFile = file ?? ({
+            topic,
+            facts: {},
+          } as TopicFactsFile);
+          this.cache.set(key, data);
+          return data;
+        }),
+        shareReplay(1),
+      );
 
-    this.cache.set(key, { loaded: true, data });
-    return data;
+    this.loadingStreams.set(key, stream);
+    return stream;
   }
 
   private toMonthDayKey(date: Date): string {

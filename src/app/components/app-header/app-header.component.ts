@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 export class AppHeaderComponent {
   @Input() showSettingsButton = true;
   @Input() showBack = false;
+  @Output() settingsClick = new EventEmitter<void>();
+  @Output() backClick = new EventEmitter<void>();
 }

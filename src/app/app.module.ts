@@ -9,15 +9,18 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { SettingsPageModule } from './settings/settings.module';
+import { SettingsPage } from './settings/settings.page';
 
 @NgModule({
-  declarations: [AppComponent, AppHeaderComponent],
+  declarations: [AppComponent, AppHeaderComponent, SettingsPage],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    SettingsPageModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

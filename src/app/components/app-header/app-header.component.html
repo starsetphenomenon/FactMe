@@ -11,15 +11,17 @@
       <ion-button
         *ngIf="showSettingsButton"
         class="header-action-button button-round"
-        [routerLink]="['/settings']"
+        (click)="settingsClick.emit()"
       >
         <ion-icon name="settings-outline"></ion-icon>
       </ion-button>
-      <ion-back-button
+      <ion-button
         *ngIf="showBack"
         class="header-action-button"
-        defaultHref="/home"
-      ></ion-back-button>
+        (click)="backClick.emit()"
+      >
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

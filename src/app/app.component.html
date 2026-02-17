@@ -2,9 +2,20 @@
   <app-header
     [showSettingsButton]="showSettingsButton"
     [showBack]="showBack"
+    (settingsClick)="openSettingsModal()"
+    (backClick)="closeSettingsModal()"
   ></app-header>
 
   <ion-content>
-    <ion-router-outlet [animated]="false"></ion-router-outlet>
+    <div [hidden]="settingsModalOpen">
+      <ion-router-outlet [animated]="false"></ion-router-outlet>
+    </div>
+
+    <div
+      class="settings-shell"
+      [hidden]="!settingsModalOpen"
+    >
+      <app-settings></app-settings>
+    </div>
   </ion-content>
 </ion-app>

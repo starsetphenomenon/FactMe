@@ -12,10 +12,10 @@ import { NotificationText } from '../enums/notification-text.enum';
 import { Topic } from '../enums/topic.enum';
 import { TranslationService } from './translation.service';
 import { FactService } from './fact.service';
+import { from, of } from 'rxjs';
+import { catchError, concatMap, map, switchMap } from 'rxjs/operators';
 
 const DAILY_FACT_NOTIFICATION_IDS = [1, 2, 3, 4, 5, 6, 7];
-const TEST_NOTIFICATION_ID = 999;
-/** Number of days ahead to precompute facts for (today + next N-1 days) so the notification shows the correct day's fact. */
 const NOTIFICATION_FACTS_DAYS = 14;
 
 @Injectable({
@@ -28,150 +28,188 @@ export class NotificationService {
     private factService: FactService,
   ) {}
 
-  async ensurePermissions(): Promise<boolean> {
+  ensurePermissions$() {
     if (!this.platform.is('hybrid')) {
-      return false;
+      return of(false);
     }
 
-    const { display } = await LocalNotifications.checkPermissions();
-    if (display === 'granted') {
-      return true;
-    }
-    const result = await LocalNotifications.requestPermissions();
-    return result.display === 'granted';
+    return from(LocalNotifications.checkPermissions()).pipe(
+      switchMap(({ display }) => {
+        if (display === 'granted') {
+          return of(true);
+        }
+        return from(LocalNotifications.requestPermissions()).pipe(
+          map((result) => result.display === 'granted'),
+        );
+      }),
+    );
   }
 
-  async rescheduleDailyNotification(
+  rescheduleDailyNotification$(
     settings: AppSettings,
     fact?: Fact | null,
-  ): Promise<void> {
+  ) {
     if (!this.platform.is('hybrid')) {
-      return;
+      return of(void 0);
     }
 
     const weekdays = settings.notificationWeekdays;
     const useNativeScheduling = Capacitor.getPlatform() === 'android';
 
-    await LocalNotifications.cancel({
-      notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
-    });
-    if (useNativeScheduling) {
-      await FactMeNotification.cancelDailyNotifications({
-        ids: DAILY_FACT_NOTIFICATION_IDS,
-      });
-    }
+    return from(
+      LocalNotifications.cancel({
+        notifications: DAILY_FACT_NOTIFICATION_IDS.map((id) => ({ id })),
+      }),
+    ).pipe(
+      concatMap(() =>
+        useNativeScheduling
+          ? from(FactMeNotification.cancelDailyNotifications({
+              ids: DAILY_FACT_NOTIFICATION_IDS,
+            }))
+          : of(void 0),
+      ),
+      concatMap(() => {
+        if (weekdays.length === 0) {
+          return of(void 0);
+        }
 
-    if (weekdays.length === 0) {
-      return;
-    }
+        return this.getCurrentFactFromSettings$(settings, fact).pipe(
+          concatMap((effectiveFact) => {
+            if (!effectiveFact) {
+              return of(void 0);
+            }
 
-    const effectiveFact =
-      fact ?? (await this.getCurrentFactFromSettings(settings));
-    if (!effectiveFact) {
-      return;
-    }
+            return this.ensurePermissions$().pipe(
+              concatMap((hasPermission) => {
+                if (!hasPermission) {
+                  return of(void 0);
+                }
 
-    const hasPermission = await this.ensurePermissions();
-    if (!hasPermission) {
-      return;
-    }
+                return this.translationService
+                  .loadTranslations$(this.translationService.getLanguage())
+                  .pipe(
+                    concatMap(() => {
+                      const title =
+                        effectiveFact.title ??
+                        this.translationService.translate(NotificationText.FallbackTitle);
+                      const body =
+                        effectiveFact.description ??
+                        this.translationService.translate(NotificationText.FallbackBody);
 
-    await this.translationService.loadTranslations(
-      this.translationService.getLanguage(),
+                      const [hourStr, minuteStr] = settings.notificationTime.split(':');
+                      const hour = Number(hourStr ?? 9);
+                      const minute = Number(minuteStr ?? 0);
+
+                      const largeIconDrawableName = this.getTopicLargeIconName(effectiveFact.topic);
+                      const largeIconTintColor = this.getTopicColor(effectiveFact.topic, settings.theme);
+
+                      if (useNativeScheduling) {
+                        return this.buildNotificationFactsByDate$(settings).pipe(
+                          concatMap((factsByDate) => {
+                            const ops = [];
+                            if (Object.keys(factsByDate).length > 0) {
+                              ops.push(
+                                from(FactMeNotification.setNotificationFacts({ facts: factsByDate })),
+                              );
+                            }
+
+                            const notifications = weekdays.map((weekday: Weekday, index: number) => ({
+                              id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
+                              title,
+                              body,
+                              largeIconDrawableName,
+                              largeIconTintColor,
+                              weekday: weekday as number,
+                              hour,
+                              minute,
+                            }));
+
+                            ops.push(
+                              from(FactMeNotification.scheduleDailyNotifications({ notifications })),
+                            );
+
+                            return ops.length ? ops[ops.length - 1] : of(void 0);
+                          }),
+                        );
+                      }
+
+                      const smallIcon = 'ic_launcher_small';
+                      const largeIcon = largeIconDrawableName;
+                      const notifications = weekdays.map((weekday: Weekday, index: number) => ({
+                        id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
+                        title,
+                        body,
+                        smallIcon,
+                        ...(largeIcon && { largeIcon }),
+                        schedule: {
+                          at: this.getNextWeekdayTriggerDate(weekday as Weekday, hour, minute),
+                          repeats: true,
+                          every: 'week' as const,
+                          on: {
+                            weekday,
+                            hour,
+                            minute,
+                          },
+                        },
+                      }));
+
+                      return from(LocalNotifications.schedule({ notifications }));
+                    }),
+                  );
+              }),
+            );
+          }),
+        );
+      }),
+      catchError(() => of(void 0)),
     );
-    const title =
-      effectiveFact?.title ??
-      this.translationService.translate(NotificationText.FallbackTitle);
-    const body =
-      effectiveFact?.description ??
-      this.translationService.translate(NotificationText.FallbackBody);
-
-    const [hourStr, minuteStr] = settings.notificationTime.split(':');
-    const hour = Number(hourStr ?? 9);
-    const minute = Number(minuteStr ?? 0);
-
-    const largeIconDrawableName = this.getTopicLargeIconName(effectiveFact.topic);
-    const largeIconTintColor = this.getTopicColor(effectiveFact.topic, settings.theme);
-
-    if (useNativeScheduling) {
-      const factsByDate = await this.buildNotificationFactsByDate(settings);
-      if (Object.keys(factsByDate).length > 0) {
-        await FactMeNotification.setNotificationFacts({ facts: factsByDate });
-      }
-      const notifications = weekdays.map((weekday: Weekday, index: number) => ({
-        id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
-        title,
-        body,
-        largeIconDrawableName,
-        largeIconTintColor,
-        weekday: weekday as number,
-        hour,
-        minute,
-      }));
-      await FactMeNotification.scheduleDailyNotifications({ notifications });
-      return;
-    }
-
-    const smallIcon = 'ic_launcher_small';
-    const largeIcon = largeIconDrawableName;
-    const notifications = weekdays.map((weekday: Weekday, index: number) => ({
-      id: DAILY_FACT_NOTIFICATION_IDS[index] ?? DAILY_FACT_NOTIFICATION_IDS[0],
-      title,
-      body,
-      smallIcon,
-      ...(largeIcon && { largeIcon }),
-      schedule: {
-        at: this.getNextWeekdayTriggerDate(weekday as Weekday, hour, minute),
-        repeats: true,
-        every: 'week' as const,
-        on: {
-          weekday,
-          hour,
-          minute,
-        },
-      },
-    }));
-
-    await LocalNotifications.schedule({
-      notifications,
-    });
   }
 
-  async showTestNotification(settings: AppSettings): Promise<boolean> {
+  showTestNotification$(settings: AppSettings) {
     if (!this.platform.is('hybrid')) {
-      return false;
+      return of(false);
     }
-    const hasPermission = await this.ensurePermissions();
-    if (!hasPermission) {
-      return false;
-    }
-    const fact = await this.getCurrentFactFromSettings(settings);
-    if (!fact) {
-      return false;
-    }
-    await this.translationService.loadTranslations(
-      this.translationService.getLanguage(),
-    );
-    const title =
-      fact.title ??
-      this.translationService.translate(NotificationText.FallbackTitle);
-    const body =
-      fact.description ??
-      this.translationService.translate(NotificationText.FallbackBody);
-    const largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
-    const largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
 
-    try {
-      await FactMeNotification.showTestNotification({
-        title,
-        body,
-        largeIconDrawableName,
-        largeIconTintColor,
-      });
-      return true;
-    } catch {
-      return false;
-    }
+    return this.ensurePermissions$().pipe(
+      concatMap((hasPermission) => {
+        if (!hasPermission) {
+          return of(false);
+        }
+        return this.getCurrentFactFromSettings$(settings).pipe(
+          concatMap((fact) => {
+            if (!fact) {
+              return of(false);
+            }
+            return this.translationService
+              .loadTranslations$(this.translationService.getLanguage())
+              .pipe(
+                concatMap(() => {
+                  const title =
+                    fact.title ??
+                    this.translationService.translate(NotificationText.FallbackTitle);
+                  const body =
+                    fact.description ??
+                    this.translationService.translate(NotificationText.FallbackBody);
+                  const largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
+                  const largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
+
+                  return from(
+                    FactMeNotification.showTestNotification({
+                      title,
+                      body,
+                      largeIconDrawableName,
+                      largeIconTintColor,
+                    }),
+                  ).pipe(
+                    map(() => true),
+                    catchError(() => of(false)),
+                  );
+                }),
+              );
+          }),
+        );
+      }),
+    );
   }
 
   private getNextTriggerDate(time: string): Date {
@@ -255,10 +293,14 @@ export class NotificationService {
     return 'ic_topic_default';
   }
 
-  private async getCurrentFactFromSettings(settings: AppSettings): Promise<Fact | null> {
+  private getCurrentFactFromSettings$(settings: AppSettings, override?: Fact | null) {
+    if (override) {
+      return of(override);
+    }
+
     const currentId = settings.currentFactIds?.[0];
     if (!currentId) {
-      return null;
+      return of(null);
     }
     const topics =
       settings.selectedTopics?.length > 0
@@ -274,9 +316,9 @@ export class NotificationService {
     return `${y}-${m}-${d}`;
   }
 
-  private async buildNotificationFactsByDate(
+  private buildNotificationFactsByDate$(
     settings: AppSettings,
-  ): Promise<NotificationFactsByDate> {
+  ) {
     const topics =
       settings.selectedTopics?.length > 0
         ? settings.selectedTopics
@@ -289,20 +331,26 @@ export class NotificationService {
       NotificationText.FallbackBody,
     );
     const start = new Date();
-    for (let i = 0; i < NOTIFICATION_FACTS_DAYS; i++) {
-      const d = new Date(start);
-      d.setDate(start.getDate() + i);
-      const fact = await this.factService.getRandomFactForDate(d, topics);
-      const entry: NotificationFactEntry = {
-        title: fact?.title ?? fallbackTitle,
-        body: fact?.description ?? fallbackBody,
-      };
-      if (fact) {
-        entry.largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
-        entry.largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
-      }
-      result[this.toIsoDate(d)] = entry;
-    }
-    return result;
+
+    return from(Array.from({ length: NOTIFICATION_FACTS_DAYS }, (_, i) => i)).pipe(
+      concatMap((i) => {
+        const d = new Date(start);
+        d.setDate(start.getDate() + i);
+        return this.factService.getRandomFactForDate$(d, topics).pipe(
+          map((fact) => {
+            const entry: NotificationFactEntry = {
+              title: fact?.title ?? fallbackTitle,
+              body: fact?.description ?? fallbackBody,
+            };
+            if (fact) {
+              entry.largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
+              entry.largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
+            }
+            result[this.toIsoDate(d)] = entry;
+          }),
+        );
+      }),
+      map(() => result),
+    );
   }
 }

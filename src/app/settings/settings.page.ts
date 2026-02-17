@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AppSettings,
   ALL_TOPICS,
@@ -12,6 +12,8 @@ import { SettingsText } from '../enums/settings-text.enum';
 import { TranslationService } from '../services/translation.service';
 import { Language } from '../enums/language.enum';
 import { ToastController } from '@ionic/angular';
+import { Subject, EMPTY, from } from 'rxjs';
+import { catchError, switchMap, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings',
@@ -19,7 +21,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./settings.page.scss'],
   standalone: false,
 })
-export class SettingsPage implements OnInit {
+export class SettingsPage implements OnInit, OnDestroy {
   topics = ALL_TOPICS;
   settings!: AppSettings;
   settingsText = SettingsText;
@@ -31,6 +33,8 @@ export class SettingsPage implements OnInit {
     { code: Language.Hungarian, label: 'Magyar', flag: '🇭🇺' },
   ];
 
+  private readonly destroy$ = new Subject<void>();
+
   constructor(
     private settingsService: SettingsService,
     private notificationService: NotificationService,
@@ -40,6 +44,19 @@ export class SettingsPage implements OnInit {
 
   ngOnInit(): void {
     this.settings = this.settingsService.getSettings();
+
+    this.settingsService.settingsChanges$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((s) => {
+        if (s) {
+          this.settings = s;
+        }
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   get canClearSeenFacts(): boolean {
@@ -100,14 +117,22 @@ export class SettingsPage implements OnInit {
     });
   }
 
-  async onLanguageChange(lang: Language): Promise<void> {
+  onLanguageChange(lang: Language): void {
     this.settings = this.settingsService.update({ language: lang });
     this.translationService.setLanguage(lang);
-    await this.translationService.loadTranslations(lang);
-    await this.notificationService.rescheduleDailyNotification(this.settings);
+
+    this.translationService
+      .loadTranslations$(lang)
+      .pipe(
+        switchMap(() =>
+          this.notificationService.rescheduleDailyNotification$(this.settings),
+        ),
+        catchError(() => EMPTY),
+      )
+      .subscribe();
   }
 
-  async onNotificationsToggleChange(enabled: boolean): Promise<void> {
+  onNotificationsToggleChange(enabled: boolean): void {
     if (enabled) {
       this.settings = this.settingsService.update({
         notificationsEnabled: true,
@@ -119,10 +144,14 @@ export class SettingsPage implements OnInit {
         notificationWeekdays: [],
       });
     }
-    await this.notificationService.rescheduleDailyNotification(this.settings);
+
+    this.notificationService
+      .rescheduleDailyNotification$(this.settings)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
   }
 
-  async onTimeChanged(time: string | string[] | null): Promise<void> {
+  onTimeChanged(time: string | string[] | null): void {
     const value = Array.isArray(time) ? time[0] ?? null : time ?? null;
 
     if (!value) {
@@ -131,39 +160,56 @@ export class SettingsPage implements OnInit {
     this.settings = this.settingsService.update({
       notificationTime: value,
     });
-    await this.notificationService.rescheduleDailyNotification(this.settings);
+
+    this.notificationService
+      .rescheduleDailyNotification$(this.settings)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
   }
 
-  async onNotificationWeekdaysChanged(days: Weekday[]): Promise<void> {
+  onNotificationWeekdaysChanged(days: Weekday[]): void {
     const hasDays = !!days?.length;
     this.settings = this.settingsService.update({
       notificationWeekdays: days,
       notificationsEnabled: hasDays,
     });
-    await this.notificationService.rescheduleDailyNotification(this.settings);
+
+    this.notificationService
+      .rescheduleDailyNotification$(this.settings)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
   }
 
-  async onTestNotification(): Promise<void> {
-    await this.notificationService.showTestNotification(this.settings);
+  onTestNotification(): void {
+    this.notificationService
+      .showTestNotification$(this.settings)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
   }
 
-  async onClearSeenFacts(): Promise<void> {
+  onClearSeenFacts(): void {
     if (!this.canClearSeenFacts) {
       return;
     }
     this.settings = this.settingsService.clearShownFactsHistory();
-    await this.showDataClearedToast();
+
+    this.showDataClearedToast()
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
   }
 
-  private async showDataClearedToast(): Promise<void> {
+  private showDataClearedToast() {
     const message = this.translationService.translate(SettingsText.DataClearedToast);
-    const toast = await this.toastController.create({
-      message,
-      duration: 2000,
-      position: 'bottom',
-      color: 'primary',
-    });
-    await toast.present();
+    return from(
+      this.toastController.create({
+        message,
+        duration: 2000,
+        position: 'bottom',
+        color: 'primary',
+      }),
+    ).pipe(
+      switchMap((toast) => from(toast.present())),
+    );
   }
 }
 

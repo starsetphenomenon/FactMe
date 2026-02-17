@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, of, firstValueFrom, from } from 'rxjs';
-import { map, catchError, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, catchError, tap, shareReplay } from 'rxjs/operators';
 import { Language } from '../enums/language.enum';
 
 type TranslationDictionary = Record<string, string>;
@@ -15,7 +15,7 @@ export class TranslationService {
   readonly languageChanges$ = this.languageSubject.asObservable();
 
   private translationsCache: Map<Language, TranslationDictionary> = new Map();
-  private loadingPromises: Map<Language, Promise<TranslationDictionary>> = new Map();
+  private loadingStreams: Map<Language, Observable<TranslationDictionary>> = new Map();
 
   constructor(private http: HttpClient) {}
 
@@ -30,34 +30,36 @@ export class TranslationService {
     return this.currentLanguage;
   }
 
-  async loadTranslations(lang: Language): Promise<TranslationDictionary> {
-    if (this.translationsCache.has(lang)) {
-      return Promise.resolve(this.translationsCache.get(lang)!);
+  loadTranslations$(lang: Language): Observable<TranslationDictionary> {
+    const cached = this.translationsCache.get(lang);
+    if (cached) {
+      return of(cached);
     }
 
-    if (this.loadingPromises.has(lang)) {
-      return this.loadingPromises.get(lang)!;
+    const existing = this.loadingStreams.get(lang);
+    if (existing) {
+      return existing;
     }
 
-    const loadPromise = firstValueFrom(
-      this.http.get<Record<string, unknown>>(`assets/i18n/${lang}.json`).pipe(
+    const stream = this.http
+      .get<Record<string, unknown>>(`assets/i18n/${lang}.json`)
+      .pipe(
         map((data) => this.flattenDictionary(data)),
         catchError((error) => {
           console.error(`Failed to load translations for ${lang}:`, error);
-          if (lang !== Language.English && !this.loadingPromises.has(Language.English)) {
-            return from(this.loadTranslations(Language.English));
+          if (lang !== Language.English) {
+            return this.loadTranslations$(Language.English);
           }
           return of({} as TranslationDictionary);
         }),
-      ),
-    ).then((dict) => {
-      this.translationsCache.set(lang, dict);
-      this.loadingPromises.delete(lang);
-      return dict;
-    });
+        tap((dict) => {
+          this.translationsCache.set(lang, dict);
+        }),
+        shareReplay(1),
+      );
 
-    this.loadingPromises.set(lang, loadPromise);
-    return loadPromise;
+    this.loadingStreams.set(lang, stream);
+    return stream;
   }
 
   translate(key: string): string {
@@ -66,11 +68,6 @@ export class TranslationService {
       return key;
     }
     return dict[key] ?? key;
-  }
-
-  async tAsync(key: string): Promise<string> {
-    await this.loadTranslations(this.currentLanguage);
-    return this.translate(key);
   }
 
   private flattenDictionary(
