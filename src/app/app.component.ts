@@ -1,5 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
-import { NavController, Platform } from '@ionic/angular';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { IonRouterOutlet, NavController, Platform } from '@ionic/angular';
+import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { Subject } from 'rxjs';
@@ -19,6 +20,7 @@ import { Language } from './enums/language.enum';
 export class AppComponent implements OnDestroy {
   settingsModalOpen = false;
   private readonly destroy$ = new Subject<void>();
+  @ViewChild(IonRouterOutlet, { static: true }) routerOutlet?: IonRouterOutlet;
 
   constructor(
     private platform: Platform,
@@ -29,6 +31,7 @@ export class AppComponent implements OnDestroy {
   ) {
     this.initNotificationListeners();
     this.initLanguage();
+    this.initBackButtonHandler();
 
     const initialSettings = this.settingsService.getSettings();
     this.applyTheme(initialSettings.theme);
@@ -97,6 +100,33 @@ export class AppComponent implements OnDestroy {
           this.navCtrl.navigateRoot('/home');
         },
       );
+    });
+  }
+
+  private initBackButtonHandler(): void {
+    this.platform.ready().then(() => {
+      if (!this.platform.is('hybrid')) {
+        return;
+      }
+
+      App.addListener('backButton', ({ canGoBack }: { canGoBack: boolean }) => {
+        if (this.settingsModalOpen) {
+          this.closeSettingsModal();
+          return;
+        }
+
+        if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+          this.navCtrl.back();
+          return;
+        }
+
+        if (canGoBack) {
+          window.history.back();
+          return;
+        }
+
+        App.exitApp();
+      });
     });
   }
 
