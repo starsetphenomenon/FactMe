@@ -34,8 +34,9 @@ public class FactMeNotificationPlugin extends Plugin {
     private static final String TAG = "FactMeNotification";
     private static final String CHANNEL_ID = "default";
     private static final int TEST_NOTIFICATION_ID = 999;
-    private static final String PREFS_NAME = "FactMeNotification";
+    static final String PREFS_NAME = "FactMeNotification";
     private static final String KEY_FACTS_BY_DATE = "factsByDate";
+    static final String KEY_DAILY_SCHEDULE = "dailySchedule";
 
     private Context getContextSafe() {
         try {
@@ -152,7 +153,9 @@ public class FactMeNotificationPlugin extends Plugin {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             flags |= PendingIntent.FLAG_MUTABLE;
         }
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         try {
+            JSONArray scheduleJson = new JSONArray();
             for (int i = 0; i < list.length(); i++) {
                 JSONObject o = list.getJSONObject(i);
                 int id = o.getInt("id");
@@ -178,12 +181,11 @@ public class FactMeNotificationPlugin extends Plugin {
                 intent.putExtra(FactMeNotificationReceiver.EXTRA_MINUTE, minute);
 
                 PendingIntent pending = PendingIntent.getBroadcast(context, id, intent, flags);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !am.canScheduleExactAlarms()) {
-                    am.set(AlarmManager.RTC, trigger, pending);
-                } else {
-                    am.setExact(AlarmManager.RTC, trigger, pending);
-                }
+                scheduleAlarm(am, trigger, pending);
+
+                scheduleJson.put(o);
             }
+            prefs.edit().putString(KEY_DAILY_SCHEDULE, scheduleJson.toString()).apply();
         } catch (Throwable e) {
             Log.e(TAG, "scheduleDailyNotifications failed", e);
             call.reject(e.getMessage());
@@ -259,6 +261,8 @@ public class FactMeNotificationPlugin extends Plugin {
                     }
                 }
             }
+            context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                    .edit().remove(KEY_DAILY_SCHEDULE).apply();
             call.resolve();
         } catch (Throwable t) {
             Log.e(TAG, "cancelDailyNotifications failed", t);
@@ -266,7 +270,17 @@ public class FactMeNotificationPlugin extends Plugin {
         }
     }
 
-    private static long nextTriggerTime(int weekday, int hour, int minute) {
+    private static void scheduleAlarm(AlarmManager am, long triggerAt, PendingIntent pending) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            am.setExactAndAllowWhileIdle(AlarmManager.RTC, triggerAt, pending);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !am.canScheduleExactAlarms()) {
+            am.set(AlarmManager.RTC, triggerAt, pending);
+        } else {
+            am.setExact(AlarmManager.RTC, triggerAt, pending);
+        }
+    }
+
+    static long nextTriggerTime(int weekday, int hour, int minute) {
         Calendar now = Calendar.getInstance();
         Calendar next = Calendar.getInstance();
         next.set(Calendar.HOUR_OF_DAY, hour);

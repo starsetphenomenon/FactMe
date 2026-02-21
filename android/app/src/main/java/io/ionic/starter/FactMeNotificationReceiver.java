@@ -102,7 +102,9 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
         PendingIntent pending = PendingIntent.getBroadcast(context, id, nextIntent, flags);
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (am != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !am.canScheduleExactAlarms()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                am.setExactAndAllowWhileIdle(AlarmManager.RTC, nextTrigger, pending);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !am.canScheduleExactAlarms()) {
                 am.set(AlarmManager.RTC, nextTrigger, pending);
             } else {
                 am.setExact(AlarmManager.RTC, nextTrigger, pending);
