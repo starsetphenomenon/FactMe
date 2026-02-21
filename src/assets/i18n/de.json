@@ -10,6 +10,7 @@
     "notificationsDailyToggleLabel": "Täglich",
     "notificationsTimeLabel": "Uhrzeit",
     "notificationsDaysLabel": "Tage",
+    "notificationsSoundToggleLabel": "Ton",
     "themeLanguageSectionTitle": "Design",
     "weekdayMonShort": "Mo",
     "weekdayTueShort": "Di",
@@ -46,13 +47,11 @@
     "emptyMessage": "Für heute ist kein Fakt verfügbar. Aktiviere weitere Themen in den Einstellungen.",
     "emptyMessageAllTopics": "Für heute ist kein Fakt verfügbar.",
     "allSeenMessage": "Du hast alle verfügbaren Fakten für heute gesehen.",
-    "loadErrorMessage": "Der heutige Fakt konnte nicht geladen werden.",
-    "refreshButtonAria": "Noch ein Fakt für heute"
+    "loadErrorMessage": "Der heutige Fakt konnte nicht geladen werden."
   },
   "notifications": {
     "fallbackTitle": "Heutiger interessanter Fakt",
-    "fallbackBody": "Öffne die App, um deinen täglichen Fakt zu sehen.",
-    "bodyFullStory": "Tippe, um die vollständige Geschichte in der App zu lesen."
+    "fallbackBody": "Öffne die App, um deinen täglichen Fakt zu sehen."
   }
 }
 

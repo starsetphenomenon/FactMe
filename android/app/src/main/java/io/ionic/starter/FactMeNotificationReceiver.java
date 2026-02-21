@@ -25,7 +25,7 @@ import java.util.Locale;
 public class FactMeNotificationReceiver extends BroadcastReceiver {
 
     public static final String ACTION_DAILY = "io.ionic.starter.FACTME_DAILY";
-    private static final String CHANNEL_ID = "default";
+    private static final String CHANNEL_ID = "daily_fact";
     private static final String PREFS_NAME = "FactMeNotification";
     private static final String KEY_FACTS_BY_DATE = "factsByDate";
 
@@ -79,7 +79,7 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
             }
         }
 
-        ensureChannel(context);
+        FactMeNotificationPlugin.ensureChannel(context);
         NotificationCompat.Builder builder = buildNotification(context, title, body, largeIconName, largeIconTint);
         NotificationManagerCompat.from(context).notify(id, builder.build());
 
@@ -109,15 +109,6 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
             } else {
                 am.setExact(AlarmManager.RTC, nextTrigger, pending);
             }
-        }
-    }
-
-    private static void ensureChannel(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID, "Default", NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("Default");
-            context.getSystemService(NotificationManager.class).createNotificationChannel(channel);
         }
     }
 
@@ -155,6 +146,7 @@ public class FactMeNotificationReceiver extends BroadcastReceiver {
                 .setSmallIcon(smallIconId)
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        FactMeNotificationPlugin.applySoundToBuilder(app, builder);
         if (contentIntent != null) {
             builder.setContentIntent(contentIntent);
         }

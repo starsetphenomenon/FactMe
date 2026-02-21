@@ -10,6 +10,7 @@
     "notificationsDailyToggleLabel": "Napi",
     "notificationsTimeLabel": "Idő",
     "notificationsDaysLabel": "Napok",
+    "notificationsSoundToggleLabel": "Hang",
     "themeLanguageSectionTitle": "Megjelenés",
     "weekdayMonShort": "H",
     "weekdayTueShort": "K",
@@ -46,13 +47,11 @@
     "emptyMessage": "Ma nincs elérhető tény. Próbálj meg több témát bekapcsolni a beállításokban.",
     "emptyMessageAllTopics": "Ma nincs elérhető tény.",
     "allSeenMessage": "Ma már láttad az összes elérhető tényt.",
-    "loadErrorMessage": "Nem sikerült betölteni a mai tényt.",
-    "refreshButtonAria": "Még egy mai tény"
+    "loadErrorMessage": "Nem sikerült betölteni a mai tényt."
   },
   "notifications": {
     "fallbackTitle": "Mai érdekesség",
-    "fallbackBody": "Nyisd meg az alkalmazást a napi tény megtekintéséhez.",
-    "bodyFullStory": "Koppints ide a teljes történet elolvasásához az alkalmazásban."
+    "fallbackBody": "Nyisd meg az alkalmazást a napi tény megtekintéséhez."
   }
 }
 

@@ -34,6 +34,7 @@ export interface FactMeNotificationPlugin {
   cancelDailyNotifications(options: { ids: number[] }): Promise<void>;
   clearDisplayedNotifications(): Promise<void>;
   setNotificationFacts(options: { facts: NotificationFactsByDate }): Promise<void>;
+  setNotificationSoundOptions(options: { soundEnabled: boolean }): Promise<void>;
 }
 
 const FactMeNotification = registerPlugin<FactMeNotificationPlugin>('FactMeNotification');

@@ -104,7 +104,12 @@ export class NotificationService {
                       const largeIconTintColor = this.getTopicColor(effectiveFact.topic, settings.theme);
 
                       if (useNativeScheduling) {
-                        return this.buildNotificationFactsByDate$(settings).pipe(
+                        return from(
+                          FactMeNotification.setNotificationSoundOptions({
+                            soundEnabled: settings.notificationSoundEnabled,
+                          }),
+                        ).pipe(
+                          concatMap(() => this.buildNotificationFactsByDate$(settings)),
                           concatMap((factsByDate) => {
                             const ops = [];
                             if (Object.keys(factsByDate).length > 0) {
@@ -194,13 +199,20 @@ export class NotificationService {
                   const largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
 
                   return from(
-                    FactMeNotification.showTestNotification({
-                      title,
-                      body,
-                      largeIconDrawableName,
-                      largeIconTintColor,
+                    FactMeNotification.setNotificationSoundOptions({
+                      soundEnabled: settings.notificationSoundEnabled,
                     }),
                   ).pipe(
+                    concatMap(() =>
+                      from(
+                        FactMeNotification.showTestNotification({
+                          title,
+                          body,
+                          largeIconDrawableName,
+                          largeIconTintColor,
+                        }),
+                      ),
+                    ),
                     map(() => true),
                     catchError(() => of(false)),
                   );

@@ -10,6 +10,7 @@
     "notificationsDailyToggleLabel": "Щодня",
     "notificationsTimeLabel": "Час",
     "notificationsDaysLabel": "Дні",
+    "notificationsSoundToggleLabel": "Звук",
     "themeLanguageSectionTitle": "Оформлення",
     "weekdayMonShort": "Пн",
     "weekdayTueShort": "Вт",
@@ -46,13 +47,11 @@
     "emptyMessage": "На сьогодні немає факту. Спробуйте увімкнути більше тем у налаштуваннях.",
     "emptyMessageAllTopics": "На сьогодні немає факту.",
     "allSeenMessage": "Ви переглянули всі доступні факти на сьогодні.",
-    "loadErrorMessage": "Не вдалося завантажити сьогоднішній факт.",
-    "refreshButtonAria": "Ще один факт на сьогодні"
+    "loadErrorMessage": "Не вдалося завантажити сьогоднішній факт."
   },
   "notifications": {
     "fallbackTitle": "Цікавий факт на сьогодні",
-    "fallbackBody": "Відкрийте застосунок, щоб побачити щоденний факт.",
-    "bodyFullStory": "Натисніть, щоб прочитати повну історію в застосунку."
+    "fallbackBody": "Відкрийте застосунок, щоб побачити щоденний факт."
   }
 }
 

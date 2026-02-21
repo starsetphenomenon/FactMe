@@ -12,6 +12,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -32,11 +35,13 @@ import android.util.Log;
 public class FactMeNotificationPlugin extends Plugin {
 
     private static final String TAG = "FactMeNotification";
-    private static final String CHANNEL_ID = "default";
+    private static final String CHANNEL_ID = "daily_fact";
     private static final int TEST_NOTIFICATION_ID = 999;
     static final String PREFS_NAME = "FactMeNotification";
     private static final String KEY_FACTS_BY_DATE = "factsByDate";
     static final String KEY_DAILY_SCHEDULE = "dailySchedule";
+    static final String KEY_SOUND_ENABLED = "soundEnabled";
+    private static final String APP_SOUND_RAW_NAME = "notification_sound";
 
     private Context getContextSafe() {
         try {
@@ -61,7 +66,7 @@ public class FactMeNotificationPlugin extends Plugin {
             String largeIconTintColor = call.getString("largeIconTintColor");
             if (title == null) title = "";
             if (body == null) body = "";
-            ensureChannel(context);
+            ensureChannel(getContextSafe());
 
             int smallIconId = context.getResources().getIdentifier("ic_notification_app", "drawable", context.getPackageName());
             if (smallIconId == 0) {
@@ -93,6 +98,7 @@ public class FactMeNotificationPlugin extends Plugin {
                     .setSmallIcon(smallIconId)
                     .setAutoCancel(true)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+            applySoundToBuilder(context, builder);
             if (contentIntent != null) {
                 builder.setContentIntent(contentIntent);
             }
@@ -236,6 +242,51 @@ public class FactMeNotificationPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void setNotificationSoundOptions(PluginCall call) {
+        Context context = getContextSafe();
+        if (context == null) {
+            call.reject("Context not available");
+            return;
+        }
+        try {
+            Boolean soundEnabled = call.getBoolean("soundEnabled", true);
+            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+            prefs.edit().putBoolean(KEY_SOUND_ENABLED, soundEnabled != null && soundEnabled).apply();
+            call.resolve();
+        } catch (Throwable t) {
+            Log.e(TAG, "setNotificationSoundOptions failed", t);
+            call.reject(t.getMessage());
+        }
+    }
+
+    static Uri getNotificationSoundUri(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        boolean soundEnabled = prefs.getBoolean(KEY_SOUND_ENABLED, true);
+        if (!soundEnabled) {
+            return null;
+        }
+        Uri appSoundUri = getAppNotificationSoundUri(context);
+        return appSoundUri != null ? appSoundUri : RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    }
+
+    static void applySoundToBuilder(Context context, NotificationCompat.Builder builder) {
+        Uri soundUri = getNotificationSoundUri(context);
+        builder.setSound(soundUri);
+    }
+
+    /** Returns URI for app-provided sound (res/raw/notification_sound), or null to use phone default. */
+    private static Uri getAppNotificationSoundUri(Context context) {
+        try {
+            int resId = context.getResources().getIdentifier(APP_SOUND_RAW_NAME, "raw", context.getPackageName());
+            if (resId != 0) {
+                return Uri.parse("android.resource://" + context.getPackageName() + "/" + resId);
+            }
+        } catch (Exception ignored) {
+        }
+        return null;
+    }
+
+    @PluginMethod
     public void cancelDailyNotifications(PluginCall call) {
         Context context = getContextSafe();
         if (context == null) {
@@ -294,11 +345,26 @@ public class FactMeNotificationPlugin extends Plugin {
         return next.getTimeInMillis();
     }
 
-    private void ensureChannel(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+    static void ensureChannel(Context context) {
+        if (context == null || Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return;
+        }
+        {
             NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID, "Default", NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("Default");
+                    CHANNEL_ID, "Daily fact", NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription("Daily fact notifications");
+            Uri soundUri = getNotificationSoundUri(context);
+            if (soundUri != null) {
+                AudioAttributes attrs = new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build();
+                channel.setSound(soundUri, attrs);
+                channel.enableVibration(true);
+            } else {
+                channel.setSound(null, null);
+                channel.enableVibration(false);
+            }
             context.getSystemService(NotificationManager.class).createNotificationChannel(channel);
         }
     }

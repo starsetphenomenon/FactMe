@@ -25,9 +25,11 @@
     [notificationsEnabled]="settings.notificationsEnabled"
     [notificationTime]="settings.notificationTime"
     [notificationWeekdays]="settings.notificationWeekdays || []"
+    [notificationSoundEnabled]="settings.notificationSoundEnabled"
     (notificationsToggleChange)="onNotificationsToggleChange($event)"
     (timeChanged)="onTimeChanged($event)"
     (weekdaysChanged)="onNotificationWeekdaysChanged($event)"
+    (soundToggleChange)="onSoundToggleChange($event)"
     (testNotification)="onTestNotification()"
   ></app-settings-notifications-section>
 

@@ -156,6 +156,7 @@ export class SettingsService {
       notificationsEnabled: true,
       notificationTime: '09:00',
       notificationWeekdays: [...ALL_WEEKDAYS],
+      notificationSoundEnabled: true,
       lastShownDate: null,
       lastShownFactId: null,
       shownFactIds: [],

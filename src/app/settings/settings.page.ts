@@ -180,6 +180,16 @@ export class SettingsPage implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  onSoundToggleChange(enabled: boolean): void {
+    this.settings = this.settingsService.update({
+      notificationSoundEnabled: enabled,
+    });
+    this.notificationService
+      .rescheduleDailyNotification$(this.settings)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
+  }
+
   onTestNotification(): void {
     this.notificationService
       .showTestNotification$(this.settings)

@@ -10,6 +10,7 @@
     "notificationsDailyToggleLabel": "Daily",
     "notificationsTimeLabel": "Time",
     "notificationsDaysLabel": "Days",
+    "notificationsSoundToggleLabel": "Sound",
     "themeLanguageSectionTitle": "Appearance",
     "weekdayMonShort": "Mon",
     "weekdayTueShort": "Tue",
@@ -46,13 +47,11 @@
     "emptyMessage": "No fact available for today. Try enabling more topics in Settings.",
     "emptyMessageAllTopics": "No fact available for today.",
     "allSeenMessage": "You have seen all available facts for today.",
-    "loadErrorMessage": "Failed to load today's fact.",
-    "refreshButtonAria": "Another fact for today"
+    "loadErrorMessage": "Failed to load today's fact."
   },
   "notifications": {
     "fallbackTitle": "Today's interesting fact",
-    "fallbackBody": "Open the app to see your daily fact.",
-    "bodyFullStory": "Tap to read the full story in the app."
+    "fallbackBody": "Open the app to see your daily fact."
   }
 }
 

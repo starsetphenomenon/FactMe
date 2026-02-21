@@ -33,6 +33,8 @@ export interface AppSettings {
   notificationsEnabled: boolean;
   notificationTime: string;
   notificationWeekdays: Weekday[];
+  /** When true, notifications play app-provided sound (or phone default as fallback). When false, silent. */
+  notificationSoundEnabled: boolean;
   /** ISO date (YYYY-MM-DD) when facts were last shown for Home, or null if never. */
   lastShownDate: string | null;
   /** ID of the last fact shown in single-fact mode, or null if none. */

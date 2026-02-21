@@ -13,10 +13,12 @@ export class SettingsNotificationsSectionComponent {
   @Input() notificationsEnabled = false;
   @Input() notificationTime!: string | null;
   @Input() notificationWeekdays: Weekday[] = [];
+  @Input() notificationSoundEnabled = true;
 
   @Output() notificationsToggleChange = new EventEmitter<boolean>();
   @Output() timeChanged = new EventEmitter<string | string[] | null>();
   @Output() weekdaysChanged = new EventEmitter<Weekday[]>();
+  @Output() soundToggleChange = new EventEmitter<boolean>();
   @Output() testNotification = new EventEmitter<void>();
 
   readonly weekdayOptions: { value: Weekday; labelKey: string }[] = [
