@@ -4,6 +4,20 @@
     [isLoading]="isLoading"
   ></app-home-date-header>
 
+  <ng-container *ngIf="isLoading" aria-hidden="true">
+    <div *ngFor="let _ of skeletonCards" class="fact-item fact-item-skeleton">
+      <div class="fact-card fact-card-skeleton">
+        <div class="skeleton-row">
+          <span class="skeleton-line skeleton-icon"></span>
+          <span class="skeleton-line skeleton-badge"></span>
+        </div>
+        <span class="skeleton-line skeleton-title"></span>
+        <span class="skeleton-line skeleton-desc skeleton-desc-1"></span>
+        <span class="skeleton-line skeleton-desc skeleton-desc-2"></span>
+      </div>
+    </div>
+  </ng-container>
+
   <ng-container *ngIf="!isLoading && hasFacts && !error">
     <div
       *ngFor="let f of facts; let i = index; trackBy: trackByFactId"
@@ -30,11 +44,5 @@
       {{ error | translate }}
     </p>
   </div>
-
-  <ion-spinner
-    *ngIf="isLoading"
-    class="loading-spinner"
-    name="crescent"
-  ></ion-spinner>
 </div>
 

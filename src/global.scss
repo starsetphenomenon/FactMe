@@ -35,6 +35,21 @@
     rgba(0, 0, 0, 0.22) 0px 6px 8px;
 }
 
+@keyframes skeleton-shimmer {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
+
+.skeleton-line {
+  background: rgba(var(--app-primary-rgb), 0.2);
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.light-theme .skeleton-line {
+  background: rgba(var(--app-slate-rgb), 0.25);
+}
+
 .dark-theme {
   --app-dark-elevation-shadow:
     rgba(var(--app-primary-rgb), 0.25) 0px 10px 20px,

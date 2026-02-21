@@ -47,3 +47,12 @@
 :host-context(.light-theme) .home-date-text {
   color: rgba(var(--app-slate-rgb), 0.8);
 }
+
+.home-date-skeleton {
+  .skeleton-date-line {
+    display: block;
+    height: 14px;
+    width: 120px;
+    border-radius: 4px;
+  }
+}

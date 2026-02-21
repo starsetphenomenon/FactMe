@@ -1,10 +1,11 @@
-<div
-  class="home-date"
-  *ngIf="!isLoading"
->
+<div class="home-date" *ngIf="!isLoading">
   <ion-icon name="calendar-outline" class="home-date-icon"></ion-icon>
   <span class="home-date-text">
     {{ dateLabel }}
   </span>
+</div>
+
+<div class="home-date home-date-skeleton" *ngIf="isLoading" aria-hidden="true">
+  <span class="skeleton-line skeleton-date-line"></span>
 </div>
 

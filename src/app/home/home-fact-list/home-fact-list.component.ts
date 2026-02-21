@@ -26,6 +26,8 @@ export class HomeFactListComponent {
   @Output() factSwipeLeft = new EventEmitter<number>();
   @Output() factSwipeRight = new EventEmitter<number>();
 
+  readonly skeletonCards = [1, 2, 3];
+
   get hasFacts(): boolean {
     return !!this.facts.length;
   }

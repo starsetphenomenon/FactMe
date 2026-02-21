@@ -23,7 +23,50 @@
   --color: var(--app-primary);
 }
 
-.loading-spinner {
-  margin-left: auto;
-  margin-right: auto;
+.fact-card-skeleton {
+  pointer-events: none;
+
+  .skeleton-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .skeleton-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--app-radius-pill);
+  }
+
+  .skeleton-badge {
+    display: block;
+    width: 72px;
+    height: 20px;
+    border-radius: 4px;
+  }
+
+  .skeleton-title {
+    display: block;
+    height: 28px;
+    max-width: 85%;
+    margin: 18px 0 12px 0;
+    border-radius: 6px;
+  }
+
+  .skeleton-desc {
+    display: block;
+    height: 16px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+
+    &.skeleton-desc-1 {
+      max-width: 100%;
+    }
+
+    &.skeleton-desc-2 {
+      max-width: 70%;
+    }
+  }
 }
