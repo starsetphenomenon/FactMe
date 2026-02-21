@@ -1,9 +1,11 @@
 <ion-app>
   <app-header
     [showSettingsButton]="showSettingsButton"
+    [showQuizButton]="showQuizButton"
     [showBack]="showBack"
     (settingsClick)="openSettingsModal()"
-    (backClick)="closeSettingsModal()"
+    (quizClick)="openQuiz()"
+    (backClick)="onBackClick()"
   ></app-header>
 
   <ion-content>

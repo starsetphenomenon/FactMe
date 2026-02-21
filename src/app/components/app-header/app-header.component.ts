@@ -8,7 +8,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class AppHeaderComponent {
   @Input() showSettingsButton = true;
+  @Input() showQuizButton = true;
   @Input() showBack = false;
   @Output() settingsClick = new EventEmitter<void>();
+  @Output() quizClick = new EventEmitter<void>();
   @Output() backClick = new EventEmitter<void>();
 }

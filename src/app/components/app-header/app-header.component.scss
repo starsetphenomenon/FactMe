@@ -3,6 +3,10 @@ ion-toolbar {
   padding: 0 16px !important;
 }
 
+ion-buttons[slot="end"] {
+  gap: 12px;
+}
+
 .app-header-favicon {
   width: 40px;
   height: 40px;

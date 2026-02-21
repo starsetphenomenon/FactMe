@@ -165,7 +165,10 @@ export class SettingsService {
       currentFactsSettingsKey: null,
       onePerTopic: true,
       language: Language.English,
-      theme: 'dark'
+      theme: 'dark',
+      lastQuizCompletedDate: null,
+      completedQuizIds: [],
+      quizHistory: [],
     };
   }
 

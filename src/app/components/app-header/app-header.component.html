@@ -9,6 +9,13 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button
+        *ngIf="showQuizButton"
+        class="header-action-button button-round"
+        (click)="quizClick.emit()"
+      >
+        <ion-icon name="book-outline"></ion-icon>
+      </ion-button>
+      <ion-button
         *ngIf="showSettingsButton"
         class="header-action-button button-round"
         (click)="settingsClick.emit()"

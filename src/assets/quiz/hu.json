@@ -1,0 +1,64 @@
+{
+  "quizzes": [
+    {
+      "id": "quiz-hu-1",
+      "questions": [
+        {
+          "question": "Melyik évben rendezték az első modern olimpiai játékokat?",
+          "options": ["1892", "1896", "1900", "1904"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi az arany kémiai jele?",
+          "options": ["Go", "Gd", "Au", "Ag"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik bolygót nevezik Vörös bolygónak?",
+          "options": ["Vénusz", "Jupiter", "Mars", "Szaturnusz"],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-2",
+      "questions": [
+        {
+          "question": "Ki írta a \"Rómeó és Júliát\"?",
+          "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik a Föld legnagyobb óceánja?",
+          "options": ["Atlanti", "Indiai", "Északi-sarki", "Csendes"],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik országban kezdődött a reneszánsz?",
+          "options": ["Franciaország", "Németország", "Olaszország", "Spanyolország"],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-3",
+      "questions": [
+        {
+          "question": "Hány kontinens van a Földön?",
+          "options": ["5", "6", "7", "8"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a legkisebb prímszám?",
+          "options": ["0", "1", "2", "3"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik elem rendszáma 1?",
+          "options": ["Hélium", "Hidrogén", "Lítium", "Oxigén"],
+          "correctIndex": 1
+        }
+      ]
+    }
+  ]
+}

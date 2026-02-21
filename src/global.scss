@@ -109,6 +109,53 @@
   --background: transparent;
 }
 
+.light-theme .quiz-content {
+  --background: transparent;
+}
+.light-theme .quiz-wrapper {
+  color: var(--app-slate-text);
+}
+.light-theme .quiz-card,
+.light-theme .quiz-stats-card,
+.light-theme .quiz-rank-card {
+  --app-border-slate: rgba(148, 163, 184, 0.2);
+  background: var(--app-bg-light) !important;
+  box-shadow: var(--app-light-elevation-shadow) !important;
+  color: var(--app-slate-text) !important;
+}
+.light-theme .quiz-question,
+.light-theme .quiz-result-title,
+.light-theme .quiz-result-subtitle,
+.light-theme .quiz-stats-title,
+.light-theme .quiz-stats-line,
+.light-theme .quiz-rank-card-value,
+.light-theme .quiz-streak-hero,
+.light-theme .quiz-stat {
+  color: var(--app-slate-text) !important;
+}
+.light-theme .quiz-state-text,
+.light-theme .quiz-result-score-phrase {
+  color: rgba(var(--app-slate-rgb), 0.85) !important;
+}
+.light-theme .quiz-rank-card-title,
+.light-theme .quiz-rank-progress-label {
+  color: rgba(var(--app-slate-rgb), 0.65) !important;
+}
+.light-theme .quiz-option {
+  --app-border-slate: rgba(148, 163, 184, 0.25);
+  background: var(--app-bg-light-98) !important;
+  color: var(--app-slate-text) !important;
+}
+.light-theme .quiz-option:hover:not(:disabled) {
+  background: rgba(var(--ion-color-primary-rgb), 0.1) !important;
+}
+.light-theme .quiz-option-selected {
+  background: rgba(var(--ion-color-primary-rgb), 0.14) !important;
+}
+.light-theme .quiz-stats-line strong {
+  color: var(--ion-color-primary) !important;
+}
+
 .fact-card {
   width: 100%;
   max-width: 480px;

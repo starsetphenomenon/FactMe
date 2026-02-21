@@ -1,0 +1,64 @@
+{
+  "quizzes": [
+    {
+      "id": "quiz-de-1",
+      "questions": [
+        {
+          "question": "In welchem Jahr fanden die ersten modernen Olympischen Spiele statt?",
+          "options": ["1892", "1896", "1900", "1904"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist das chemische Symbol für Gold?",
+          "options": ["Go", "Gd", "Au", "Ag"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher Planet wird als Roter Planet bezeichnet?",
+          "options": ["Venus", "Jupiter", "Mars", "Saturn"],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-2",
+      "questions": [
+        {
+          "question": "Wer schrieb \"Romeo und Julia\"?",
+          "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welcher ist der größte Ozean der Erde?",
+          "options": ["Atlantik", "Indik", "Arktis", "Pazifik"],
+          "correctIndex": 3
+        },
+        {
+          "question": "In welchem Land begann die Renaissance?",
+          "options": ["Frankreich", "Deutschland", "Italien", "Spanien"],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-3",
+      "questions": [
+        {
+          "question": "Wie viele Kontinente gibt es?",
+          "options": ["5", "6", "7", "8"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die kleinste Primzahl?",
+          "options": ["0", "1", "2", "3"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Element hat die Ordnungszahl 1?",
+          "options": ["Helium", "Wasserstoff", "Lithium", "Sauerstoff"],
+          "correctIndex": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { IonRouterOutlet, NavController, Platform } from '@ionic/angular';
 import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil, tap } from 'rxjs/operators';
 import { FactMeNotification } from './plugins/fact-me-notification.plugin';
 import { NotificationService } from './services/notification.service';
 import { SettingsService } from './services/settings.service';
@@ -19,12 +20,14 @@ import { Language } from './enums/language.enum';
 })
 export class AppComponent implements OnDestroy {
   settingsModalOpen = false;
+  isQuizRoute = false;
   private readonly destroy$ = new Subject<void>();
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet?: IonRouterOutlet;
 
   constructor(
     private platform: Platform,
     private navCtrl: NavController,
+    private router: Router,
     private settingsService: SettingsService,
     private translationService: TranslationService,
     private notificationService: NotificationService,
@@ -35,6 +38,13 @@ export class AppComponent implements OnDestroy {
 
     const initialSettings = this.settingsService.getSettings();
     this.applyTheme(initialSettings.theme);
+    this.updateQuizRoute(this.router.url);
+    this.router.events
+      .pipe(
+        takeUntil(this.destroy$),
+        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      )
+      .subscribe((e) => this.updateQuizRoute(e.urlAfterRedirects));
     this.settingsService.settingsChanges$
       .pipe(
         takeUntil(this.destroy$),
@@ -48,19 +58,39 @@ export class AppComponent implements OnDestroy {
   }
 
   get showBack(): boolean {
-    return this.settingsModalOpen;
+    return this.settingsModalOpen || this.isQuizRoute;
   }
 
   get showSettingsButton(): boolean {
-    return !this.settingsModalOpen;
+    return !this.settingsModalOpen && !this.isQuizRoute;
+  }
+
+  get showQuizButton(): boolean {
+    return !this.settingsModalOpen && !this.isQuizRoute;
   }
 
   openSettingsModal(): void {
     this.settingsModalOpen = true;
   }
 
+  openQuiz(): void {
+    this.navCtrl.navigateForward('/quiz');
+  }
+
+  onBackClick(): void {
+    if (this.settingsModalOpen) {
+      this.closeSettingsModal();
+    } else if (this.isQuizRoute) {
+      this.navCtrl.back();
+    }
+  }
+
   closeSettingsModal(): void {
     this.settingsModalOpen = false;
+  }
+
+  private updateQuizRoute(url: string): void {
+    this.isQuizRoute = url.startsWith('/quiz');
   }
 
   onSettingsModalDismiss(): void {

@@ -51,6 +51,19 @@ export interface AppSettings {
   /** Current UI language; null means "use default". */
   language: Language | null;
   theme: Theme;
+  /** ISO date (YYYY-MM-DD) when user last completed a quiz; null if never. */
+  lastQuizCompletedDate: string | null;
+  /** Quiz set IDs the user has already completed (to avoid repeating). */
+  completedQuizIds: string[];
+  /** History of completed quizzes: date, quiz id, score. Newest first when displayed. */
+  quizHistory: QuizAttempt[];
+}
+
+export interface QuizAttempt {
+  dateIso: string;
+  quizId: string;
+  correctCount: number;
+  totalCount: number;
 }
 
 export const ALL_TOPICS: TopicKey[] = [
