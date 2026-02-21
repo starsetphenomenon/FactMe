@@ -487,6 +487,7 @@
   padding: 16px 20px;
   border-radius: var(--app-radius-card);
   background: var(--app-bg-card);
+  box-shadow: var(--app-dark-elevation-shadow, var(--app-light-elevation-shadow));
   border: 1px solid var(--app-border-slate, rgba(148, 163, 184, 0.22));
   text-align: left;
 }
