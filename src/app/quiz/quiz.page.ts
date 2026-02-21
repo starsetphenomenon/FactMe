@@ -82,7 +82,7 @@ export class QuizPage implements OnInit, OnDestroy {
 
   get questionProgressPercent(): number {
     if (this.totalQuestions === 0) return 0;
-    return Math.round((100 * (this.currentIndex + 1)) / this.totalQuestions);
+    return Math.round((100 * this.currentIndex) / this.totalQuestions);
   }
 
   selectOption(index: number): void {
