@@ -10,7 +10,7 @@ import { SettingsService } from './settings.service';
 import { Language } from '../enums/language.enum';
 import { Topic } from '../enums/topic.enum';
 import { forkJoin, Observable, of } from 'rxjs';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 
 function topicCacheKey(topic: TopicKey, lang: Language): string {
   return `${lang}|${topic}`;
@@ -134,6 +134,11 @@ export class FactService {
           } as TopicFactsFile);
           this.cache.set(key, data);
           return data;
+        }),
+        tap({
+          complete: () => {
+            this.loadingStreams.delete(key);
+          },
         }),
         shareReplay(1),
       );

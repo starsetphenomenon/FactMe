@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RefresherCustomEvent, ViewWillEnter } from '@ionic/angular';
 import { forkJoin, of, Subject } from 'rxjs';
-import { catchError, finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { catchError, finalize, map, shareReplay, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ALL_TOPICS, AppSettings, Fact, TopicKey } from '../models/fact.models';
 import { FactService } from '../services/fact.service';
 import { SettingsService } from '../services/settings.service';
@@ -92,6 +92,14 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       this.runLoadTodayFact$()
         .pipe(takeUntil(this.destroy$))
         .subscribe();
+      return;
+    }
+    const todayIso = this.toIsoDate(this.today);
+    const alreadyHaveTodayFacts =
+      this.facts.length > 0 &&
+      settings.lastShownDate === todayIso &&
+      settings.currentFactsSettingsKey === this.getCurrentSettingsKey();
+    if (alreadyHaveTodayFacts) {
       return;
     }
     this.restoreFromStorage$()
@@ -273,6 +281,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
           finalize(() => {
             this.isLoading = false;
           }),
+          shareReplay(1),
         );
     }
 
@@ -289,6 +298,7 @@ export class HomePage implements OnInit, OnDestroy, ViewWillEnter {
       finalize(() => {
         this.isLoading = false;
       }),
+      shareReplay(1),
     );
   }
 

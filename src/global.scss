@@ -457,8 +457,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
   overflow: visible;
+}
+
+.settings-toggle-row + .settings-toggle-row {
+  margin-top: 20px;
 }
 
 .settings-toggle-label {
