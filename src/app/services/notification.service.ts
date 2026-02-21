@@ -109,7 +109,9 @@ export class NotificationService {
                             soundEnabled: settings.notificationSoundEnabled,
                           }),
                         ).pipe(
-                          concatMap(() => this.buildNotificationFactsByDate$(settings)),
+                          concatMap(() =>
+                            this.buildNotificationFactsByDate$(settings, effectiveFact),
+                          ),
                           concatMap((factsByDate) => {
                             const ops = [];
                             if (Object.keys(factsByDate).length > 0) {
@@ -330,6 +332,7 @@ export class NotificationService {
 
   private buildNotificationFactsByDate$(
     settings: AppSettings,
+    factForToday?: Fact | null,
   ) {
     const topics =
       settings.selectedTopics?.length > 0
@@ -343,11 +346,27 @@ export class NotificationService {
       NotificationText.FallbackBody,
     );
     const start = new Date();
+    const todayIso = this.toIsoDate(start);
 
     return from(Array.from({ length: NOTIFICATION_FACTS_DAYS }, (_, i) => i)).pipe(
       concatMap((i) => {
         const d = new Date(start);
         d.setDate(start.getDate() + i);
+        const dateIso = this.toIsoDate(d);
+        const useFactForToday =
+          dateIso === todayIso && factForToday != null;
+
+        if (useFactForToday) {
+          const entry: NotificationFactEntry = {
+            title: factForToday.title ?? fallbackTitle,
+            body: factForToday.description ?? fallbackBody,
+          };
+          entry.largeIconDrawableName = this.getTopicLargeIconName(factForToday.topic);
+          entry.largeIconTintColor = this.getTopicColor(factForToday.topic, settings.theme);
+          result[dateIso] = entry;
+          return of(void 0);
+        }
+
         return this.factService.getRandomFactForDate$(d, topics).pipe(
           map((fact) => {
             const entry: NotificationFactEntry = {
@@ -358,7 +377,7 @@ export class NotificationService {
               entry.largeIconDrawableName = this.getTopicLargeIconName(fact.topic);
               entry.largeIconTintColor = this.getTopicColor(fact.topic, settings.theme);
             }
-            result[this.toIsoDate(d)] = entry;
+            result[dateIso] = entry;
           }),
         );
       }),
