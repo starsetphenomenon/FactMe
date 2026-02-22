@@ -5,17 +5,32 @@
       "questions": [
         {
           "question": "Melyik évben rendezték az első modern olimpiai játékokat?",
-          "options": ["1892", "1896", "1900", "1904"],
+          "options": [
+            "1892",
+            "1896",
+            "1900",
+            "1904"
+          ],
           "correctIndex": 1
         },
         {
           "question": "Mi az arany kémiai jele?",
-          "options": ["Go", "Gd", "Au", "Ag"],
+          "options": [
+            "Go",
+            "Gd",
+            "Au",
+            "Ag"
+          ],
           "correctIndex": 2
         },
         {
-          "question": "Melyik bolygót nevezik Vörös bolygónak?",
-          "options": ["Vénusz", "Jupiter", "Mars", "Szaturnusz"],
+          "question": "Melyik bolygót nevezik Vörös Bolygónak?",
+          "options": [
+            "Vénusz",
+            "Jupiter",
+            "Mars",
+            "Szaturnusz"
+          ],
           "correctIndex": 2
         }
       ]
@@ -25,17 +40,32 @@
       "questions": [
         {
           "question": "Ki írta a \"Rómeó és Júliát\"?",
-          "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+          "options": [
+            "Charles Dickens",
+            "William Shakespeare",
+            "Jane Austen",
+            "Mark Twain"
+          ],
           "correctIndex": 1
         },
         {
-          "question": "Melyik a Föld legnagyobb óceánja?",
-          "options": ["Atlanti", "Indiai", "Északi-sarki", "Csendes"],
+          "question": "Mi a Föld legnagyobb óceánja?",
+          "options": [
+            "Atlanti",
+            "Indiai",
+            "Jeges-tengeri",
+            "Csendes-óceán"
+          ],
           "correctIndex": 3
         },
         {
-          "question": "Melyik országban kezdődött a reneszánsz?",
-          "options": ["Franciaország", "Németország", "Olaszország", "Spanyolország"],
+          "question": "Melyik országban indult el a reneszánsz?",
+          "options": [
+            "Franciaország",
+            "Németország",
+            "Olaszország",
+            "Spanyolország"
+          ],
           "correctIndex": 2
         }
       ]
@@ -44,19 +74,2369 @@
       "id": "quiz-hu-3",
       "questions": [
         {
-          "question": "Hány kontinens van a Földön?",
-          "options": ["5", "6", "7", "8"],
+          "question": "Hány kontinens van?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
           "correctIndex": 2
         },
         {
-          "question": "Mi a legkisebb prímszám?",
-          "options": ["0", "1", "2", "3"],
+          "question": "Melyik a legkisebb prímszám?",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
           "correctIndex": 2
         },
         {
-          "question": "Melyik elem rendszáma 1?",
-          "options": ["Hélium", "Hidrogén", "Lítium", "Oxigén"],
+          "question": "Melyik elemnek van 1-es rendszáma?",
+          "options": [
+            "Hélium",
+            "Hidrogén",
+            "Lítium",
+            "Oxigén"
+          ],
           "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-4",
+      "questions": [
+        {
+          "question": "Mi Ausztrália fővárosa?",
+          "options": [
+            "Sydney",
+            "Melbourne",
+            "Canberra",
+            "Brisbane"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány csont van a felnőtt emberi testben?",
+          "options": [
+            "196",
+            "206",
+            "216",
+            "226"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik gázt nyelik el a növények a légkörből a fotoszintézis során?",
+          "options": [
+            "Oxigén",
+            "Nitrogén",
+            "Szén-dioxid",
+            "Hidrogén"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a Föld legkeményebb természetes anyaga?",
+          "options": [
+            "Arany",
+            "Vas",
+            "Kvarc",
+            "Gyémánt"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-5",
+      "questions": [
+        {
+          "question": "Ki festette a Mona Lisát?",
+          "options": [
+            "Michelangelo",
+            "Raphael",
+            "Leonardo da Vinci",
+            "Caravaggio"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a világ leghosszabb folyója?",
+          "options": [
+            "Amazonas",
+            "Jangce",
+            "Mississippi",
+            "Nílus"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány húrja van egy szokványos gitárnak?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország találta fel a papírt?",
+          "options": [
+            "Egyiptom",
+            "Kína",
+            "Görögország",
+            "India"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Japán pénzneme?",
+          "options": [
+            "Jüan",
+            "Won",
+            "Baht",
+            "Jen"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-6",
+      "questions": [
+        {
+          "question": "Mekkora a fény sebessége vákuumban (közelítőleg)?",
+          "options": [
+            "300 000 km/s",
+            "150 000 km/s",
+            "450 000 km/s",
+            "1 000 000 km/s"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Melyik szerv termeli az inzulint az emberi testben?",
+          "options": [
+            "Máj",
+            "Vesék",
+            "Hasnyálmirigy",
+            "Gyomor"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben ért véget a második világháború?",
+          "options": [
+            "1943",
+            "1944",
+            "1945",
+            "1946"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a világ legtöbb anyanyelvi beszélővel rendelkező nyelve?",
+          "options": [
+            "Angol",
+            "Spanyol",
+            "Mandarin kínai",
+            "Hindi"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-7",
+      "questions": [
+        {
+          "question": "Melyik bolygónak van a legtöbb holdja naprendszerünkben?",
+          "options": [
+            "Jupiter",
+            "Szaturnusz",
+            "Uránusz",
+            "Neptunusz"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a víz kémiai képlete?",
+          "options": [
+            "HO",
+            "H2O",
+            "H3O",
+            "OH2"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Ki volt az első ember, aki a Holdon járt?",
+          "options": [
+            "Buzz Aldrin",
+            "Jurij Gagarin",
+            "Neil Armstrong",
+            "John Glenn"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány oldala van egy hatszögnek?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország rendelkezik a világ legnagyobb szárazföldi területével?",
+          "options": [
+            "Kanada",
+            "Kína",
+            "USA",
+            "Oroszország"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-8",
+      "questions": [
+        {
+          "question": "Mi a hagyományos japán miszo leves fő összetevője?",
+          "options": [
+            "Szójaszósz",
+            "Fermentált szójababpaszta",
+            "Rizsecet",
+            "Dashi alaplé"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ókori világcsoda létezik még ma is?",
+          "options": [
+            "Rodoszi Kolosszus",
+            "Gízai Nagy Piramis",
+            "Babilon Függőkertjei",
+            "Alexandriai Világítótorony"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a sejt erőműve?",
+          "options": [
+            "Sejtmag",
+            "Riboszóma",
+            "Mitokondrium",
+            "Golgi-készülék"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-9",
+      "questions": [
+        {
+          "question": "Hány foga van egy egészséges felnőtt embernek (bölcsességfogakkal együtt)?",
+          "options": [
+            "28",
+            "30",
+            "32",
+            "34"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik tudós fejlesztette ki az általános relativitáselméletet?",
+          "options": [
+            "Isaac Newton",
+            "Niels Bohr",
+            "Albert Einstein",
+            "Max Planck"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "A Föld felszínének hány százalékát fedi víz?",
+          "options": [
+            "51%",
+            "61%",
+            "71%",
+            "81%"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik vércsoport ismert univerzális donorként?",
+          "options": [
+            "A+",
+            "B-",
+            "AB+",
+            "0-"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a neve a Föld légkörének a felszínhez legközelebb eső rétegének?",
+          "options": [
+            "Sztratoszféra",
+            "Mezoszféra",
+            "Troposzféra",
+            "Termoszféra"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-10",
+      "questions": [
+        {
+          "question": "Melyik városban található az Eiffel-torony?",
+          "options": [
+            "Róma",
+            "Berlin",
+            "Párizs",
+            "Madrid"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a Föld legnagyobb emlőse?",
+          "options": [
+            "Afrikai elefánt",
+            "Zsiráf",
+            "Kék bálna",
+            "Óriástintahal"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik elem teszi ki a Föld légkörének kb. 78%-át?",
+          "options": [
+            "Oxigén",
+            "Szén-dioxid",
+            "Argon",
+            "Nitrogén"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány játékos van egy standard labdarúgócsapatban a pályán?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-11",
+      "questions": [
+        {
+          "question": "Mi a világ legkisebb országa területileg?",
+          "options": [
+            "Monaco",
+            "San Marino",
+            "Liechtenstein",
+            "Vatikán"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Ki írta az \"1984\"-et?",
+          "options": [
+            "Aldous Huxley",
+            "George Orwell",
+            "Ray Bradbury",
+            "H.G. Wells"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mekkora az univerzum hozzávetőleges kora?",
+          "options": [
+            "4,5 milliárd év",
+            "8 milliárd év",
+            "13,8 milliárd év",
+            "20 milliárd év"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország otthona a kenguruknak?",
+          "options": [
+            "Új-Zéland",
+            "Dél-Afrika",
+            "Ausztrália",
+            "Brazília"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mit mér a Richter-skála?",
+          "options": [
+            "Szélsebességet",
+            "Földrengések erősségét",
+            "Óceánmélységet",
+            "Légnyomást"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-12",
+      "questions": [
+        {
+          "question": "Melyik vitamint termeli az emberi test napfény hatására?",
+          "options": [
+            "A-vitamin",
+            "B12-vitamin",
+            "C-vitamin",
+            "D-vitamin"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a világ legmagasabb hegye?",
+          "options": [
+            "K2",
+            "Kancsendzsunga",
+            "Mount Everest",
+            "Lhoce"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány bit van egy bájtban a számítástechnikában?",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország a Taekwondo harcművészet szülőhazája?",
+          "options": [
+            "Japán",
+            "Kína",
+            "Korea",
+            "Thaiföld"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-13",
+      "questions": [
+        {
+          "question": "Mi Kanada fővárosa?",
+          "options": [
+            "Toronto",
+            "Vancouver",
+            "Montreal",
+            "Ottawa"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány kamrája van az emberi szívnek?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik fém folyékony szobahőmérsékleten?",
+          "options": [
+            "Ólom",
+            "Higany",
+            "Ón",
+            "Gallium"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a világ legnagyobb sivataga?",
+          "options": [
+            "Szahara",
+            "Góbi",
+            "Arab-sivatag",
+            "Antarktisz"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány nulla van egy milliárdban?",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-14",
+      "questions": [
+        {
+          "question": "Ki találta fel a telefont?",
+          "options": [
+            "Thomas Edison",
+            "Nikola Tesla",
+            "Alexander Graham Bell",
+            "Guglielmo Marconi"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a vas kémiai jele?",
+          "options": [
+            "Ir",
+            "In",
+            "Fe",
+            "Io"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben süllyedt el a Titanic?",
+          "options": [
+            "1910",
+            "1912",
+            "1914",
+            "1916"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Brazília hivatalos nyelve?",
+          "options": [
+            "Spanyol",
+            "Francia",
+            "Portugál",
+            "Angol"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-15",
+      "questions": [
+        {
+          "question": "Melyik bolygó van a legközelebb a Naphoz?",
+          "options": [
+            "Vénusz",
+            "Merkúr",
+            "Föld",
+            "Mars"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi az emberi test legnagyobb szerve?",
+          "options": [
+            "Máj",
+            "Agy",
+            "Tüdő",
+            "Bőr"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik ország építette a Nagy Falat?",
+          "options": [
+            "Japán",
+            "Mongólia",
+            "Kína",
+            "Korea"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mit jelent a DNS rövidítés?",
+          "options": [
+            "Dezoxiribonukleinsav",
+            "Dinitrogén-aminosav",
+            "Dinamikus nukleáris atom",
+            "Dezoxinitrogén-sav"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Hány nap van egy szökőévben?",
+          "options": [
+            "364",
+            "365",
+            "366",
+            "367"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-16",
+      "questions": [
+        {
+          "question": "Melyik a leggyakoribb gáz a Napban?",
+          "options": [
+            "Hélium",
+            "Hidrogén",
+            "Oxigén",
+            "Szén"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Argentína fővárosa?",
+          "options": [
+            "Santiago",
+            "Lima",
+            "Buenos Aires",
+            "Montevideo"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben omlott le a berlini fal?",
+          "options": [
+            "1987",
+            "1988",
+            "1989",
+            "1990"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki volt az Egyesült Királyság első női miniszterelnöke?",
+          "options": [
+            "Theresa May",
+            "Margaret Thatcher",
+            "Angela Merkel",
+            "Indira Gandhi"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-17",
+      "questions": [
+        {
+          "question": "Mi 144 négyzetgyöke?",
+          "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik az óceánok közül a legmélyebb?",
+          "options": [
+            "Atlanti",
+            "Indiai",
+            "Csendes-óceán",
+            "Jeges-tengeri"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a víz forráspontja tengerszinten Celsius-fokban?",
+          "options": [
+            "90°C",
+            "95°C",
+            "100°C",
+            "105°C"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország a világ legnagyobb kávétermelője?",
+          "options": [
+            "Kolumbia",
+            "Etiópia",
+            "Vietnam",
+            "Brazília"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány bolygó van naprendszerünkben?",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-18",
+      "questions": [
+        {
+          "question": "Mi tartja a bolygókat a Nap körüli pályán?",
+          "options": [
+            "Elektromágnesség",
+            "Nukleáris erő",
+            "Gravitáció",
+            "Súrlódás"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik Shakespeare-darabban szerepel Hamlet?",
+          "options": [
+            "Macbeth",
+            "Othello",
+            "Hamlet",
+            "Lear király"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi Dél-Korea fővárosa?",
+          "options": [
+            "Busan",
+            "Incheon",
+            "Szöul",
+            "Daegu"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik vitamin található legbőségesebben a citrusfélékben?",
+          "options": [
+            "A-vitamin",
+            "B6-vitamin",
+            "C-vitamin",
+            "E-vitamin"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-19",
+      "questions": [
+        {
+          "question": "Melyik állat a Föld legnagyobb szárazföldi állata?",
+          "options": [
+            "Víziló",
+            "Zsiráf",
+            "Fehér orrszarvú",
+            "Afrikai elefánt"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a Földhöz legközelebb eső csillag neve (a Napon kívül)?",
+          "options": [
+            "Szíriusz",
+            "Proxima Centauri",
+            "Betelgeuse",
+            "Vega"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik városban rendezték a 2000-es nyári olimpiát?",
+          "options": [
+            "Athén",
+            "Atlanta",
+            "Sydney",
+            "Barcelona"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a H2SO4?",
+          "options": [
+            "Sósav",
+            "Salétromsav",
+            "Kénsav",
+            "Foszforsav"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány éle van egy kockának?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-20",
+      "questions": [
+        {
+          "question": "Ki találta fel a World Wide Webet?",
+          "options": [
+            "Bill Gates",
+            "Steve Jobs",
+            "Tim Berners-Lee",
+            "Vint Cerf"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi az Európai Unió pénzneme?",
+          "options": [
+            "Frank",
+            "Márka",
+            "Euró",
+            "Font"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország adja otthont az Amazonas esőerdő legnagyobb részének?",
+          "options": [
+            "Peru",
+            "Kolumbia",
+            "Venezuela",
+            "Brazília"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik a legkeményebb kőzettípus?",
+          "options": [
+            "Homokkő",
+            "Mészkő",
+            "Gránit",
+            "Pala"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-21",
+      "questions": [
+        {
+          "question": "Mi a szén rendszáma?",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "12"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország ajándékozta a Szabadság-szobrot az Egyesült Államoknak?",
+          "options": [
+            "Britannia",
+            "Németország",
+            "Franciaország",
+            "Olaszország"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Milyen állat a delfin?",
+          "options": [
+            "Hal",
+            "Hüllő",
+            "Kétéltű",
+            "Emlős"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Hány csontja van egy cápának?",
+          "options": [
+            "0",
+            "12",
+            "44",
+            "206"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Melyik kontinensen található Egyiptom?",
+          "options": [
+            "Ázsia",
+            "Európa",
+            "Afrika",
+            "Közel-Kelet"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-22",
+      "questions": [
+        {
+          "question": "Mi a Nap elsődleges összetevője?",
+          "options": [
+            "Folyékony tűz",
+            "Olvadt vas",
+            "Plazma",
+            "Gáz"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ókori civilizáció építette a Colosseumot?",
+          "options": [
+            "Görögök",
+            "Rómaiak",
+            "Egyiptomiak",
+            "Perzsák"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a víz fagyáspontja Fahrenheitben?",
+          "options": [
+            "0°F",
+            "16°F",
+            "32°F",
+            "64°F"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország kapta a legtöbb Nobel-díjat?",
+          "options": [
+            "Németország",
+            "Egyesült Királyság",
+            "Franciaország",
+            "Egyesült Államok"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-23",
+      "questions": [
+        {
+          "question": "Mit jelent a \"CPU\" rövidítés a számítástechnikában?",
+          "options": [
+            "Central Processing Unit (Központi feldolgozóegység)",
+            "Computer Personal Unit",
+            "Core Processing Utility",
+            "Central Program Uploader"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Melyik híres fizikus dolgozta ki a mozgástörvényeket?",
+          "options": [
+            "Galileo Galilei",
+            "Isaac Newton",
+            "Albert Einstein",
+            "Richard Feynman"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi India fővárosa?",
+          "options": [
+            "Mumbai",
+            "Kolkata",
+            "Új-Delhi",
+            "Chennai"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány kromoszómája van általában egy embernek?",
+          "options": [
+            "23",
+            "44",
+            "46",
+            "48"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik gáz okozza leginkább az üvegházhatást (emberi tevékenységből)?",
+          "options": [
+            "Oxigén",
+            "Metán",
+            "Szén-dioxid",
+            "Dinitrogén-oxid"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-24",
+      "questions": [
+        {
+          "question": "Mi a világ leggyakoribb szemszíne?",
+          "options": [
+            "Kék",
+            "Zöld",
+            "Mogyoró",
+            "Barna"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik hangszernek van 88 billentyűje?",
+          "options": [
+            "Csembaló",
+            "Orgona",
+            "Zongora",
+            "Harmonika"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben érte el Kolumbusz Kristóf először Amerikát?",
+          "options": [
+            "1488",
+            "1490",
+            "1492",
+            "1494"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a nátrium kémiai jele?",
+          "options": [
+            "So",
+            "Sd",
+            "Na",
+            "Nm"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-25",
+      "questions": [
+        {
+          "question": "Melyik programozási nyelvet neveztek el egy kígyóról?",
+          "options": [
+            "Java",
+            "Ruby",
+            "Cobra",
+            "Python"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a világ leglátogatottabb turisztikai látványossága?",
+          "options": [
+            "Eiffel-torony",
+            "Kínai Nagy Fal",
+            "A Louvre",
+            "Times Square"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mennyi ideig tart a Nap fényének elérni a Földet?",
+          "options": [
+            "Kb. 2 perc",
+            "Kb. 8 perc",
+            "Kb. 20 perc",
+            "Kb. 1 óra"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik csont a leghosszabb az emberi testben?",
+          "options": [
+            "Gerinc",
+            "Humerus",
+            "Combcsont",
+            "Sípcsont"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi Egyiptom fővárosa?",
+          "options": [
+            "Alexandria",
+            "Luxor",
+            "Gíza",
+            "Kairó"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-26",
+      "questions": [
+        {
+          "question": "Melyik a leggyakoribb fém a Föld kérgében?",
+          "options": [
+            "Vas",
+            "Réz",
+            "Alumínium",
+            "Szilícium"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik híres tudós mondta: \"Gondolkodom, tehát vagyok\"?",
+          "options": [
+            "Szókratész",
+            "Arisztotelész",
+            "René Descartes",
+            "Immanuel Kant"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi Japán fővárosa?",
+          "options": [
+            "Oszaka",
+            "Kiotó",
+            "Hirosima",
+            "Tokió"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik óceán terül el Európa és Észak-Amerika között?",
+          "options": [
+            "Csendes-óceán",
+            "Indiai",
+            "Atlanti",
+            "Jeges-tengeri"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-27",
+      "questions": [
+        {
+          "question": "Hány lapja van egy tetraédernek?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik szerv szűri a vért az emberi testben?",
+          "options": [
+            "Lép",
+            "Máj",
+            "Vesék",
+            "Tüdő"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország rendelkezik a világ legnagyobb népességével?",
+          "options": [
+            "USA",
+            "Kína",
+            "India",
+            "Indonézia"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mit jelent a \"cunami\" szó japánul?",
+          "options": [
+            "Nagy hullám",
+            "Kikötői hullám",
+            "Viharosa hullám",
+            "Tengeri katasztrófa"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik elemet jelöli a \"Pb\" szimbólum?",
+          "options": [
+            "Platina",
+            "Foszfor",
+            "Ólom",
+            "Palládium"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-28",
+      "questions": [
+        {
+          "question": "Mi a világ legmagasabb vízesésének neve?",
+          "options": [
+            "Niagara-vízesés",
+            "Viktória-vízesés",
+            "Angel-vízesés",
+            "Iguazú-vízesés"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki volt az Egyesült Államok első elnöke?",
+          "options": [
+            "John Adams",
+            "Thomas Jefferson",
+            "Benjamin Franklin",
+            "George Washington"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik gázt használnak a léggömbökben, hogy lebegjenek?",
+          "options": [
+            "Oxigén",
+            "Hidrogén",
+            "Hélium",
+            "Nitrogén"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország ismert a Felkelő Nap Országaként?",
+          "options": [
+            "Kína",
+            "Thaiföld",
+            "Japán",
+            "Dél-Korea"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-29",
+      "questions": [
+        {
+          "question": "Mi a legritkább vércsoport az emberek körében?",
+          "options": [
+            "A-",
+            "B-",
+            "AB-",
+            "0-"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány szíve van egy polipnak?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország rendelkezik a legtöbb időzónával?",
+          "options": [
+            "Oroszország",
+            "USA",
+            "Kína",
+            "Franciaország"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mekkora közelítőleg a Pi (π) értéke?",
+          "options": [
+            "3,14159",
+            "2,71828",
+            "1,61803",
+            "4,66920"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Mi az ezüst kémiai jele?",
+          "options": [
+            "Si",
+            "Sl",
+            "Ag",
+            "Sr"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-30",
+      "questions": [
+        {
+          "question": "Melyik évben kezdődött a francia forradalom?",
+          "options": [
+            "1776",
+            "1783",
+            "1789",
+            "1799"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi volt annak a hajónak a neve, amelyen Darwin utazott hírhedt felfedezőútján?",
+          "options": [
+            "HMS Victory",
+            "HMS Endeavour",
+            "HMS Beagle",
+            "HMS Bounty"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Miből áll a gyémánt?",
+          "options": [
+            "Szilícium",
+            "Szén",
+            "Bór",
+            "Nitrogén"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Németország fővárosa?",
+          "options": [
+            "München",
+            "Hamburg",
+            "Frankfurt",
+            "Berlin"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-31",
+      "questions": [
+        {
+          "question": "Mi a világ legnagyobb korallzátony-rendszerének neve?",
+          "options": [
+            "Mezoamerikai zátony",
+            "Andros-zátony",
+            "Nagy Korallzátony",
+            "Vörös-tengeri korallzátony"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik erek viszik a vért a szívtől el?",
+          "options": [
+            "Vénák",
+            "Kapillárisok",
+            "Artériák",
+            "Venulák"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki találta fel az izzólámpát?",
+          "options": [
+            "Nikola Tesla",
+            "Thomas Edison",
+            "Benjamin Franklin",
+            "Alexander Graham Bell"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Hány lába van egy póknak?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország adja otthont a Tádzsmahalnak?",
+          "options": [
+            "Pakisztán",
+            "Banglades",
+            "Nepál",
+            "India"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-32",
+      "questions": [
+        {
+          "question": "Mi a neve naprendszerünk legnagyobb bolygójának?",
+          "options": [
+            "Szaturnusz",
+            "Neptunusz",
+            "Jupiter",
+            "Uránusz"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki írta le a természetes szelekció általi evolúció elméletét?",
+          "options": [
+            "Gregor Mendel",
+            "Louis Pasteur",
+            "Charles Darwin",
+            "Alfred Russel Wallace"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik kontinens a legszárazabb a Földön?",
+          "options": [
+            "Ázsia",
+            "Afrika",
+            "Ausztrália",
+            "Antarktisz"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mit jelent a GPS?",
+          "options": [
+            "Általános pozicionáló rendszer",
+            "Globális helymeghatározó rendszer",
+            "Földrajzi elhelyezési rendszer",
+            "Globális útvonal-érzékelő"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-33",
+      "questions": [
+        {
+          "question": "Mi a neve annak a folyamatnak, amelynek során a víz gőzzé alakul?",
+          "options": [
+            "Kondenzáció",
+            "Kicsapódás",
+            "Párolgás",
+            "Szublimáció"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország a jóga szülőhazája?",
+          "options": [
+            "Kína",
+            "Thaiföld",
+            "Nepál",
+            "India"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a világ legelterjedtebb vallása?",
+          "options": [
+            "Iszlám",
+            "Hinduizmus",
+            "Kereszténység",
+            "Buddhizmus"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány húrja van egy hegedűnek?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mit jelent a HTTP rövidítés?",
+          "options": [
+            "HyperText Transfer Protocol",
+            "High Transfer Text Process",
+            "HyperText Terminal Protocol",
+            "Hyper Transfer Text Procedure"
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-34",
+      "questions": [
+        {
+          "question": "Melyik bolygónak vannak a Földről legjobban látható gyűrűi?",
+          "options": [
+            "Jupiter",
+            "Uránusz",
+            "Neptunusz",
+            "Szaturnusz"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a neve a bőr színét adó pigmentnek?",
+          "options": [
+            "Keratin",
+            "Kollagén",
+            "Melanin",
+            "Elasztin"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben jelent meg az első iPhone?",
+          "options": [
+            "2005",
+            "2006",
+            "2007",
+            "2008"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi az Egyesült Államok legmagasabb polgári kitüntetésének neve?",
+          "options": [
+            "Becsületérem",
+            "Kongresszusi érem",
+            "Elnöki Szabadság-érem",
+            "Nemzeti Érdemrend"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-35",
+      "questions": [
+        {
+          "question": "Mi a világ leggyorsabb szárazföldi állata?",
+          "options": [
+            "Oroszlán",
+            "Gepárd",
+            "Villásszarvú antilop",
+            "Gnu"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi az emberi test legnagyobb belső szerve?",
+          "options": [
+            "Szív",
+            "Tüdő",
+            "Máj",
+            "Gyomor"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány billentyűje van egy szokványos zongorának?",
+          "options": [
+            "72",
+            "76",
+            "84",
+            "88"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik ország a világ legnagyobb olajexportőre?",
+          "options": [
+            "Irak",
+            "Oroszország",
+            "Szaúd-Arábia",
+            "USA"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve a londoni nevezetes óratornyon?",
+          "options": [
+            "Tower of London",
+            "Westminster-torony",
+            "Erzsébet-torony",
+            "Viktória-torony"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-36",
+      "questions": [
+        {
+          "question": "A növény melyik része végzi a fotoszintézist a leginkább?",
+          "options": [
+            "Gyökerek",
+            "Szár",
+            "Levelek",
+            "Virágok"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik országban született Adolf Hitler?",
+          "options": [
+            "Németország",
+            "Ausztria",
+            "Svájc",
+            "Lengyelország"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Brazília nemzeti nyelve?",
+          "options": [
+            "Spanyol",
+            "Portugál",
+            "Francia",
+            "Angol"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Hány elem van a periódusos rendszerben (2024-es állapot szerint)?",
+          "options": [
+            "108",
+            "112",
+            "118",
+            "124"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-37",
+      "questions": [
+        {
+          "question": "Mi a neve az 1990-ben felbocsátott űrteleszkópnak?",
+          "options": [
+            "Kepler",
+            "Spitzer",
+            "Hubble",
+            "Chandra"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország nyerte a legtöbb FIFA Világbajnokságot?",
+          "options": [
+            "Németország",
+            "Olaszország",
+            "Argentína",
+            "Brazília"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a vörösvérsejtek fő feladata?",
+          "options": [
+            "Fertőzés elleni küzdelem",
+            "Vér alvadása",
+            "Oxigén szállítása",
+            "Antitestek termelése"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik tengeri élőlénynek van három szíve és kék vére?",
+          "options": [
+            "Tintahal",
+            "Polip",
+            "Tintahal (kalmár)",
+            "Nautilusz"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a neve az első mesterséges holdnak?",
+          "options": [
+            "Vosztok–1",
+            "Explorer–1",
+            "Szputnyik–1",
+            "Luna–1"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-38",
+      "questions": [
+        {
+          "question": "Mi a neve a világ leghosszabb hegyvonulatának?",
+          "options": [
+            "Himalája",
+            "Sziklás-hegység",
+            "Alpok",
+            "Andok"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik szerv termeli az epét?",
+          "options": [
+            "Hasnyálmirigy",
+            "Gyomor",
+            "Máj",
+            "Epehólyag"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki volt az első nő, aki Nobel-díjat nyert?",
+          "options": [
+            "Rosalind Franklin",
+            "Marie Curie",
+            "Lise Meitner",
+            "Dorothy Hodgkin"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi Mexikó fővárosa?",
+          "options": [
+            "Guadalajara",
+            "Monterrey",
+            "Puebla",
+            "Mexikóváros"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-39",
+      "questions": [
+        {
+          "question": "Melyik bolygó forog az oldalán (kb. 98 fokos tengelyferdeséggel)?",
+          "options": [
+            "Szaturnusz",
+            "Neptunusz",
+            "Uránusz",
+            "Vénusz"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a világ legtöbbet kereskedett árucikke?",
+          "options": [
+            "Arany",
+            "Búza",
+            "Olaj",
+            "Kávé"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ókori görög filozófus volt Nagy Sándor tanítója?",
+          "options": [
+            "Szókratész",
+            "Platón",
+            "Arisztotelész",
+            "Pitagorasz"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány szín van a szivárványban?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a kálium jele a periódusos rendszerben?",
+          "options": [
+            "Po",
+            "Pt",
+            "K",
+            "Ka"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-40",
+      "questions": [
+        {
+          "question": "Melyik ország ad otthont az ókori Petra városának?",
+          "options": [
+            "Izrael",
+            "Egyiptom",
+            "Jordánia",
+            "Szaúd-Arábia"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi az elektromos ellenállás mértékegysége?",
+          "options": [
+            "Watt",
+            "Volt",
+            "Amper",
+            "Ohm"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a világ legnagyobb tava felszín szerint?",
+          "options": [
+            "Felső-tó",
+            "Bajkál-tó",
+            "Kaszpi-tenger",
+            "Viktória-tó"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány időzónát használ Kína hivatalosan?",
+          "options": [
+            "1",
+            "3",
+            "5",
+            "7"
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-41",
+      "questions": [
+        {
+          "question": "Mi a neve a szívet körülvevő hártyának?",
+          "options": [
+            "Pleura",
+            "Peritoneum",
+            "Pericardium",
+            "Endocardium"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik birodalmat uralta Dzsingisz kán?",
+          "options": [
+            "Oszmán Birodalom",
+            "Mongol Birodalom",
+            "Mogul Birodalom",
+            "Tang-dinasztia"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mekkora az átlagos távolság a Föld és a Hold között?",
+          "options": [
+            "184 000 km",
+            "284 000 km",
+            "384 000 km",
+            "484 000 km"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik anyag a legjobb elektromos vezető?",
+          "options": [
+            "Arany",
+            "Réz",
+            "Ezüst",
+            "Alumínium"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi Dél-Afrika fővárosa (a kormány székhelye)?",
+          "options": [
+            "Fokváros",
+            "Johannesburg",
+            "Pretoria",
+            "Durban"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-42",
+      "questions": [
+        {
+          "question": "Mi volt az első klónozott emlős neve?",
+          "options": [
+            "Daisy a tehén",
+            "Dolly a juh",
+            "Missy a macska",
+            "Snuppy a kutya"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország tartalmazza a Szahara legnagyobb részét?",
+          "options": [
+            "Szudán",
+            "Algéria",
+            "Líbia",
+            "Egyiptom"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a neve annak a folyamatnak, amelynek során a jég közvetlenül gőzzé alakul olvadás nélkül?",
+          "options": [
+            "Párolgás",
+            "Kondenzáció",
+            "Szublimáció",
+            "Depozíció"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik matematikus ismert a hiányossági tételekről?",
+          "options": [
+            "Alan Turing",
+            "David Hilbert",
+            "Kurt Gödel",
+            "Bertrand Russell"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-43",
+      "questions": [
+        {
+          "question": "Hány kamrája van egy hal szívének?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a világ legmagasabb fűfajtája?",
+          "options": [
+            "Cukornád",
+            "Bambusz",
+            "Pampafű",
+            "Elefántfű"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik évszázadban kezdődött az ipari forradalom?",
+          "options": [
+            "16. század",
+            "17. század",
+            "18. század",
+            "19. század"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve a Szaturnusz legnagyobb holdjának?",
+          "options": [
+            "Ganümédész",
+            "Titán",
+            "Európa",
+            "Callisto"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország építette a Panama-csatornát?",
+          "options": [
+            "Panama",
+            "Először Franciaország, majd az USA",
+            "Britannia",
+            "Spanyolország"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-44",
+      "questions": [
+        {
+          "question": "Mi a neve a világ legnagyobb forró sivatagának?",
+          "options": [
+            "Góbi",
+            "Kalahári",
+            "Arab",
+            "Szahara"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik emberi szerv termeli a legtöbb hőt?",
+          "options": [
+            "Agy",
+            "Szív",
+            "Máj",
+            "Tüdő"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik évben küldték az első e-mailt?",
+          "options": [
+            "1969",
+            "1971",
+            "1975",
+            "1979"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mi a konyhasó kémiai képlete?",
+          "options": [
+            "KCl",
+            "NaCl",
+            "CaCO3",
+            "MgSO4"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-45",
+      "questions": [
+        {
+          "question": "Melyik ország ismert a demokrácia bölcsőjeként?",
+          "options": [
+            "Róma",
+            "Egyiptom",
+            "Görögország",
+            "Perzsia"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány kamrája van egy rovar szívének?",
+          "options": [
+            "1",
+            "2",
+            "Több csőszerű kamra",
+            "4"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi az univerzumban a leggyakoribb csillagtípus?",
+          "options": [
+            "Sárga törpe",
+            "Vörös óriás",
+            "Fehér törpe",
+            "Vörös törpe"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik híres felfedező kerülte meg először a Földet?",
+          "options": [
+            "Kolumbusz Kristóf",
+            "Vasco da Gama",
+            "Magellán expedíciója",
+            "James Cook"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve az egyensúlyért és koordinációért felelős agyterületnek?",
+          "options": [
+            "Agykéreg",
+            "Nyúltvelő",
+            "Kisagy",
+            "Hippokampusz"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-46",
+      "questions": [
+        {
+          "question": "Mi a világ legmélyebb tava?",
+          "options": [
+            "Titicaca-tó",
+            "Tanganyika-tó",
+            "Bajkál-tó",
+            "Kráter-tó"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik gáz keletkezik, amikor szódabikarbónát és ecetet keverünk?",
+          "options": [
+            "Oxigén",
+            "Hidrogén",
+            "Szén-dioxid",
+            "Vízgőz"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Ki komponálta a c-moll 5. szimfóniát?",
+          "options": [
+            "Mozart",
+            "Bach",
+            "Beethoven",
+            "Brahms"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve az első világháborút lezáró szerződésnek?",
+          "options": [
+            "Párizsi szerződés",
+            "Versailles-i szerződés",
+            "Bécsi szerződés",
+            "Berlini szerződés"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-47",
+      "questions": [
+        {
+          "question": "Mi a neve az emberi test leghosszabb csontjának?",
+          "options": [
+            "Sípcsont",
+            "Szárkapocscsont",
+            "Combcsont",
+            "Felkarcsont"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország rendelkezik a legtöbb természetes tóval?",
+          "options": [
+            "Oroszország",
+            "USA",
+            "Finnország",
+            "Kanada"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik gáz teszi ki a Jupiter légkörének legnagyobb részét?",
+          "options": [
+            "Hélium",
+            "Hidrogén",
+            "Metán",
+            "Ammónia"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Mikor éri el az emberi agy a teljes fejlettséget?",
+          "options": [
+            "16 évesen",
+            "18 évesen",
+            "21 évesen",
+            "25 évesen"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik civilizáció találta fel a kereket?",
+          "options": [
+            "Ókori egyiptomiak",
+            "Ókori görögök",
+            "Mezopotámiaiak (sumérok)",
+            "Ókori kínaiak"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-48",
+      "questions": [
+        {
+          "question": "Mi a neve annak a folyamatnak, amelynek során a növények napfény segítségével táplálékot állítanak elő?",
+          "options": [
+            "Légzés",
+            "Párologtatás",
+            "Fotoszintézis",
+            "Fermentáció"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország rendelkezik a legtöbb piramissal a világon?",
+          "options": [
+            "Egyiptom",
+            "Mexikó",
+            "Szudán",
+            "Peru"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve a felületek közötti mozgást gátló erőnek?",
+          "options": [
+            "Gravitáció",
+            "Feszültség",
+            "Súrlódás",
+            "Tehetetlenség"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Hány csontból áll az emberi gerinc?",
+          "options": [
+            "24",
+            "26",
+            "30",
+            "33"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-49",
+      "questions": [
+        {
+          "question": "Mi a neve a Föld legnagyobb vulkánjának?",
+          "options": [
+            "Vezúv",
+            "Krakatau",
+            "Mauna Loa",
+            "Etna"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a periódusos rendszer legkönnyebb eleme?",
+          "options": [
+            "Hélium",
+            "Hidrogén",
+            "Lítium",
+            "Berillium"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik ország a világ legnagyobb demokráciája?",
+          "options": [
+            "USA",
+            "Brazília",
+            "Indonézia",
+            "India"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Mi a neve a laktózt bontó enzimnek?",
+          "options": [
+            "Amiláz",
+            "Proteáz",
+            "Lipáz",
+            "Laktáz"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Melyik évszázadban omlott össze az Oszmán Birodalom?",
+          "options": [
+            "18. század",
+            "19. század",
+            "20. század",
+            "21. század"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-hu-50",
+      "questions": [
+        {
+          "question": "Mi a neve a világ első programozható elektronikus általános célú számítógépének?",
+          "options": [
+            "Colossus",
+            "ENIAC",
+            "UNIVAC",
+            "Z3"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Melyik bolygónak van a legrövidebb napja naprendszerünkben?",
+          "options": [
+            "Szaturnusz",
+            "Neptunusz",
+            "Jupiter",
+            "Mars"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Mi a neve annak a jelenségnek, amelynek során a fény nagy tömegű tárgyak körül meghajlik?",
+          "options": [
+            "Törés",
+            "Diffrakció",
+            "Gravitációs lencsehatás",
+            "Parallaxis"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Melyik ország rendelkezik a legtöbb UNESCO Világörökség helyszínnel?",
+          "options": [
+            "Spanyolország",
+            "Franciaország",
+            "Kína",
+            "Olaszország"
+          ],
+          "correctIndex": 3
         }
       ]
     }

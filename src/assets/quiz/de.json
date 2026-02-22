@@ -5,17 +5,32 @@
       "questions": [
         {
           "question": "In welchem Jahr fanden die ersten modernen Olympischen Spiele statt?",
-          "options": ["1892", "1896", "1900", "1904"],
+          "options": [
+            "1892",
+            "1896",
+            "1900",
+            "1904"
+          ],
           "correctIndex": 1
         },
         {
           "question": "Was ist das chemische Symbol für Gold?",
-          "options": ["Go", "Gd", "Au", "Ag"],
+          "options": [
+            "Go",
+            "Gd",
+            "Au",
+            "Ag"
+          ],
           "correctIndex": 2
         },
         {
-          "question": "Welcher Planet wird als Roter Planet bezeichnet?",
-          "options": ["Venus", "Jupiter", "Mars", "Saturn"],
+          "question": "Welcher Planet ist als der Rote Planet bekannt?",
+          "options": [
+            "Venus",
+            "Jupiter",
+            "Mars",
+            "Saturn"
+          ],
           "correctIndex": 2
         }
       ]
@@ -25,17 +40,32 @@
       "questions": [
         {
           "question": "Wer schrieb \"Romeo und Julia\"?",
-          "options": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+          "options": [
+            "Charles Dickens",
+            "William Shakespeare",
+            "Jane Austen",
+            "Mark Twain"
+          ],
           "correctIndex": 1
         },
         {
-          "question": "Welcher ist der größte Ozean der Erde?",
-          "options": ["Atlantik", "Indik", "Arktis", "Pazifik"],
+          "question": "Was ist der größte Ozean der Erde?",
+          "options": [
+            "Atlantik",
+            "Indischer Ozean",
+            "Arktis",
+            "Pazifik"
+          ],
           "correctIndex": 3
         },
         {
           "question": "In welchem Land begann die Renaissance?",
-          "options": ["Frankreich", "Deutschland", "Italien", "Spanien"],
+          "options": [
+            "Frankreich",
+            "Deutschland",
+            "Italien",
+            "Spanien"
+          ],
           "correctIndex": 2
         }
       ]
@@ -45,18 +75,2368 @@
       "questions": [
         {
           "question": "Wie viele Kontinente gibt es?",
-          "options": ["5", "6", "7", "8"],
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
           "correctIndex": 2
         },
         {
           "question": "Was ist die kleinste Primzahl?",
-          "options": ["0", "1", "2", "3"],
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3"
+          ],
           "correctIndex": 2
         },
         {
           "question": "Welches Element hat die Ordnungszahl 1?",
-          "options": ["Helium", "Wasserstoff", "Lithium", "Sauerstoff"],
+          "options": [
+            "Helium",
+            "Wasserstoff",
+            "Lithium",
+            "Sauerstoff"
+          ],
           "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-4",
+      "questions": [
+        {
+          "question": "Was ist die Hauptstadt von Australien?",
+          "options": [
+            "Sydney",
+            "Melbourne",
+            "Canberra",
+            "Brisbane"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Knochen hat der erwachsene menschliche Körper?",
+          "options": [
+            "196",
+            "206",
+            "216",
+            "226"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Gas nehmen Pflanzen bei der Photosynthese aus der Atmosphäre auf?",
+          "options": [
+            "Sauerstoff",
+            "Stickstoff",
+            "Kohlendioxid",
+            "Wasserstoff"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die härteste natürliche Substanz auf der Erde?",
+          "options": [
+            "Gold",
+            "Eisen",
+            "Quarz",
+            "Diamant"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-5",
+      "questions": [
+        {
+          "question": "Wer malte die Mona Lisa?",
+          "options": [
+            "Michelangelo",
+            "Raphael",
+            "Leonardo da Vinci",
+            "Caravaggio"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist der längste Fluss der Welt?",
+          "options": [
+            "Amazonas",
+            "Jangtse",
+            "Mississippi",
+            "Nil"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Saiten hat eine Standardgitarre?",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land erfand das Papier?",
+          "options": [
+            "Ägypten",
+            "China",
+            "Griechenland",
+            "Indien"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Währung Japans?",
+          "options": [
+            "Yuan",
+            "Won",
+            "Baht",
+            "Yen"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-6",
+      "questions": [
+        {
+          "question": "Wie hoch ist die Lichtgeschwindigkeit im Vakuum (ungefähr)?",
+          "options": [
+            "300.000 km/s",
+            "150.000 km/s",
+            "450.000 km/s",
+            "1.000.000 km/s"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Welches Organ produziert Insulin im menschlichen Körper?",
+          "options": [
+            "Leber",
+            "Nieren",
+            "Bauchspeicheldrüse",
+            "Magen"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr endete der Zweite Weltkrieg?",
+          "options": [
+            "1943",
+            "1944",
+            "1945",
+            "1946"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die meistgesprochene Muttersprache der Welt?",
+          "options": [
+            "Englisch",
+            "Spanisch",
+            "Mandarin-Chinesisch",
+            "Hindi"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-7",
+      "questions": [
+        {
+          "question": "Welcher Planet hat die meisten Monde in unserem Sonnensystem?",
+          "options": [
+            "Jupiter",
+            "Saturn",
+            "Uranus",
+            "Neptun"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die chemische Formel für Wasser?",
+          "options": [
+            "HO",
+            "H2O",
+            "H3O",
+            "OH2"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wer war der erste Mensch, der den Mond betrat?",
+          "options": [
+            "Buzz Aldrin",
+            "Juri Gagarin",
+            "Neil Armstrong",
+            "John Glenn"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Seiten hat ein Sechseck?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Land hat die größte Landfläche der Welt?",
+          "options": [
+            "Kanada",
+            "China",
+            "USA",
+            "Russland"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-8",
+      "questions": [
+        {
+          "question": "Was ist die Hauptzutat in der traditionellen japanischen Misosuppe?",
+          "options": [
+            "Sojasoße",
+            "Fermentierte Sojabohnenpaste",
+            "Reisessig",
+            "Dashi-Brühe"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches antike Weltwunder existiert noch heute?",
+          "options": [
+            "Der Koloss von Rhodos",
+            "Die Große Pyramide von Gizeh",
+            "Die Hängenden Gärten von Babylon",
+            "Der Leuchtturm von Alexandria"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist das Kraftwerk der Zelle?",
+          "options": [
+            "Zellkern",
+            "Ribosom",
+            "Mitochondrien",
+            "Golgi-Apparat"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-9",
+      "questions": [
+        {
+          "question": "Wie viele Zähne hat ein gesunder Erwachsener (einschließlich Weisheitszähne)?",
+          "options": [
+            "28",
+            "30",
+            "32",
+            "34"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher Wissenschaftler entwickelte die allgemeine Relativitätstheorie?",
+          "options": [
+            "Isaac Newton",
+            "Niels Bohr",
+            "Albert Einstein",
+            "Max Planck"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viel Prozent der Erdoberfläche ist mit Wasser bedeckt?",
+          "options": [
+            "51%",
+            "61%",
+            "71%",
+            "81%"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welche Blutgruppe ist als universeller Spender bekannt?",
+          "options": [
+            "A+",
+            "B-",
+            "AB+",
+            "0-"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie heißt die Schicht der Erdatmosphäre, die der Oberfläche am nächsten ist?",
+          "options": [
+            "Stratosphäre",
+            "Mesosphäre",
+            "Troposphäre",
+            "Thermosphäre"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-10",
+      "questions": [
+        {
+          "question": "In welcher Stadt befindet sich der Eiffelturm?",
+          "options": [
+            "Rom",
+            "Berlin",
+            "Paris",
+            "Madrid"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist das größte Säugetier der Erde?",
+          "options": [
+            "Afrikanischer Elefant",
+            "Giraffe",
+            "Blauwal",
+            "Riesenkalmar"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Element macht etwa 78% der Erdatmosphäre aus?",
+          "options": [
+            "Sauerstoff",
+            "Kohlendioxid",
+            "Argon",
+            "Stickstoff"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Spieler hat eine Standard-Fußballmannschaft auf dem Platz?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-11",
+      "questions": [
+        {
+          "question": "Was ist das kleinste Land der Welt nach Fläche?",
+          "options": [
+            "Monaco",
+            "San Marino",
+            "Liechtenstein",
+            "Vatikanstadt"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wer schrieb \"1984\"?",
+          "options": [
+            "Aldous Huxley",
+            "George Orwell",
+            "Ray Bradbury",
+            "H.G. Wells"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie alt ist das Universum ungefähr?",
+          "options": [
+            "4,5 Milliarden Jahre",
+            "8 Milliarden Jahre",
+            "13,8 Milliarden Jahre",
+            "20 Milliarden Jahre"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Land lebt das Känguru?",
+          "options": [
+            "Neuseeland",
+            "Südafrika",
+            "Australien",
+            "Brasilien"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was misst die Richterskala?",
+          "options": [
+            "Windgeschwindigkeit",
+            "Erdbebenstärke",
+            "Meerestiefe",
+            "Luftdruck"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-12",
+      "questions": [
+        {
+          "question": "Welches Vitamin produziert der menschliche Körper bei Sonneneinstrahlung?",
+          "options": [
+            "Vitamin A",
+            "Vitamin B12",
+            "Vitamin C",
+            "Vitamin D"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist der höchste Berg der Welt?",
+          "options": [
+            "K2",
+            "Kangchendzönga",
+            "Mount Everest",
+            "Lhotse"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Bits sind in einem Byte (in der Informatik)?",
+          "options": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Aus welchem Land stammt die Kampfkunst Taekwondo?",
+          "options": [
+            "Japan",
+            "China",
+            "Korea",
+            "Thailand"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-13",
+      "questions": [
+        {
+          "question": "Was ist die Hauptstadt von Kanada?",
+          "options": [
+            "Toronto",
+            "Vancouver",
+            "Montreal",
+            "Ottawa"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Kammern hat das menschliche Herz?",
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Metall ist bei Raumtemperatur flüssig?",
+          "options": [
+            "Blei",
+            "Quecksilber",
+            "Zinn",
+            "Gallium"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die größte Wüste der Welt?",
+          "options": [
+            "Sahara",
+            "Gobi",
+            "Arabische Wüste",
+            "Antarktis"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Nullen hat eine Milliarde?",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-14",
+      "questions": [
+        {
+          "question": "Wer erfand das Telefon?",
+          "options": [
+            "Thomas Edison",
+            "Nikola Tesla",
+            "Alexander Graham Bell",
+            "Guglielmo Marconi"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist das chemische Symbol für Eisen?",
+          "options": [
+            "Ir",
+            "In",
+            "Fe",
+            "Io"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr sank die Titanic?",
+          "options": [
+            "1910",
+            "1912",
+            "1914",
+            "1916"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Amtssprache Brasiliens?",
+          "options": [
+            "Spanisch",
+            "Französisch",
+            "Portugiesisch",
+            "Englisch"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-15",
+      "questions": [
+        {
+          "question": "Welcher Planet ist der Sonne am nächsten?",
+          "options": [
+            "Venus",
+            "Merkur",
+            "Erde",
+            "Mars"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist das größte Organ im menschlichen Körper?",
+          "options": [
+            "Leber",
+            "Gehirn",
+            "Lunge",
+            "Haut"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Land baute die Chinesische Mauer?",
+          "options": [
+            "Japan",
+            "Mongolei",
+            "China",
+            "Korea"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wofür steht die Abkürzung DNA?",
+          "options": [
+            "Desoxyribonukleinsäure",
+            "Distickstoff-Aminosäure",
+            "Dynamisches Nukleäratom",
+            "Desoxystickstoffsäure"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Wie viele Tage hat ein Schaltjahr?",
+          "options": [
+            "364",
+            "365",
+            "366",
+            "367"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-16",
+      "questions": [
+        {
+          "question": "Welches ist das häufigste Gas in der Sonne?",
+          "options": [
+            "Helium",
+            "Wasserstoff",
+            "Sauerstoff",
+            "Kohlenstoff"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Hauptstadt von Argentinien?",
+          "options": [
+            "Santiago",
+            "Lima",
+            "Buenos Aires",
+            "Montevideo"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr fiel die Berliner Mauer?",
+          "options": [
+            "1987",
+            "1988",
+            "1989",
+            "1990"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer war die erste weibliche Premierministerin des Vereinigten Königreichs?",
+          "options": [
+            "Theresa May",
+            "Margaret Thatcher",
+            "Angela Merkel",
+            "Indira Gandhi"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-17",
+      "questions": [
+        {
+          "question": "Was ist die Quadratwurzel von 144?",
+          "options": [
+            "10",
+            "11",
+            "12",
+            "13"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher Ozean ist der tiefste?",
+          "options": [
+            "Atlantik",
+            "Indischer Ozean",
+            "Pazifik",
+            "Arktischer Ozean"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist der Siedepunkt von Wasser auf Meereshöhe in Celsius?",
+          "options": [
+            "90°C",
+            "95°C",
+            "100°C",
+            "105°C"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land ist der weltgrößte Kaffeeproduzent?",
+          "options": [
+            "Kolumbien",
+            "Äthiopien",
+            "Vietnam",
+            "Brasilien"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Planeten gibt es in unserem Sonnensystem?",
+          "options": [
+            "7",
+            "8",
+            "9",
+            "10"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-18",
+      "questions": [
+        {
+          "question": "Welche Kraft hält Planeten auf ihrer Umlaufbahn um die Sonne?",
+          "options": [
+            "Elektromagnetismus",
+            "Kernkraft",
+            "Schwerkraft",
+            "Reibung"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Shakespeare-Stück kommt Hamlet vor?",
+          "options": [
+            "Macbeth",
+            "Othello",
+            "Hamlet",
+            "König Lear"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Hauptstadt Südkoreas?",
+          "options": [
+            "Busan",
+            "Incheon",
+            "Seoul",
+            "Daegu"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Vitamin ist in Zitrusfrüchten am reichlichsten vorhanden?",
+          "options": [
+            "Vitamin A",
+            "Vitamin B6",
+            "Vitamin C",
+            "Vitamin E"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-19",
+      "questions": [
+        {
+          "question": "Welches Tier ist das größte Landtier der Erde?",
+          "options": [
+            "Nilpferd",
+            "Giraffe",
+            "Weißes Nashorn",
+            "Afrikanischer Elefant"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie heißt der der Erde nächste Stern (außer der Sonne)?",
+          "options": [
+            "Sirius",
+            "Proxima Centauri",
+            "Beteigeuze",
+            "Wega"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "In welcher Stadt fanden die Olympischen Sommerspiele 2000 statt?",
+          "options": [
+            "Athen",
+            "Atlanta",
+            "Sydney",
+            "Barcelona"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist H2SO4?",
+          "options": [
+            "Salzsäure",
+            "Salpetersäure",
+            "Schwefelsäure",
+            "Phosphorsäure"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Kanten hat ein Würfel?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-20",
+      "questions": [
+        {
+          "question": "Wer erfand das World Wide Web?",
+          "options": [
+            "Bill Gates",
+            "Steve Jobs",
+            "Tim Berners-Lee",
+            "Vint Cerf"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Währung der Europäischen Union?",
+          "options": [
+            "Franc",
+            "Mark",
+            "Euro",
+            "Pfund"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land beherbergt den größten Teil des Amazonas-Regenwaldes?",
+          "options": [
+            "Peru",
+            "Kolumbien",
+            "Venezuela",
+            "Brasilien"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist der härteste Gesteinstyp?",
+          "options": [
+            "Sandstein",
+            "Kalkstein",
+            "Granit",
+            "Schiefer"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-21",
+      "questions": [
+        {
+          "question": "Was ist die Ordnungszahl von Kohlenstoff?",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "12"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Land schenkte den USA die Freiheitsstatue?",
+          "options": [
+            "Großbritannien",
+            "Deutschland",
+            "Frankreich",
+            "Italien"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was für ein Tier ist ein Delfin?",
+          "options": [
+            "Fisch",
+            "Reptil",
+            "Amphibie",
+            "Säugetier"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie viele Knochen hat ein Hai?",
+          "options": [
+            "0",
+            "12",
+            "44",
+            "206"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Auf welchem Kontinent liegt Ägypten?",
+          "options": [
+            "Asien",
+            "Europa",
+            "Afrika",
+            "Naher Osten"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-22",
+      "questions": [
+        {
+          "question": "Was ist der Hauptbestandteil der Sonne?",
+          "options": [
+            "Flüssiges Feuer",
+            "Geschmolzenes Eisen",
+            "Plasma",
+            "Gas"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welche antike Zivilisation baute das Kolosseum?",
+          "options": [
+            "Griechen",
+            "Römer",
+            "Ägypter",
+            "Perser"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist der Gefrierpunkt von Wasser in Fahrenheit?",
+          "options": [
+            "0°F",
+            "16°F",
+            "32°F",
+            "64°F"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten Nobelpreisträger?",
+          "options": [
+            "Deutschland",
+            "Vereinigtes Königreich",
+            "Frankreich",
+            "Vereinigte Staaten"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-23",
+      "questions": [
+        {
+          "question": "Wofür steht die Abkürzung \"CPU\" in der Informatik?",
+          "options": [
+            "Central Processing Unit (Zentrale Verarbeitungseinheit)",
+            "Computer Personal Unit",
+            "Core Processing Utility",
+            "Central Program Uploader"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Welcher berühmte Physiker entwickelte die Bewegungsgesetze?",
+          "options": [
+            "Galileo Galilei",
+            "Isaac Newton",
+            "Albert Einstein",
+            "Richard Feynman"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Hauptstadt Indiens?",
+          "options": [
+            "Mumbai",
+            "Kalkutta",
+            "Neu-Delhi",
+            "Chennai"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Chromosomen haben Menschen normalerweise?",
+          "options": [
+            "23",
+            "44",
+            "46",
+            "48"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Gas verursacht hauptsächlich den Treibhauseffekt (durch menschliche Aktivität)?",
+          "options": [
+            "Sauerstoff",
+            "Methan",
+            "Kohlendioxid",
+            "Lachgas"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-24",
+      "questions": [
+        {
+          "question": "Was ist die häufigste Augenfarbe weltweit?",
+          "options": [
+            "Blau",
+            "Grün",
+            "Haselnuss",
+            "Braun"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Instrument hat 88 Tasten?",
+          "options": [
+            "Cembalo",
+            "Orgel",
+            "Klavier",
+            "Akkordeon"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr erreichte Christoph Kolumbus erstmals Amerika?",
+          "options": [
+            "1488",
+            "1490",
+            "1492",
+            "1494"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist das chemische Symbol für Natrium?",
+          "options": [
+            "So",
+            "Sd",
+            "Na",
+            "Nm"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-25",
+      "questions": [
+        {
+          "question": "Welche Programmiersprache ist nach einer Schlange benannt?",
+          "options": [
+            "Java",
+            "Ruby",
+            "Cobra",
+            "Python"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist die meistbesuchte Touristenattraktion der Welt?",
+          "options": [
+            "Eiffelturm",
+            "Chinesische Mauer",
+            "Der Louvre",
+            "Times Square"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie lange braucht Licht von der Sonne, um die Erde zu erreichen?",
+          "options": [
+            "Ca. 2 Minuten",
+            "Ca. 8 Minuten",
+            "Ca. 20 Minuten",
+            "Ca. 1 Stunde"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welcher Knochen ist der längste im menschlichen Körper?",
+          "options": [
+            "Wirbelsäule",
+            "Oberarmknochen",
+            "Oberschenkelknochen",
+            "Schienbein"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Hauptstadt Ägyptens?",
+          "options": [
+            "Alexandria",
+            "Luxor",
+            "Gizeh",
+            "Kairo"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-26",
+      "questions": [
+        {
+          "question": "Was ist das häufigste Metall in der Erdkruste?",
+          "options": [
+            "Eisen",
+            "Kupfer",
+            "Aluminium",
+            "Silizium"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher berühmte Wissenschaftler sagte \"Ich denke, also bin ich\"?",
+          "options": [
+            "Sokrates",
+            "Aristoteles",
+            "René Descartes",
+            "Immanuel Kant"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Hauptstadt Japans?",
+          "options": [
+            "Osaka",
+            "Kyoto",
+            "Hiroshima",
+            "Tokio"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welcher Ozean liegt zwischen Europa und Nordamerika?",
+          "options": [
+            "Pazifik",
+            "Indischer Ozean",
+            "Atlantik",
+            "Arktischer Ozean"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-27",
+      "questions": [
+        {
+          "question": "Wie viele Flächen hat ein Tetraeder?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Organ filtert das Blut im menschlichen Körper?",
+          "options": [
+            "Milz",
+            "Leber",
+            "Nieren",
+            "Lunge"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die größte Bevölkerung der Welt?",
+          "options": [
+            "USA",
+            "China",
+            "Indien",
+            "Indonesien"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was bedeutet das Wort \"Tsunami\" auf Japanisch?",
+          "options": [
+            "Große Welle",
+            "Hafenwelle",
+            "Sturmwelle",
+            "Meereskatastrophe"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Element wird durch das Symbol \"Pb\" dargestellt?",
+          "options": [
+            "Platin",
+            "Phosphor",
+            "Blei",
+            "Palladium"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-28",
+      "questions": [
+        {
+          "question": "Wie heißt der höchste Wasserfall der Welt?",
+          "options": [
+            "Niagarafälle",
+            "Victoriafälle",
+            "Angelfall",
+            "Iguazú-Wasserfälle"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer war der erste Präsident der Vereinigten Staaten?",
+          "options": [
+            "John Adams",
+            "Thomas Jefferson",
+            "Benjamin Franklin",
+            "George Washington"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Gas wird in Ballons verwendet, um sie schweben zu lassen?",
+          "options": [
+            "Sauerstoff",
+            "Wasserstoff",
+            "Helium",
+            "Stickstoff"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land ist als das Land der aufgehenden Sonne bekannt?",
+          "options": [
+            "China",
+            "Thailand",
+            "Japan",
+            "Südkorea"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-29",
+      "questions": [
+        {
+          "question": "Was ist die seltenste Blutgruppe beim Menschen?",
+          "options": [
+            "A-",
+            "B-",
+            "AB-",
+            "0-"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Herzen hat ein Oktopus?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten Zeitzonen?",
+          "options": [
+            "Russland",
+            "USA",
+            "China",
+            "Frankreich"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie lautet Pi (π) ungefähr?",
+          "options": [
+            "3,14159",
+            "2,71828",
+            "1,61803",
+            "4,66920"
+          ],
+          "correctIndex": 0
+        },
+        {
+          "question": "Was ist das chemische Symbol für Silber?",
+          "options": [
+            "Si",
+            "Sl",
+            "Ag",
+            "Sr"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-30",
+      "questions": [
+        {
+          "question": "In welchem Jahr begann die Französische Revolution?",
+          "options": [
+            "1776",
+            "1783",
+            "1789",
+            "1799"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie hieß das Schiff, mit dem Charles Darwin seine berühmte Reise unternahm?",
+          "options": [
+            "HMS Victory",
+            "HMS Endeavour",
+            "HMS Beagle",
+            "HMS Bounty"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Woraus besteht ein Diamant?",
+          "options": [
+            "Silizium",
+            "Kohlenstoff",
+            "Bor",
+            "Stickstoff"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Hauptstadt Deutschlands?",
+          "options": [
+            "München",
+            "Hamburg",
+            "Frankfurt",
+            "Berlin"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-31",
+      "questions": [
+        {
+          "question": "Wie heißt das größte Korallenriffsystem der Welt?",
+          "options": [
+            "Mesoamerikanisches Riff",
+            "Andros-Riff",
+            "Großes Barrierерiff",
+            "Rotes-Meer-Korallенriff"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welche Blutgefäße führen Blut vom Herzen weg?",
+          "options": [
+            "Venen",
+            "Kapillaren",
+            "Arterien",
+            "Venolen"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer erfand die Glühbirne?",
+          "options": [
+            "Nikola Tesla",
+            "Thomas Edison",
+            "Benjamin Franklin",
+            "Alexander Graham Bell"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie viele Beine hat eine Spinne?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "In welchem Land befindet sich das Taj Mahal?",
+          "options": [
+            "Pakistan",
+            "Bangladesch",
+            "Nepal",
+            "Indien"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-32",
+      "questions": [
+        {
+          "question": "Wie heißt der größte Planet in unserem Sonnensystem?",
+          "options": [
+            "Saturn",
+            "Neptun",
+            "Jupiter",
+            "Uranus"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer begründete die Evolutionstheorie durch natürliche Selektion?",
+          "options": [
+            "Gregor Mendel",
+            "Louis Pasteur",
+            "Charles Darwin",
+            "Alfred Russel Wallace"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher Kontinent ist der trockenste auf der Erde?",
+          "options": [
+            "Asien",
+            "Afrika",
+            "Australien",
+            "Antarktis"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wofür steht GPS?",
+          "options": [
+            "General Positioning System",
+            "Global Positioning System",
+            "Geographic Placement System",
+            "Global Path Sensor"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-33",
+      "questions": [
+        {
+          "question": "Wie heißt der Prozess, bei dem Wasser zu Dampf wird?",
+          "options": [
+            "Kondensation",
+            "Niederschlag",
+            "Verdunstung",
+            "Sublimation"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Aus welchem Land stammt Yoga?",
+          "options": [
+            "China",
+            "Thailand",
+            "Nepal",
+            "Indien"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist die am weitesten verbreitete Religion der Welt?",
+          "options": [
+            "Islam",
+            "Hinduismus",
+            "Christentum",
+            "Buddhismus"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Saiten hat eine Geige?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wofür steht HTTP?",
+          "options": [
+            "HyperText Transfer Protocol",
+            "High Transfer Text Process",
+            "HyperText Terminal Protocol",
+            "Hyper Transfer Text Procedure"
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-34",
+      "questions": [
+        {
+          "question": "Welcher Planet hat die von der Erde aus am besten sichtbaren Ringe?",
+          "options": [
+            "Jupiter",
+            "Uranus",
+            "Neptun",
+            "Saturn"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie heißt das Pigment, das der Haut ihre Farbe verleiht?",
+          "options": [
+            "Keratin",
+            "Kollagen",
+            "Melanin",
+            "Elastin"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr wurde das erste iPhone veröffentlicht?",
+          "options": [
+            "2005",
+            "2006",
+            "2007",
+            "2008"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt die höchste zivile Auszeichnung der Vereinigten Staaten?",
+          "options": [
+            "Medal of Honor",
+            "Congressional Medal",
+            "Presidential Medal of Freedom",
+            "National Order of Merit"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-35",
+      "questions": [
+        {
+          "question": "Was ist das schnellste Landtier der Welt?",
+          "options": [
+            "Löwe",
+            "Gepard",
+            "Gabelbock",
+            "Gnu"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist das größte innere Organ im menschlichen Körper?",
+          "options": [
+            "Herz",
+            "Lunge",
+            "Leber",
+            "Magen"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Tasten hat ein Standardklavier?",
+          "options": [
+            "72",
+            "76",
+            "84",
+            "88"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Land ist der weltgrößte Ölexporteur?",
+          "options": [
+            "Irak",
+            "Russland",
+            "Saudi-Arabien",
+            "USA"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt der berühmte Uhrenturm in London?",
+          "options": [
+            "Tower of London",
+            "Westminster Tower",
+            "Elizabeth Tower",
+            "Victoria Tower"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-36",
+      "questions": [
+        {
+          "question": "Welcher Pflanzenteil führt die Photosynthese hauptsächlich durch?",
+          "options": [
+            "Wurzeln",
+            "Stängel",
+            "Blätter",
+            "Blüten"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Land wurde Adolf Hitler geboren?",
+          "options": [
+            "Deutschland",
+            "Österreich",
+            "Schweiz",
+            "Polen"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Landessprache Brasiliens?",
+          "options": [
+            "Spanisch",
+            "Portugiesisch",
+            "Französisch",
+            "Englisch"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie viele Elemente gibt es im Periodensystem (Stand 2024)?",
+          "options": [
+            "108",
+            "112",
+            "118",
+            "124"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-37",
+      "questions": [
+        {
+          "question": "Wie heißt das 1990 gestartete Weltraumteleskop?",
+          "options": [
+            "Kepler",
+            "Spitzer",
+            "Hubble",
+            "Chandra"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten FIFA-Weltmeisterschaften gewonnen?",
+          "options": [
+            "Deutschland",
+            "Italien",
+            "Argentinien",
+            "Brasilien"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist die Hauptfunktion der roten Blutkörperchen?",
+          "options": [
+            "Infektionen bekämpfen",
+            "Blut gerinnen lassen",
+            "Sauerstoff transportieren",
+            "Antikörper produzieren"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Meerestier hat drei Herzen und blaues Blut?",
+          "options": [
+            "Tintenfisch",
+            "Oktopus",
+            "Sepie",
+            "Nautilus"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie heißt der erste künstliche Satellit, der ins All geschossen wurde?",
+          "options": [
+            "Wostok 1",
+            "Explorer 1",
+            "Sputnik 1",
+            "Luna 1"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-38",
+      "questions": [
+        {
+          "question": "Wie heißt das längste Gebirge der Welt?",
+          "options": [
+            "Himalaja",
+            "Rocky Mountains",
+            "Alpen",
+            "Anden"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Organ ist für die Produktion von Galle verantwortlich?",
+          "options": [
+            "Bauchspeicheldrüse",
+            "Magen",
+            "Leber",
+            "Gallenblase"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer war die erste Frau, die einen Nobelpreis erhielt?",
+          "options": [
+            "Rosalind Franklin",
+            "Marie Curie",
+            "Lise Meitner",
+            "Dorothy Hodgkin"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die Hauptstadt von Mexiko?",
+          "options": [
+            "Guadalajara",
+            "Monterrey",
+            "Puebla",
+            "Mexiko-Stadt"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-39",
+      "questions": [
+        {
+          "question": "Welcher Planet rotiert auf seiner Seite (Achsneigung von ca. 98 Grad)?",
+          "options": [
+            "Saturn",
+            "Neptun",
+            "Uranus",
+            "Venus"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die am meisten gehandelte Ware der Welt?",
+          "options": [
+            "Gold",
+            "Weizen",
+            "Öl",
+            "Kaffee"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher altgriechische Philosoph war der Lehrer von Alexander dem Großen?",
+          "options": [
+            "Sokrates",
+            "Platon",
+            "Aristoteles",
+            "Pythagoras"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Farben hat ein Regenbogen?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist das Symbol für Kalium im Periodensystem?",
+          "options": [
+            "Po",
+            "Pt",
+            "K",
+            "Ka"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-40",
+      "questions": [
+        {
+          "question": "In welchem Land liegt die antike Stadt Petra?",
+          "options": [
+            "Israel",
+            "Ägypten",
+            "Jordanien",
+            "Saudi-Arabien"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Einheit des elektrischen Widerstands?",
+          "options": [
+            "Watt",
+            "Volt",
+            "Ampere",
+            "Ohm"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Was ist der größte See der Welt nach Oberfläche?",
+          "options": [
+            "Oberer See",
+            "Baikalsee",
+            "Kaspisches Meer",
+            "Viktoriasee"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Zeitzonen verwendet China offiziell?",
+          "options": [
+            "1",
+            "3",
+            "5",
+            "7"
+          ],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-41",
+      "questions": [
+        {
+          "question": "Wie heißt die Membran, die das Herz umgibt?",
+          "options": [
+            "Pleura",
+            "Peritoneum",
+            "Perikard",
+            "Endokard"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Reich wurde von Dschingis Khan regiert?",
+          "options": [
+            "Osmanisches Reich",
+            "Mongolisches Reich",
+            "Mogulreich",
+            "Tang-Reich"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie groß ist die durchschnittliche Entfernung zwischen Erde und Mond?",
+          "options": [
+            "184.000 km",
+            "284.000 km",
+            "384.000 km",
+            "484.000 km"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Material ist der beste elektrische Leiter?",
+          "options": [
+            "Gold",
+            "Kupfer",
+            "Silber",
+            "Aluminium"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist die Hauptstadt Südafrikas (Regierungssitz)?",
+          "options": [
+            "Kapstadt",
+            "Johannesburg",
+            "Pretoria",
+            "Durban"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-42",
+      "questions": [
+        {
+          "question": "Wie hieß das erste geklonte Säugetier?",
+          "options": [
+            "Daisy die Kuh",
+            "Dolly das Schaf",
+            "Missy die Katze",
+            "Snuppy der Hund"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "In welchem Land liegt der größte Teil der Sahara?",
+          "options": [
+            "Sudan",
+            "Algerien",
+            "Libyen",
+            "Ägypten"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie heißt der Prozess, bei dem Eis direkt zu Dampf wird, ohne zu schmelzen?",
+          "options": [
+            "Verdunstung",
+            "Kondensation",
+            "Sublimation",
+            "Deposition"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welcher Mathematiker ist für die Unvollständigkeitssätze bekannt?",
+          "options": [
+            "Alan Turing",
+            "David Hilbert",
+            "Kurt Gödel",
+            "Bertrand Russell"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-43",
+      "questions": [
+        {
+          "question": "Wie viele Kammern hat das Herz eines Fisches?",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die größte Grasart der Welt?",
+          "options": [
+            "Zuckerrohr",
+            "Bambus",
+            "Pampasgras",
+            "Elefantengras"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "In welchem Jahrhundert begann die Industrielle Revolution?",
+          "options": [
+            "16. Jahrhundert",
+            "17. Jahrhundert",
+            "18. Jahrhundert",
+            "19. Jahrhundert"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt der größte Mond des Saturns?",
+          "options": [
+            "Ganymed",
+            "Titan",
+            "Europa",
+            "Kallisto"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Land baute den Panamakanal?",
+          "options": [
+            "Panama",
+            "Zunächst Frankreich, dann die USA",
+            "Großbritannien",
+            "Spanien"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-44",
+      "questions": [
+        {
+          "question": "Wie heißt die größte Hitzewüste der Welt?",
+          "options": [
+            "Gobi",
+            "Kalahari",
+            "Arabische Wüste",
+            "Sahara"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches menschliche Organ erzeugt die meiste Wärme?",
+          "options": [
+            "Gehirn",
+            "Herz",
+            "Leber",
+            "Lunge"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "In welchem Jahr wurde die erste E-Mail gesendet?",
+          "options": [
+            "1969",
+            "1971",
+            "1975",
+            "1979"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Was ist die chemische Formel für Kochsalz?",
+          "options": [
+            "KCl",
+            "NaCl",
+            "CaCO3",
+            "MgSO4"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-45",
+      "questions": [
+        {
+          "question": "Welches Land gilt als Geburtsort der Demokratie?",
+          "options": [
+            "Rom",
+            "Ägypten",
+            "Griechenland",
+            "Persien"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie viele Kammern hat das Herz eines Insekts?",
+          "options": [
+            "1",
+            "2",
+            "Mehrere röhrenförmige Kammern",
+            "4"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist der häufigste Sterntyp im Universum?",
+          "options": [
+            "Gelber Zwerg",
+            "Roter Riese",
+            "Weißer Zwerg",
+            "Roter Zwerg"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welcher berühmte Entdecker umsegelte als erster die Erde?",
+          "options": [
+            "Christoph Kolumbus",
+            "Vasco da Gama",
+            "Magellans Expedition",
+            "James Cook"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt der Teil des Gehirns, der für Gleichgewicht und Koordination zuständig ist?",
+          "options": [
+            "Großhirn",
+            "Verlängertes Mark",
+            "Kleinhirn",
+            "Hippocampus"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-46",
+      "questions": [
+        {
+          "question": "Was ist der tiefste See der Welt?",
+          "options": [
+            "Titicacasee",
+            "Tanganjikasee",
+            "Baikalsee",
+            "Kratersee"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Gas entsteht, wenn man Natron und Essig mischt?",
+          "options": [
+            "Sauerstoff",
+            "Wasserstoff",
+            "Kohlendioxid",
+            "Wasserdampf"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wer komponierte die berühmte Sinfonie Nr. 5 in c-Moll?",
+          "options": [
+            "Mozart",
+            "Bach",
+            "Beethoven",
+            "Brahms"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt der Vertrag, der den Ersten Weltkrieg beendete?",
+          "options": [
+            "Vertrag von Paris",
+            "Vertrag von Versailles",
+            "Vertrag von Wien",
+            "Vertrag von Berlin"
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-47",
+      "questions": [
+        {
+          "question": "Wie heißt der längste Knochen im menschlichen Körper?",
+          "options": [
+            "Schienbein",
+            "Wadenbein",
+            "Oberschenkelknochen",
+            "Oberarmknochen"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten natürlichen Seen?",
+          "options": [
+            "Russland",
+            "USA",
+            "Finnland",
+            "Kanada"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welches Gas macht den größten Teil der Jupiteratmosphäre aus?",
+          "options": [
+            "Helium",
+            "Wasserstoff",
+            "Methan",
+            "Ammoniak"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Wie lange dauert es, bis das menschliche Gehirn vollständig entwickelt ist?",
+          "options": [
+            "Mit 16",
+            "Mit 18",
+            "Mit 21",
+            "Mit 25"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Welche Zivilisation erfand das Rad?",
+          "options": [
+            "Alte Ägypter",
+            "Alte Griechen",
+            "Mesopotamier (Sumerer)",
+            "Alte Chinesen"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-48",
+      "questions": [
+        {
+          "question": "Wie heißt der Prozess, durch den Pflanzen mithilfe von Sonnenlicht Nahrung produzieren?",
+          "options": [
+            "Atmung",
+            "Transpiration",
+            "Photosynthese",
+            "Fermentation"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten Pyramiden der Welt?",
+          "options": [
+            "Ägypten",
+            "Mexiko",
+            "Sudan",
+            "Peru"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt die Kraft, die der Bewegung zwischen Oberflächen entgegenwirkt?",
+          "options": [
+            "Schwerkraft",
+            "Spannung",
+            "Reibung",
+            "Trägheit"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Aus wie vielen Knochen besteht die menschliche Wirbelsäule?",
+          "options": [
+            "24",
+            "26",
+            "30",
+            "33"
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-49",
+      "questions": [
+        {
+          "question": "Wie heißt der größte Vulkan der Erde?",
+          "options": [
+            "Vesuv",
+            "Krakatau",
+            "Mauna Loa",
+            "Ätna"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Was ist das leichteste Element im Periodensystem?",
+          "options": [
+            "Helium",
+            "Wasserstoff",
+            "Lithium",
+            "Beryllium"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welches Land ist die größte Demokratie der Welt?",
+          "options": [
+            "USA",
+            "Brasilien",
+            "Indonesien",
+            "Indien"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "Wie heißt das Enzym, das Laktose abbaut?",
+          "options": [
+            "Amylase",
+            "Protease",
+            "Lipase",
+            "Laktase"
+          ],
+          "correctIndex": 3
+        },
+        {
+          "question": "In welchem Jahrhundert fiel das Osmanische Reich?",
+          "options": [
+            "18. Jahrhundert",
+            "19. Jahrhundert",
+            "20. Jahrhundert",
+            "21. Jahrhundert"
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "id": "quiz-de-50",
+      "questions": [
+        {
+          "question": "Wie hieß der erste programmierbare elektronische Allzweckcomputer der Welt?",
+          "options": [
+            "Colossus",
+            "ENIAC",
+            "UNIVAC",
+            "Z3"
+          ],
+          "correctIndex": 1
+        },
+        {
+          "question": "Welcher Planet hat den kürzesten Tag in unserem Sonnensystem?",
+          "options": [
+            "Saturn",
+            "Neptun",
+            "Jupiter",
+            "Mars"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Wie heißt das Phänomen, bei dem Licht um massive Objekte gebogen wird?",
+          "options": [
+            "Brechung",
+            "Beugung",
+            "Gravitationslinseneffekt",
+            "Parallaxe"
+          ],
+          "correctIndex": 2
+        },
+        {
+          "question": "Welches Land hat die meisten UNESCO-Welterbestätten?",
+          "options": [
+            "Spanien",
+            "Frankreich",
+            "China",
+            "Italien"
+          ],
+          "correctIndex": 3
         }
       ]
     }
