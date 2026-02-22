@@ -1,0 +1,38 @@
+<div class="quiz-state quiz-state-result">
+  <app-quiz-result-hero
+    [emoji]="resultEmoji"
+    [titleKey]="resultTitleKey"
+    [subtitleKey]="resultSubtitleKey"
+    [scorePhrase]="resultScorePhrase"
+    [isPerfect]="isPerfect"
+  ></app-quiz-result-hero>
+
+  <app-quiz-result-visual
+    [displayedProgress]="displayedProgress"
+    [correctCount]="correctCount"
+    [totalQuestions]="totalQuestions"
+    [ringCircumference]="ringCircumference"
+  ></app-quiz-result-visual>
+
+  <app-quiz-result-rewards
+    [dayStreakText]="dayStreakText"
+    [xpEarnedText]="xpEarnedText"
+    [showStreak]="showStreak"
+  ></app-quiz-result-rewards>
+
+  <app-quiz-rank-up-celebration
+    *ngIf="rankJustUpgraded"
+    [rankUpMessage]="rankUpMessage"
+  ></app-quiz-rank-up-celebration>
+
+  <app-quiz-rank-card [rankInfo]="rankInfo" [xpToNextRankText]="xpToNextRankText"></app-quiz-rank-card>
+
+  <app-quiz-stats-card
+    variant="simple"
+    [stats]="stats"
+    [averagePercent]="averagePercent"
+    [daysActiveLabelKey]="daysActiveLabelKey"
+  ></app-quiz-stats-card>
+
+  <ion-button class="quiz-cta-primary" (click)="onGoHome()">{{ 'quiz.backToTodaysFact' | translate }}</ion-button>
+</div>

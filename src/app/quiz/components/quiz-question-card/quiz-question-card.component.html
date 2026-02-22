@@ -1,0 +1,38 @@
+<app-quiz-stats-card
+  variant="compact"
+  [stats]="stats"
+  [averagePercent]="averagePercent"
+  [daysActiveLabelKey]="daysActiveLabelKey"
+  [rankNameKey]="rankInfo.current.nameKey"
+></app-quiz-stats-card>
+<div class="quiz-card">
+  <h2 class="quiz-question">{{ question.question }}</h2>
+  <div class="quiz-question-progress" role="progressbar" [attr.aria-valuenow]="currentIndex + 1" [attr.aria-valuemin]="0" [attr.aria-valuemax]="totalQuestions" [attr.aria-label]="'Question ' + (currentIndex + 1) + ' of ' + totalQuestions">
+    <div class="quiz-question-progress-bar">
+      <span class="quiz-question-progress-fill" [style.width.%]="questionProgressPercent"></span>
+    </div>
+  </div>
+  <div class="quiz-options">
+    <button
+      *ngFor="let opt of question.options; let i = index"
+      type="button"
+      class="quiz-option"
+      [class.quiz-option-selected]="selectedIndex === i"
+      [class.quiz-option-correct]="selectedIndex !== null && isCorrect(i)"
+      [class.quiz-option-wrong]="isWrong(i)"
+      [disabled]="selectedIndex !== null"
+      (click)="onSelectOption(i)"
+    >
+      <span class="quiz-option-label">{{ optionLabels[i] }}</span>
+      <span class="quiz-option-text">{{ opt }}</span>
+    </button>
+  </div>
+  <ion-button
+    *ngIf="selectedIndex !== null"
+    class="quiz-next"
+    expand="block"
+    (click)="onNext()"
+  >
+    {{ currentIndex + 1 < totalQuestions ? ('quiz.next' | translate) : ('quiz.showResult' | translate) }}
+  </ion-button>
+</div>

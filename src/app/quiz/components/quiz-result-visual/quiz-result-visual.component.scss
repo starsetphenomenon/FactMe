@@ -1,0 +1,55 @@
+.quiz-result-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.quiz-progress-ring-wrap {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.quiz-progress-ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.quiz-progress-ring-bg {
+  stroke: rgba(var(--ion-color-primary-rgb), 0.2);
+}
+
+.quiz-progress-ring-fill {
+  stroke: var(--ion-color-primary);
+  transition: stroke-dashoffset 0.7s ease-out;
+}
+
+.quiz-progress-ring-value {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+}
+
+.quiz-result-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.quiz-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(var(--ion-color-primary-rgb), 0.25);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.quiz-dot-on {
+  background: var(--ion-color-primary);
+  box-shadow: 0 0 12px rgba(var(--ion-color-primary-rgb), 0.6);
+}

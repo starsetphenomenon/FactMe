@@ -1,0 +1,13 @@
+<div *ngIf="particles.length" class="quiz-confetti-container" aria-hidden="true">
+  <div
+    *ngFor="let p of particles"
+    class="quiz-confetti-piece"
+    [style.left.%]="p.left"
+    [style.top.%]="p.top"
+    [style.background]="p.color"
+    [style.--tx]="p.tx + 'px'"
+    [style.--ty]="p.ty + 'px'"
+    [style.--deg]="p.deg + 'deg'"
+    [style.animation-delay.s]="p.delay"
+  ></div>
+</div>

@@ -1,0 +1,12 @@
+<div class="quiz-state quiz-state-unavailable">
+  <ion-icon name="calendar-outline" class="quiz-state-icon"></ion-icon>
+  <p class="quiz-state-text">{{ 'quiz.comeBackTomorrow' | translate }}</p>
+  <app-quiz-rank-card [rankInfo]="rankInfo" [xpToNextRankText]="xpToNextRankText"></app-quiz-rank-card>
+  <app-quiz-stats-card
+    variant="simple"
+    [stats]="stats"
+    [averagePercent]="averagePercent"
+    [daysActiveLabelKey]="daysActiveLabelKey"
+  ></app-quiz-stats-card>
+  <ion-button class="quiz-cta-primary" (click)="onGoHome()">{{ 'quiz.backToTodaysFact' | translate }}</ion-button>
+</div>

@@ -1,0 +1,36 @@
+.quiz-confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.quiz-confetti-piece {
+  --tx: 0px;
+  --ty: 0px;
+  --deg: 0deg;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: quiz-confetti-burst 1.4s ease-out forwards;
+}
+
+@keyframes quiz-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(var(--deg)) scale(0.3);
+  }
+  12% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(var(--deg)) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) rotate(var(--deg)) scale(0.2);
+  }
+}

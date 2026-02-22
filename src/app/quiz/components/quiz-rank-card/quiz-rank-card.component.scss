@@ -1,0 +1,68 @@
+.quiz-rank-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px 24px;
+  border-radius: var(--app-radius-card);
+  background: var(--app-bg-card);
+  box-shadow: var(--app-dark-elevation-shadow, var(--app-light-elevation-shadow));
+  border: 1px solid var(--app-border-slate, rgba(148, 163, 184, 0.22));
+}
+
+.quiz-rank-card-title {
+  margin: 0 0 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.quiz-rank-card-value {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ion-color-primary);
+}
+
+.quiz-rank-card .quiz-rank-progress {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--app-border-slate, rgba(148, 163, 184, 0.22));
+}
+
+.quiz-rank-progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(var(--ion-color-primary-rgb), 0.2);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.quiz-rank-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--ion-color-primary);
+  transition: width 0.4s ease-out;
+}
+
+.quiz-rank-progress-label {
+  font-size: 0.8125rem;
+  color: var(--ion-color-medium);
+}
+
+:host-context(.light-theme) .quiz-rank-card {
+  --app-border-slate: rgba(148, 163, 184, 0.2);
+  background: var(--app-bg-light);
+  box-shadow: var(--app-light-elevation-shadow);
+  color: var(--app-slate-text);
+}
+
+:host-context(.light-theme) .quiz-rank-card-value {
+  color: var(--ion-color-primary);
+}
+
+:host-context(.light-theme) .quiz-rank-card-title,
+:host-context(.light-theme) .quiz-rank-progress-label {
+  color: rgba(var(--app-slate-rgb), 0.65);
+}

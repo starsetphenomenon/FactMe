@@ -1,143 +1,60 @@
 <ion-content [fullscreen]="true" class="quiz-content">
   <div class="quiz-wrapper">
-    <div *ngIf="view === 'loading'" class="quiz-state">
-      <ion-spinner name="crescent"></ion-spinner>
-      <p class="quiz-state-text">{{ 'quiz.loading' | translate }}</p>
-    </div>
+    <app-quiz-loading *ngIf="view === 'loading'"></app-quiz-loading>
 
-    <div *ngIf="view === 'unavailable'" class="quiz-state quiz-state-unavailable">
-      <ion-icon name="calendar-outline" class="quiz-state-icon"></ion-icon>
-      <p class="quiz-state-text">{{ 'quiz.comeBackTomorrow' | translate }}</p>
-      <div class="quiz-rank-card">
-        <h3 class="quiz-rank-card-title">{{ 'quiz.rank' | translate }}</h3>
-        <p class="quiz-rank-card-value">{{ rankInfo.current.nameKey | translate }}</p>
-        <div class="quiz-rank-progress" *ngIf="rankInfo.next">
-          <div class="quiz-rank-progress-bar"><span class="quiz-rank-progress-fill" [style.width.%]="rankInfo.progressToNext"></span></div>
-          <span class="quiz-rank-progress-label">{{ xpToNextRankText }}</span>
-        </div>
-      </div>
-      <div class="quiz-stats-card quiz-stats-simple">
-        <h3 class="quiz-stats-title">{{ 'quiz.learningStats' | translate }}</h3>
-        <div class="quiz-stats-row">
-          <span class="quiz-stat">⭐ {{ 'quiz.totalXp' | translate }}: {{ stats.totalXp }}</span>
-          <span class="quiz-stat quiz-stat-streak" *ngIf="stats.streak > 0">🔥 {{ 'quiz.streak' | translate }}: {{ stats.streak }}</span>
-          <span class="quiz-stat">📅 {{ stats.daysActive }} {{ daysActiveLabelKey | translate }}</span>
-          <span class="quiz-stat" *ngIf="stats.totalQuizzes > 0">🎯 {{ 'quiz.accuracy' | translate }}: {{ averagePercent }}%</span>
-        </div>
-      </div>
-      <ion-button class="quiz-cta-primary" (click)="goHome()">{{ 'quiz.backToTodaysFact' | translate }}</ion-button>
-    </div>
+    <app-quiz-unavailable
+      *ngIf="view === 'unavailable'"
+      [rankInfo]="rankInfo"
+      [xpToNextRankText]="xpToNextRankText"
+      [stats]="stats"
+      [averagePercent]="averagePercent"
+      [daysActiveLabelKey]="daysActiveLabelKey"
+      (goHome)="goHome()"
+    ></app-quiz-unavailable>
 
-    <ng-container *ngIf="view === 'question' && currentQuestion">
-      <div class="quiz-stats-card quiz-stats-compact">
-        <div class="quiz-stats-row">
-          <span class="quiz-stat">⭐ {{ stats.totalXp }} XP</span>
-          <span class="quiz-stat">· {{ rankInfo.current.nameKey | translate }}</span>
-          <span class="quiz-stat quiz-stat-streak" *ngIf="stats.streak > 0">🔥 {{ stats.streak }}</span>
-          <span class="quiz-stat" *ngIf="stats.totalQuizzes > 0">📅 {{ stats.daysActive }} · 🎯 {{ averagePercent }}%</span>
-        </div>
-      </div>
-      <div class="quiz-card">
-        <h2 class="quiz-question">{{ currentQuestion.question }}</h2>
-        <div class="quiz-question-progress" role="progressbar" [attr.aria-valuenow]="currentIndex + 1" [attr.aria-valuemin]="0" [attr.aria-valuemax]="totalQuestions" [attr.aria-label]="'Question ' + (currentIndex + 1) + ' of ' + totalQuestions">
-          <div class="quiz-question-progress-bar">
-            <span class="quiz-question-progress-fill" [style.width.%]="questionProgressPercent"></span>
-          </div>
-        </div>
-        <div class="quiz-options">
-          <button
-            *ngFor="let opt of currentQuestion.options; let i = index"
-            type="button"
-            class="quiz-option"
-            [class.quiz-option-selected]="selectedIndex === i"
-            [class.quiz-option-correct]="selectedIndex !== null && isCorrect(i)"
-            [class.quiz-option-wrong]="isWrong(i)"
-            [disabled]="selectedIndex !== null"
-            (click)="selectOption(i)"
-          >
-            <span class="quiz-option-label">{{ optionLabels[i] }}</span>
-            <span class="quiz-option-text">{{ opt }}</span>
-          </button>
-        </div>
-        <ion-button
-          *ngIf="selectedIndex !== null"
-          class="quiz-next"
-          expand="block"
-          (click)="next()"
-        >
-          {{ currentIndex + 1 < totalQuestions ? ('quiz.next' | translate) : ('quiz.showResult' | translate) }}
-        </ion-button>
-      </div>
-    </ng-container>
+    <app-quiz-question-card
+      *ngIf="view === 'question' && currentQuestion"
+      [question]="currentQuestion"
+      [currentIndex]="currentIndex"
+      [totalQuestions]="totalQuestions"
+      [selectedIndex]="selectedIndex"
+      [optionLabels]="optionLabels"
+      [questionProgressPercent]="questionProgressPercent"
+      [stats]="stats"
+      [rankInfo]="rankInfo"
+      [averagePercent]="averagePercent"
+      [daysActiveLabelKey]="daysActiveLabelKey"
+      (selectOption)="selectOption($event)"
+      (next)="next()"
+    ></app-quiz-question-card>
 
-    <div *ngIf="view === 'result'" class="quiz-state quiz-state-result">
-      <div class="quiz-result-hero" [class.quiz-result-perfect]="correctCount >= totalQuestions">
-        <span class="quiz-result-emoji" [class.quiz-emoji-bounce]="correctCount >= totalQuestions">{{ resultEmoji }}</span>
-        <h2 class="quiz-result-title">{{ resultTitleKey | translate }}</h2>
-        <p class="quiz-result-subtitle">{{ resultSubtitleKey | translate }}</p>
-        <p class="quiz-result-score-phrase">{{ resultScorePhrase }}</p>
-      </div>
-
-      <div class="quiz-result-visual">
-        <div class="quiz-progress-ring-wrap">
-          <svg class="quiz-progress-ring-svg" viewBox="0 0 100 100">
-            <circle class="quiz-progress-ring-bg" cx="50" cy="50" r="45" fill="none" stroke-width="8" />
-            <circle class="quiz-progress-ring-fill" cx="50" cy="50" r="45" fill="none" stroke-width="8"
-              [attr.stroke-dasharray]="ringCircumference"
-              [attr.stroke-dashoffset]="ringOffset" />
-          </svg>
-          <span class="quiz-progress-ring-value">{{ displayedProgress }}%</span>
-        </div>
-        <div class="quiz-result-dots">
-          <span *ngFor="let i of resultDots; let idx = index" class="quiz-dot" [class.quiz-dot-on]="idx < correctCount"></span>
-        </div>
-      </div>
-
-      <div class="quiz-result-rewards">
-        <span class="quiz-streak-hero" *ngIf="stats.streak > 0">🔥 {{ dayStreakText }}</span>
-        <span class="quiz-xp">{{ xpEarnedText }}</span>
-      </div>
-
-      <div *ngIf="rankJustUpgraded" class="quiz-rank-up-celebration" role="status">
-        <span class="quiz-rank-up-icon" aria-hidden="true">⭐</span>
-        <h3 class="quiz-rank-up-title">{{ 'quiz.rankUpTitle' | translate }}</h3>
-        <p class="quiz-rank-up-sub">{{ rankUpMessage }}</p>
-      </div>
-
-      <div class="quiz-rank-card">
-        <h3 class="quiz-rank-card-title">{{ 'quiz.rank' | translate }}</h3>
-        <p class="quiz-rank-card-value">{{ rankInfo.current.nameKey | translate }}</p>
-        <div class="quiz-rank-progress" *ngIf="rankInfo.next">
-          <div class="quiz-rank-progress-bar"><span class="quiz-rank-progress-fill" [style.width.%]="rankInfo.progressToNext"></span></div>
-          <span class="quiz-rank-progress-label">{{ xpToNextRankText }}</span>
-        </div>
-      </div>
-
-      <div class="quiz-stats-card quiz-stats-simple">
-        <h3 class="quiz-stats-title">{{ 'quiz.learningStats' | translate }}</h3>
-        <div class="quiz-stats-row">
-          <span class="quiz-stat">⭐ {{ 'quiz.totalXp' | translate }}: {{ stats.totalXp }}</span>
-          <span class="quiz-stat quiz-stat-streak" *ngIf="stats.streak > 0">🔥 {{ 'quiz.streak' | translate }}: {{ stats.streak }}</span>
-          <span class="quiz-stat">📅 {{ stats.daysActive }} {{ daysActiveLabelKey | translate }}</span>
-          <span class="quiz-stat" *ngIf="stats.totalQuizzes > 0">🎯 {{ 'quiz.accuracy' | translate }}: {{ averagePercent }}%</span>
-        </div>
-      </div>
-
-      <ion-button class="quiz-cta-primary" (click)="goHome()">{{ 'quiz.backToTodaysFact' | translate }}</ion-button>
-    </div>
+    <app-quiz-result-view
+      *ngIf="view === 'result'"
+      [resultEmoji]="resultEmoji"
+      [resultTitleKey]="resultTitleKey"
+      [resultSubtitleKey]="resultSubtitleKey"
+      [resultScorePhrase]="resultScorePhrase"
+      [isPerfect]="correctCount >= totalQuestions"
+      [displayedProgress]="displayedProgress"
+      [correctCount]="correctCount"
+      [totalQuestions]="totalQuestions"
+      [ringCircumference]="ringCircumference"
+      [dayStreakText]="dayStreakText"
+      [xpEarnedText]="xpEarnedText"
+      [showStreak]="stats.streak > 0"
+      [rankJustUpgraded]="rankJustUpgraded"
+      [rankUpMessage]="rankUpMessage"
+      [rankInfo]="rankInfo"
+      [xpToNextRankText]="xpToNextRankText"
+      [stats]="stats"
+      [averagePercent]="averagePercent"
+      [daysActiveLabelKey]="daysActiveLabelKey"
+      (goHome)="goHome()"
+    ></app-quiz-result-view>
   </div>
 
-  <div *ngIf="view === 'result' && confettiParticles.length" class="quiz-confetti-container" aria-hidden="true">
-    <div
-      *ngFor="let p of confettiParticles"
-      class="quiz-confetti-piece"
-      [style.left.%]="p.left"
-      [style.top.%]="p.top"
-      [style.background]="p.color"
-      [style.--tx]="p.tx + 'px'"
-      [style.--ty]="p.ty + 'px'"
-      [style.--deg]="p.deg + 'deg'"
-      [style.animation-delay.s]="p.delay"
-    ></div>
-  </div>
+  <app-quiz-confetti
+    *ngIf="view === 'result' && confettiParticles.length"
+    [particles]="confettiParticles"
+  ></app-quiz-confetti>
 </ion-content>

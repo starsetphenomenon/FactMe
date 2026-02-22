@@ -1,0 +1,6 @@
+<div class="quiz-result-hero" [class.quiz-result-perfect]="isPerfect">
+  <span class="quiz-result-emoji" [class.quiz-emoji-bounce]="isPerfect">{{ emoji }}</span>
+  <h2 class="quiz-result-title">{{ titleKey | translate }}</h2>
+  <p class="quiz-result-subtitle">{{ subtitleKey | translate }}</p>
+  <p class="quiz-result-score-phrase">{{ scorePhrase }}</p>
+</div>

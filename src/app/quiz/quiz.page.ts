@@ -6,6 +6,7 @@ import { QuizQuestion, QuizSet } from '../models/quiz.models';
 import { QuizService } from '../services/quiz.service';
 import { QuizUtils } from '../utils/quiz.utils';
 import { TranslationService } from '../services/translation.service';
+import { ConfettiParticle } from './components/quiz-confetti/quiz-confetti.component';
 
 type QuizView = 'loading' | 'unavailable' | 'question' | 'result';
 
@@ -24,7 +25,7 @@ export class QuizPage implements OnInit, OnDestroy {
   displayedProgress = 0;
   displayedXp = 0;
   rankJustUpgraded = false;
-  confettiParticles: { id: number; left: number; top: number; color: string; deg: number; delay: number; tx: number; ty: number }[] = [];
+  confettiParticles: ConfettiParticle[] = [];
   private readonly destroy$ = new Subject<void>();
   readonly ringCircumference = 2 * Math.PI * 45;
 
@@ -34,10 +35,6 @@ export class QuizPage implements OnInit, OnDestroy {
     '#ffb457', '#ff9f43', '#22c55e', '#3b82f6', '#a855f7', '#ec4899', '#f59e0b', '#14b8a6',
   ];
   private static readonly CONFETTI_COUNT = 55;
-
-  get resultDots(): number[] {
-    return Array.from({ length: this.totalQuestions }, (_, i) => i);
-  }
 
   constructor(
     private quizService: QuizService,
@@ -94,15 +91,6 @@ export class QuizPage implements OnInit, OnDestroy {
     }
   }
 
-  isCorrect(index: number): boolean {
-    const q = this.currentQuestion;
-    return q !== null && index === q.correctIndex;
-  }
-
-  isWrong(index: number): boolean {
-    return this.selectedIndex === index && !this.isCorrect(index);
-  }
-
   next(): void {
     if (!this.quiz || this.selectedIndex === null) return;
     if (this.currentIndex + 1 >= this.quiz.questions.length) {
@@ -153,14 +141,6 @@ export class QuizPage implements OnInit, OnDestroy {
         clearInterval(id);
       }
     }, step);
-  }
-
-  get ringOffset(): number {
-    return this.ringCircumference * (1 - this.displayedProgress / 100);
-  }
-
-  get resultScore(): string {
-    return `${this.correctCount} / ${this.totalQuestions}`;
   }
 
   get resultPercent(): number {
@@ -240,8 +220,8 @@ export class QuizPage implements OnInit, OnDestroy {
     this.navCtrl.navigateBack('/home');
   }
 
-  private buildConfettiParticles(): typeof QuizPage.prototype.confettiParticles {
-    const particles: typeof this.confettiParticles = [];
+  private buildConfettiParticles(): ConfettiParticle[] {
+    const particles: ConfettiParticle[] = [];
     for (let i = 0; i < QuizPage.CONFETTI_COUNT; i++) {
       particles.push({
         id: i,

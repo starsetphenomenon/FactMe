@@ -1,0 +1,11 @@
+<div class="quiz-stats-card" [class.quiz-stats-compact]="variant === 'compact'" [class.quiz-stats-simple]="variant === 'simple'">
+  <h3 class="quiz-stats-title" *ngIf="variant === 'simple'">{{ 'quiz.learningStats' | translate }}</h3>
+  <div class="quiz-stats-row">
+    <span class="quiz-stat">⭐ {{ variant === 'compact' ? (stats.totalXp + ' XP') : ('quiz.totalXp' | translate) + ': ' + stats.totalXp }}</span>
+    <span class="quiz-stat" *ngIf="variant === 'compact' && rankNameKey">{{ rankNameKey | translate }}</span>
+    <span class="quiz-stat quiz-stat-streak" *ngIf="stats.streak > 0">🔥 {{ variant === 'compact' ? stats.streak : ('quiz.streak' | translate) + ': ' + stats.streak }}</span>
+    <span class="quiz-stat" *ngIf="variant === 'compact' && stats.totalQuizzes > 0">📅 {{ stats.daysActive }} · 🎯 {{ averagePercent }}%</span>
+    <span class="quiz-stat" *ngIf="variant === 'simple'">📅 {{ stats.daysActive }} {{ daysActiveLabelKey | translate }}</span>
+    <span class="quiz-stat" *ngIf="variant === 'simple' && stats.totalQuizzes > 0">🎯 {{ 'quiz.accuracy' | translate }}: {{ averagePercent }}%</span>
+  </div>
+</div>

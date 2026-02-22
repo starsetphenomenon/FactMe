@@ -1,0 +1,8 @@
+<div class="quiz-rank-card">
+  <h3 class="quiz-rank-card-title">{{ 'quiz.rank' | translate }}</h3>
+  <p class="quiz-rank-card-value">{{ rankInfo.current.nameKey | translate }}</p>
+  <div class="quiz-rank-progress" *ngIf="rankInfo.next">
+    <div class="quiz-rank-progress-bar"><span class="quiz-rank-progress-fill" [style.width.%]="rankInfo.progressToNext"></span></div>
+    <span class="quiz-rank-progress-label">{{ xpToNextRankText }}</span>
+  </div>
+</div>
